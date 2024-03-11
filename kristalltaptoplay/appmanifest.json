@@ -1,0 +1,10 @@
+{
+	"name": "Магия 3 в ряд",
+	"short_name": "Магия 3 в ряд",
+	"description": "",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "any",
+	"background_color": "#ffffff",
+	"icons": []
+}
