@@ -4747,6 +4747,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Eponesh_GameScore.Acts.LeaderboardOpen,
+		C3.Plugins.Eponesh_GameScore.Acts.AdsShowFullscreen,
 		C3.Behaviors.MoveTo.Acts.SetMaxSpeed,
 		C3.Behaviors.Pin.Acts.PinByImagePoint,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
@@ -4780,7 +4781,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.MoveTo.Acts.MoveToPosition,
 		C3.Plugins.Touch.Exps.X,
 		C3.Behaviors.MoveTo.Acts.Stop,
-		C3.Plugins.Eponesh_GameScore.Acts.AdsShowFullscreen,
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Plugins.Sprite.Acts.StartAnim,
@@ -4857,6 +4857,8 @@ self.C3_JsPropNameTable = [
 	{rest: 0},
 	{старт: 0},
 	{Спрайт: 0},
+	{вид: 0},
+	{бан: 0},
 	{StartGame: 0},
 	{dmgPlayer: 0},
 	{BlockId: 0},
@@ -4928,7 +4930,9 @@ self.InstanceType = {
 	pngwingcom4: class extends self.ISpriteInstance {},
 	rest: class extends self.IButtonInstance {},
 	старт: class extends self.IButtonInstance {},
-	Спрайт: class extends self.ISpriteInstance {}
+	Спрайт: class extends self.ISpriteInstance {},
+	вид: class extends self.IButtonInstance {},
+	бан: class extends self.IButtonInstance {}
 }
 }
 
@@ -5066,8 +5070,7 @@ self.C3_ExpressionFuncs = [
 		() => "maxCount",
 		() => "sound",
 		() => "dmgPlayer",
-		() => 369,
-		() => 99,
+		() => 338,
 		() => "Пушка игрушка - стреляй и улучшай",
 		() => 50,
 		p => {
@@ -5103,6 +5106,11 @@ self.C3_ExpressionFuncs = [
 		() => 100,
 		() => "moveSpeed,speedShot,dmgPlayer",
 		() => "",
+		() => "бан",
+		() => 389,
+		() => 428,
+		() => "вид",
+		() => 36,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (150 * n0.ExpInstVar());
