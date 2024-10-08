@@ -1,0 +1,11 @@
+{
+	"name": "Jewel Treasure",
+	"short_name": "Jewel Treasure",
+	"description": "Game by GimCraft",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"background_color": "#212121",
+	"icons": [],
+	"screenshots": []
+}
