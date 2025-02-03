@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>3inarow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="appmanifest.json">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://w.tads.me/widget.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        /* Стили для рекламы */
+        #tads-container-308 {
+            position: fixed; /* Изменено на fixed, чтобы оставался снизу */
+            width: 100%; /* Ширина 100% для выравнивания по ширине устройства */
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            background-color: black; /* Фон под баннером черный */
+            display: none; /* Скрыть по умолчанию */
+        }
+
+        /* Стили для контейнера игры */
+        #game-container {
+            position: relative; /* Добавляем относительное позиционирование для наложения */
+            z-index: 1; /* Устанавливаем z-index ниже, чем у контейнера рекламы */
+        }
+
+        /* Стили для выравнивания по ширине класса c3htmlwrap */
+        .c3htmlwrap {
+            position: relative;
+            max-width: 100%; /* Ограничение максимальной ширины */
+            margin: 0 auto; /* Центрирование */
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <!-- Здесь размещается ваш контент игры -->
+    <noscript>
+        <div id="notSupportedWrap">
+            <h2 id="notSupportedTitle">This content requires JavaScript</h2>
+            <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+        </div>
+    </noscript>
+    <script src="scripts/modernjscheck.js"></script>
+    <script src="scripts/supportcheck.js"></script>
+    <script src="scripts/offlineclient.js" type="module"></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/register-sw.js" type="module"></script>
+</div>
+
+<!-- Контейнер рекламы -->
+<div id="tads-container-308"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const WIDGET_ID = "308"; // Идентификатор виджета
+        const IS_DEBUG = false; // Установите на false для продакшн
+
+        const adController = window.tads.init({
+            widgetId: WIDGET_ID,
+            debug: IS_DEBUG,
+            onShowReward: (result) => {
+                console.log('Show ads, reward user:', result);
+            },
+            onAdsNotFound: () => {
+                console.log('No ads to show');
+            }
+        });
+
+        function loadAndShowAd() {
+            adController.loadAd()
+                .then(() => {
+                    document.getElementById('tads-container-308').style.display = 'block'; // Показать рекламу
+                    adController.showAd();
+                    setTimeout(hideAd, 30000); // Скрыть рекламу через 30 секунд
+                })
+                .catch((error) => {
+                    console.log('Failed to show ad:', error);
+                });
+        }
+
+        function hideAd() {
+            document.getElementById('tads-container-308').style.display = 'none'; // Скрыть рекламу
+            setTimeout(loadAndShowAd, 25000); // Загрузить рекламу заново через 25 секунд
+        }
+
+        // Загрузить рекламу через 4 секунды
+        setTimeout(loadAndShowAd, 4000);
+    });
+</script>
+
+</body>
+</html>
