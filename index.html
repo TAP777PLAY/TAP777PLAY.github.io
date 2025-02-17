@@ -1,123 +1,437 @@
-// Обновленные паттерны для блокированных ячеек
-const patterns = [
-    // Группа из 3-5 блоков вместе
-    (board) => {
-        const blockCount = Math.floor(Math.random() * 3) + 3; // 3-5 блоков
-        const startX = Math.floor(Math.random() * 7);
-        const startY = Math.floor(Math.random() * 7);
-        
-        for(let i = 0; i < blockCount; i++) {
-            const offsetX = Math.floor(Math.random() * 3);
-            const offsetY = Math.floor(Math.random() * 3);
-            if(startX + offsetX < 10 && startY + offsetY < 10) {
-                board[startY + offsetY][startX + offsetX] = 1;
-            }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор уровней Sweet Saga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
         }
-        return board;
-    },
-    // Разделенные блоки (3-4 блока далеко друг от друга)
-    (board) => {
-        const blockCount = Math.floor(Math.random() * 2) + 3; // 3-4 блока
-        const usedPositions = new Set();
         
-        for(let i = 0; i < blockCount; i++) {
-            let x, y;
-            do {
-                x = Math.floor(Math.random() * 10);
-                y = Math.floor(Math.random() * 10);
-            } while(usedPositions.has(`${x},${y}`) || hasNearbyBlocks(board, x, y));
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76,175,80,0.2);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            flex: 1;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .download-all-btn {
+            background: #2196F3;
+        }
+
+        .download-all-btn:hover {
+            background: #1976D2;
+        }
+
+        #generatedLevels {
+            margin-top: 20px;
+        }
+
+        .level-file {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+
+        .level-file:hover {
+            transform: translateX(5px);
+        }
+
+        .preview-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .preview-title {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 30px);
+            gap: 2px;
+            justify-content: center;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .preview-cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .preview-cell.active {
+            background: #4CAF50;
+            border-color: #45a049;
+        }
+
+        .preview-cell.blocked {
+            background: #f44336;
+            border-color: #d32f2f;
+        }
+
+        .difficulty-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .info-item {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Генератор уровней Sweet Saga</h2>
+        
+        <div class="form-group">
+            <label for="difficulty">Выберите сложность:</label>
+            <select id="difficulty">
+                <option value="1">Уровень 1 - Очень легкий (25 ходов, 25 кристаллов)</option>
+                <option value="2">Уровень 2 - Легкий (30 ходов, 30 кристаллов)</option>
+                <option value="3">Уровень 3 - Средний (35 ходов, 35 кристаллов)</option>
+                <option value="4">Уровень 4 - Сложный (40 ходов, 40 кристаллов)</option>
+                <option value="5">Уровень 5 - Очень сложный (45 ходов, 45 кристаллов)</option>
+                <option value="6">Уровень 6 - Эксперт (50 ходов, 50 кристаллов)</option>
+                <option value="7">Уровень 7 - Мастер (60 ходов, 55 кристаллов)</option>
+                <option value="8">Уровень 8 - Гранд-мастер (65 ходов, 60 кристаллов)</option>
+                <option value="9">Уровень 9 - Легенда (70 ходов, 65 кристаллов)</option>
+                <option value="10">Уровень 10 - Невозможный (75 ходов, 70 кристаллов)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="count">Количество уровней:</label>
+            <input type="number" id="count" min="1" max="100" value="5">
+        </div>
+
+        <div class="form-group">
+            <label for="startNumber">Начать нумерацию с:</label>
+            <input type="number" id="startNumber" min="1" value="1">
+        </div>
+
+        <div class="button-group">
+            <button onclick="generateLevels()">Сгенерировать уровни</button>
+            <button onclick="downloadAllAsZip()" class="download-all-btn">Скачать все (ZIP)</button>
+        </div>
+
+        <div class="preview-container">
+            <h3 class="preview-title">Предпросмотр последнего уровня</h3>
+            <div id="previewGrid" class="preview-grid"></div>
+            <div id="levelInfo" class="difficulty-info"></div>
+        </div>
+
+        <div id="generatedLevels"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>    <script>
+        let generatedFiles = [];
+
+        const difficultyPresets = {
+            1: { moves: 25, targets: 20, crystals: 25 },  // Очень легкий
+            2: { moves: 30, targets: 25, crystals: 30 },  // Легкий
+            3: { moves: 35, targets: 30, crystals: 35 },  // Средний
+            4: { moves: 40, targets: 35, crystals: 40 },  // Сложный
+            5: { moves: 45, targets: 40, crystals: 45 },  // Очень сложный
+            6: { moves: 50, targets: 45, crystals: 50 },  // Эксперт
+            7: { moves: 60, targets: 50, crystals: 55 },  // Мастер
+            8: { moves: 65, targets: 55, crystals: 60 },  // Гранд-мастер
+            9: { moves: 70, targets: 60, crystals: 65 },  // Легенда
+            10: { moves: 75, targets: 65, crystals: 70 }  // Невозможный
+        };
+
+        function hasNearbyBlocks(board, x, y) {
+            for(let i = -2; i <= 2; i++) {
+                for(let j = -2; j <= 2; j++) {
+                    if(x + i >= 0 && x + i < 10 && y + j >= 0 && y + j < 10) {
+                        if(board[y + j][x + i] === 1) return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        const patterns = [
+            // Группа из 3-5 блоков вместе
+            (board) => {
+                const blockCount = Math.floor(Math.random() * 3) + 3;
+                const startX = Math.floor(Math.random() * 7);
+                const startY = Math.floor(Math.random() * 7);
+                let placed = 0;
+                
+                while(placed < blockCount) {
+                    const offsetX = Math.floor(Math.random() * 3);
+                    const offsetY = Math.floor(Math.random() * 3);
+                    if(startX + offsetX < 10 && startY + offsetY < 10 && board[startY + offsetY][startX + offsetX] !== 1) {
+                        board[startY + offsetY][startX + offsetX] = 1;
+                        placed++;
+                    }
+                }
+                return board;
+            },
+            // Разделенные блоки (3-4 блока далеко друг от друга)
+            (board) => {
+                const blockCount = Math.floor(Math.random() * 2) + 3;
+                const usedPositions = new Set();
+                let placed = 0;
+                
+                while(placed < blockCount) {
+                    const x = Math.floor(Math.random() * 10);
+                    const y = Math.floor(Math.random() * 10);
+                    
+                    if(!usedPositions.has(`${x},${y}`) && !hasNearbyBlocks(board, x, y)) {
+                        board[y][x] = 1;
+                        usedPositions.add(`${x},${y}`);
+                        placed++;
+                    }
+                }
+                return board;
+            }
+        ];
+
+        function generateLevelData(difficulty, index) {
+            const levelData = {
+                "c2array": true,
+                "size": [4, 1, 1],
+                "data": [
+                    [["redfoc-sweetsaga"]],
+                    [[]],
+                    [[]],
+                    [[0]]
+                ]
+            };
+
+            const settings = difficultyPresets[difficulty];
+            const boardSize = 10;
+            let board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
             
-            board[y][x] = 1;
-            usedPositions.add(`${x},${y}`);
-        }
-        return board;
-    }
-];
+            // Применяем случайный паттерн блокировки
+            const patternIndex = Math.floor(Math.random() * patterns.length);
+            board = patterns[patternIndex](board);
 
-// Проверка наличия близких блоков
-function hasNearbyBlocks(board, x, y) {
-    for(let i = -2; i <= 2; i++) {
-        for(let j = -2; j <= 2; j++) {
-            if(x + i >= 0 && x + i < 10 && y + j >= 0 && y + j < 10) {
-                if(board[y + j][x + i] === 1) return true;
+            // Размещаем целевые элементы, избегая блокированных ячеек
+            let placedTargets = 0;
+            const targetCount = Math.min(settings.targets, 20);
+            
+            while(placedTargets < targetCount) {
+                const x = Math.floor(Math.random() * boardSize);
+                const y = Math.floor(Math.random() * boardSize);
+                if(board[y][x] === 0) {
+                    board[y][x] = 2;
+                    placedTargets++;
+                }
+            }
+
+            const layoutData = {
+                c2array: true,
+                size: [10, 10, 1],
+                data: board.map(row => row.map(cell => [cell]))
+            };
+
+            const settingsData = {
+                c2array: true,
+                size: [10, 4, 1],
+                data: [
+                    [[0], ["1"], ["4"], ["6"]],
+                    [[settings.moves], [settings.moves], [settings.moves], [0]],
+                    [[settings.crystals], [settings.crystals], [settings.crystals], [0]],
+                    [["6"], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]]
+                ]
+            };
+
+            levelData.data[1][0] = [JSON.stringify(layoutData)];
+            levelData.data[2][0] = [JSON.stringify(settingsData)];
+
+            return JSON.stringify(levelData, null, 4);
+        }
+
+        function updatePreview(levelData) {
+            const previewGrid = document.getElementById('previewGrid');
+            const levelInfo = document.getElementById('levelInfo');
+            previewGrid.innerHTML = '';
+            
+            try {
+                const layoutData = JSON.parse(levelData.data[1][0][0]);
+                const settingsData = JSON.parse(levelData.data[2][0][0]);
+                const board = layoutData.data;
+                
+                // Обновляем сетку
+                for(let y = 0; y < 10; y++) {
+                    for(let x = 0; x < 10; x++) {
+                        const cell = document.createElement('div');
+                        const value = board[y][x][0];
+                        cell.className = 'preview-cell' + 
+                            (value === 2 ? ' active' : '') +
+                            (value === 1 ? ' blocked' : '');
+                        previewGrid.appendChild(cell);
+                    }
+                }
+
+                // Обновляем информацию об уровне
+                const moves = settingsData.data[1][0][0];
+                const crystals = settingsData.data[2][0][0];
+                levelInfo.innerHTML = `
+                    <div class="info-item">Количество ходов: ${moves}</div>
+                    <div class="info-item">Кристаллов для сбора: ${crystals}</div>
+                `;
+            } catch (e) {
+                console.error('Error updating preview:', e);
             }
         }
-    }
-    return false;
-}
 
-// Настройки сложности для разных уровней
-const difficultyPresets = {
-    1: { moves: 25, targets: 20, crystals: 25 },  // Очень легкий
-    2: { moves: 30, targets: 25, crystals: 30 },  // Легкий
-    3: { moves: 35, targets: 30, crystals: 35 },  // Средний
-    4: { moves: 40, targets: 35, crystals: 40 },  // Сложный
-    5: { moves: 45, targets: 40, crystals: 45 },  // Очень сложный
-    6: { moves: 50, targets: 45, crystals: 50 },  // Эксперт
-    7: { moves: 60, targets: 50, crystals: 55 },  // Мастер
-    8: { moves: 65, targets: 55, crystals: 60 },  // Гранд-мастер
-    9: { moves: 70, targets: 60, crystals: 65 },  // Легенда
-    10: { moves: 75, targets: 65, crystals: 70 }  // Невозможный
-};
+        function generateLevels() {
+            const difficulty = parseInt(document.getElementById('difficulty').value);
+            const count = parseInt(document.getElementById('count').value);
+            const startNumber = parseInt(document.getElementById('startNumber').value);
+            
+            generatedFiles = [];
+            const levelsDiv = document.getElementById('generatedLevels');
+            levelsDiv.innerHTML = '';
 
-function generateLevelData(difficulty, index) {
-    const levelData = {
-        "c2array": true,
-        "size": [4, 1, 1],
-        "data": [
-            [["redfoc-sweetsaga"]],
-            [[]],
-            [[]],
-            [[0]]
-        ]
-    };
+            for(let i = 0; i < count; i++) {
+                const levelNumber = startNumber + i;
+                const levelData = generateLevelData(difficulty, i);
+                const fileName = `level-${levelNumber}.json`;
+                
+                generatedFiles.push({
+                    name: fileName,
+                    content: levelData
+                });
 
-    const settings = difficultyPresets[difficulty];
-    const boardSize = 10;
-    let board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
-    
-    // Применяем случайный паттерн блокировки
-    const patternIndex = Math.floor(Math.random() * patterns.length);
-    board = patterns[patternIndex](board);
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'level-file';
+                fileDiv.innerHTML = `
+                    <span>${fileName}</span>
+                    <button onclick="downloadLevel(${i})">Скачать</button>
+                `;
+                levelsDiv.appendChild(fileDiv);
 
-    // Размещаем целевые элементы, избегая блокированных ячеек
-    let placedTargets = 0;
-    const targetCount = Math.min(settings.targets, 20); // Ограничиваем количество целевых элементов
-    
-    while(placedTargets < targetCount) {
-        const x = Math.floor(Math.random() * boardSize);
-        const y = Math.floor(Math.random() * boardSize);
-        if(board[y][x] === 0) {
-            board[y][x] = 2;
-            placedTargets++;
+                if (i === count - 1) {
+                    updatePreview(JSON.parse(levelData));
+                }
+            }
         }
-    }
 
-    const layoutData = {
-        c2array: true,
-        size: [10, 10, 1],
-        data: board.map(row => row.map(cell => [cell]))
-    };
+        function downloadLevel(index) {
+            const file = generatedFiles[index];
+            const blob = new Blob([file.content], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = file.name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
 
-    const settingsData = {
-        c2array: true,
-        size: [10, 4, 1],
-        data: [
-            [[0], ["1"], ["4"], ["6"]],
-            [[settings.moves], [settings.moves], [settings.moves], [0]],
-            [[settings.crystals], [settings.crystals], [settings.crystals], [0]],
-            [["6"], [0], [0], [0]],
-            [[0], [0], [0], [0]],
-            [[0], [0], [0], [0]],
-            [[0], [0], [0], [0]],
-            [[0], [0], [0], [0]],
-            [[0], [0], [0], [0]],
-            [[0], [0], [0], [0]]
-        ]
-    };
+        async function downloadAllAsZip() {
+            if (generatedFiles.length === 0) {
+                alert('Сначала сгенерируйте уровни!');
+                return;
+            }
 
-    levelData.data[1][0] = [JSON.stringify(layoutData)];
-    levelData.data[2][0] = [JSON.stringify(settingsData)];
-
-    return JSON.stringify(levelData, null, 4);
-}
+            const zip = new JSZip();
+            
+            generatedFiles.forEach(file => {
+                zip.file(file.name, file.content);
+            });
+            
+            const content = await zip.generateAsync({type: "blob"});
+            const url = URL.createObjectURL(content);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "levels.zip";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
