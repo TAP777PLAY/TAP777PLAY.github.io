@@ -93,11 +93,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s ease;
-        }
-
-        .level-file:hover {
-            transform: translateX(5px);
         }
 
         .preview-container {
@@ -132,17 +127,11 @@
             align-items: center;
             justify-content: center;
             background: white;
-            transition: all 0.3s ease;
         }
 
-        .preview-cell.active {
+        .preview-cell.target {
             background: #4CAF50;
             border-color: #45a049;
-        }
-
-        .preview-cell.blocked {
-            background: #f44336;
-            border-color: #d32f2f;
         }
 
         .difficulty-info {
@@ -207,66 +196,17 @@
         let generatedFiles = [];
 
         const difficultyPresets = {
-            1: { moves: 25, targets: 20, crystals: 25 },  // Очень легкий
-            2: { moves: 30, targets: 25, crystals: 30 },  // Легкий
-            3: { moves: 35, targets: 30, crystals: 35 },  // Средний
-            4: { moves: 40, targets: 35, crystals: 40 },  // Сложный
-            5: { moves: 45, targets: 40, crystals: 45 },  // Очень сложный
-            6: { moves: 50, targets: 45, crystals: 50 },  // Эксперт
-            7: { moves: 60, targets: 50, crystals: 55 },  // Мастер
-            8: { moves: 65, targets: 55, crystals: 60 },  // Гранд-мастер
-            9: { moves: 70, targets: 60, crystals: 65 },  // Легенда
-            10: { moves: 75, targets: 65, crystals: 70 }  // Невозможный
+            1: { moves: 25, targets: 3, crystals: 25 },  // Очень легкий
+            2: { moves: 30, targets: 3, crystals: 30 },  // Легкий
+            3: { moves: 35, targets: 4, crystals: 35 },  // Средний
+            4: { moves: 40, targets: 4, crystals: 40 },  // Сложный
+            5: { moves: 45, targets: 4, crystals: 45 },  // Очень сложный
+            6: { moves: 50, targets: 5, crystals: 50 },  // Эксперт
+            7: { moves: 60, targets: 5, crystals: 55 },  // Мастер
+            8: { moves: 65, targets: 5, crystals: 60 },  // Гранд-мастер
+            9: { moves: 70, targets: 5, crystals: 65 },  // Легенда
+            10: { moves: 75, targets: 5, crystals: 70 }  // Невозможный
         };
-
-        function hasNearbyBlocks(board, x, y) {
-            for(let i = -2; i <= 2; i++) {
-                for(let j = -2; j <= 2; j++) {
-                    if(x + i >= 0 && x + i < 10 && y + j >= 0 && y + j < 10) {
-                        if(board[y + j][x + i] === 1) return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        const patterns = [
-            // Группа из 3-5 блоков вместе
-            (board) => {
-                const blockCount = Math.floor(Math.random() * 3) + 3;
-                const startX = Math.floor(Math.random() * 7);
-                const startY = Math.floor(Math.random() * 7);
-                let placed = 0;
-                
-                while(placed < blockCount) {
-                    const offsetX = Math.floor(Math.random() * 3);
-                    const offsetY = Math.floor(Math.random() * 3);
-                    if(startX + offsetX < 10 && startY + offsetY < 10 && board[startY + offsetY][startX + offsetX] !== 1) {
-                        board[startY + offsetY][startX + offsetX] = 1;
-                        placed++;
-                    }
-                }
-                return board;
-            },
-            // Разделенные блоки (3-4 блока далеко друг от друга)
-            (board) => {
-                const blockCount = Math.floor(Math.random() * 2) + 3;
-                const usedPositions = new Set();
-                let placed = 0;
-                
-                while(placed < blockCount) {
-                    const x = Math.floor(Math.random() * 10);
-                    const y = Math.floor(Math.random() * 10);
-                    
-                    if(!usedPositions.has(`${x},${y}`) && !hasNearbyBlocks(board, x, y)) {
-                        board[y][x] = 1;
-                        usedPositions.add(`${x},${y}`);
-                        placed++;
-                    }
-                }
-                return board;
-            }
-        ];
 
         function generateLevelData(difficulty, index) {
             const levelData = {
@@ -284,20 +224,48 @@
             const boardSize = 10;
             let board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
             
-            // Применяем случайный паттерн блокировки
-            const patternIndex = Math.floor(Math.random() * patterns.length);
-            board = patterns[patternIndex](board);
-
-            // Размещаем целевые элементы, избегая блокированных ячеек
-            let placedTargets = 0;
-            const targetCount = Math.min(settings.targets, 20);
+            // Выбираем тип размещения: вместе (0) или раздельно (1)
+            const placementType = Math.floor(Math.random() * 2);
             
-            while(placedTargets < targetCount) {
-                const x = Math.floor(Math.random() * boardSize);
-                const y = Math.floor(Math.random() * boardSize);
-                if(board[y][x] === 0) {
-                    board[y][x] = 2;
-                    placedTargets++;
+            if (placementType === 0) {
+                // Размещаем целевые элементы вместе
+                const startX = Math.floor(Math.random() * 7);
+                const startY = Math.floor(Math.random() * 7);
+                let placed = 0;
+                
+                while (placed < settings.targets) {
+                    const offsetX = Math.floor(Math.random() * 3);
+                    const offsetY = Math.floor(Math.random() * 3);
+                    if (startX + offsetX < 10 && startY + offsetY < 10 && board[startY + offsetY][startX + offsetX] === 0) {
+                        board[startY + offsetY][startX + offsetX] = 2;
+                        placed++;
+                    }
+                }
+            } else {
+                // Размещаем целевые элементы далеко друг от друга
+                let placed = 0;
+                while (placed < settings.targets) {
+                    const x = Math.floor(Math.random() * 10);
+                    const y = Math.floor(Math.random() * 10);
+                    
+                    // Проверяем, нет ли рядом других целевых элементов
+                    let canPlace = true;
+                    for (let i = -2; i <= 2; i++) {
+                        for (let j = -2; j <= 2; j++) {
+                            if (x + i >= 0 && x + i < 10 && y + j >= 0 && y + j < 10) {
+                                if (board[y + j][x + i] === 2) {
+                                    canPlace = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!canPlace) break;
+                    }
+                    
+                    if (canPlace) {
+                        board[y][x] = 2;
+                        placed++;
+                    }
                 }
             }
 
@@ -345,9 +313,7 @@
                     for(let x = 0; x < 10; x++) {
                         const cell = document.createElement('div');
                         const value = board[y][x][0];
-                        cell.className = 'preview-cell' + 
-                            (value === 2 ? ' active' : '') +
-                            (value === 1 ? ' blocked' : '');
+                        cell.className = 'preview-cell' + (value === 2 ? ' target' : '');
                         previewGrid.appendChild(cell);
                     }
                 }
@@ -355,9 +321,11 @@
                 // Обновляем информацию об уровне
                 const moves = settingsData.data[1][0][0];
                 const crystals = settingsData.data[2][0][0];
+                const targetCount = board.flat().filter(cell => cell[0] === 2).length;
                 levelInfo.innerHTML = `
                     <div class="info-item">Количество ходов: ${moves}</div>
                     <div class="info-item">Кристаллов для сбора: ${crystals}</div>
+                    <div class="info-item">Целевых элементов на поле: ${targetCount}</div>
                 `;
             } catch (e) {
                 console.error('Error updating preview:', e);
