@@ -41,10 +41,19 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         button:hover {
             background: #45a049;
+        }
+
+        .download-all-btn {
+            background: #2196F3;
+        }
+
+        .download-all-btn:hover {
+            background: #1976D2;
         }
 
         #generatedLevels {
@@ -62,24 +71,11 @@
             align-items: center;
         }
 
-        .download-btn {
-            background: #2196F3;
-            padding: 5px 10px;
-            font-size: 14px;
-        }
-
-        #preview {
-            margin-top: 20px;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
         .preview-grid {
             display: grid;
             grid-template-columns: repeat(10, 30px);
             gap: 2px;
+            margin-top: 20px;
         }
 
         .preview-cell {
@@ -93,6 +89,10 @@
 
         .preview-cell.active {
             background: #4CAF50;
+        }
+
+        .preview-cell.blocked {
+            background: #f44336;
         }
     </style>
 </head>
@@ -127,7 +127,7 @@
         </div>
 
         <button onclick="generateLevels()">Сгенерировать уровни</button>
-        <button onclick="downloadAll()" id="downloadAll" style="display: none;">Скачать все</button>
+        <button onclick="downloadAllAsZip()" class="download-all-btn">Скачать все уровни (ZIP)</button>
 
         <div id="preview">
             <h3>Предпросмотр последнего уровня:</h3>
@@ -137,8 +137,50 @@
         <div id="generatedLevels"></div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script>
         let generatedFiles = [];
+
+        // Паттерны для блокированных ячеек
+        const patterns = [
+            // Крест в центре
+            (board) => {
+                const center = Math.floor(board.length/2);
+                for(let i = 0; i < board.length; i++) {
+                    board[center][i] = 1;
+                    board[i][center] = 1;
+                }
+                return board;
+            },
+            // Диагональ
+            (board) => {
+                for(let i = 0; i < board.length; i++) {
+                    board[i][i] = 1;
+                }
+                return board;
+            },
+            // Рамка
+            (board) => {
+                const size = board.length;
+                for(let i = 0; i < size; i++) {
+                    board[0][i] = 1;
+                    board[size-1][i] = 1;
+                    board[i][0] = 1;
+                    board[i][size-1] = 1;
+                }
+                return board;
+            },
+            // Случайные блоки
+            (board) => {
+                const blockedCount = Math.floor(Math.random() * 15) + 5;
+                for(let i = 0; i < blockedCount; i++) {
+                    const x = Math.floor(Math.random() * board.length);
+                    const y = Math.floor(Math.random() * board.length);
+                    board[y][x] = 1;
+                }
+                return board;
+            }
+        ];
 
         function generateLevels() {
             const difficulty = parseInt(document.getElementById('difficulty').value);
@@ -151,7 +193,7 @@
 
             for(let i = 0; i < count; i++) {
                 const levelNumber = startNumber + i;
-                const levelData = generateLevelData(difficulty);
+                const levelData = generateLevelData(difficulty, i);
                 const fileName = `level-${levelNumber}.json`;
                 
                 generatedFiles.push({
@@ -163,71 +205,58 @@
                 fileDiv.className = 'level-file';
                 fileDiv.innerHTML = `
                     <span>${fileName}</span>
-                    <button class="download-btn" onclick="downloadLevel(${i})">Скачать</button>
+                    <button onclick="downloadLevel(${i})">Скачать</button>
                 `;
                 levelsDiv.appendChild(fileDiv);
 
-                // Показываем предпросмотр последнего сгенерированного уровня
                 if (i === count - 1) {
                     updatePreview(JSON.parse(levelData));
                 }
             }
-
-            document.getElementById('downloadAll').style.display = 'inline-block';
         }
 
-        function generateLevelData(difficulty) {
-            // Базовая структура уровня
+        function generateLevelData(difficulty, index) {
             const levelData = {
                 "c2array": true,
                 "size": [4, 1, 1],
                 "data": [
-                    [
-                        ["redfoc-sweetsaga"]
-                    ],
-                    [
-                        // Здесь будет layout
-                    ],
-                    [
-                        // Здесь будут настройки уровня
-                    ],
-                    [
-                        [0]
-                    ]
+                    [["redfoc-sweetsaga"]],
+                    [[]],
+                    [[]],
+                    [[0]]
                 ]
             };
 
-            // Настройка сложности
             const difficultySettings = {
                 targets: Math.floor(difficulty * 1.5) + 2,
                 moves: 20 + difficulty * 5,
                 score: 30 + difficulty * 10
             };
 
-            // Генерация игрового поля
             const boardSize = 10;
-            const board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
+            let board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
             
-            // Размещение элементов в зависимости от сложности
-            const centerX = Math.floor(boardSize/2);
-            const centerY = Math.floor(boardSize/2);
-            
-            for(let i = 0; i < difficultySettings.targets; i++) {
-                const x = centerX + (i % 3) - 1;
-                const y = centerY + Math.floor(i/3) - 1;
-                if(x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
+            // Применяем случайный паттерн блокировки
+            const patternIndex = Math.floor(Math.random() * patterns.length);
+            board = patterns[patternIndex](board);
+
+            // Размещаем целевые элементы, избегая блокированных ячеек
+            let placedTargets = 0;
+            while(placedTargets < difficultySettings.targets) {
+                const x = Math.floor(Math.random() * boardSize);
+                const y = Math.floor(Math.random() * boardSize);
+                if(board[y][x] === 0) {
                     board[y][x] = 2;
+                    placedTargets++;
                 }
             }
 
-            // Формирование layout данных
             const layoutData = {
                 c2array: true,
                 size: [10, 10, 1],
                 data: board.map(row => row.map(cell => [cell]))
             };
 
-            // Формирование настроек уровня
             const settingsData = {
                 c2array: true,
                 size: [10, 4, 1],
@@ -245,7 +274,6 @@
                 ]
             };
 
-            // Добавляем данные в основную структуру
             levelData.data[1][0] = [JSON.stringify(layoutData)];
             levelData.data[2][0] = [JSON.stringify(settingsData)];
 
@@ -263,7 +291,10 @@
                 for(let y = 0; y < 10; y++) {
                     for(let x = 0; x < 10; x++) {
                         const cell = document.createElement('div');
-                        cell.className = 'preview-cell' + (board[y][x][0] === 2 ? ' active' : '');
+                        const value = board[y][x][0];
+                        cell.className = 'preview-cell' + 
+                            (value === 2 ? ' active' : '') +
+                            (value === 1 ? ' blocked' : '');
                         previewGrid.appendChild(cell);
                     }
                 }
@@ -285,10 +316,22 @@
             URL.revokeObjectURL(url);
         }
 
-        function downloadAll() {
-            generatedFiles.forEach((file, index) => {
-                setTimeout(() => downloadLevel(index), index * 100);
+        async function downloadAllAsZip() {
+            const zip = new JSZip();
+            
+            generatedFiles.forEach(file => {
+                zip.file(file.name, file.content);
             });
+            
+            const content = await zip.generateAsync({type: "blob"});
+            const url = URL.createObjectURL(content);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "levels.zip";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
