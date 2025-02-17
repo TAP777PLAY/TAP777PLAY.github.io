@@ -9,7 +9,6 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            /* Фон удалён */
         }
         
         .container {
@@ -18,10 +17,209 @@
             border-radius: 8px;
         }
 
-        /* Остальные стили без изменений */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        #generatedLevels {
+            margin-top: 20px;
+        }
+
+        .level-file {
+            background: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-btn {
+            background: #2196F3;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <!-- Весь HTML-код остаётся без изменений -->
+    <div class="container">
+        <h2>Генератор уровней</h2>
+        
+        <div class="form-group">
+            <label for="difficulty">Выберите сложность:</label>
+            <select id="difficulty">
+                <option value="1">Уровень 1 - Очень легкий</option>
+                <option value="2">Уровень 2 - Легкий</option>
+                <option value="3">Уровень 3 - Средний</option>
+                <option value="4">Уровень 4 - Сложный</option>
+                <option value="5">Уровень 5 - Очень сложный</option>
+                <option value="6">Уровень 6 - Эксперт</option>
+                <option value="7">Уровень 7 - Мастер</option>
+                <option value="8">Уровень 8 - Гранд-мастер</option>
+                <option value="9">Уровень 9 - Легенда</option>
+                <option value="10">Уровень 10 - Невозможный</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="count">Количество уровней:</label>
+            <input type="number" id="count" min="1" max="100" value="5">
+        </div>
+
+        <div class="form-group">
+            <label for="startNumber">Начать нумерацию с:</label>
+            <input type="number" id="startNumber" min="1" value="1">
+        </div>
+
+        <button onclick="generateLevels()">Сгенерировать уровни</button>
+        <button onclick="downloadAll()" id="downloadAll" style="display: none;">Скачать все</button>
+
+        <div id="generatedLevels"></div>
+    </div>
+
+    <script>
+        let generatedFiles = [];
+
+        function generateLevels() {
+            const difficulty = document.getElementById('difficulty').value;
+            const count = parseInt(document.getElementById('count').value);
+            const startNumber = parseInt(document.getElementById('startNumber').value);
+            
+            generatedFiles = [];
+            const levelsDiv = document.getElementById('generatedLevels');
+            levelsDiv.innerHTML = '';
+
+            for(let i = 0; i < count; i++) {
+                const levelNumber = startNumber + i;
+                const levelData = generateLevelData(difficulty);
+                const fileName = `level-${levelNumber}.json`;
+                
+                generatedFiles.push({
+                    name: fileName,
+                    content: levelData
+                });
+
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'level-file';
+                fileDiv.innerHTML = `
+                    <span>${fileName}</span>
+                    <button class="download-btn" onclick="downloadLevel(${i})">Скачать</button>
+                `;
+                levelsDiv.appendChild(fileDiv);
+            }
+
+            document.getElementById('downloadAll').style.display = 'inline-block';
+        }
+
+        function generateLevelData(difficulty) {
+            // Базовая структура уровня
+            const levelData = {
+                "c2array": true,
+                "size": [4, 1, 1],
+                "data": [
+                    [["redfoc-sweetsaga"]],
+                    [[]],
+                    [[]],
+                    [[0]]
+                ]
+            };
+
+            // Настройка сложности
+            const difficultySettings = {
+                targets: Math.floor(difficulty * 1.5) + 2,
+                moves: 20 + difficulty * 5,
+                score: 30 + difficulty * 10
+            };
+
+            // Генерация игрового поля
+            const boardSize = 10;
+            const board = Array(boardSize).fill().map(() => Array(boardSize).fill(0));
+            
+            // Размещение элементов в зависимости от сложности
+            const centerX = Math.floor(boardSize/2);
+            const centerY = Math.floor(boardSize/2);
+            
+            for(let i = 0; i < difficultySettings.targets; i++) {
+                const x = centerX + (i % 3) - 1;
+                const y = centerY + Math.floor(i/3) - 1;
+                if(x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
+                    board[y][x] = 2;
+                }
+            }
+
+            // Формирование JSON данных
+            levelData.data[1][0] = [JSON.stringify({
+                c2array: true,
+                size: [10, 10, 1],
+                data: [board.map(row => [row])]
+            })];
+
+            levelData.data[2][0] = [JSON.stringify({
+                c2array: true,
+                size: [10, 4, 1],
+                data: [
+                    [[0], ["1"], ["4"], ["6"]],
+                    [[difficultySettings.moves.toString()], [difficultySettings.moves.toString()], [difficultySettings.moves.toString()], [0]],
+                    [[difficultySettings.score.toString()], [0], [0], [0]],
+                    [["6"], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]],
+                    [[0], [0], [0], [0]]
+                ]
+            })];
+
+            return JSON.stringify(levelData, null, 4);
+        }
+
+        function downloadLevel(index) {
+            const file = generatedFiles[index];
+            const blob = new Blob([file.content], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = file.name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function downloadAll() {
+            generatedFiles.forEach((file, index) => {
+                setTimeout(() => downloadLevel(index), index * 100);
+            });
+        }
+    </script>
 </body>
 </html>
