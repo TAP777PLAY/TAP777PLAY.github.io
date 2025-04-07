@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Метатеги для безопасности авторизации -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="google-signin-client_id" content="40740878192-abc123def456.apps.googleusercontent.com">
+    <title>Финансовый трекер</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Загрузка Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        /* Дополнительные стили для отчетов */
+        .reports-content {
+            overflow-y: auto !important;
+            max-height: calc(100vh - 60px) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Главная страница -->
+        <div class="content active" id="main">
+            <!-- Фиксированная верхняя часть -->
+            <div class="fixed-header">
+                <!-- Заголовок -->
+                <div class="header">
+                    <button class="calendar-button">
+                        <span class="material-icons">event</span>
+                    </button>
+                    <div class="header-title">27 март 2025 г.</div>
+                </div>
+
+                <!-- Сводка -->
+                <div class="summary-container">
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <div class="label">Расходы</div>
+                            <div class="amount expense">11122 ₽</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="label">Доходы</div>
+                            <div class="amount income">271111 ₽</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="label">Баланс</div>
+                            <div class="amount balance">259989 ₽</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Прокручиваемая область с транзакциями -->
+            <div class="transactions-container">
+                <div class="transactions">
+                    <!-- Группа транзакций за день -->
+                    <div class="transaction-group">
+                        <div class="transaction-date">27 марта</div>
+                        <div class="transaction-list">
+                            <!-- Транзакция расхода -->
+                            <div class="transaction-item expense">
+                                <div class="transaction-icon">
+                                    <span class="material-icons">shopping_cart</span>
+                                </div>
+                                <div class="transaction-info">
+                                    <div class="transaction-category">Шоппинг</div>
+                                    <div class="transaction-note">Продукты</div>
+                                </div>
+                                <div class="transaction-amount">-111 ₽</div>
+                            </div>
+                            <!-- Транзакция дохода -->
+                            <div class="transaction-item income">
+                                <div class="transaction-icon">
+                                    <span class="material-icons">account_balance_wallet</span>
+                                </div>
+                                <div class="transaction-info">
+                                    <div class="transaction-category">Зарплата</div>
+                                    <div class="transaction-note">Аванс</div>
+                                </div>
+                                <div class="transaction-amount">+1 131 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Остальные страницы -->
+        <div id="reports" class="content">
+            <!-- Содержимое страницы отчетов -->
+        </div>
+        <div id="categories" class="content">
+            <!-- Содержимое страницы категорий -->
+        </div>
+        <div id="settings" class="content">
+            <div class="settings-container">
+                <div class="settings-header">
+                    <h1 class="settings-title">Настройки</h1>
+                </div>
+                <div class="settings-list">
+                    <!-- Профиль -->
+                    <div class="settings-item" data-setting="profile">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">person</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Профиль</div>
+                            <div class="settings-item-subtitle">Авторизация и персонализация</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Валюта -->
+                    <div class="settings-item" data-setting="currency">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">payments</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Валюта</div>
+                            <div class="settings-item-subtitle">RUB (₽)</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Напоминания -->
+                    <div class="settings-item" data-setting="reminders">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">notifications</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Напоминания</div>
+                            <div class="settings-item-subtitle">Активно: 1</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Звук -->
+                    <div class="settings-item" data-setting="sound">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">volume_up</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Звук</div>
+                            <div class="settings-item-subtitle">Включить звуковые эффекты</div>
+                        </div>
+                        <div class="settings-item-toggle">
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Язык -->
+                    <div class="settings-item" data-setting="language">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">language</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Язык</div>
+                            <div class="settings-item-subtitle">Русский</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Импорт/Экспорт данных -->
+                    <div class="settings-item" data-setting="data">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">import_export</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Данные</div>
+                            <div class="settings-item-subtitle">Импорт и экспорт данных</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Поделиться -->
+                    <div class="settings-item" data-setting="share">
+                        <div class="settings-item-icon">
+                            <span class="material-icons">share</span>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">Поделиться</div>
+                            <div class="settings-item-subtitle">Рассказать о приложении</div>
+                        </div>
+                        <div class="settings-item-arrow">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка добавления -->
+        <button class="add-button">
+            <span class="material-icons">add</span>
+        </button>
+
+        <!-- Нижняя навигация -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-page="main">
+                <span class="material-icons">home</span>
+                <span>Главная</span>
+            </div>
+            <div class="nav-item" data-page="reports">
+                <span class="material-icons">pie_chart</span>
+                <span>Отчеты</span>
+            </div>
+            <div class="nav-item" data-page="categories">
+                <span class="material-icons">category</span>
+                <span>Категории</span>
+            </div>
+            <div class="nav-item" data-page="settings">
+                <span class="material-icons">settings</span>
+                <span>Настройки</span>
+            </div>
+        </div>
+
+        <!-- Модальные окна -->
+        <!-- Модальное окно добавления транзакции -->
+        <div class="modal add-transaction-modal">
+            <div class="modal-header">
+                <div class="title"></div>
+            </div>
+            <div class="modal-content">
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label>Сумма</label>
+                        <input type="number" id="amount" placeholder="0 ₽" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Дата</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Заметка</label>
+                        <input type="text" id="note" placeholder="Добавить заметку">
+                    </div>
+                    <input type="hidden" id="category">
+                    <input type="hidden" id="type">
+                    <button type="submit" class="submit-button">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Модальное окно выбора типа операции -->
+        <div class="modal transaction-type-modal">
+            <div class="transaction-type-selector">
+                <button class="type-button active" data-type="expense">Расход</button>
+                <button class="type-button" data-type="income">Доход</button>
+                <button class="type-button" data-type="transfer">Перевод</button>
+            </div>
+            <div class="modal-header">
+                <button class="back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="title"></div>
+            </div>
+            <div class="modal-content">
+                <!-- Категории расходов -->
+                <div class="categories-grid expense-categories active">
+                    <div class="category-item" data-category="shopping">
+                        <div class="category-icon">
+                            <span class="material-icons">shopping_cart</span>
+                        </div>
+                        <span class="category-name">Шоппинг</span>
+                    </div>
+                    <div class="category-item" data-category="food">
+                        <div class="category-icon">
+                            <span class="material-icons">restaurant</span>
+                        </div>
+                        <span class="category-name">Еда</span>
+                    </div>
+                    <div class="category-item" data-category="phone">
+                        <div class="category-icon">
+                            <span class="material-icons">phone_android</span>
+                        </div>
+                        <span class="category-name">Телефон</span>
+                    </div>
+                    <div class="category-item" data-category="entertainment">
+                        <div class="category-icon">
+                            <span class="material-icons">sports_esports</span>
+                        </div>
+                        <span class="category-name">Развлечения</span>
+                    </div>
+                    <div class="category-item" data-category="transport">
+                        <div class="category-icon">
+                            <span class="material-icons">directions_car</span>
+                        </div>
+                        <span class="category-name">Транспорт</span>
+                    </div>
+                    <div class="category-item" data-category="health">
+                        <div class="category-icon">
+                            <span class="material-icons">local_hospital</span>
+                        </div>
+                        <span class="category-name">Здоровье</span>
+                    </div>
+                    <div class="category-item" data-category="house">
+                        <div class="category-icon">
+                            <span class="material-icons">home</span>
+                        </div>
+                        <span class="category-name">Дом</span>
+                    </div>
+                    <div class="category-item" data-category="utilities">
+                        <div class="category-icon">
+                            <span class="material-icons">power</span>
+                        </div>
+                        <span class="category-name">ЖКХ</span>
+                    </div>
+                    <div class="category-item" data-category="clothes">
+                        <div class="category-icon">
+                            <span class="material-icons">checkroom</span>
+                        </div>
+                        <span class="category-name">Одежда</span>
+                    </div>
+                    <div class="category-item" data-category="beauty">
+                        <div class="category-icon">
+                            <span class="material-icons">spa</span>
+                        </div>
+                        <span class="category-name">Красота</span>
+                    </div>
+                    <div class="category-item" data-category="education">
+                        <div class="category-icon">
+                            <span class="material-icons">school</span>
+                        </div>
+                        <span class="category-name">Образование</span>
+                    </div>
+                    <div class="category-item" data-category="sports">
+                        <div class="category-icon">
+                            <span class="material-icons">fitness_center</span>
+                        </div>
+                        <span class="category-name">Спорт</span>
+                    </div>
+                    <div class="category-item" data-category="cafe">
+                        <div class="category-icon">
+                            <span class="material-icons">local_cafe</span>
+                        </div>
+                        <span class="category-name">Кафе</span>
+                    </div>
+                    <div class="category-item" data-category="gifts">
+                        <div class="category-icon">
+                            <span class="material-icons">redeem</span>
+                        </div>
+                        <span class="category-name">Подарки</span>
+                    </div>
+                    <div class="category-item" data-category="pets">
+                        <div class="category-icon">
+                            <span class="material-icons">pets</span>
+                        </div>
+                        <span class="category-name">Питомцы</span>
+                    </div>
+                    <div class="category-item" data-category="internet">
+                        <div class="category-icon">
+                            <span class="material-icons">wifi</span>
+                        </div>
+                        <span class="category-name">Интернет</span>
+                    </div>
+                    <div class="category-item" data-category="taxi">
+                        <div class="category-icon">
+                            <span class="material-icons">local_taxi</span>
+                        </div>
+                        <span class="category-name">Такси</span>
+                    </div>
+                    <div class="category-item" data-category="parking">
+                        <div class="category-icon">
+                            <span class="material-icons">local_parking</span>
+                        </div>
+                        <span class="category-name">Парковка</span>
+                    </div>
+                    <div class="category-item" data-category="books">
+                        <div class="category-icon">
+                            <span class="material-icons">menu_book</span>
+                        </div>
+                        <span class="category-name">Книги</span>
+                    </div>
+                    <div class="category-item" data-category="medicine">
+                        <div class="category-icon">
+                            <span class="material-icons">medication</span>
+                        </div>
+                        <span class="category-name">Лекарства</span>
+                    </div>
+                    <div class="category-item" data-category="furniture">
+                        <div class="category-icon">
+                            <span class="material-icons">chair</span>
+                        </div>
+                        <span class="category-name">Мебель</span>
+                    </div>
+                    <div class="category-item" data-category="repair">
+                        <div class="category-icon">
+                            <span class="material-icons">build</span>
+                        </div>
+                        <span class="category-name">Ремонт</span>
+                    </div>
+                    <div class="category-item" data-category="insurance">
+                        <div class="category-icon">
+                            <span class="material-icons">security</span>
+                        </div>
+                        <span class="category-name">Страховка</span>
+                    </div>
+                    <div class="category-item" data-category="subscriptions">
+                        <div class="category-icon">
+                            <span class="material-icons">subscriptions</span>
+                        </div>
+                        <span class="category-name">Подписки</span>
+                    </div>
+                    <div class="category-item" data-category="hobbies">
+                        <div class="category-icon">
+                            <span class="material-icons">palette</span>
+                        </div>
+                        <span class="category-name">Хобби</span>
+                    </div>
+                    <div class="category-item" data-category="cinema">
+                        <div class="category-icon">
+                            <span class="material-icons">movie</span>
+                        </div>
+                        <span class="category-name">Кино</span>
+                    </div>
+                    <div class="category-item" data-category="music">
+                        <div class="category-icon">
+                            <span class="material-icons">music_note</span>
+                        </div>
+                        <span class="category-name">Музыка</span>
+                    </div>
+                    <div class="category-item" data-category="travel">
+                        <div class="category-icon">
+                            <span class="material-icons">flight</span>
+                        </div>
+                        <span class="category-name">Путешествия</span>
+                    </div>
+                    <div class="category-item" data-category="electronics">
+                        <div class="category-icon">
+                            <span class="material-icons">devices</span>
+                        </div>
+                        <span class="category-name">Электроника</span>
+                    </div>
+                    <div class="category-item" data-category="other_expense">
+                        <div class="category-icon">
+                            <span class="material-icons">more_horiz</span>
+                        </div>
+                        <span class="category-name">Другое</span>
+                    </div>
+                </div>
+
+                <!-- Категории доходов -->
+                <div class="categories-grid income-categories">
+                    <div class="category-item" data-category="salary">
+                        <div class="category-icon">
+                            <span class="material-icons">account_balance_wallet</span>
+                        </div>
+                        <span class="category-name">Зарплата</span>
+                    </div>
+                    <div class="category-item" data-category="investments">
+                        <div class="category-icon">
+                            <span class="material-icons">trending_up</span>
+                        </div>
+                        <span class="category-name">Инвестиции</span>
+                    </div>
+                    <div class="category-item" data-category="part-time">
+                        <div class="category-icon">
+                            <span class="material-icons">schedule</span>
+                        </div>
+                        <span class="category-name">Подработка</span>
+                    </div>
+                    <div class="category-item" data-category="rewards">
+                        <div class="category-icon">
+                            <span class="material-icons">card_giftcard</span>
+                        </div>
+                        <span class="category-name">Награды</span>
+                    </div>
+                    <div class="category-item" data-category="rental">
+                        <div class="category-icon">
+                            <span class="material-icons">house</span>
+                        </div>
+                        <span class="category-name">Аренда</span>
+                    </div>
+                    <div class="category-item" data-category="business">
+                        <div class="category-icon">
+                            <span class="material-icons">business_center</span>
+                        </div>
+                        <span class="category-name">Бизнес</span>
+                    </div>
+                    <div class="category-item" data-category="dividends">
+                        <div class="category-icon">
+                            <span class="material-icons">paid</span>
+                        </div>
+                        <span class="category-name">Дивиденды</span>
+                    </div>
+                    <div class="category-item" data-category="freelance">
+                        <div class="category-icon">
+                            <span class="material-icons">computer</span>
+                        </div>
+                        <span class="category-name">Фриланс</span>
+                    </div>
+                    <div class="category-item" data-category="sales">
+                        <div class="category-icon">
+                            <span class="material-icons">store</span>
+                        </div>
+                        <span class="category-name">Продажи</span>
+                    </div>
+                    <div class="category-item" data-category="other_income">
+                        <div class="category-icon">
+                            <span class="material-icons">more_horiz</span>
+                        </div>
+                        <span class="category-name">Другое</span>
+                    </div>
+                </div>
+
+                <!-- Категории переводов -->
+                <div class="categories-grid transfer-categories">
+                    <!-- Форма планирования переводов -->
+                    <div class="transfer-planner collapsed">
+                        <div class="compact-view">
+                            <span>Добавить регулярный перевод</span>
+                            <span class="material-icons">add_circle_outline</span>
+                        </div>
+                        <div class="transfer-form">
+                            <button class="collapse-button">
+                                <span class="material-icons">remove_circle_outline</span>
+                            </button>
+                            <div class="bank-selector">
+                                <div class="bank-from">
+                                    <label>Откуда</label>
+                                    <select class="bank-select">
+                                        <option value="" disabled selected>Выберите банк</option>
+                                        <option value="sber">Сбербанк</option>
+                                        <option value="tinkoff">Тинькофф</option>
+                                        <option value="vtb">ВТБ</option>
+                                        <option value="alfa">Альфа-Банк</option>
+                                        <option value="gazprom">Газпромбанк</option>
+                                        <option value="raif">Райффайзен</option>
+                                        <option value="other">Другой...</option>
+                                    </select>
+                                    <input type="text" class="account-number" placeholder="Номер счёта" />
+                                </div>
+                                
+                                <div class="bank-to">
+                                    <label>Куда</label>
+                                    <select class="bank-select">
+                                        <option value="" disabled selected>Выберите банк</option>
+                                        <option value="sber">Сбербанк</option>
+                                        <option value="tinkoff">Тинькофф</option>
+                                        <option value="vtb">ВТБ</option>
+                                        <option value="alfa">Альфа-Банк</option>
+                                        <option value="gazprom">Газпромбанк</option>
+                                        <option value="raif">Райффайзен</option>
+                                        <option value="other">Другой...</option>
+                                    </select>
+                                    <input type="text" class="account-number" placeholder="Номер счёта" />
+                                </div>
+                            </div>
+
+                            <div class="transfer-details">
+                                <div class="amount-field">
+                                    <label>Сумма</label>
+                                    <input type="number" placeholder="0 ₽" />
+                                </div>
+                                
+                                <div class="schedule-field">
+                                    <label>Дата ежемесячного перевода</label>
+                                    <input type="number" min="1" max="31" placeholder="День месяца" />
+                                </div>
+
+                                <div class="note-field">
+                                    <label>Примечание</label>
+                                    <input type="text" placeholder="Например: Ипотека" />
+                                </div>
+                            </div>
+
+                            <button class="save-transfer">Сохранить</button>
+                        </div>
+                    </div>
+
+                    <!-- Список запланированных переводов -->
+                    <div class="planned-transfers">
+                        <!-- Здесь будут отображаться сохраненные переводы -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно календаря -->
+        <div class="calendar-modal">
+            <div class="calendar-header">
+                <button class="back-button">
+                    <span class="material-icons">arrow_back</span>
+                    <span>Назад</span>
+                </button>
+                <div class="calendar-title-container">
+                    <div class="month-title"></div>
+                </div>
+            </div>
+            <div class="calendar-grid">
+                <!-- Дни недели и числа будут добавлены через JavaScript -->
+            </div>
+        </div>
+
+        <!-- Всплывающее мини-окно для ввода данных -->
+        <div class="popup-form">
+            <div class="popup-content">
+                <div class="popup-inputs">
+                    <div class="form-group">
+                        <input type="number" id="popup-amount" placeholder="0 ₽" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="popup-date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="popup-note" placeholder="Добавить заметку">
+                    </div>
+                    <input type="hidden" id="popup-category">
+                    <input type="hidden" id="popup-type">
+                </div>
+                <button type="button" class="popup-submit-button" id="popup-submit">
+                    <span class="material-icons">check_circle</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Модальное окно отчетов -->
+        <div class="reports-modal">
+            <div class="reports-header">
+                <button class="back-button" style="display: none;">
+                    <span class="material-icons">arrow_back</span>
+                    <span>Назад</span>
+                </button>
+                <div class="type-selector">
+                    <button class="expense-button active">Расходы</button>
+                    <button class="income-button">Доходы</button>
+                </div>
+            </div>
+            <div class="reports-content">
+                <div class="period-selector">
+                    <button class="period-button active">Месяц</button>
+                    <button class="period-button">Год</button>
+                </div>
+                <div class="month-navigation">
+                    <button class="nav-button reports-prev-month">
+                        <span class="material-icons">chevron_left</span>
+                    </button>
+                    <div class="date-display"></div>
+                    <button class="nav-button reports-next-month">
+                        <span class="material-icons">chevron_right</span>
+                    </button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                    <div class="chart-total">0</div>
+                </div>
+                <div class="category-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна для настроек -->
+    <div class="settings-modals-container">
+        <!-- Профиль -->
+        <div id="profile-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Профиль</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <span class="material-icons">person</span>
+                    </div>
+                    <div class="profile-details">
+                        <p class="profile-text">Войдите, чтобы синхронизировать данные между устройствами</p>
+                    </div>
+                </div>
+                
+                <button class="data-button login-button">
+                    <div class="data-button-icon">
+                        <span class="material-icons">login</span>
+                    </div>
+                    <div class="data-button-content">
+                        <div class="data-button-title">Войти через Google</div>
+                        <div class="data-button-subtitle">Для синхронизации данных</div>
+                    </div>
+                </button>
+                
+                <!-- Скрытый контейнер для Google Sign-In -->
+                <div id="google-signin-button" class="google-signin-container" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Валюта -->
+        <div id="currency-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Валюта</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="currency-list">
+                    <div class="currency-item active" data-currency="RUB" data-symbol="₽">
+                        <div class="currency-item-content">
+                            <div class="currency-item-code">RUB</div>
+                            <div class="currency-item-name">Российский рубль</div>
+                        </div>
+                        <div class="currency-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="currency-item" data-currency="USD" data-symbol="$">
+                        <div class="currency-item-content">
+                            <div class="currency-item-code">USD</div>
+                            <div class="currency-item-name">Доллар США</div>
+                        </div>
+                        <div class="currency-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="currency-item" data-currency="EUR" data-symbol="€">
+                        <div class="currency-item-content">
+                            <div class="currency-item-code">EUR</div>
+                            <div class="currency-item-name">Евро</div>
+                        </div>
+                        <div class="currency-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="currency-item" data-currency="GBP" data-symbol="£">
+                        <div class="currency-item-content">
+                            <div class="currency-item-code">GBP</div>
+                            <div class="currency-item-name">Фунт стерлингов</div>
+                        </div>
+                        <div class="currency-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="currency-item" data-currency="CNY" data-symbol="¥">
+                        <div class="currency-item-content">
+                            <div class="currency-item-code">CNY</div>
+                            <div class="currency-item-name">Китайский юань</div>
+                        </div>
+                        <div class="currency-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Напоминания -->
+        <div id="reminders-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Напоминания</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="reminders-toggle-container">
+                    <div class="reminders-toggle-text">Включить напоминания</div>
+                    <label class="switch">
+                        <input type="checkbox" id="reminders-toggle" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+                <div class="reminders-list" id="reminders-list">
+                    <!-- Напоминания будут добавлены через JavaScript -->
+                </div>
+                
+                <button class="settings-button" id="add-reminder-button">
+                    <span class="material-icons">add</span> Добавить напоминание
+                </button>
+            </div>
+        </div>
+
+        <!-- Редактирование напоминания -->
+        <div id="reminder-edit-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Редактирование напоминания</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label for="reminder-title">Название</label>
+                        <input type="text" id="reminder-title" placeholder="Введите название напоминания">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-time">Время</label>
+                        <input type="time" id="reminder-time" value="18:00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-date">Дата</label>
+                        <input type="date" id="reminder-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-repeat">Повтор</label>
+                        <select id="reminder-repeat">
+                            <option value="none">Без повтора</option>
+                            <option value="daily">Ежедневно</option>
+                            <option value="weekly">Еженедельно</option>
+                            <option value="monthly">Ежемесячно</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-message">Сообщение</label>
+                        <textarea id="reminder-message" placeholder="Введите текст напоминания"></textarea>
+                    </div>
+                    
+                    <div class="form-group reminder-enabled-toggle">
+                        <label for="reminder-enabled">Включено</label>
+                        <label class="switch">
+                            <input type="checkbox" id="reminder-enabled" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
+                    <button class="settings-button" id="save-reminder-button">Сохранить</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Язык -->
+        <div id="language-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Язык</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="language-list">
+                    <div class="language-item active" data-language="ru">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Русский</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="en">
+                        <div class="language-item-content">
+                            <div class="language-item-name">English</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="de">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Deutsch</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="es">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Español</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="fr">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Français</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="it">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Italiano</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="pt">
+                        <div class="language-item-content">
+                            <div class="language-item-name">Português</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="zh">
+                        <div class="language-item-content">
+                            <div class="language-item-name">中文</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="ja">
+                        <div class="language-item-content">
+                            <div class="language-item-name">日本語</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="ko">
+                        <div class="language-item-content">
+                            <div class="language-item-name">한국어</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="ar">
+                        <div class="language-item-content">
+                            <div class="language-item-name">العربية</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                    <div class="language-item" data-language="hi">
+                        <div class="language-item-content">
+                            <div class="language-item-name">हिन्दी</div>
+                        </div>
+                        <div class="language-item-check">
+                            <span class="material-icons">check</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Импорт/Экспорт -->
+        <div id="data-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Данные</div>
+            </div>
+            <div class="settings-modal-content">
+                <button class="data-button" id="import-data-button">
+                    <div class="data-button-icon">
+                        <span class="material-icons">upload_file</span>
+                    </div>
+                    <div class="data-button-content">
+                        <div class="data-button-title">Импортировать данные</div>
+                        <div class="data-button-subtitle">Загрузите ранее экспортированный файл с данными</div>
+                    </div>
+                </button>
+                
+                <button class="data-button" id="export-data-button">
+                    <div class="data-button-icon">
+                        <span class="material-icons">download</span>
+                    </div>
+                    <div class="data-button-content">
+                        <div class="data-button-title">Экспортировать все данные</div>
+                        <div class="data-button-subtitle">Сохраните все ваши данные в файл для резервной копии</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Поделиться -->
+        <div id="share-modal" class="settings-modal">
+            <div class="settings-modal-header">
+                <button class="settings-back-button">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <div class="settings-modal-title">Поделиться</div>
+            </div>
+            <div class="settings-modal-content">
+                <div class="share-message">
+                    <p>Поделитесь приложением с друзьями и близкими!</p>
+                </div>
+                
+                <div class="share-link-container">
+                    <div class="form-group">
+                        <label>Ссылка на приложение</label>
+                        <div class="share-link">
+                            <input type="text" value="https://example.com/finance-tracker" readonly>
+                            <button class="copy-link-button">
+                                <span class="material-icons">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-options">
+                    <button class="data-button" id="share-telegram-button">
+                        <div class="data-button-icon">
+                            <span class="material-icons">send</span>
+                        </div>
+                        <div class="data-button-content">
+                            <div class="data-button-title">Telegram</div>
+                            <div class="data-button-subtitle">Отправить ссылку в Telegram</div>
+                        </div>
+                    </button>
+                    
+                    <button class="data-button" id="share-whatsapp-button">
+                        <div class="data-button-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M19.3 8.8c0 .2-1.1 2.1-1.2 2.3-.3.5-.7.5-1.2.2-.3-.1-.7-.4-1-.6l-.8-.5c-2.3-1.3-3.6-2.6-4.5-5-.3-.7.7-1.1 1-1.5.2-.4.4-.8.6-1.2.2-.5 0-.8-.1-1.1L11 0c-.2-.5-.6-.5-1.1-.4-.9.3-1.9.9-2.5 1.7-1 1.2-.7 2.7-.2 4.1 1.3 3.1 3.3 5.7 6.2 7.7 1.4 1 3.1 1.8 4.8 2.3.8.2 2.1.4 2.9-.1.5-.3.9-.8 1.2-1.2.4-.7.6-1.5.7-2.1.1-.4-.7-1.3-1-1.7-.8-1.2-1.5-1.3-2.7-.8z"/>
+                            </svg>
+                        </div>
+                        <div class="data-button-content">
+                            <div class="data-button-title">WhatsApp</div>
+                            <div class="data-button-subtitle">Отправить ссылку в WhatsApp</div>
+                        </div>
+                    </button>
+                    
+                    <button class="data-button" id="share-vk-button">
+                        <div class="data-button-icon">
+                            <span class="material-icons">public</span>
+                        </div>
+                        <div class="data-button-content">
+                            <div class="data-button-title">ВКонтакте</div>
+                            <div class="data-button-subtitle">Поделиться ВКонтакте</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Звуковой файл для эффекта щелчка кнопки (встроенный через base64) -->
+    <audio id="click-sound" preload="auto">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjE5LjEwMgAAAAAAAAAAAAAA//tUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAAFAAAGSABVVVVVVVVVVVVVVVVVVVWqqqqqqqqqqqqqqqqqqqrV1dXV1dXV1dXV1dXV1dXV//////////////////////8AAAAATGF2YzU4LjI3AAAAAAAAAAAAAAAAJAZFAAAAAAAABkjWJyiEAAAAAAD/+9RkAA/wAABpAAAACAAADSAAAAEAAAGkAAAAIAAANIAAAARMQU1FMy45OSAoTGF2YyA1OC4yNykAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vUSAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTkuNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vUZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTkuNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vUZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuOTkgKExhdmMgNTguMjcpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="audio/mpeg">
+    </audio>
+    
+    <!-- Дополнительный звуковой файл с другим форматом (WebM) для совместимости -->
+    <audio id="click-sound-webm" preload="auto">
+        <source src="data:audio/webm;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKIbWF0cm9za2FCn4EBAIxdACAAAAAAAABTcm9sbAEAAAAebnVsbAIAAAHMbWVoZAAAAFttZGF0AAAAAAAAVqkAQwAAAAAAALCC6J6EkJ8AQwAGbWduZD8AAA==" type="audio/webm">
+    </audio>
+    
+    <!-- Резервный звук как простой wav файл (короткий и четкий click) -->
+    <audio id="click-sound-wav" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+    
+    <!-- Встроенный звук через Audio API в случае проблем с аудио элементами -->
+    <script>
+        // Создаем короткий и глухой звук через AudioContext для обхода проблем с воспроизведением
+        function createBeepSound() {
+            try {
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!window.beepContext) {
+                    window.beepContext = new AudioContext();
+                }
+                
+                console.log('[DEBUG] AudioContext создан:', window.beepContext.state);
+                
+                // Сохраняем ссылку на функцию для использования в playClickSound
+                window.playBeep = function() {
+                    try {
+                        // Создаем короткий глухой звуковой сигнал типа "щелчок"
+                        const oscillator = window.beepContext.createOscillator();
+                        const gainNode = window.beepContext.createGain();
+                        const lowPassFilter = window.beepContext.createBiquadFilter();
+                        
+                        // Настройка фильтра для получения более глухого звука
+                        lowPassFilter.type = 'lowpass';
+                        lowPassFilter.frequency.value = 400; // Снижаем частоту для более глухого звука
+                        
+                        // Соединяем узлы
+                        oscillator.connect(gainNode);
+                        gainNode.connect(lowPassFilter);
+                        lowPassFilter.connect(window.beepContext.destination);
+                        
+                        // Настройка звука щелчка
+                        oscillator.type = 'sine'; // Используем sine вместо square для более мягкого звука
+                        oscillator.frequency.value = 150; // Более низкая частота для глухого звука
+                        gainNode.gain.value = 0.3;
+                        
+                        // Нарастание и резкое затухание для эффекта глухого щелчка
+                        const currentTime = window.beepContext.currentTime;
+                        gainNode.gain.setValueAtTime(0, currentTime);
+                        gainNode.gain.linearRampToValueAtTime(0.3, currentTime + 0.005);
+                        gainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + 0.1);
+                        
+                        // Начало и окончание
+                        oscillator.start();
+                        oscillator.stop(currentTime + 0.1);
+                        
+                        console.log('[DEBUG] Глухой звук щелчка успешно воспроизведен');
+                    } catch (e) {
+                        console.error('[DEBUG] Ошибка воспроизведения звука щелчка:', e);
+                    }
+                };
+                
+                // В случае, если контекст в состоянии suspended (из-за политики браузера),
+                // добавляем обработчик для его активации при первом клике пользователя
+                if (window.beepContext.state === 'suspended') {
+                    console.log('[DEBUG] AudioContext в состоянии suspended, ожидаем действия пользователя');
+                    document.addEventListener('click', function resumeAudioContext() {
+                        window.beepContext.resume().then(() => {
+                            console.log('[DEBUG] AudioContext возобновлен после клика пользователя');
+                            // Сразу проигрываем пробный щелчок после активации
+                            setTimeout(window.playBeep, 10);
+                        });
+                        document.removeEventListener('click', resumeAudioContext);
+                    }, { once: true });
+                }
+            } catch (e) {
+                console.error('[DEBUG] Ошибка при инициализации AudioContext:', e);
+                window.playBeep = function() { 
+                    console.log('[DEBUG] Звук щелчка недоступен из-за ошибки в AudioContext');
+                };
+            }
+        }
+        
+        // Инициализируем звук при загрузке страницы
+        document.addEventListener('DOMContentLoaded', createBeepSound);
+    </script>
+    
+    <!-- Скрипт для отладки авторизации через Google -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Домен:', window.location.hostname);
+            console.log('Протокол:', window.location.protocol);
+            console.log('Origin:', window.location.origin);
+            console.log('GitHub Pages:', window.location.hostname.includes('github.io'));
+        });
+    </script>
+</body>
+</html> 
