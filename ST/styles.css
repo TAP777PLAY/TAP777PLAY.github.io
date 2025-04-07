@@ -1,0 +1,2366 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Добавляем поддержку безопасных отступов для iOS */
+@supports (padding: max(0px)) {
+    .app {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+
+    .fixed-header {
+        padding-top: max(16px, env(safe-area-inset-top));
+    }
+
+    .bottom-nav {
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Стили для полноэкранного режима */
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Приложение */
+.app {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Контент */
+.content {
+    padding: 0;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    display: none;
+    background-color: #000;
+    position: relative;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Показываем первую страницу по умолчанию */
+#main.content {
+    display: block;
+}
+
+/* Фиксированная верхняя часть */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    background: #000;
+    z-index: 10;
+    padding: 16px 16px 0 16px;
+}
+
+/* Заголовок */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.calendar-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-button .material-icons {
+    font-size: 24px;
+    color: #FFD700;
+}
+
+.header-title {
+    flex: 1;
+    font-size: 16px;
+    color: #0066FF;
+}
+
+.header .material-icons {
+    color: #666;
+}
+
+/* Модальное окно календаря */
+.calendar-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background: #000;
+    z-index: 1001;
+    display: none;
+}
+
+.calendar-modal.active {
+    display: block;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #1a1a1a;
+    gap: 16px;
+}
+
+.calendar-header .back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.calendar-header .back-button .material-icons {
+    font-size: 24px;
+}
+
+.calendar-title-container {
+    flex: 1;
+}
+
+.month-title {
+    color: #0066FF;
+    font-size: 16px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 16px;
+    gap: 8px;
+}
+
+.calendar-weekday {
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    color: #666;
+    text-transform: lowercase;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day.other-month {
+    color: #666;
+}
+
+.calendar-day.today {
+    color: #FFD700;
+    font-weight: 600;
+}
+
+.calendar-day.selected {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+/* Сводка */
+.summary-container {
+    position: static;
+    background: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.summary-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.summary-item {
+    background: #1a1a1a;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-item .label {
+    color: #666;
+    font-size: 14px;
+}
+
+.summary-item .amount {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.summary-item .amount.expense {
+    color: #ff4757;
+}
+
+.summary-item .amount.income {
+    color: #2ecc71;
+}
+
+.summary-item .amount.balance {
+    color: #fff;
+}
+
+/* Календарь */
+.calendar {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.calendar-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.calendar-nav button {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.calendar-nav button:hover {
+    background: #333;
+}
+
+.calendar-nav .material-icons {
+    font-size: 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-weekday {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 0;
+    text-transform: lowercase;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.calendar-day:hover {
+    background: #333;
+}
+
+.calendar-day.other-month {
+    color: #666;
+}
+
+.calendar-day.today {
+    background: #FFD700;
+    color: #000;
+}
+
+.calendar-day.selected {
+    background: #333;
+    color: #FFD700;
+}
+
+/* Выбор периода */
+.period-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.period-button {
+    background: #2C2C2E;
+    border: none;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.period-button.active {
+    background-color: #FFD60A;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 214, 10, 0.3);
+}
+
+/* Быстрые фильтры */
+.quick-filters {
+    display: flex;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #333;
+}
+
+.quick-filter {
+    background: #2a2a2a;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.quick-filter:hover {
+    background: #333;
+}
+
+.quick-filter.active {
+    background: #FFD700;
+    color: #000;
+}
+
+/* Прокручиваемая область с транзакциями */
+.transactions-container {
+    margin-top: 140px; /* Высота фиксированной части */
+    height: calc(100vh - 140px - 80px); /* Вычитаем высоту фиксированной части и нижней навигации */
+    overflow-y: auto;
+    padding: 0 16px;
+}
+
+/* Список транзакций */
+.transactions {
+    padding-bottom: 16px;
+}
+
+.transaction-group {
+    margin-bottom: 16px;
+}
+
+.transaction-date {
+    color: #8E8E93;
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding-left: 16px;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 8px;
+}
+
+.transaction-item {
+    position: relative;
+    background: #2C2C2E;
+    border-radius: 16px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transaction-item:active {
+    background: #2C2C2E;
+}
+
+.transaction-content {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.transaction-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 0 16px;
+}
+
+.transaction-item.expanded .transaction-details {
+    max-height: 500px;
+    opacity: 1;
+    padding: 16px;
+    border-top: 1px solid #3C3C3E;
+}
+
+.transaction-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.transaction-item.expanded .transaction-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.action-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    color: #8E8E93;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+.action-button .material-icons {
+    font-size: 18px;
+}
+
+.action-button.edit {
+    color: #32D74B;
+}
+
+.action-button.delete {
+    color: #FF453A;
+}
+
+.transaction-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.transaction-detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    color: #8E8E93;
+}
+
+.detail-value {
+    color: #FFFFFF;
+}
+
+.transaction-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: #2C2C2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #3C3C3E;
+}
+
+.transaction-icon .material-icons {
+    font-size: 20px;
+    color: #FFD60A;
+}
+
+.transaction-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-category {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.transaction-note {
+    color: #8E8E93;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-amount {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.transaction-item.expense .transaction-amount {
+    color: #FF453A;
+}
+
+.transaction-item.income .transaction-amount {
+    color: #32D74B;
+}
+
+/* Состояние без записей */
+.no-records {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #666;
+    text-align: center;
+}
+
+.no-records .material-icons {
+    font-size: 48px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+}
+
+.transactions:empty + .no-records {
+    display: flex;
+}
+
+/* Стили для нижней навигации */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1C1C1E;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    color: #888;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    color: #FFD60A;
+}
+
+.nav-item span:last-child {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Кнопка добавления */
+.add-button {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #FFD700;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 901;
+}
+
+/* Модальные окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background-color: #000;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.transaction-type-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background-color: #000;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.transaction-type-modal.active {
+    display: block;
+}
+
+.transaction-type-selector {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #000;
+    z-index: 1001;
+    border-bottom: 1px solid #333;
+}
+
+.type-button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    color: #888;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.type-button.active {
+    color: #FFD700;
+}
+
+.type-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFD700;
+}
+
+.categories-grid {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 76px 12px 12px 12px;
+    background-color: #000;
+    height: calc(100vh - 76px);
+    overflow-y: auto;
+}
+
+.categories-grid.active {
+    display: grid;
+    grid-auto-rows: min-content;
+    align-content: start;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    aspect-ratio: 1;
+}
+
+.category-item:hover {
+    background-color: #2a2a2a;
+}
+
+.category-item.selected {
+    background-color: #FFD700;
+}
+
+.category-item.selected .category-icon,
+.category-item.selected .category-name {
+    color: #000;
+}
+
+.category-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.category-icon .material-icons {
+    font-size: 18px;
+    color: #FFD700;
+}
+
+.category-name {
+    font-size: 11px;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.category-progress {
+    height: 3px;
+    background-color: currentColor;
+    border-radius: 1.5px;
+    opacity: 0.8;
+}
+
+.category-amount {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.category-percentage {
+    color: #666;
+    font-size: 12px;
+}
+
+.category-item.dragging {
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+.category-item.shake {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    75% {
+        transform: translateX(2px) rotate(1deg);
+    }
+}
+
+.category-item.drag-over {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.category-clone {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2000;
+    opacity: 0.8;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 4px;
+    width: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.category-clone .category-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.category-clone .category-name {
+    font-size: 12px;
+    color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Всплывающее мини-окно */
+.popup-form {
+    position: fixed;
+    bottom: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    background-color: #1a1a1a;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup-form.active {
+    bottom: 80px; /* Поднимаем выше нижней навигации */
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.popup-inputs {
+    flex: 1;
+}
+
+/* Обновляем стили формы для попапа */
+.popup-form .form-group {
+    margin-bottom: 8px;
+}
+
+.popup-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.popup-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+}
+
+.popup-form input:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+/* Кнопка сохранения */
+.popup-submit-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FFD700;
+    border: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: transform 0.2s ease;
+}
+
+.popup-submit-button:active {
+    transform: scale(0.95);
+}
+
+.popup-submit-button .material-icons {
+    font-size: 28px;
+}
+
+/* Подсветка активной категории */
+.category-item.selected {
+    background-color: #333;
+}
+
+.category-item.selected .category-icon {
+    background-color: #FFD700;
+}
+
+.category-item.selected .category-icon span {
+    color: #000;
+}
+
+/* Затемнение фона при открытом попапе */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+/* Адаптивные стили */
+@media (max-width: 390px) {
+    .modal {
+        left: 0;
+        transform: none;
+        max-width: 100%;
+    }
+    
+    .transaction-type-selector {
+        left: 0;
+        transform: none;
+        max-width: 100%;
+    }
+
+    .calendar-modal {
+        left: 0;
+        transform: none;
+    }
+
+    .calendar-grid {
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .calendar-day {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .calendar-weekday {
+        padding: 6px;
+        font-size: 11px;
+    }
+}
+
+/* Обновляем стили для корректного скролла */
+.modal-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    scroll-padding-top: 70px;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .bottom-nav {
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Стили для сворачиваемой формы переводов */
+.transfer-planner {
+    grid-column: 1 / -1;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    margin-top: 60px; /* Добавляем отступ сверху */
+}
+
+.transfer-planner.collapsed {
+    background-color: #1a1a1a;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 60px; /* Добавляем отступ сверху и для свернутого состояния */
+}
+
+.transfer-planner.collapsed .transfer-form {
+    display: none;
+}
+
+.transfer-planner.collapsed .compact-view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.transfer-planner .compact-view {
+    display: none;
+}
+
+.compact-view {
+    color: #888;
+    font-size: 16px;
+}
+
+.compact-view .material-icons {
+    color: #FFD700;
+}
+
+.transfer-form {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.collapse-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.collapse-button:hover {
+    color: #FFD700;
+}
+
+.collapse-button .material-icons {
+    font-size: 24px;
+}
+
+/* Обновляем отступы для формы с учетом кнопки */
+.bank-selector {
+    padding-top: 32px;
+}
+
+.bank-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bank-from, .bank-to {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bank-select {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+}
+
+.account-number {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.transfer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.amount-field, .schedule-field, .note-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.transfer-details input {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.save-transfer {
+    width: 100%;
+    padding: 16px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.save-transfer:active {
+    transform: scale(0.98);
+}
+
+/* Стили для списка переводов */
+.planned-transfers {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.planned-transfer-item {
+    background: #1E1E1E;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.planned-transfer-item .transfer-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.planned-transfer-item .transfer-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.planned-transfer-item .transfer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #333;
+}
+
+.planned-transfer-item .transfer-banks {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.planned-transfer-item .transfer-amount {
+    color: #FFD700;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.planned-transfer-item .transfer-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+.planned-transfer-item .schedule-info {
+    color: #808080;
+    font-size: 14px;
+}
+
+.planned-transfer-item .notification-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #FFD700;
+    font-size: 14px;
+}
+
+.planned-transfer-item .notification-time .material-icons {
+    font-size: 16px;
+}
+
+.planned-transfer-item .transfer-note {
+    color: #666666;
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 8px;
+    border-left: 2px solid #333;
+    margin-top: 4px;
+}
+
+.planned-transfer-item .transfer-actions {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.planned-transfer-item .action-button {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.planned-transfer-item .action-button:hover {
+    color: #FFD700;
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.planned-transfer-item .action-button.notification-toggle.active {
+    color: #FFD700;
+}
+
+.planned-transfer-item .action-button .material-icons {
+    font-size: 20px;
+}
+
+.planned-transfer-item .transfer-details {
+    margin-top: 16px;
+    display: none;
+    border-top: 1px solid #333;
+    padding-top: 16px;
+}
+
+.planned-transfer-item:not(.collapsed) .transfer-details {
+    display: block;
+}
+
+.planned-transfer-item .account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.planned-transfer-item .account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.planned-transfer-item .account-info .label {
+    color: #808080;
+    font-size: 12px;
+}
+
+.planned-transfer-item .account-info .value {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+/* Стили для кнопок действий при наведении */
+.planned-transfer-item .edit-button:hover {
+    color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.planned-transfer-item .delete-button:hover {
+    color: #FF5252;
+    background-color: rgba(255, 82, 82, 0.1);
+}
+
+/* Обновляем стили для существующих элементов */
+.categories-grid.transfer-categories {
+    padding-top: 16px;
+}
+
+.bank-select:focus,
+.account-number:focus,
+.transfer-details input:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+label {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Добавляем стили для меток полей */
+.bank-from label,
+.bank-to label,
+.amount-field label,
+.schedule-field label,
+.note-field label {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.time-picker-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.time-picker-content {
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 300px;
+}
+
+.time-picker-content h3 {
+    color: #FFFFFF;
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.time-input {
+    width: 100%;
+    background: #2C2C2C;
+    border: 1px solid #3C3C3C;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.time-picker-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.time-picker-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.cancel-time {
+    background: #3C3C3C;
+    color: #FFFFFF;
+}
+
+.confirm-time {
+    background: #FFD700;
+    color: #000000;
+}
+
+.cancel-time:hover {
+    background: #4C4C4C;
+}
+
+.confirm-time:hover {
+    background: #FFE44D;
+}
+
+.notification-time {
+    color: #808080;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.planned-transfer-item .transfer-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Стили для модального окна отчетов */
+.reports-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background-color: #000;
+    z-index: 1000;
+    display: none;
+}
+
+.reports-modal.active {
+    display: block;
+}
+
+.reports-header {
+    padding: 16px 16px 20px 16px; /* Увеличение отступа снизу */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1C1E;
+    border-bottom: 1px solid #2C2C2E;
+    border-radius: 0 0 20px 20px; /* Овальная форма снизу */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень для объемности */
+    margin-bottom: 10px; /* Добавляем отступ снизу от шапки */
+}
+
+/* Скрываем кнопку назад в отчетах */
+.reports-header .back-button {
+    display: none !important;
+}
+
+.reports-header .type-selector {
+    display: flex;
+    gap: 10px; /* Немного увеличиваем разрыв между кнопками */
+    position: relative; /* Для позиционирования эффекта свечения */
+}
+
+.reports-header .type-selector button {
+    padding: 10px 18px; /* Немного увеличиваем кнопки */
+    border: none;
+    border-radius: 20px; /* Еще более округлые кнопки */
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2C2C2E;
+    transition: all 0.3s ease; /* Плавная анимация всех свойств */
+}
+
+.reports-header .type-selector button.active {
+    background-color: #FFD60A;
+    color: #000;
+    transform: scale(1.05); /* Немного увеличиваем активную кнопку */
+    box-shadow: 0 0 10px rgba(255, 214, 10, 0.3); /* Добавляем свечение для активной кнопки */
+}
+
+.reports-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #000;
+    padding: 16px;
+}
+
+.chart-container {
+    position: relative;
+    width: 90%;
+    height: 250px;
+    margin: 15px auto;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.month-navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 15px 0;
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.month-navigation .nav-button {
+    background: #2C2C2E;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.month-navigation .nav-button:hover {
+    background-color: #3C3C3E;
+    transform: scale(1.1);
+}
+
+.month-navigation .date-display {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    min-width: 140px;
+    text-align: center;
+}
+
+.chart-total {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+}
+
+.category-list {
+    margin-bottom: 16px;
+    padding-bottom: 80px;
+    overflow-y: visible;
+}
+
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+.type-selector,
+.period-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Удаляем старые стили */
+.date-navigation,
+.chart-navigation {
+    display: none;
+}
+
+/* Стили для кнопок типа и периода */
+.expense-button,
+.income-button,
+.period-button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.expense-button.active,
+.income-button.active,
+.period-button.active {
+    background-color: #FFD60A;
+    color: #000;
+}
+
+#expenseChart {
+    width: 90% !important;
+    height: 90% !important;
+    display: block !important;
+    margin: 0 auto;
+    min-height: 250px !important;
+}
+
+/* Стили для отчетов */
+.reports-modal .reports-content {
+    padding: 16px;
+    height: calc(100% - 60px);
+    overflow-y: auto !important;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+    padding-bottom: 100px; /* Увеличиваю отступ снизу для лучшего скроллинга */
+}
+
+/* Отображаем период-селектор (возвращаем как было) */
+.reports-modal .period-selector {
+    display: flex;
+}
+
+/* Подстраиваем отступы с учетом возвращенного period-selector */
+.reports-modal .month-navigation {
+    margin-top: 15px;
+}
+
+/* Стили для страницы настроек */
+.settings-container {
+    height: 100%;
+    padding: 16px;
+    background-color: #000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 160px; /* Добавляем большой отступ снизу для видимости последнего элемента */
+}
+
+.settings-header {
+    margin-bottom: 24px;
+}
+
+.settings-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 100px; /* Добавляем отступ для последнего элемента */
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.settings-item:active {
+    background-color: #252525;
+}
+
+.settings-item-icon {
+    margin-right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-item-icon .material-icons {
+    font-size: 20px;
+    color: #FFD700;
+}
+
+.settings-item-content {
+    flex: 1;
+}
+
+.settings-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.settings-item-subtitle {
+    font-size: 14px;
+    color: #888;
+}
+
+.settings-item-arrow {
+    color: #666;
+}
+
+.settings-item-toggle {
+    display: flex;
+    align-items: center;
+}
+
+/* Стили для переключателя */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    transition: .4s;
+    border: 1px solid #666;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #666;
+    transition: .4s;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+input:checked + .slider {
+    background-color: #1a1a1a;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+    border: 1px solid #FFD700;
+}
+
+input:checked + .slider:before {
+    background-color: #FFD700;
+    transform: translateX(26px);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.9);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Модальные окна настроек */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    height: 100vh;
+    height: -webkit-fill-available;
+    background-color: #000;
+    z-index: 2000;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.settings-modal.active {
+    display: block;
+}
+
+.settings-modal-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #1a1a1a;
+    background-color: #000;
+}
+
+.settings-back-button {
+    background: none;
+    border: none;
+    color: #FFD700;
+    padding: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-back-button .material-icons {
+    font-size: 24px;
+}
+
+.settings-modal-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    flex: 1;
+}
+
+.settings-modal-content {
+    padding: 16px;
+    overflow-y: auto;
+    height: calc(100vh - 65px);
+    -webkit-overflow-scrolling: touch;
+    background-color: #000;
+}
+
+/* Общие стили для списков в модальных окнах настроек */
+.currency-list,
+.reminders-list,
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.currency-item,
+.language-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.currency-item:active,
+.language-item:active {
+    background-color: #252525;
+}
+
+.currency-item.active,
+.language-item.active {
+    background-color: #252525;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.currency-item-content,
+.language-item-content {
+    flex: 1;
+}
+
+.currency-item-code,
+.language-item-code {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.currency-item-name,
+.language-item-name {
+    font-size: 14px;
+    color: #888;
+}
+
+.currency-item-check,
+.language-item-check {
+    color: #FFD700;
+    display: none;
+}
+
+.currency-item.active .currency-item-check,
+.language-item.active .language-item-check {
+    display: flex;
+}
+
+/* Стили для форм в модальных окнах настроек */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Кнопки для модальных окон настроек */
+.settings-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: #FFD700;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-button:active {
+    transform: scale(0.98);
+    background-color: #E6C300;
+}
+
+.settings-button.outline {
+    background-color: transparent;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+}
+
+.settings-button.outline:active {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Стили для импорта/экспорта данных */
+.data-button {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.data-button:active {
+    background-color: #252525;
+}
+
+.data-button-icon {
+    margin-right: 16px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFD700;
+}
+
+.data-button-icon .material-icons {
+    font-size: 28px;
+}
+
+.data-button-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #FFD700;
+}
+
+#share-whatsapp-button .data-button-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+#share-whatsapp-button .data-button-icon svg path {
+    fill: #FFD700;
+}
+
+.data-button-content {
+    flex: 1;
+}
+
+.data-button-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.data-button-subtitle {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Стиль для сообщения об отсутствии напоминаний */
+.empty-reminders-message {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+/* Стили для формы */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #888;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #FFD700;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Стили для страницы профиля */
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.profile-avatar .material-icons {
+    font-size: 32px;
+    color: #666;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-text {
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+/* Стили для напоминаний */
+.reminders-toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.reminders-toggle-text {
+    font-size: 16px;
+    color: #fff;
+}
+
+.reminder-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.reminder-item.active {
+    background-color: #252525;
+    box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.5);
+}
+
+.reminder-item.disabled {
+    opacity: 0.7;
+    background-color: #181818;
+}
+
+.reminder-item-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.reminder-item-info {
+    flex: 1;
+}
+
+.reminder-item-title {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.reminder-item-time {
+    font-size: 14px;
+    color: #888;
+}
+
+.reminder-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reminder-edit-button, 
+.reminder-delete-button {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.reminder-edit-button:active, 
+.reminder-delete-button:active {
+    background-color: #252525;
+}
+
+.reminder-edit-button {
+    color: #4CAF50;
+}
+
+.reminder-edit-button:active {
+    color: #5DC364;
+}
+
+.reminder-delete-button {
+    color: #F44336;
+}
+
+.reminder-delete-button:active {
+    color: #FF5C50;
+}
+
+/* Стили для поделиться */
+.share-message {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.share-link-container {
+    margin-bottom: 24px;
+}
+
+.share-link {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    padding: 4px 4px 4px 12px;
+    margin-top: 8px;
+}
+
+.share-link input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.share-link input:focus {
+    outline: none;
+}
+
+.copy-link-button {
+    background: none;
+    border: none;
+    color: #FFD700;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.copy-link-button:active {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Добавляем медиа-запросы для мобильных устройств */
+@media screen and (max-width: 390px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding: 76px 8px 12px 8px;
+    }
+
+    .category-item {
+        padding: 6px;
+    }
+
+    .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .category-icon .material-icons {
+        font-size: 16px;
+    }
+
+    .category-name {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        padding: 76px 6px 12px 6px;
+    }
+
+    .category-item {
+        padding: 4px;
+    }
+
+    .category-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .category-icon .material-icons {
+        font-size: 14px;
+    }
+
+    .category-name {
+        font-size: 9px;
+    }
+} 
