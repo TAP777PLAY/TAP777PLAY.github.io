@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - SocialCasino</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="../index.html">SocialCasino</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../services/index.html">Servicios</a></li>
+                <li><a href="../about/index.html">Nosotros</a></li>
+                <li><a href="index.html" class="active">Contacto</a></li>
+                <li><a href="../blog/index.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Solicitar Consulta</h1>
+            <p>Nuestros expertos están listos para ayudarte</p>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="contact-details">
+            <div class="contact-item">
+                <h3>Información de Contacto</h3>
+                <p>Email: info@socialcasino.es</p>
+                <p>Teléfono: +34 123 456 789</p>
+                <p>Dirección: Calle Principal 123, Madrid, España</p>
+            </div>
+            <div class="contact-item">
+                <h3>Horario de Consultas</h3>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 10:00 - 14:00</p>
+                <p>Domingos: Cerrado</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Solicitud de Consulta</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="consultation-type">Tipo de Consulta</label>
+                    <select id="consultation-type" name="consultation-type" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="general">Información General</option>
+                        <option value="specific">Consulta Específica</option>
+                        <option value="documentation">Documentación</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preferred-date">Fecha Preferida</label>
+                    <input type="date" id="preferred-date" name="preferred-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="preferred-time">Hora Preferida</label>
+                    <input type="time" id="preferred-time" name="preferred-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Detalles de la Consulta</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Solicitar Consulta</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2>Nuestra Ubicación</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <p>Mapa de ubicación</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SocialCasino</h3>
+                <p>Tu centro de información y consultoría de confianza.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../services/index.html">Servicios</a></li>
+                    <li><a href="../about/index.html">Sobre Nosotros</a></li>
+                    <li><a href="index.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="../privacy/index.html">Política de Privacidad</a></li>
+                    <li><a href="../terms/index.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SocialCasino. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html> 
