@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Guide - SocialCasino</title>
+    <meta name="description" content="Learn about blackjack rules, strategies, and tips at SocialCasino">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 2rem;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/logo.jpeg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 300;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 1rem;
+            }
+
+            .game-frame {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .close-button {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        .game-guide {
+            padding: 80px 0;
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .game-guide h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .guide-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .guide-section h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-section ul, 
+        .guide-section ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .guide-section li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .guide-section strong {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .game-guide {
+                padding: 40px 0;
+            }
+
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Стили для гамбургер-меню */
+        #hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1000;
+        }
+
+        #hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 6px 0;
+            transition: 0.4s;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--primary-color);
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: block;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+            }
+
+            /* Анимация для гамбургера */
+            #hamburger.active .line:nth-child(1) {
+                transform: rotate(-45deg) translate(-7px, 6px);
+            }
+
+            #hamburger.active .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            #hamburger.active .line:nth-child(3) {
+                transform: rotate(45deg) translate(-7px, -6px);
+            }
+        }
+    </style>
+</head>
+<body class="blackjack">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../../index.html">SocialCasino</a>
+            </div>
+            <button id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Services</a></li>
+                <li><a href="../../about/index.html">About Us</a></li>
+                <li><a href="../../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Blackjack Guide</h1>
+                <p>Master the classic card game with our comprehensive guide</p>
+                <button class="cta-button" onclick="openGameModal()">Play Now</button>
+            </div>
+        </section>
+
+        <section class="game-guide">
+            <div class="container">
+                <h2>Basic Rules</h2>
+                <div class="guide-content">
+                    <div class="guide-section">
+                        <h3>Objective</h3>
+                        <p>The objective of blackjack is to get a hand value of 21 or as close to 21 as possible without going over.</p>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3>Card Values</h3>
+                        <ul>
+                            <li>Aces: Valued at 1 or 11 (the value that's most beneficial)</li>
+                            <li>Face cards (J, Q, K): Valued at 10 points</li>
+                            <li>Number cards: Valued at their face value (2-10)</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3>Game Development</h3>
+                        <ol>
+                            <li>You place your initial bet</li>
+                            <li>You receive two visible cards</li>
+                            <li>The dealer receives one visible and one hidden card</li>
+                            <li>You decide whether:</li>
+                            <ul>
+                                <li><strong>Hit:</strong> You receive an additional card</li>
+                                <li><strong>Stand:</strong> You keep your current cards</li>
+                            </ul>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3>Special Rules</h3>
+                        <ul>
+                            <li><strong>Natural Blackjack:</strong> If your first two cards sum up to 21 (A + 10), you win automatically 1.5 times your bet</li>
+                            <li><strong>Dealer's Rule:</strong> The dealer must hit on 16 or less and stand on 17 or more</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3>Basic Tips</h3>
+                        <ul>
+                            <li>Always hit if you have 11 or less</li>
+                            <li>Stand if you have 17 or more</li>
+                            <li>With 12-16, depend on the dealer's visible card</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Modal -->
+        <div class="modal" id="gameModal">
+            <button class="close-button" onclick="closeGameModal()">×</button>
+            <iframe src="../../games/blackjack/" class="game-frame" id="gameFrame"></iframe>
+        </div>
+    </main>
+
+    <script>
+        function openGameModal() {
+            document.getElementById('gameModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGameModal() {
+            document.getElementById('gameModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Reload iframe to reset game state
+            document.getElementById('gameFrame').src = document.getElementById('gameFrame').src;
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                closeGameModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGameModal();
+            }
+        });
+
+        // Добавляем функционал для гамбургер-меню
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике на ссылку
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

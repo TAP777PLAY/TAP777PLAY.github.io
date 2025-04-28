@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="800" viewBox="0 0 1920 800" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#0f1923"/>
+    
+    <!-- Grid Pattern -->
+    <defs>
+        <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="#D4AF37" stroke-width="0.5" opacity="0.05"/>
+        </pattern>
+    </defs>
+    
+    <!-- Apply Grid Pattern -->
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+    
+    <!-- Decorative Elements -->
+    <g opacity="0.1">
+        <!-- Large Circle -->
+        <circle cx="1720" cy="200" r="300" fill="none" stroke="#D4AF37" stroke-width="2"/>
+        
+        <!-- Small Circles -->
+        <circle cx="200" cy="600" r="150" fill="none" stroke="#D4AF37" stroke-width="2"/>
+        <circle cx="1500" cy="700" r="80" fill="none" stroke="#D4AF37" stroke-width="1"/>
+    </g>
+    
+    <!-- Abstract Lines -->
+    <g opacity="0.15" stroke="#D4AF37">
+        <!-- Horizontal Lines -->
+        <line x1="0" y1="200" x2="1920" y2="200" stroke-width="1"/>
+        <line x1="0" y1="600" x2="1920" y2="600" stroke-width="1"/>
+        
+        <!-- Diagonal Lines -->
+        <line x1="0" y1="0" x2="1920" y2="800" stroke-width="2"/>
+        <line x1="1920" y1="0" x2="0" y2="800" stroke-width="2"/>
+    </g>
+    
+    <!-- Casino Elements -->
+    <g opacity="0.08">
+        <!-- Dice -->
+        <rect x="300" y="300" width="60" height="60" rx="10" fill="#D4AF37"/>
+        <circle cx="320" cy="320" r="5" fill="#0f1923"/>
+        <circle cx="340" cy="340" r="5" fill="#0f1923"/>
+        
+        <!-- Cards -->
+        <rect x="1600" y="400" width="40" height="60" rx="5" fill="#D4AF37"/>
+        <rect x="1610" y="410" width="40" height="60" rx="5" fill="#D4AF37"/>
+    </g>
+    
+    <!-- Gradient Overlay -->
+    <rect width="100%" height="100%" fill="url(#overlay)">
+        <defs>
+            <linearGradient id="overlay" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#000000" stop-opacity="0.6"/>
+                <stop offset="1" stop-color="#000000" stop-opacity="0.2"/>
+            </linearGradient>
+        </defs>
+    </rect>
+</svg> 

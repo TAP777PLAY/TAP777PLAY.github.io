@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialCasino - Your Guide to Modern Casino Entertainment</title>
+    <meta name="description" content="Discover the world of modern casino entertainment with SocialCasino. Learn about games, strategies, and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">SocialCasino</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Welcome to SocialCasino</h1>
+                <p>Your premier destination for immersive social gaming experiences. Join our vibrant community of players and discover the thrill of casino entertainment in a social setting.</p>
+                <div class="cta-buttons">
+                    <a href="/services/" class="cta-button primary">Start Playing</a>
+                    <a href="/about/" class="cta-button secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose SocialCasino?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Immersive Gaming</h3>
+                    <p>Experience the excitement of casino games with stunning graphics and realistic gameplay that transports you to the heart of the action.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Social Features</h3>
+                    <p>Connect with friends, join tournaments, and share your achievements in our thriving social gaming community.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Expert Guides</h3>
+                    <p>Access comprehensive guides and strategies to enhance your gaming skills and maximize your enjoyment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="games">
+            <h2>Featured Games</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-icon">♠️</div>
+                    <h3>Poker</h3>
+                    <p>Master the art of poker with our interactive tables and challenging opponents. Perfect your strategy and climb the ranks.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Texas Hold'em</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Tournament Play</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Strategy Guides</span>
+                        </div>
+                    </div>
+                    <a href="/games/poker-test/" class="cta-button">Learn More</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">♣️</div>
+                    <h3>Blackjack</h3>
+                    <p>Test your skills against the dealer in our dynamic blackjack environment. Experience the classic casino favorite with a modern twist.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Basic Strategy</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Card Counting</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Tips & Tricks</span>
+                        </div>
+                    </div>
+                    <a href="/games/blackjack/" class="cta-button">Learn More</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">🎲</div>
+                    <h3>Roulette</h3>
+                    <p>Feel the excitement of the spinning wheel in our immersive roulette experience. Place your bets and watch the wheel decide your fate.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Multiple Bets</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Live Statistics</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Betting Systems</span>
+                        </div>
+                    </div>
+                    <a href="/games/roulette/" class="cta-button">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .games {
+                padding: 40px 20px;
+                background: #2a2a2a;
+                border: 2px solid #ffd700;
+                margin: 40px 0;
+            }
+
+            .game-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .game-card {
+                background: #1a1a1a;
+                border: 2px solid #ffd700;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                transition: transform 0.3s ease;
+            }
+
+            .game-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .game-icon {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            .game-card h3 {
+                color: #ffd700;
+                margin: 15px 0;
+                font-size: 24px;
+            }
+
+            .game-card p {
+                color: #fff;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            .game-features {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 0;
+                padding: 10px;
+                background: #2a2a2a;
+                border: 1px solid #ffd700;
+            }
+
+            .feature-icon {
+                font-size: 20px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 12px 30px;
+                background: #ffd700;
+                color: #000;
+                text-decoration: none;
+                font-weight: bold;
+                border: 2px solid #ffd700;
+                margin-top: 20px;
+                transition: all 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background: transparent;
+                color: #ffd700;
+            }
+
+            @media (max-width: 768px) {
+                .game-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .game-card {
+                    padding: 20px;
+                }
+            }
+        </style>
+
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial">
+                    <p>"SocialCasino guides helped me better understand the games and improve my strategies."</p>
+                    <cite>- Mary G.</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"The community is incredibly helpful and welcoming. I always find answers to my questions."</p>
+                    <cite>- Charles M.</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Regular updates keep me informed about the latest casino trends."</p>
+                    <cite>- Anna L.</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <h2>Latest News and Updates</h2>
+            <div class="blog-grid">
+                <article class="blog-card" data-article="1">
+                    <div class="blog-icon">📰</div>
+                    <div class="blog-content">
+                        <h3>New Casino Trends 2025</h3>
+                        <p>Discover the latest innovations and trends in the casino world for this year.</p>
+                        <div class="blog-meta">
+                            <span class="date">24 Mar 2025</span>
+                            <button class="read-more">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-article="2">
+                    <div class="blog-icon">🎰</div>
+                    <div class="blog-content">
+                        <h3>Complete Guide to Texas Hold'em Poker</h3>
+                        <p>Everything you need to know to start playing Texas Hold'em poker like a professional.</p>
+                        <div class="blog-meta">
+                            <span class="date">22 Mar 2025</span>
+                            <button class="read-more">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-article="3">
+                    <div class="blog-icon">🎲</div>
+                    <div class="blog-content">
+                        <h3>Advanced Roulette Strategies</h3>
+                        <p>Learn the best strategies and systems to improve your roulette game.</p>
+                        <div class="blog-meta">
+                            <span class="date">20 Mar 2025</span>
+                            <button class="read-more">Read More</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Join the Fun?</h2>
+            <p>Become part of our growing community and experience the best in social casino gaming. Start your journey today!</p>
+            <a href="/services/" class="cta-button primary">Explore Our Services</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SocialCasino</h3>
+                <p>Your reliable guide in the modern casino world</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/privacy/">Privacy</a></li>
+                    <li><a href="/terms/">Terms and Conditions</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@socialcasino.ca</p>
+                <p>Phone: +1 (416) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SocialCasino. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <p>We use cookies to improve your experience on our website. Do you accept our cookies?</p>
+        <div class="cookie-buttons">
+            <button class="reject-cookies" onclick="rejectCookies()">Reject</button>
+            <button class="accept-cookies" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- News Modal -->
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"></div>
+                <h3 class="modal-title"></h3>
+                <span class="modal-date"></span>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Cookie functions
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 365);
+            document.getElementById('cookiePopup').style.display = 'none';
+        }
+
+        function rejectCookies() {
+            setCookie('cookieConsent', 'rejected', 365);
+            document.getElementById('cookiePopup').style.display = 'none';
+        }
+
+        // Check if user has already made a choice
+        window.onload = function() {
+            const consent = getCookie('cookieConsent');
+            if (!consent) {
+                setTimeout(function() {
+                    document.getElementById('cookiePopup').classList.add('show');
+                }, 2000);
+            }
+        }
+
+        // News content
+        const newsContent = {
+            1: {
+                title: "New Casino Trends 2025",
+                icon: "📰",
+                date: "24 Mar 2025",
+                content: `
+                    <p>The casino world is experiencing significant transformation in 2025, with new trends redefining the gaming experience. Here are the most notable ones:</p>
+                    
+                    <h4>1. Virtual and Augmented Reality</h4>
+                    <p>Casinos are integrating VR and AR technologies to create unique immersive experiences. Players can now enjoy:</p>
+                    <ul>
+                        <li>Virtual gaming tables with live dealers</li>
+                        <li>Customizable 3D environments</li>
+                        <li>Enhanced social interactions with other players</li>
+                    </ul>
+
+                    <h4>2. Digital Payments and Cryptocurrencies</h4>
+                    <p>The adoption of new payment methods is on the rise:</p>
+                    <ul>
+                        <li>Increased acceptance of cryptocurrencies</li>
+                        <li>Contactless payment systems</li>
+                        <li>Integrated digital wallets</li>
+                    </ul>
+
+                    <h4>3. Advanced Gamification</h4>
+                    <p>Casinos are implementing video game elements to enhance the experience:</p>
+                    <ul>
+                        <li>Achievement and reward systems</li>
+                        <li>Interactive tournaments</li>
+                        <li>Daily missions and challenges</li>
+                    </ul>
+
+                    <p>These trends are fundamentally transforming the casino industry, creating more immersive and engaging experiences for modern players.</p>
+                `
+            },
+            2: {
+                title: "Complete Guide to Texas Hold'em Poker",
+                icon: "🎰",
+                date: "22 Mar 2025",
+                content: `
+                    <p>Texas Hold'em is the world's most popular poker game. This guide will help you master its fundamentals and advanced strategies.</p>
+
+                    <h4>Basic Rules</h4>
+                    <p>The objective is to win the pot by forming the best five-card hand using:</p>
+                    <ul>
+                        <li>Two private cards (hole cards)</li>
+                        <li>Five community cards</li>
+                    </ul>
+
+                    <h4>Game Phases</h4>
+                    <ol>
+                        <li>Pre-flop: Distribution of private cards</li>
+                        <li>Flop: First three community cards</li>
+                        <li>Turn: Fourth community card</li>
+                        <li>River: Fifth and final community card</li>
+                    </ol>
+
+                    <h4>Advanced Strategies</h4>
+                    <p>To improve your game, consider:</p>
+                    <ul>
+                        <li>Table position</li>
+                        <li>Opponent reading</li>
+                        <li>Bankroll management</li>
+                        <li>Probability calculations</li>
+                    </ul>
+
+                    <p>Remember that constant practice and studying situations are key to improving in Texas Hold'em.</p>
+                `
+            },
+            3: {
+                title: "Advanced Roulette Strategies",
+                icon: "🎲",
+                date: "20 Mar 2025",
+                content: `
+                    <p>Roulette is a classic casino game that combines luck with strategy. Here are advanced strategies to improve your odds.</p>
+
+                    <h4>Betting Systems</h4>
+                    <p>Learn about the most effective systems:</p>
+                    <ul>
+                        <li>Martingale: Doubling after losses</li>
+                        <li>D'Alembert: More conservative progression</li>
+                        <li>Fibonacci: Mathematical sequence</li>
+                    </ul>
+
+                    <h4>Bankroll Management</h4>
+                    <p>Important tips:</p>
+                    <ul>
+                        <li>Set clear limits</li>
+                        <li>Divide your bankroll into sessions</li>
+                        <li>Never chase losses</li>
+                    </ul>
+
+                    <h4>Types of Bets</h4>
+                    <p>Strategies for different bets:</p>
+                    <ul>
+                        <li>Outside bets: Lower risk</li>
+                        <li>Inside bets: Higher payout</li>
+                        <li>Strategic combinations</li>
+                    </ul>
+
+                    <p>Remember that no strategy guarantees winnings, but a good understanding of these systems can improve your gaming experience.</p>
+                `
+            }
+        };
+
+        // Funcionalidad del modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('newsModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            blogCards.forEach(card => {
+                const readMoreBtn = card.querySelector('.read-more');
+                readMoreBtn.addEventListener('click', () => {
+                    const articleId = card.dataset.article;
+                    const article = newsContent[articleId];
+                    
+                    modal.querySelector('.modal-icon').textContent = article.icon;
+                    modal.querySelector('.modal-title').textContent = article.title;
+                    modal.querySelector('.modal-date').textContent = article.date;
+                    modal.querySelector('.modal-body').innerHTML = article.content;
+                    
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

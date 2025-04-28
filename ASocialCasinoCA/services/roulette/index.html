@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Guide - SocialCasino</title>
+    <meta name="description" content="Learn about roulette rules, strategies, and tips at SocialCasino">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 2rem;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/logo.jpeg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 300;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 1rem;
+            }
+        }
+
+        .game-guide h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Hamburger menu styles */
+        #hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1000;
+        }
+
+        #hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 6px 0;
+            transition: 0.4s;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--primary-color);
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: block;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+            }
+
+            /* Анимация для гамбургера */
+            #hamburger.active .line:nth-child(1) {
+                transform: rotate(-45deg) translate(-7px, 6px);
+            }
+
+            #hamburger.active .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            #hamburger.active .line:nth-child(3) {
+                transform: rotate(45deg) translate(-7px, -6px);
+            }
+        }
+    </style>
+</head>
+<body class="roulette">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../../">SocialCasino</a>
+            </div>
+            <button id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Services</a></li>
+                <li><a href="../../about/index.html">About Us</a></li>
+                <li><a href="../../contact/index.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Roulette Guide</h1>
+                <p>Master the wheel of fortune with our comprehensive guide</p>
+                <button class="cta-button" onclick="openGameModal()">Play Now</button>
+            </div>
+        </section>
+
+        <section class="roulette-intro">
+            <h1>Master the Art of Roulette</h1>
+            <p>Discover the secrets of one of the most iconic casino games. Our comprehensive guide will help you understand the game mechanics, develop winning strategies, and maximize your enjoyment.</p>
+        </section>
+
+        <section class="game-rules">
+            <h2>Understanding Roulette</h2>
+            <p>Roulette is a classic casino game that combines chance with strategic betting. The game features a spinning wheel with numbered pockets and a small ball that determines the winning number.</p>
+            
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>Game Mechanics</h3>
+                    <p>The game begins with players placing their bets on the roulette table. The dealer spins the wheel in one direction and the ball in the opposite direction. When the ball comes to rest in a numbered pocket, that number is declared the winner.</p>
+                </div>
+                
+                <div class="rule-card">
+                    <h3>Table Layout</h3>
+                    <p>The roulette table features a grid of numbers from 0 to 36 (in European roulette) or 00 (in American roulette). Players can place bets on individual numbers, groups of numbers, or various combinations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="betting-strategies">
+            <h2>Advanced Betting Strategies</h2>
+            <p>While roulette is primarily a game of chance, understanding different betting strategies can help you manage your bankroll and potentially increase your chances of winning.</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>Martingale System</h3>
+                    <p>A progressive betting strategy where you double your bet after each loss. This system aims to recover previous losses with a single win.</p>
+                    <ul>
+                        <li>Start with a small base bet</li>
+                        <li>Double the bet after each loss</li>
+                        <li>Return to base bet after a win</li>
+                        <li>Best for even-money bets</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <h3>D'Alembert System</h3>
+                    <p>A more conservative approach that involves increasing your bet by one unit after a loss and decreasing it by one unit after a win.</p>
+                    <ul>
+                        <li>Start with a base unit</li>
+                        <li>Increase by one unit after loss</li>
+                        <li>Decrease by one unit after win</li>
+                        <li>Lower risk than Martingale</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <h3>Fibonacci System</h3>
+                    <p>Based on the Fibonacci sequence, this strategy involves moving one step forward in the sequence after a loss and two steps back after a win.</p>
+                    <ul>
+                        <li>Follow the Fibonacci sequence</li>
+                        <li>Progressive betting pattern</li>
+                        <li>More gradual progression</li>
+                        <li>Lower risk of large losses</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bankroll-management">
+            <h2>Smart Bankroll Management</h2>
+            <p>Effective bankroll management is crucial for long-term success in roulette. Here are some key principles to follow:</p>
+            
+            <div class="management-tips">
+                <div class="tip-card">
+                    <h3>Set Limits</h3>
+                    <p>Always establish clear win and loss limits before you start playing. Stick to these limits regardless of the outcome.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Bet Sizing</h3>
+                    <p>Keep your bets proportional to your bankroll. A good rule of thumb is to never bet more than 5% of your total bankroll on a single spin.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Session Management</h3>
+                    <p>Divide your bankroll into session amounts and never exceed your session limit. Take breaks between sessions to maintain focus.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-practices">
+            <h2>Best Practices for Roulette Players</h2>
+            <p>Follow these guidelines to enhance your roulette experience and improve your chances of success:</p>
+            
+            <ul class="practices-list">
+                <li>Choose European roulette over American roulette when possible (lower house edge)</li>
+                <li>Start with smaller bets to understand the game flow</li>
+                <li>Mix inside and outside bets for better risk management</li>
+                <li>Keep track of your wins and losses</li>
+                <li>Take advantage of casino bonuses and promotions</li>
+                <li>Practice with free games before playing with real money</li>
+            </ul>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Test Your Skills?</h2>
+            <p>Put your knowledge into practice with our interactive roulette game. Experience the thrill of the wheel while applying your new strategies.</p>
+            <a href="../../games/roulette/index.html" class="cta-button primary">Play Roulette Now</a>
+        </section>
+
+        <!-- Game Modal -->
+        <div class="modal" id="gameModal">
+            <button class="close-button" onclick="closeGameModal()">×</button>
+            <iframe src="../../games/roulette/index.html" class="game-frame" id="gameFrame"></iframe>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SocialCasino</h3>
+                <p>Your reliable guide in the modern casino world</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../../privacy/index.html">Privacy</a></li>
+                    <li><a href="../../terms/index.html">Terms and Conditions</a></li>
+                    <li><a href="../../contact/index.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@socialcasino.ca</p>
+                <p>Phone: +1 (416) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SocialCasino. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openGameModal() {
+            document.getElementById('gameModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGameModal() {
+            document.getElementById('gameModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Reload iframe to reset game state
+            document.getElementById('gameFrame').src = document.getElementById('gameFrame').src;
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                closeGameModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGameModal();
+            }
+        });
+
+        // Добавляем функционал для гамбургер-меню
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике на ссылку
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

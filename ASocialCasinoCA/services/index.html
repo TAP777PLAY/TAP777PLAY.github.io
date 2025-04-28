@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - SocialCasino</title>
+    <meta name="description" content="Discover our casino services and entertainment options">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">SocialCasino</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Discover the best casino entertainment experience</p>
+            </div>
+        </section>
+
+        <section class="services-intro">
+            <h1>Our Premium Gaming Services</h1>
+            <p>Discover a world of entertainment with our comprehensive suite of casino games and features. Whether you're a seasoned player or just starting out, we have something for everyone.</p>
+        </section>
+
+        <section class="games">
+            <h2>Featured Games</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-icon">♠️</div>
+                    <h3>Poker</h3>
+                    <p>Master the art of poker with our interactive tables and challenging opponents. Perfect your strategy and climb the ranks.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Texas Hold'em</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Tournament Play</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Strategy Guides</span>
+                        </div>
+                    </div>
+                    <a href="/services/poker/" class="cta-button">Learn More</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">♣️</div>
+                    <h3>Blackjack</h3>
+                    <p>Test your skills against the dealer in our dynamic blackjack environment. Experience the classic casino favorite with a modern twist.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Basic Strategy</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Card Counting</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Tips & Tricks</span>
+                        </div>
+                    </div>
+                    <a href="/services/blackjack/" class="cta-button">Learn More</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-icon">🎲</div>
+                    <h3>Roulette</h3>
+                    <p>Feel the excitement of the spinning wheel in our immersive roulette experience. Place your bets and watch the wheel decide your fate.</p>
+                    <div class="game-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span>Multiple Bets</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Live Statistics</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Betting Systems</span>
+                        </div>
+                    </div>
+                    <a href="/services/roulette/" class="cta-button">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .games {
+                padding: 40px 20px;
+                background: #2a2a2a;
+                border: 2px solid #ffd700;
+                margin: 40px 0;
+            }
+
+            .game-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .game-card {
+                background: #1a1a1a;
+                border: 2px solid #ffd700;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                transition: transform 0.3s ease;
+            }
+
+            .game-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .game-icon {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            .game-card h3 {
+                color: #ffd700;
+                margin: 15px 0;
+                font-size: 24px;
+            }
+
+            .game-card p {
+                color: #fff;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            .game-features {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 0;
+                padding: 10px;
+                background: #2a2a2a;
+                border: 1px solid #ffd700;
+            }
+
+            .feature-icon {
+                font-size: 20px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 12px 30px;
+                background: #ffd700;
+                color: #000;
+                text-decoration: none;
+                font-weight: bold;
+                border: 2px solid #ffd700;
+                margin-top: 20px;
+                transition: all 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background: transparent;
+                color: #ffd700;
+            }
+
+            @media (max-width: 768px) {
+                .game-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .game-card {
+                    padding: 20px;
+                }
+            }
+        </style>
+
+        <section class="news-updates">
+            <div class="section-container">
+                <h2>Latest News</h2>
+                <p class="section-description">Stay informed about the casino world:</p>
+                
+                <div class="news-grid">
+                    <div class="news-card">
+                        <div class="news-icon">📰</div>
+                        <h3>Latest Trends</h3>
+                        <ul class="news-features">
+                            <li>New games and variants</li>
+                            <li>Emerging technologies</li>
+                            <li>Industry trends</li>
+                        </ul>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-icon">🎰</div>
+                        <h3>Promotions</h3>
+                        <ul class="news-features">
+                            <li>New casinos</li>
+                            <li>Special offers</li>
+                            <li>Exclusive bonuses</li>
+                        </ul>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-icon">🏆</div>
+                        <h3>Events</h3>
+                        <ul class="news-features">
+                            <li>Important tournaments</li>
+                            <li>Special competitions</li>
+                            <li>Community events</li>
+                        </ul>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-icon">📋</div>
+                        <h3>Regulations</h3>
+                        <ul class="news-features">
+                            <li>Legal changes</li>
+                            <li>New regulations</li>
+                            <li>Important updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community">
+            <h2>Join Our Thriving Community</h2>
+            <p>Connect with fellow players, share strategies, and participate in exciting tournaments. Our community features include:</p>
+            <div class="community-features">
+                <div class="feature">
+                    <h3>Interactive Forums</h3>
+                    <p>Engage in discussions, share experiences, and learn from other players in our active community forums.</p>
+                </div>
+                <div class="feature">
+                    <h3>Live Tournaments</h3>
+                    <p>Participate in regular tournaments and compete for exciting prizes while testing your skills against other players.</p>
+                </div>
+                <div class="feature">
+                    <h3>Expert Support</h3>
+                    <p>Get help from our team of gaming experts and experienced players whenever you need assistance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Elevate Your Game?</h2>
+            <p>Join thousands of players who have improved their skills with our comprehensive guides and community support.</p>
+            <div class="cta-buttons">
+                <a href="/contact/" class="cta-button primary">Get Started</a>
+                <a href="/about/" class="cta-button secondary">Explore Community</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SocialCasino</h3>
+                <p>Your reliable guide in the modern casino world</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/services/poker/">Poker Games Guide</a></li>
+                    <li><a href="/services/blackjack/">Blackjack Games Guide</a></li>
+                    <li><a href="/services/roulette/">Roulette Games Guide</a></li>
+                    <li><a href="/privacy/">Privacy</a></li>
+                    <li><a href="/terms/">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@socialcasino.ca</p>
+                <p>Phone: +1 (416) 123-4567</p>
+                <div class="social-links">
+                    <a href="https://twitter.com/socialcasino" class="social-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://facebook.com/socialcasino" class="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://instagram.com/socialcasino" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SocialCasino. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

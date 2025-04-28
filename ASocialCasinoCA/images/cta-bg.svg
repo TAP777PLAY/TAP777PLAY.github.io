@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="600" viewBox="0 0 1920 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#1a1a1a"/>
+    
+    <!-- Pattern Definition -->
+    <defs>
+        <pattern id="cardPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M30 10L40 30L30 50L20 30L30 10Z" fill="none" stroke="#D4AF37" stroke-width="1" opacity="0.1"/>
+        </pattern>
+    </defs>
+    
+    <!-- Pattern Background -->
+    <rect width="100%" height="100%" fill="url(#cardPattern)"/>
+    
+    <!-- Decorative Lines -->
+    <g opacity="0.15">
+        <!-- Diagonal Lines -->
+        <line x1="0" y1="0" x2="1920" y2="600" stroke="#D4AF37" stroke-width="2"/>
+        <line x1="200" y1="0" x2="2120" y2="600" stroke="#D4AF37" stroke-width="2"/>
+        <line x1="-200" y1="0" x2="1720" y2="600" stroke="#D4AF37" stroke-width="2"/>
+        
+        <!-- Horizontal Lines -->
+        <line x1="0" y1="150" x2="1920" y2="150" stroke="#D4AF37" stroke-width="1"/>
+        <line x1="0" y1="450" x2="1920" y2="450" stroke="#D4AF37" stroke-width="1"/>
+    </g>
+    
+    <!-- Card Symbols -->
+    <g opacity="0.1">
+        <!-- Spade -->
+        <path d="M100 300C100 260 140 240 140 200C140 180 120 160 100 160C80 160 60 180 60 200C60 240 100 260 100 300Z" fill="#D4AF37"/>
+        
+        <!-- Heart -->
+        <path d="M1820 300C1820 260 1780 240 1780 280C1780 300 1800 320 1820 320C1840 320 1860 300 1860 280C1860 240 1820 260 1820 300Z" fill="#D4AF37"/>
+        
+        <!-- Diamond -->
+        <path d="M960 100L990 150L960 200L930 150L960 100Z" fill="#D4AF37"/>
+        
+        <!-- Club -->
+        <path d="M960 500C980 500 980 480 960 480C940 480 940 500 960 500ZM940 460C960 460 960 440 940 440C920 440 920 460 940 460ZM980 460C1000 460 1000 440 980 440C960 440 960 460 980 460Z" fill="#D4AF37"/>
+    </g>
+    
+    <!-- Gradient Overlay -->
+    <rect width="100%" height="100%" fill="url(#overlay)">
+        <defs>
+            <linearGradient id="overlay" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#000000" stop-opacity="0.7"/>
+                <stop offset="1" stop-color="#000000" stop-opacity="0.3"/>
+            </linearGradient>
+        </defs>
+    </rect>
+</svg> 
