@@ -1,0 +1,526 @@
+{
+  "header": {
+    "siteName": "Swiss Services",
+    "titleColor": "#2196f3",
+    "backgroundColor": "#b3cadb",
+    "linksColor": "#1976d2",
+    "siteBackgroundColor": "#f8f9fa",
+    "siteBackgroundType": "gradient",
+    "siteGradientColor1": "#e3f2fd",
+    "siteGradientColor2": "#369df2",
+    "siteGradientDirection": "to right",
+    "menuItems": [
+      {
+        "id": "about",
+        "text": "about",
+        "url": "#about"
+      },
+      {
+        "id": "services",
+        "text": "services",
+        "url": "#services"
+      },
+      {
+        "id": "advantages",
+        "text": "advantages",
+        "url": "#advantages"
+      },
+      {
+        "id": "news",
+        "text": "news",
+        "url": "#news"
+      },
+      {
+        "id": "faq",
+        "text": "faq",
+        "url": "#faq"
+      },
+      {
+        "id": "testimonials",
+        "text": "testimonials",
+        "url": "#testimonials"
+      }
+    ],
+    "contactLink": {
+      "show": true,
+      "text": "Свяжитесь с нами",
+      "url": "#contact",
+      "color": "#000000"
+    },
+    "logo": {
+      "show": true,
+      "url": "",
+      "alt": "Логотип компании"
+    },
+    "phone": {
+      "show": true,
+      "number": "+7 (XXX) XXX-XX-XX",
+      "color": "#000000"
+    },
+    "email": {
+      "show": true,
+      "address": "info@example.com",
+      "color": "#000000"
+    },
+    "socialLinks": {
+      "show": true,
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "linkedin": "#"
+    },
+    "search": {
+      "show": true,
+      "placeholder": "Поиск..."
+    },
+    "language": "fr",
+    "styles": {
+      "headerHeight": "80px",
+      "menuItemSpacing": "20px",
+      "menuItemHoverColor": "#1976d2",
+      "menuItemActiveColor": "#1565c0",
+      "menuItemFontSize": "16px",
+      "menuItemFontWeight": "500",
+      "menuItemTransition": "0.3s",
+      "logoWidth": "150px",
+      "logoHeight": "auto",
+      "contactButtonPadding": "8px 16px",
+      "contactButtonBorderRadius": "4px",
+      "contactButtonBackground": "#1976d2",
+      "contactButtonHoverBackground": "#1565c0",
+      "searchWidth": "200px",
+      "searchBorderRadius": "4px",
+      "searchBorderColor": "#e0e0e0",
+      "searchFocusBorderColor": "#1976d2",
+      "socialIconSize": "24px",
+      "socialIconColor": "#000000",
+      "socialIconHoverColor": "#1976d2",
+      "languageSelectorWidth": "100px",
+      "languageSelectorBorderRadius": "4px",
+      "languageSelectorBorderColor": "#e0e0e0",
+      "boxShadow": "0 2px 4px rgba(0,0,0,0.1)",
+      "zIndex": 1000,
+      "sticky": true,
+      "transparent": false,
+      "blurEffect": false,
+      "blurAmount": 5
+    },
+    "description": "Votre partenaire de confiance en Suisse pour tous vos besoins.",
+    "title": "Swiss Services",
+    "siteBackgroundImage": ""
+  },
+  "hero": {
+    "title": "Bienvenue sur Swiss Services",
+    "subtitle": "Votre partenaire de confiance en Suisse pour tous vos besoins.",
+    "backgroundType": "image",
+    "backgroundColor": "#ffffff",
+    "gradientColor1": "#ffffff",
+    "gradientColor2": "#f5f5f5",
+    "gradientDirection": "to right",
+    "backgroundImage": "assets/images/hero.jpg",
+    "titleColor": "#2196f3",
+    "subtitleColor": "#10ea34",
+    "animationType": "zoom",
+    "enableOverlay": true,
+    "overlayOpacity": 20,
+    "enableBlur": true,
+    "blurAmount": 1,
+    "buttonText": ""
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "À propos de nous",
+      "description": "Nous sommes une entreprise suisse dédiée à fournir des services de haute qualité.\nNotre équipe est composée de professionnels expérimentés qui s'engagent à satisfaire les besoins de nos clients.",
+      "cardType": "none",
+      "cards": [],
+      "titleColor": "#1a237e",
+      "descriptionColor": "#283593",
+      "imagePath": "assets/images/About.jpg"
+    },
+    {
+      "id": "services",
+      "title": "Nos Services",
+      "description": "Nous offrons une gamme complète de services adaptés à vos besoins spécifiques.\nDécouvrez nos solutions personnalisées pour chaque secteur d'activité.",
+      "cardType": "accent",
+      "backgroundType": "gradient",
+      "gradientColor1": "#e3f2fd",
+      "gradientColor2": "#bbdefb",
+      "gradientDirection": "to right",
+      "borderColor": "#90caf9",
+      "titleColor": "#0d47a1",
+      "descriptionColor": "#546e7a",
+      "cards": [
+        {
+          "id": "legal-consultation",
+          "title": "Consultation",
+          "content": "\nNous fournissons des conseils d'experts pour vous aider à prendre les meilleures décisions.\n",
+          "showTitle": true,
+          "titleColor": "#0d47a1",
+          "contentColor": "#e53d1f",
+          "backgroundType": "gradient",
+          "gradientColor1": "#a6bfb6",
+          "gradientColor2": "#c4dbee",
+          "gradientDirection": "to right",
+          "borderColor": "#c52b20"
+        },
+        {
+          "id": "court-representation",
+          "title": "Gestion de projet",
+          "content": "Nous fournissons des conseils d'experts pour vous aider à prendre les meilleures décisions.\n",
+          "showTitle": true,
+          "titleColor": "#0d47a1",
+          "contentColor": "#e53d1f",
+          "backgroundType": "gradient",
+          "gradientColor1": "#a6bfb6",
+          "gradientColor2": "#c4dbee",
+          "gradientDirection": "to right",
+          "borderColor": "#c52b20"
+        },
+        {
+          "id": "business-law",
+          "title": "Support technique",
+          "content": "Nous offrons un support technique réactif pour résoudre tous vos problèmes rapidement.\n",
+          "showTitle": true,
+          "titleColor": "#0d47a1",
+          "contentColor": "#e53d1f",
+          "backgroundType": "gradient",
+          "gradientColor1": "#a6bfb6",
+          "gradientColor2": "#c4dbee",
+          "gradientDirection": "to right",
+          "borderColor": "#c52b20"
+        },
+        {
+          "id": "real-estate-law",
+          "title": "Formation",
+          "content": "Des sessions de formation sur mesure pour améliorer les compétences de votre équipe.\n",
+          "showTitle": true,
+          "titleColor": "#0d47a1",
+          "contentColor": "#e53d1f",
+          "backgroundType": "gradient",
+          "gradientColor1": "#a6bfb6",
+          "gradientColor2": "#c4dbee",
+          "gradientDirection": "to right",
+          "borderColor": "#c52b20"
+        }
+      ]
+    },
+    {
+      "id": "advantages",
+      "title": "Nos Avantages",
+      "description": "Choisir Swiss Services, c'est opter pour l'excellence et la fiabilité.\nNos clients bénéficient d'un service personnalisé et d'une attention particulière à leurs besoins.",
+      "cardType": "none",
+      "backgroundType": "image",
+      "backgroundImage": "assets/images/advantages.jpg",
+      "backgroundColor": "transparent",
+      "titleColor": "#e3f2fd",
+      "descriptionColor": "#9cfb0e",
+      "enableOverlay": true,
+      "overlayOpacity": 0.7,
+      "blurAmount": 3,
+      "cards": [],
+      "enableBlur": true
+    },
+    {
+      "id": "news",
+      "title": "Actualités",
+      "description": "Restez informé des dernières nouvelles et mises à jour concernant nos services et l'industrie.\nDécouvrez comment nous innovons constamment pour mieux vous servir.",
+      "cardType": "elevated",
+      "backgroundType": "gradient",
+      "gradientColor1": "#f3e5f5",
+      "gradientColor2": "#e1bee7",
+      "gradientDirection": "to right",
+      "borderColor": "#d32f2f",
+      "titleColor": "#6a0495",
+      "descriptionColor": "#9c27b0",
+      "cards": [
+        {
+          "id": "news-1",
+          "title": "Lancement d'un nouveau service",
+          "content": "Nous sommes ravis d'annoncer le lancement de notre nouveau service de gestion de projet, conçu pour optimiser votre efficacité.\n",
+          "showTitle": true,
+          "titleColor": "#611cb5",
+          "contentColor": "#6a1b9a",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f3e5f5",
+          "gradientColor2": "#e1bee7",
+          "gradientDirection": "to right",
+          "borderColor": "#d32f2f"
+        },
+        {
+          "id": "news-2",
+          "title": "Partenariat stratégique",
+          "content": "Swiss Services a établi un partenariat avec une entreprise leader dans le domaine technologique pour offrir des solutions encore plus avancées.\n",
+          "showTitle": true,
+          "titleColor": "#611cb5",
+          "contentColor": "#6a1b9a",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f3e5f5",
+          "gradientColor2": "#e1bee7",
+          "gradientDirection": "to right",
+          "borderColor": "#d32f2f"
+        },
+        {
+          "id": "news-3",
+          "title": "Événement à venir",
+          "content": "Rejoignez-nous lors de notre prochain webinaire sur les tendances du marché suisse, prévu le mois prochain.\n",
+          "showTitle": true,
+          "titleColor": "#611cb5",
+          "contentColor": "#6a1b9a",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f3e5f5",
+          "gradientColor2": "#e1bee7",
+          "gradientDirection": "to right",
+          "borderColor": "#d32f2f"
+        },
+        {
+          "id": "news-4",
+          "title": "Témoignages clients",
+          "content": "Découvrez ce que nos clients disent de nous dans notre dernière série d'interviews.\n",
+          "showTitle": true,
+          "titleColor": "#611cb5",
+          "contentColor": "#6a1b9a",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f3e5f5",
+          "gradientColor2": "#e1bee7",
+          "gradientDirection": "to right",
+          "borderColor": "#d32f2f"
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "Questions Fréquemment Posées",
+      "description": "Trouvez des réponses aux questions les plus courantes concernant nos services et notre entreprise.\nSi vous avez d'autres questions, n'hésitez pas à nous contacter.",
+      "cardType": "elevated",
+      "backgroundType": "gradient",
+      "gradientColor1": "#f3e5f5",
+      "gradientColor2": "#e1bee7",
+      "gradientDirection": "to right",
+      "borderColor": "#2e7d32",
+      "titleColor": "#1b5e20",
+      "descriptionColor": "#388e3c",
+      "cards": [
+        {
+          "id": "faq-1",
+          "title": "Quels types de services offrez-vous ?",
+          "content": "Nous offrons une variété de services allant du conseil à la gestion de projet, en passant par le support technique et la formation.\n",
+          "showTitle": true,
+          "titleColor": "#e70da2",
+          "contentColor": "#2e7d32",
+          "backgroundType": "gradient",
+          "gradientColor1": "#cedfcf",
+          "gradientColor2": "#c8e6c9",
+          "gradientDirection": "to right",
+          "borderColor": "#2e7d32"
+        },
+        {
+          "id": "faq-2",
+          "title": "Comment puis-je vous contacter ?",
+          "content": "Vous pouvez nous contacter par téléphone ou par e-mail, les informations sont disponibles dans la section Contact.\n",
+          "showTitle": true,
+          "titleColor": "#e70da2",
+          "contentColor": "#2e7d32",
+          "backgroundType": "gradient",
+          "gradientColor1": "#cedfcf",
+          "gradientColor2": "#c8e6c9",
+          "gradientDirection": "to right",
+          "borderColor": "#2e7d32"
+        },
+        {
+          "id": "faq-3",
+          "title": "Avez-vous des bureaux en Suisse ?",
+          "content": "Oui, nous avons plusieurs bureaux situés dans différentes villes suisses pour mieux servir nos clients.\n",
+          "showTitle": true,
+          "titleColor": "#e70da2",
+          "contentColor": "#2e7d32",
+          "backgroundType": "gradient",
+          "gradientColor1": "#cedfcf",
+          "gradientColor2": "#c8e6c9",
+          "gradientDirection": "to right",
+          "borderColor": "#2e7d32"
+        },
+        {
+          "id": "faq-4",
+          "title": "Proposez-vous des services personnalisés ?",
+          "content": "Absolument ! Nous travaillons avec chaque client pour créer des solutions sur mesure qui répondent à leurs besoins spécifiques.\n",
+          "showTitle": true,
+          "titleColor": "#e70da2",
+          "contentColor": "#2e7d32",
+          "backgroundType": "gradient",
+          "gradientColor1": "#cedfcf",
+          "gradientColor2": "#c8e6c9",
+          "gradientDirection": "to right",
+          "borderColor": "#2e7d32"
+        }
+      ]
+    },
+    {
+      "id": "testimonials",
+      "title": "Témoignages",
+      "description": "Lisez ce que nos clients disent de leur expérience avec Swiss Services.\nVos retours sont précieux et nous aident à améliorer continuellement nos services.",
+      "cardType": "simple",
+      "backgroundType": "gradient",
+      "gradientColor1": "#f5f5f5",
+      "gradientColor2": "#e0e0e0",
+      "gradientDirection": "to right",
+      "borderColor": "#9e9e9e",
+      "titleColor": "#080303",
+      "descriptionColor": "#810e0e",
+      "cards": [
+        {
+          "id": "testimonial-1",
+          "title": "Marie Curie, avril 2025",
+          "content": "\"Swiss Services a transformé notre façon de travailler. Leur équipe est professionnelle et toujours disponible.\"\n",
+          "showTitle": true,
+          "titleColor": "#fb0909",
+          "contentColor": "#616161",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f5f5f5",
+          "gradientColor2": "#e0e0e0",
+          "gradientDirection": "to right",
+          "borderColor": "#9e9e9e"
+        },
+        {
+          "id": "testimonial-2",
+          "title": "Marie Curie, avril 2025",
+          "content": "\"Nous avons bénéficié d'un excellent soutien technique qui a résolu tous nos problèmes rapidement.\"\n",
+          "showTitle": true,
+          "titleColor": "#fb0909",
+          "contentColor": "#616161",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f5f5f5",
+          "gradientColor2": "#e0e0e0",
+          "gradientDirection": "to right",
+          "borderColor": "#9e9e9e"
+        },
+        {
+          "id": "testimonial-3",
+          "title": "Pierre Martin, avril 2025",
+          "content": "\"Leur service personnalisé a vraiment fait la différence pour notre entreprise.\"\n",
+          "showTitle": true,
+          "titleColor": "#fb0909",
+          "contentColor": "#616161",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f5f5f5",
+          "gradientColor2": "#e0e0e0",
+          "gradientDirection": "to right",
+          "borderColor": "#9e9e9e"
+        },
+        {
+          "id": "testimonial-4",
+          "title": "Sophie Laurent, avril 2025",
+          "content": "\"Je recommande vivement Swiss Services ! Ils sont fiables et très compétents.\"\n",
+          "showTitle": true,
+          "titleColor": "#fb0909",
+          "contentColor": "#616161",
+          "backgroundType": "gradient",
+          "gradientColor1": "#f5f5f5",
+          "gradientColor2": "#e0e0e0",
+          "gradientDirection": "to right",
+          "borderColor": "#9e9e9e"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "title": "contact",
+    "description": "Pour toute question ou demande d'information, n'hésitez pas à nous contacter.\nNotre équipe est là pour vous aider !",
+    "companyName": "Swiss Services",
+    "address": "Adresse : Rue du Mont-Blanc, Genève, Suisse, numéro : 21",
+    "phone": "+41 (0)22 567 89 43",
+    "email": "info@swissservices.com",
+    "mapCoordinates": {
+      "lat": 55.7558,
+      "lng": 37.6173
+    },
+    "titleColor": "#1a237e",
+    "descriptionColor": "#283593",
+    "companyInfoColor": "#0d47a1",
+    "formVariant": "outlined",
+    "infoVariant": "outlined",
+    "formBackgroundColor": "#ffffff",
+    "infoBackgroundColor": "#ffffff",
+    "formBorderColor": "#d32f2f",
+    "infoBorderColor": "#b71c1c",
+    "titleFont": "bold",
+    "textFont": "default",
+    "formBorderWidth": "5px",
+    "infoBorderWidth": "5px"
+  },
+  "footer": {
+    "backgroundColor": "#6c5fd3",
+    "textColor": "#ffffff",
+    "companyName": "Юридическая компания \"Право и Защита\"",
+    "phone": "+7 (495) 123-45-67",
+    "email": "info@pravo-zashita.ru",
+    "address": "г. Москва, ул. Якиманка, д. 12",
+    "showSocialLinks": false,
+    "socialLinks": {
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "linkedin": "#"
+    },
+    "copyrightYear": 2025,
+    "copyrightText": "Все права защищены",
+    "legalDocuments": {
+      "privacyPolicyTitle": "Политика конфиденциальности",
+      "termsOfServiceTitle": "Пользовательское соглашение",
+      "cookiePolicyTitle": "Политика использования cookie"
+    },
+    "menuItems": [
+      {
+        "id": "about",
+        "text": "about",
+        "url": "#about"
+      },
+      {
+        "id": "services",
+        "text": "services",
+        "url": "#services"
+      },
+      {
+        "id": "advantages",
+        "text": "advantages",
+        "url": "#advantages"
+      },
+      {
+        "id": "news",
+        "text": "news",
+        "url": "#news"
+      },
+      {
+        "id": "faq",
+        "text": "faq",
+        "url": "#faq"
+      },
+      {
+        "id": "testimonials",
+        "text": "testimonials",
+        "url": "#testimonials"
+      }
+    ],
+    "privacyPolicy": "Politique de Confidentialité\nChez Swiss Services, nous nous engageons à protéger votre vie privée. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles. Nous recueillons des données lorsque vous interagissez avec notre site, que ce soit en vous inscrivant, en passant une commande ou en nous contactant. Les informations collectées peuvent inclure votre nom, votre adresse e-mail et d'autres détails pertinents. Nous utilisons ces données pour améliorer nos services, traiter vos demandes et vous tenir informé de nos offres. Vos informations ne seront jamais vendues ou partagées avec des tiers sans votre consentement explicite. Vous avez le droit d'accéder à vos données et de demander leur suppression à tout moment. Pour toute question concernant cette politique, veuillez nous contacter à l'adresse suivante : info@swissservices.com.",
+    "termsOfService": "Conditions Générales d'Utilisation (CGU)\n1. Objet\nLes présentes conditions générales d'utilisation (CGU) régissent l'accès et l'utilisation du site web de Swiss Services. En accédant à ce site, vous acceptez de respecter ces conditions.\n\n2. Accès au site\nL'accès au site est gratuit pour tous les utilisateurs. Les frais d'accès et d'utilisation des télécommunications sont à la charge de l'utilisateur.\n\n3. Propriété intellectuelle\nTous les contenus présents sur le site (textes, images, logos, etc.) sont protégés par des droits d'auteur et appartiennent à Swiss Services ou à des tiers ayant autorisé Swiss Services à les utiliser. Toute reproduction ou représentation totale ou partielle de ce contenu est interdite sans autorisation préalable.\n\n4. Responsabilité\nSwiss Services s'efforce de fournir des informations précises et à jour sur son site. Cependant, nous ne pouvons garantir l'exactitude, la complétude ou l'actualité des informations fournies. En conséquence, Swiss Services ne pourra être tenu responsable des dommages directs ou indirects résultant de l'utilisation du site ou de l'impossibilité d'y accéder.\n\n5. Données personnelles\nConformément à la loi sur la protection des données, les informations personnelles collectées sur le site sont traitées avec la plus stricte confidentialité et ne seront pas transmises à des tiers sans votre consentement explicite. Vous avez le droit d'accéder à vos données et de demander leur suppression.\n\n6. Cookies\nLe site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez choisir d'accepter ou de refuser les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies peut affecter certaines fonctionnalités du site.\n\n7. Modification des CGU\nSwiss Services se réserve le droit de modifier les présentes conditions à tout moment. Les utilisateurs seront informés des modifications par une mise à jour sur le site.\n\n8. Droit applicable\nLes présentes conditions sont régies par le droit suisse. Tout litige relatif à l'utilisation du site sera soumis aux tribunaux compétents de Genève.\n\nInformations de contact\nNom de l'entreprise : Swiss Services\nAdresse : Rue du Mont-Blanc 21, Genève, Suisse\nTéléphone : +41 (0)22 567 89 43\nEmail : info@swissservices.com",
+    "cookiePolicy": "Politique d'Utilisation des Cookies\nLa présente politique explique comment Swiss Services utilise les cookies sur son site web. Les cookies sont de petits fichiers texte qui sont stockés sur votre appareil lorsque vous visitez notre site. Ils nous aident à améliorer votre expérience utilisateur en mémorisant vos préférences et en analysant le trafic du site. Nous utilisons des cookies pour personnaliser le contenu, fournir des fonctionnalités sociales et analyser notre trafic. Vous pouvez choisir d'accepter ou de refuser les cookies via les paramètres de votre navigateur. Notez que la désactivation des cookies peut affecter certaines fonctionnalités du site. En continuant à utiliser notre site, vous consentez à l'utilisation de cookies conformément à cette politique. Pour toute question concernant l'utilisation des cookies, veuillez nous contacter à l'adresse suivante : info@swissservices.com.",
+    "title": "О нас",
+    "description": "",
+    "contacts": "",
+    "copyright": "© 2024 Все права защищены"
+  },
+  "legalDocuments": {
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "content": ""
+    },
+    "termsOfService": {
+      "title": "Terms of Service",
+      "content": ""
+    },
+    "cookiePolicy": {
+      "title": "Cookie Policy",
+      "content": ""
+    }
+  }
+}
