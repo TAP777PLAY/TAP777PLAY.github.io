@@ -3,304 +3,771 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Простой тест мультиплеера</title>
+    <title>Кролик Панч - Мультиплеер Демо</title>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f0f0f0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .container {
-            background: white;
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
-            border-radius: 10px;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .status.online { background-color: #4CAF50; }
+        .status.offline { background-color: #f44336; }
+        .status.connecting { background-color: #ff9800; }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 20px;
         }
-        
-        button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+
+        .panel {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        button:hover {
-            background: #45a049;
+
+        .panel h2 {
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
         }
-        
-        .log {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+
+        .player-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .player-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
             padding: 15px;
-            border-radius: 5px;
-            max-height: 400px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s;
+        }
+
+        .player-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .player-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .player-info {
+            flex: 1;
+        }
+
+        .player-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .player-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .log {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 200px;
             overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 2px 0;
+        }
+
+        .log-entry.success { color: #4CAF50; }
+        .log-entry.error { color: #f44336; }
+        .log-entry.info { color: #2196F3; }
+
+        .game-room {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .room-id {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px;
             font-family: monospace;
             font-size: 14px;
         }
-        
-        .players {
-            background: #e8f5e8;
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
             padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
+            border-radius: 10px;
+            text-align: center;
         }
-        
-        .player {
-            background: white;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            border-left: 4px solid #4CAF50;
-        }
-        
-        .error {
-            color: red;
+
+        .stat-value {
+            font-size: 24px;
             font-weight: bold;
+            color: #4CAF50;
         }
-        
-        .success {
-            color: green;
-            font-weight: bold;
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 5px;
         }
-        
-        .info {
-            color: blue;
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🐰 Простой тест мультиплеера</h1>
-        <p>Статус: <span id="status">Загрузка...</span></p>
-        <p>Пользователь: <span id="user">Неизвестен</span></p>
-        
-        <div>
-            <button onclick="initVK()">1. Инициализировать VK</button>
-            <button onclick="testStorage()">2. Тест Storage</button>
-            <button onclick="joinRoom()">3. Войти в комнату</button>
-            <button onclick="showPlayers()">4. Показать игроков</button>
-            <button onclick="clearLog()">Очистить лог</button>
+        <div class="header">
+            <h1>🐰 Кролик Панч - Мультиплеер</h1>
+            <div id="connectionStatus" class="status connecting">Подключение...</div>
+            <div id="userInfo" class="status offline">Гость</div>
         </div>
-    </div>
 
-    <div class="container">
-        <h2>👥 Игроки в комнате</h2>
-        <div id="players" class="players">
-            Нет игроков
+        <div class="main-content">
+            <div class="panel">
+                <h2>👥 Игроки в комнате</h2>
+                <div id="playerList" class="player-list">
+                    <div style="text-align: center; opacity: 0.6; padding: 20px;">
+                        Загрузка игроков...
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div id="playersCount" class="stat-value">0</div>
+                        <div class="stat-label">Игроков онлайн</div>
+                    </div>
+                    <div class="stat-card">
+                        <div id="gamesCount" class="stat-value">0</div>
+                        <div class="stat-label">Активных игр</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>🎮 Управление</h2>
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="joinRoom()">Войти в комнату</button>
+                    <button class="btn btn-secondary" onclick="findOpponent()">Найти противника</button>
+                    <button class="btn btn-danger" onclick="leaveRoom()">Покинуть комнату</button>
+                </div>
+                
+                <div class="controls" style="margin-top: 15px;">
+                    <button class="btn btn-secondary" onclick="testVKStorage()" style="font-size: 12px; padding: 8px 16px;">Тест VK Storage</button>
+                    <button class="btn btn-secondary" onclick="forceSync()" style="font-size: 12px; padding: 8px 16px;">Синхронизация</button>
+                    <button class="btn btn-secondary" onclick="debugPlayers()" style="font-size: 12px; padding: 8px 16px;">Отладка игроков</button>
+                </div>
+                
+                <div class="game-room">
+                    <div>ID комнаты:</div>
+                    <div id="roomId" class="room-id">demo-room-001</div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <h2>📋 Лог</h2>
-        <div id="log" class="log"></div>
+        <div class="panel">
+            <h2>📋 Журнал событий</h2>
+            <div id="log" class="log"></div>
+        </div>
     </div>
 
     <script>
-        let vkBridge = null;
-        let user = null;
-        let roomId = 'test-room';
-        
-        // Функция логирования
-        function log(message, type = 'info') {
-            const logDiv = document.getElementById('log');
-            const time = new Date().toLocaleTimeString();
-            const entry = document.createElement('div');
-            entry.className = type;
-            entry.innerHTML = `[${time}] ${message}`;
-            logDiv.appendChild(entry);
-            logDiv.scrollTop = logDiv.scrollHeight;
-            console.log(`[${type}] ${message}`);
-        }
-        
-        // Обновление статуса
-        function updateStatus(status) {
-            document.getElementById('status').textContent = status;
-        }
-        
-        // Инициализация VK
-        async function initVK() {
-            try {
-                log('Начинаем инициализацию VK Bridge...', 'info');
-                updateStatus('Инициализация...');
+        class MultiplayerDemo {
+            constructor() {
+                this.vkBridge = null;
+                this.user = null;
+                this.roomId = 'demo-room-001';
+                this.players = new Map();
+                this.isInRoom = false;
+                this.updateInterval = null;
                 
-                if (typeof window.vkBridge === 'undefined') {
-                    log('❌ VK Bridge не найден!', 'error');
-                    updateStatus('VK Bridge недоступен');
+                this.init();
+            }
+
+            async init() {
+                try {
+                    this.log('Инициализация VK Bridge...', 'info');
+                    
+                    // Проверяем доступность VK Bridge
+                    if (typeof vkBridge !== 'undefined') {
+                        this.vkBridge = vkBridge;
+                        await this.vkBridge.send('VKWebAppInit');
+                        this.log('VK Bridge инициализирован', 'success');
+                    } else {
+                        this.log('VK Bridge недоступен, используем демо-режим', 'info');
+                        this.createMockUser();
+                    }
+                    
+                    await this.authenticate();
+                    this.updateConnectionStatus('online');
+                    
+                } catch (error) {
+                    this.log(`Ошибка инициализации: ${error.message}`, 'error');
+                    this.createMockUser();
+                }
+            }
+
+            async authenticate() {
+                try {
+                    if (this.vkBridge) {
+                        const userInfo = await this.vkBridge.send('VKWebAppGetUserInfo');
+                        this.user = {
+                            id: userInfo.id,
+                            name: `${userInfo.first_name} ${userInfo.last_name}`,
+                            avatar: userInfo.photo_100
+                        };
+                        this.log(`Авторизован: ${this.user.name}`, 'success');
+                    }
+                    
+                    this.updateUserInfo();
+                } catch (error) {
+                    this.log(`Ошибка авторизации: ${error.message}`, 'error');
+                    this.createMockUser();
+                }
+            }
+
+            createMockUser() {
+                const mockNames = ['Алексей', 'Мария', 'Дмитрий', 'Анна', 'Сергей', 'Елена'];
+                const randomName = mockNames[Math.floor(Math.random() * mockNames.length)];
+                
+                this.user = {
+                    id: Math.floor(Math.random() * 1000000),
+                    name: `${randomName} (Демо)`,
+                    avatar: null
+                };
+                
+                this.log(`Создан демо-пользователь: ${this.user.name}`, 'info');
+                this.updateUserInfo();
+            }
+
+            updateConnectionStatus(status) {
+                const statusEl = document.getElementById('connectionStatus');
+                statusEl.className = `status ${status}`;
+                
+                const statusText = {
+                    'online': 'Онлайн',
+                    'offline': 'Оффлайн',
+                    'connecting': 'Подключение...'
+                };
+                
+                statusEl.textContent = statusText[status] || status;
+            }
+
+            updateUserInfo() {
+                const userInfoEl = document.getElementById('userInfo');
+                if (this.user) {
+                    userInfoEl.className = 'status online';
+                    userInfoEl.textContent = this.user.name;
+                } else {
+                    userInfoEl.className = 'status offline';
+                    userInfoEl.textContent = 'Гость';
+                }
+            }
+
+            async joinRoom() {
+                try {
+                    this.log(`Вход в комнату: ${this.roomId}`, 'info');
+                    
+                    // Добавляем себя в комнату
+                    await this.addPlayerToRoom(this.user);
+                    this.isInRoom = true;
+                    
+                    // Запускаем обновление списка игроков
+                    this.startPlayerListUpdate();
+                    
+                    this.log('Успешно вошли в комнату', 'success');
+                    
+                } catch (error) {
+                    this.log(`Ошибка входа в комнату: ${error.message}`, 'error');
+                }
+            }
+
+            async leaveRoom() {
+                try {
+                    this.log('Выход из комнаты...', 'info');
+                    
+                    await this.removePlayerFromRoom(this.user.id);
+                    this.isInRoom = false;
+                    
+                    if (this.updateInterval) {
+                        clearInterval(this.updateInterval);
+                        this.updateInterval = null;
+                    }
+                    
+                    this.players.clear();
+                    this.updatePlayerList();
+                    
+                    this.log('Вышли из комнаты', 'success');
+                    
+                } catch (error) {
+                    this.log(`Ошибка выхода из комнаты: ${error.message}`, 'error');
+                }
+            }
+
+            async findOpponent() {
+                this.log('Поиск противника...', 'info');
+                
+                // Сначала обновляем список игроков
+                await this.updatePlayerList();
+                
+                this.log(`Проверка игроков: всего ${this.players.size}, кроме себя: ${this.players.size - 1}`, 'info');
+                
+                const availablePlayers = Array.from(this.players.values())
+                    .filter(player => {
+                        const isNotMe = player.id !== this.user.id;
+                        const isWaiting = player.status === 'waiting' || player.status === 'online';
+                        
+                        this.log(`Игрок ${player.name}: не я=${isNotMe}, доступен=${isWaiting}`, 'info');
+                        return isNotMe && isWaiting;
+                    });
+                
+                this.log(`Найдено доступных игроков: ${availablePlayers.length}`, 'info');
+                
+                if (availablePlayers.length > 0) {
+                    const opponent = availablePlayers[0];
+                    this.log(`Найден противник: ${opponent.name}`, 'success');
+                    
+                    // Здесь можно добавить логику начала игры
+                    this.startGame(opponent);
+                } else {
+                    this.log('Противники не найдены. Ожидание...', 'info');
+                    
+                    // Обновляем свой статус на "ожидание"
+                    await this.updatePlayerStatus('waiting');
+                }
+            }
+
+            async startGame(opponent) {
+                this.log(`Начинаем игру с ${opponent.name}`, 'success');
+                
+                // Обновляем статусы игроков
+                await this.updatePlayerStatus('playing');
+                
+                // Здесь можно добавить логику игры
+                setTimeout(() => {
+                    this.log('Игра завершена', 'info');
+                    this.updatePlayerStatus('online');
+                }, 5000);
+            }
+
+            async addPlayerToRoom(player) {
+                try {
+                    this.log(`Добавление игрока в комнату: ${player.name} (ID: ${player.id})`, 'info');
+                    
+                    const roomData = await this.getRoomData();
+                    
+                    roomData.players[player.id] = {
+                        ...player,
+                        status: 'online',
+                        joinTime: Date.now(),
+                        lastUpdate: Date.now()
+                    };
+                    
+                    this.log(`Игрок добавлен. Всего в комнате: ${Object.keys(roomData.players).length}`, 'info');
+                    
+                    await this.saveRoomData(roomData);
+                    
+                    // Немедленно обновляем локальный список
+                    this.players.set(player.id, roomData.players[player.id]);
+                    this.renderPlayerList();
+                    
+                } catch (error) {
+                    this.log(`Ошибка добавления игрока: ${error.message}`, 'error');
+                }
+            }
+
+            async removePlayerFromRoom(playerId) {
+                try {
+                    const roomData = await this.getRoomData();
+                    delete roomData.players[playerId];
+                    await this.saveRoomData(roomData);
+                    
+                } catch (error) {
+                    this.log(`Ошибка удаления игрока: ${error.message}`, 'error');
+                }
+            }
+
+            async updatePlayerStatus(status) {
+                try {
+                    const roomData = await this.getRoomData();
+                    
+                    if (roomData.players[this.user.id]) {
+                        roomData.players[this.user.id].status = status;
+                        roomData.players[this.user.id].lastUpdate = Date.now();
+                        await this.saveRoomData(roomData);
+                    }
+                    
+                } catch (error) {
+                    this.log(`Ошибка обновления статуса: ${error.message}`, 'error');
+                }
+            }
+
+            async getRoomData() {
+                try {
+                    if (this.vkBridge) {
+                        this.log('Запрос данных комнаты из VK Storage...', 'info');
+                        const result = await this.vkBridge.send('VKWebAppStorageGet', {
+                            keys: [`room_${this.roomId}`]
+                        });
+                        
+                        this.log(`VK Storage ответ: ${JSON.stringify(result)}`, 'info');
+                        
+                        const data = result.keys[0]?.value;
+                        const roomData = data ? JSON.parse(data) : { players: {}, games: {} };
+                        
+                        this.log(`Данные комнаты: ${Object.keys(roomData.players).length} игроков`, 'info');
+                        return roomData;
+                    } else {
+                        // Демо-режим с localStorage
+                        const data = localStorage.getItem(`room_${this.roomId}`);
+                        const roomData = data ? JSON.parse(data) : { players: {}, games: {} };
+                        this.log(`LocalStorage: ${Object.keys(roomData.players).length} игроков`, 'info');
+                        return roomData;
+                    }
+                } catch (error) {
+                    this.log(`Ошибка получения данных комнаты: ${error.message}`, 'error');
+                    return { players: {}, games: {} };
+                }
+            }
+
+            async saveRoomData(roomData) {
+                try {
+                    const dataString = JSON.stringify(roomData);
+                    
+                    if (this.vkBridge) {
+                        this.log(`Сохранение в VK Storage: ${Object.keys(roomData.players).length} игроков`, 'info');
+                        await this.vkBridge.send('VKWebAppStorageSet', {
+                            key: `room_${this.roomId}`,
+                            value: dataString
+                        });
+                        this.log('Данные успешно сохранены в VK Storage', 'success');
+                    } else {
+                        // Демо-режим с localStorage
+                        localStorage.setItem(`room_${this.roomId}`, dataString);
+                        this.log(`Данные сохранены в localStorage: ${Object.keys(roomData.players).length} игроков`, 'success');
+                    }
+                } catch (error) {
+                    this.log(`Ошибка сохранения данных комнаты: ${error.message}`, 'error');
+                    
+                    // Fallback на localStorage при ошибке VK Storage
+                    if (this.vkBridge) {
+                        this.log('Переключение на localStorage как fallback', 'info');
+                        localStorage.setItem(`room_${this.roomId}`, dataString);
+                    }
+                }
+            }
+
+            startPlayerListUpdate() {
+                if (this.updateInterval) {
+                    clearInterval(this.updateInterval);
+                }
+                
+                this.updateInterval = setInterval(() => {
+                    this.updatePlayerList();
+                }, 2000);
+                
+                // Первое обновление сразу
+                this.updatePlayerList();
+            }
+
+            async updatePlayerList() {
+                try {
+                    const roomData = await this.getRoomData();
+                    const currentTime = Date.now();
+                    
+                    // Очищаем старых игроков (неактивных более 30 секунд)
+                    const activeThreshold = 30000;
+                    Object.keys(roomData.players).forEach(playerId => {
+                        const player = roomData.players[playerId];
+                        if (currentTime - (player.lastUpdate || player.joinTime) > activeThreshold) {
+                            delete roomData.players[playerId];
+                        }
+                    });
+                    
+                    // Сохраняем очищенные данные
+                    await this.saveRoomData(roomData);
+                    
+                    // Обновляем локальный список игроков
+                    this.players.clear();
+                    Object.values(roomData.players).forEach(player => {
+                        this.players.set(player.id, player);
+                    });
+                    
+                    this.renderPlayerList();
+                    this.updateStats();
+                    
+                } catch (error) {
+                    this.log(`Ошибка обновления списка игроков: ${error.message}`, 'error');
+                }
+            }
+
+            renderPlayerList() {
+                const playerListEl = document.getElementById('playerList');
+                
+                if (this.players.size === 0) {
+                    playerListEl.innerHTML = `
+                        <div style="text-align: center; opacity: 0.6; padding: 20px;">
+                            Нет игроков в комнате
+                        </div>
+                    `;
                     return;
                 }
                 
-                vkBridge = window.vkBridge;
-                log('✅ VK Bridge найден', 'success');
+                const playersArray = Array.from(this.players.values())
+                    .sort((a, b) => b.joinTime - a.joinTime);
                 
-                // Инициализация
-                await vkBridge.send('VKWebAppInit');
-                log('✅ VK Bridge инициализирован', 'success');
+                playerListEl.innerHTML = playersArray.map(player => {
+                    const isCurrentUser = player.id === this.user?.id;
+                    const statusText = {
+                        'online': 'В сети',
+                        'waiting': 'Ищет игру',
+                        'playing': 'В игре'
+                    };
+                    
+                    const statusColor = {
+                        'online': '#4CAF50',
+                        'waiting': '#ff9800',
+                        'playing': '#2196F3'
+                    };
+                    
+                    return `
+                        <div class="player-card" style="${isCurrentUser ? 'border: 2px solid #4CAF50;' : ''}">
+                            <div class="player-avatar">
+                                ${player.name.charAt(0).toUpperCase()}
+                            </div>
+                            <div class="player-info">
+                                <div class="player-name">
+                                    ${player.name} ${isCurrentUser ? '(Вы)' : ''}
+                                </div>
+                                <div class="player-status" style="color: ${statusColor[player.status] || '#fff'}">
+                                    ${statusText[player.status] || player.status}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            updateStats() {
+                document.getElementById('playersCount').textContent = this.players.size;
                 
-                // Получение информации о пользователе
-                const userInfo = await vkBridge.send('VKWebAppGetUserInfo');
-                user = {
-                    id: userInfo.id,
-                    name: `${userInfo.first_name} ${userInfo.last_name}`
-                };
+                const playingCount = Array.from(this.players.values())
+                    .filter(player => player.status === 'playing').length;
+                document.getElementById('gamesCount').textContent = Math.floor(playingCount / 2);
+            }
+
+            log(message, type = 'info') {
+                const logEl = document.getElementById('log');
+                const timestamp = new Date().toLocaleTimeString();
+                const entry = document.createElement('div');
+                entry.className = `log-entry ${type}`;
+                entry.textContent = `[${timestamp}] ${message}`;
                 
-                log(`✅ Пользователь: ${user.name} (ID: ${user.id})`, 'success');
-                document.getElementById('user').textContent = user.name;
-                updateStatus('Готов');
+                logEl.appendChild(entry);
+                logEl.scrollTop = logEl.scrollHeight;
                 
-            } catch (error) {
-                log(`❌ Ошибка инициализации: ${error.message}`, 'error');
-                updateStatus('Ошибка');
+                // Ограничиваем количество записей
+                while (logEl.children.length > 50) {
+                    logEl.removeChild(logEl.firstChild);
+                }
+                
+                console.log(`[MultiplayerDemo] ${message}`);
             }
         }
-        
-        // Тест Storage
-        async function testStorage() {
-            if (!vkBridge) {
-                log('❌ Сначала инициализируйте VK!', 'error');
-                return;
-            }
+
+        // Глобальные функции для кнопок
+        let demo;
+
+        function joinRoom() {
+            demo.joinRoom();
+        }
+
+        function findOpponent() {
+            demo.findOpponent();
+        }
+
+        function leaveRoom() {
+            demo.leaveRoom();
+        }
+
+        // Функции для отладки
+        async function testVKStorage() {
+            if (!demo) return;
             
             try {
-                log('Тестируем VK Storage...', 'info');
+                demo.log('=== ТЕСТ VK STORAGE ===', 'info');
                 
                 // Тест записи
-                const testData = {
-                    test: 'hello',
-                    timestamp: Date.now(),
-                    user: user?.name || 'unknown'
-                };
-                
-                await vkBridge.send('VKWebAppStorageSet', {
+                const testData = { test: 'data', timestamp: Date.now() };
+                await demo.vkBridge.send('VKWebAppStorageSet', {
                     key: 'test_key',
                     value: JSON.stringify(testData)
                 });
-                log('✅ Запись в Storage: OK', 'success');
+                demo.log('✅ Запись в VK Storage: SUCCESS', 'success');
                 
                 // Тест чтения
-                const result = await vkBridge.send('VKWebAppStorageGet', {
+                const result = await demo.vkBridge.send('VKWebAppStorageGet', {
                     keys: ['test_key']
                 });
+                demo.log(`✅ Чтение из VK Storage: ${JSON.stringify(result)}`, 'success');
                 
-                log(`✅ Чтение из Storage: ${JSON.stringify(result)}`, 'success');
+                // Тест комнаты
+                const roomData = await demo.getRoomData();
+                demo.log(`✅ Данные комнаты: ${JSON.stringify(roomData)}`, 'success');
                 
-                if (result.keys && result.keys[0] && result.keys[0].value) {
-                    const data = JSON.parse(result.keys[0].value);
-                    log(`✅ Данные корректны: ${data.test}`, 'success');
-                } else {
-                    log('❌ Данные не найдены!', 'error');
-                }
+                demo.log('=== ТЕСТ ЗАВЕРШЕН ===', 'info');
                 
             } catch (error) {
-                log(`❌ Ошибка Storage: ${error.message}`, 'error');
+                demo.log(`❌ Ошибка VK Storage: ${error.message}`, 'error');
             }
         }
-        
-        // Вход в комнату
-        async function joinRoom() {
-            if (!vkBridge || !user) {
-                log('❌ Сначала инициализируйте VK!', 'error');
-                return;
-            }
+
+        async function forceSync() {
+            if (!demo) return;
             
-            try {
-                log(`Вход в комнату: ${roomId}`, 'info');
-                
-                // Получаем текущие данные комнаты
-                const result = await vkBridge.send('VKWebAppStorageGet', {
-                    keys: [`room_${roomId}`]
-                });
-                
-                let roomData = { players: {} };
-                if (result.keys && result.keys[0] && result.keys[0].value) {
-                    roomData = JSON.parse(result.keys[0].value);
-                }
-                
-                // Добавляем себя
-                roomData.players[user.id] = {
-                    id: user.id,
-                    name: user.name,
-                    joinTime: Date.now(),
-                    status: 'online'
-                };
-                
-                // Сохраняем
-                await vkBridge.send('VKWebAppStorageSet', {
-                    key: `room_${roomId}`,
-                    value: JSON.stringify(roomData)
-                });
-                
-                log(`✅ Вошли в комнату! Игроков: ${Object.keys(roomData.players).length}`, 'success');
-                showPlayers();
-                
-            } catch (error) {
-                log(`❌ Ошибка входа в комнату: ${error.message}`, 'error');
-            }
+            demo.log('=== ПРИНУДИТЕЛЬНАЯ СИНХРОНИЗАЦИЯ ===', 'info');
+            await demo.updatePlayerList();
+            demo.log('Синхронизация завершена', 'success');
         }
-        
-        // Показать игроков
-        async function showPlayers() {
-            if (!vkBridge) {
-                log('❌ Сначала инициализируйте VK!', 'error');
-                return;
-            }
+
+        async function debugPlayers() {
+            if (!demo) return;
             
-            try {
-                log('Получаем список игроков...', 'info');
-                
-                const result = await vkBridge.send('VKWebAppStorageGet', {
-                    keys: [`room_${roomId}`]
-                });
-                
-                const playersDiv = document.getElementById('players');
-                
-                if (!result.keys || !result.keys[0] || !result.keys[0].value) {
-                    playersDiv.innerHTML = 'Комната пуста';
-                    log('Комната пуста', 'info');
-                    return;
-                }
-                
-                const roomData = JSON.parse(result.keys[0].value);
-                const players = Object.values(roomData.players);
-                
-                log(`Найдено игроков: ${players.length}`, 'info');
-                
-                playersDiv.innerHTML = players.map(player => `
-                    <div class="player">
-                        <strong>${player.name}</strong> (ID: ${player.id})
-                        <br>Статус: ${player.status}
-                        <br>Время входа: ${new Date(player.joinTime).toLocaleTimeString()}
-                    </div>
-                `).join('');
-                
-                players.forEach(player => {
-                    log(`👤 ${player.name} - ${player.status}`, 'info');
-                });
-                
-            } catch (error) {
-                log(`❌ Ошибка получения игроков: ${error.message}`, 'error');
-            }
+            demo.log('=== ОТЛАДКА ИГРОКОВ ===', 'info');
+            demo.log(`Локальных игроков: ${demo.players.size}`, 'info');
+            
+            demo.players.forEach((player, id) => {
+                demo.log(`- ${player.name} (ID: ${id}, статус: ${player.status})`, 'info');
+            });
+            
+            const roomData = await demo.getRoomData();
+            demo.log(`В хранилище игроков: ${Object.keys(roomData.players).length}`, 'info');
+            
+            Object.values(roomData.players).forEach(player => {
+                demo.log(`- ${player.name} (ID: ${player.id}, статус: ${player.status})`, 'info');
+            });
         }
-        
-        // Очистка лога
-        function clearLog() {
-            document.getElementById('log').innerHTML = '';
-        }
-        
-        // Автоматическое обновление игроков
-        setInterval(showPlayers, 5000);
-        
-        // Инициализация при загрузке
+
+        // Инициализация при загрузке страницы
         window.addEventListener('load', () => {
-            log('Страница загружена. Нажмите "1. Инициализировать VK"', 'info');
+            demo = new MultiplayerDemo();
+        });
+
+        // Очистка при закрытии страницы
+        window.addEventListener('beforeunload', () => {
+            if (demo && demo.isInRoom) {
+                demo.leaveRoom();
+            }
         });
     </script>
 </body>
