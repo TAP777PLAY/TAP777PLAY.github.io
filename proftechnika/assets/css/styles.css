@@ -222,9 +222,8 @@
         animation-name: moveText;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
-        animation-duration: 10s;
+        animation-duration: 15s;
         white-space: nowrap;
-        padding-left: 100%;
         font-size: 20px;
         font-weight: bold;
         font-family: system-ui, -apple-system, sans-serif;
@@ -245,7 +244,7 @@
 
       @keyframes moveText {
         0% {
-          transform: translateX(0);
+          transform: translateX(100%);
         }
         100% {
           transform: translateX(-100%);
