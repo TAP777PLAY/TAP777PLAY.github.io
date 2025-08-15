@@ -1164,3 +1164,200 @@ textarea:focus {
     transform: scale(1.01);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* Business Support Section Styles */
+.business-support {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.business-support .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.business-support .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.business-support .section-header p {
+    font-size: 1.2rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.business-support-image-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.business-support-main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.business-support-main-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+.business-support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.business-support-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.business-support-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.business-support-card:hover::before {
+    transform: scaleX(1);
+}
+
+.business-support-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    border-color: #3b82f6;
+}
+
+.business-support-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.business-support-card .card-header i {
+    font-size: 2rem;
+    color: #3b82f6;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    padding: 15px;
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.business-support-card .card-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.business-support-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.business-support-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.business-support-card ul li {
+    padding: 8px 0;
+    color: #475569;
+    position: relative;
+    padding-left: 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.business-support-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: #10b981;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for business support */
+@media (max-width: 768px) {
+    .business-support {
+        padding: 60px 0;
+    }
+    
+    .business-support .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .business-support .section-header p {
+        font-size: 1.1rem;
+    }
+    
+    .business-support-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .business-support-card {
+        padding: 25px;
+    }
+    
+    .business-support-card .card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .business-support-card .card-header i {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .business-support .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .business-support-card {
+        padding: 20px;
+    }
+    
+    .business-support-card .card-header h3 {
+        font-size: 1.2rem;
+    }
+}
