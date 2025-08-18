@@ -1,0 +1,12 @@
+ALL VIDEOS EXPORTED
+===================
+
+The following videos were found and exported:
+
+- hero.mp4 (7987453 bytes)
+
+All videos were automatically added to:
+- assets/videos/ folder
+- assets/ folder (root)
+
+Exported at: 2025-08-18T21:20:40.894Z
