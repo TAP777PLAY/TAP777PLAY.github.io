@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - ConnectEase</title>
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease-in-out infinite;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.25), transparent);
+            background-repeat: repeat;
+            background-size: 300px 200px;
+            animation: particles 25s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes particles {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-200px); }
+        }
+
+        .legal-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #4ecdc4;
+            position: relative;
+        }
+
+        .legal-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            border-radius: 2px;
+        }
+
+        .legal-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .legal-subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .legal-content {
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .legal-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #34495e;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #4ecdc4;
+            position: relative;
+        }
+
+        .legal-content h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 2rem 0 1rem 0;
+            padding-left: 0.5rem;
+            border-left: 3px solid #45b7d1;
+        }
+
+        .legal-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.1));
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '📋';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .legal-container {
+                margin: 1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .legal-title {
+                font-size: 2.2rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .legal-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .legal-content p, .legal-content li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .legal-container {
+                margin: 0.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .legal-title {
+                font-size: 1.8rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .legal-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1 class="legal-title">Terms of Service</h1>
+            <p class="legal-subtitle">ConnectEase - Service Agreement</p>
+        </div>
+
+        <div class="legal-content">
+            <div class="highlight-box">
+                <p><strong>Last Updated:</strong> October 14, 2025</p>
+                <p>These Terms of Service govern your use of ConnectEase telecommunications services in the United Arab Emirates.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using ConnectEase services, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+
+            <h2>2. Service Description</h2>
+            <p>ConnectEase provides telecommunications services including:</p>
+            <ul>
+                <li>Home internet connectivity solutions</li>
+                <li>Mobile phone services and data plans</li>
+                <li>Business telecommunications solutions</li>
+                <li>Technical support and customer service</li>
+            </ul>
+
+            <h2>3. User Responsibilities</h2>
+            <p>Users are responsible for:</p>
+            <ul>
+                <li>Providing accurate and complete information</li>
+                <li>Maintaining the security of their account credentials</li>
+                <li>Using services in compliance with applicable laws</li>
+                <li>Paying all fees and charges on time</li>
+            </ul>
+
+            <h2>4. Service Availability</h2>
+            <p>While we strive to provide reliable service, we cannot guarantee uninterrupted service availability due to factors beyond our control.</p>
+
+            <h2>5. Billing and Payments</h2>
+            <p>Service fees are billed monthly in advance. Payment is due within 15 days of invoice date. Late payments may result in service suspension.</p>
+
+            <h2>6. Service Modifications</h2>
+            <p>We reserve the right to modify, suspend, or discontinue services with reasonable notice to customers.</p>
+
+            <h2>7. Prohibited Uses</h2>
+            <p>You may not use our services for:</p>
+            <ul>
+                <li>Illegal activities or violations of UAE law</li>
+                <li>Spam, harassment, or abusive communications</li>
+                <li>Unauthorized access to systems or networks</li>
+                <li>Distribution of malicious software</li>
+            </ul>
+
+            <h2>8. Intellectual Property</h2>
+            <p>All content, trademarks, and intellectual property rights remain the property of ConnectEase or our licensors.</p>
+
+            <h2>9. Limitation of Liability</h2>
+            <p>ConnectEase's liability is limited to the amount paid for services in the 12 months preceding the claim.</p>
+
+            <h2>10. Termination</h2>
+            <p>Either party may terminate service with 30 days written notice. Immediate termination may occur for violations of these terms.</p>
+
+            <h2>11. Governing Law</h2>
+            <p>These terms are governed by the laws of the United Arab Emirates and subject to UAE jurisdiction.</p>
+
+            <h2>12. Changes to Terms</h2>
+            <p>We may update these terms from time to time. Continued use of services constitutes acceptance of updated terms.</p>
+
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>For questions about these Terms of Service:</p>
+                <p>Email: director@connectease.com</p>
+                <p>Phone: +971 4 444 2556</p>
+                <p>Address: Sheikh Zayed Road, Business Bay, P.O. Box 45890, Dubai, UAE</p>
+            </div>
+
+            <div class="last-updated">
+                <p>These Terms of Service were last updated on October 14, 2025</p>
+            </div>
+
+            <a href="index.html" class="back-button">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
