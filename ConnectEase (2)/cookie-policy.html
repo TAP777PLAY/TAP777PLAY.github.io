@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - ConnectEase</title>
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease-in-out infinite;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.25), transparent);
+            background-repeat: repeat;
+            background-size: 300px 200px;
+            animation: particles 25s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes particles {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-200px); }
+        }
+
+        .legal-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #4ecdc4;
+            position: relative;
+        }
+
+        .legal-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            border-radius: 2px;
+        }
+
+        .legal-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .legal-subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .legal-content {
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .legal-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #34495e;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #4ecdc4;
+            position: relative;
+        }
+
+        .legal-content h3 {
+            font-size: 1.5rem;
+                  font-weight: 500;
+            color: #2c3e50;
+            margin: 2rem 0 1rem 0;
+            padding-left: 0.5rem;
+            border-left: 3px solid #45b7d1;
+        }
+
+        .legal-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.1));
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '🍪';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-table th {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .cookie-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .cookie-table tr:hover {
+            background: rgba(78, 205, 196, 0.05);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+        }
+
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .legal-container {
+                margin: 1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .legal-title {
+                font-size: 2.2rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .legal-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .legal-content p, .legal-content li {
+                font-size: 1rem;
+            }
+
+            .cookie-table {
+                font-size: 0.9rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .legal-container {
+                margin: 0.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .legal-title {
+                font-size: 1.8rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .legal-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .cookie-table {
+                font-size: 0.8rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1 class="legal-title">Cookie Policy</h1>
+            <p class="legal-subtitle">ConnectEase - Cookie Usage Information</p>
+        </div>
+
+        <div class="legal-content">
+            <div class="highlight-box">
+                <p><strong>Last Updated:</strong> October 14, 2025</p>
+                <p>This Cookie Policy explains how ConnectEase uses cookies and similar technologies on our website and services.</p>
+            </div>
+
+            <h2>1. What Are Cookies</h2>
+            <p>Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our services.</p>
+
+            <h2>2. Types of Cookies We Use</h2>
+            
+            <h3>Essential Cookies</h3>
+            <p>These cookies are necessary for the website to function properly and cannot be disabled.</p>
+
+            <h3>Analytics Cookies</h3>
+            <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+            <h3>Functional Cookies</h3>
+            <p>These cookies enable enhanced functionality and personalization, such as remembering your preferences.</p>
+
+            <h3>Marketing Cookies</h3>
+            <p>These cookies are used to track visitors across websites to display relevant and engaging advertisements.</p>
+
+            <h2>3. Cookie Details</h2>
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Cookie Name</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>connectease_session</td>
+                        <td>Maintains your session</td>
+                        <td>Session</td>
+                        <td>Essential</td>
+                    </tr>
+                    <tr>
+                        <td>user_preferences</td>
+                        <td>Stores your preferences</td>
+                        <td>1 year</td>
+                        <td>Functional</td>
+                    </tr>
+                    <tr>
+                        <td>analytics_data</td>
+                        <td>Website usage analytics</td>
+                        <td>2 years</td>
+                        <td>Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>marketing_tracking</td>
+                        <td>Marketing campaign tracking</td>
+                        <td>6 months</td>
+                        <td>Marketing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Third-Party Cookies</h2>
+            <p>We may use third-party services that set their own cookies, including:</p>
+            <ul>
+                <li>Google Analytics for website analytics</li>
+                <li>Social media platforms for sharing features</li>
+                <li>Payment processors for secure transactions</li>
+                <li>Customer support tools for live chat</li>
+            </ul>
+
+            <h2>5. Managing Cookies</h2>
+            <p>You can control and manage cookies in several ways:</p>
+            <ul>
+                <li>Browser settings: Most browsers allow you to refuse or delete cookies</li>
+                <li>Cookie consent banner: Use our website's cookie settings</li>
+                <li>Opt-out tools: Use industry opt-out mechanisms</li>
+            </ul>
+
+            <h2>6. Impact of Disabling Cookies</h2>
+            <p>Disabling certain cookies may affect your experience on our website, including:</p>
+            <ul>
+                <li>Loss of personalized features</li>
+                <li>Need to re-enter information repeatedly</li>
+                <li>Reduced functionality of interactive features</li>
+            </ul>
+
+            <h2>7. Updates to This Policy</h2>
+            <p>We may update this Cookie Policy from time to time. We will notify you of any significant changes by posting the updated policy on our website.</p>
+
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>For questions about our Cookie Policy:</p>
+                <p>Email: director@connectease.com</p>
+                <p>Phone: +971 4 444 2556</p>
+                <p>Address: Sheikh Zayed Road, Business Bay, P.O. Box 45890, Dubai, UAE</p>
+            </div>
+
+            <div class="last-updated">
+                <p>This Cookie Policy was last updated on October 14, 2025</p>
+            </div>
+
+            <a href="index.html" class="back-button">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
