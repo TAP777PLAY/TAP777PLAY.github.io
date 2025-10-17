@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parks & Breakfasts - Safari Breakfasts UAE | Desert Locations</title>
+    <meta name="description" content="Discover the best desert parks and breakfast locations in UAE. Choose from 15+ stunning locations for your safari breakfast experience.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/Sunset Luxury Safari.webp" alt="Safari Breakfasts UAE" class="logo-img">
+                        <span class="logo-text">Safari Breakfasts UAE</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="parks.html" class="nav-link active">Parks & Breakfasts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="route.html" class="nav-link">Route Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vip.html" class="nav-link">VIP Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="blog.html" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Parks & Breakfasts</h1>
+            <p class="page-subtitle">Discover the most beautiful desert locations for your safari breakfast experience across the UAE</p>
+        </div>
+    </section>
+
+    <!-- Filter Panel -->
+    <section class="filter-panel">
+        <div class="container">
+            <div class="filter-content">
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by Location</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Locations</button>
+                        <button class="filter-btn" data-filter="dubai">Dubai</button>
+                        <button class="filter-btn" data-filter="abu-dhabi">Abu Dhabi</button>
+                        <button class="filter-btn" data-filter="sharjah">Sharjah</button>
+                        <button class="filter-btn" data-filter="al-ain">Al Ain</button>
+                        <button class="filter-btn" data-filter="fujairah">Fujairah</button>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by Experience</h3>
+                    <div class="filter-checkboxes">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="sunrise" checked>
+                            <span class="checkmark"></span>
+                            Sunrise Views
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="wildlife" checked>
+                            <span class="checkmark"></span>
+                            Wildlife Spotting
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="camel-ride" checked>
+                            <span class="checkmark"></span>
+                            Camel Rides
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="photography" checked>
+                            <span class="checkmark"></span>
+                            Photography
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="cultural" checked>
+                            <span class="checkmark"></span>
+                            Cultural Tour
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3 class="filter-title">Sort by</h3>
+                    <select class="filter-select" id="sortSelect">
+                        <option value="popularity">Most Popular</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="distance">Distance</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-outline" id="clearFilters">Clear All</button>
+                    <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parks Catalog -->
+    <section class="parks-catalog">
+        <div class="container">
+            <div class="catalog-header">
+                <div class="results-info">
+                    <span class="results-count">Showing <span id="resultsCount">15</span> parks</span>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <img src="images/icons/grid-view-icon.webp" alt="Grid View">
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <img src="images/icons/list-view-icon.webp" alt="List View">
+                    </button>
+                </div>
+            </div>
+            
+            <div class="parks-grid" id="parksGrid">
+                <!-- Dubai Desert Conservation Reserve -->
+                <div class="park-card" data-location="dubai" data-experiences="sunrise,wildlife,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Dubai Desert Conservation Reserve.jpeg" alt="Dubai Desert Conservation Reserve" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-popular">Most Popular</span>
+                            <span class="badge badge-wildlife">Wildlife</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="dubai-conservation">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Dubai Desert Conservation Reserve</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (127 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Experience wildlife conservation while enjoying a traditional breakfast in the heart of Dubai's protected desert. Spot Arabian oryx, gazelles, and desert foxes.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Wildlife Spotting</span>
+                            <span class="feature-tag">Conservation Tour</span>
+                            <span class="feature-tag">Photography</span>
+                            <span class="feature-tag">Sunrise Views</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-12 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 450</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="dubai-conservation">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="dubai-conservation">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liwa Desert -->
+                <div class="park-card" data-location="abu-dhabi" data-experiences="sunrise,camel-ride,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Liwa Desert.jfif" alt="Liwa Desert" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-premium">Premium</span>
+                            <span class="badge badge-sunrise">Sunrise</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="liwa-desert">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Liwa Desert</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (89 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Abu Dhabi, UAE</p>
+                        <p class="park-description">Discover the stunning red dunes of Liwa with a sunrise breakfast experience in one of the world's most beautiful deserts.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Red Dunes</span>
+                            <span class="feature-tag">Sunrise Views</span>
+                            <span class="feature-tag">Camel Trekking</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>5-6 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-8 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 650</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="liwa-desert">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="liwa-desert">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Al Ain Oasis -->
+                <div class="park-card" data-location="al-ain" data-experiences="cultural,photography,sunrise">
+                    <div class="park-image">
+                        <img src="images/Al Ain Oasis.webp" alt="Al Ain Oasis" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-unesco">UNESCO</span>
+                            <span class="badge badge-cultural">Cultural</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="al-ain-oasis">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Al Ain Oasis</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.7/5 (156 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Al Ain, UAE</p>
+                        <p class="park-description">Combine desert adventure with oasis tranquility in this unique UNESCO World Heritage site location.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">UNESCO Site</span>
+                            <span class="feature-tag">Oasis Views</span>
+                            <span class="feature-tag">Cultural Tour</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-15 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 380</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="al-ain-oasis">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="al-ain-oasis">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sharjah Desert Park -->
+                <div class="park-card" data-location="sharjah" data-experiences="wildlife,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Sharjah Desert Park.webp" alt="Sharjah Desert Park" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-family">Family Friendly</span>
+                            <span class="badge badge-wildlife">Wildlife</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="sharjah-desert">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Sharjah Desert Park</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6/5 (98 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Sharjah, UAE</p>
+                        <p class="park-description">Perfect for families with children, featuring educational wildlife encounters and traditional breakfast in a controlled environment.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Family Friendly</span>
+                            <span class="feature-tag">Wildlife Education</span>
+                            <span class="feature-tag">Photography</span>
+                            <span class="feature-tag">Cultural Tour</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-20 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 320</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="sharjah-desert">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="sharjah-desert">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abu Dhabi Desert -->
+                <div class="park-card" data-location="abu-dhabi" data-experiences="sunrise,camel-ride,photography">
+                    <div class="park-image">
+                        <img src="images/Abu Dhabi Desert.webp" alt="Abu Dhabi Desert" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-luxury">Luxury</span>
+                            <span class="badge badge-sunrise">Sunrise</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="abu-dhabi-desert">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Abu Dhabi Desert</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (112 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Abu Dhabi, UAE</p>
+                        <p class="park-description">Luxury desert experience with premium amenities and breathtaking sunrise views over endless sand dunes.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Luxury Experience</span>
+                            <span class="feature-tag">Sunrise Views</span>
+                            <span class="feature-tag">Camel Rides</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-10 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 750</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="abu-dhabi-desert">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="abu-dhabi-desert">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fujairah Mountains -->
+                <div class="park-card" data-location="fujairah" data-experiences="sunrise,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Fujairah Mountains.webp" alt="Fujairah Mountains" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-adventure">Adventure</span>
+                            <span class="badge badge-mountain">Mountain</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="fujairah-mountains">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Fujairah Mountains</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.5/5 (67 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Fujairah, UAE</p>
+                        <p class="park-description">Unique mountain desert experience with stunning views of the Hajar Mountains and traditional Emirati breakfast.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Mountain Views</span>
+                            <span class="feature-tag">Adventure</span>
+                            <span class="feature-tag">Photography</span>
+                            <span class="feature-tag">Cultural Tour</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-12 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 420</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="fujairah-mountains">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="fujairah-mountains">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Private Oasis Retreat -->
+                <div class="park-card" data-location="dubai" data-experiences="sunrise,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Private Oasis Retreat.webp" alt="Private Oasis Retreat" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-luxury">Luxury</span>
+                            <span class="badge badge-private">Private</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="private-oasis">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Private Oasis Retreat</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (45 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Exclusive private oasis experience with personalized service and intimate breakfast setting in a secluded desert location.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Private Experience</span>
+                            <span class="feature-tag">Luxury Service</span>
+                            <span class="feature-tag">Photography</span>
+                            <span class="feature-tag">Sunrise Views</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-6 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 850</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="private-oasis">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="private-oasis">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Royal Desert Experience -->
+                <div class="park-card" data-location="abu-dhabi" data-experiences="sunrise,camel-ride,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Royal Desert Experience.webp" alt="Royal Desert Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-royal">Royal</span>
+                            <span class="badge badge-luxury">Luxury</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="royal-desert">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Royal Desert Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (78 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Abu Dhabi, UAE</p>
+                        <p class="park-description">Regal desert experience with royal treatment, featuring traditional Emirati hospitality and luxury amenities.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Royal Treatment</span>
+                            <span class="feature-tag">Luxury Amenities</span>
+                            <span class="feature-tag">Camel Rides</span>
+                            <span class="feature-tag">Cultural Tour</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>5-6 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-8 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 950</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="royal-desert">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="royal-desert">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunset Luxury Safari -->
+                <div class="park-card" data-location="dubai" data-experiences="sunrise,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Sunset Luxury Safari.webp" alt="Sunset Luxury Safari" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-sunset">Sunset</span>
+                            <span class="badge badge-luxury">Luxury</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="sunset-safari">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Sunset Luxury Safari</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (92 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Breathtaking sunset views with luxury safari experience and gourmet breakfast in the heart of the desert.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Sunset Views</span>
+                            <span class="feature-tag">Luxury Safari</span>
+                            <span class="feature-tag">Photography</span>
+                            <span class="feature-tag">Gourmet Breakfast</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-10 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 680</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="sunset-safari">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="sunset-safari">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate VIP Experience -->
+                <div class="park-card" data-location="dubai" data-experiences="cultural,photography">
+                    <div class="park-image">
+                        <img src="images/Corporate VIP Experience.webp" alt="Corporate VIP Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-corporate">Corporate</span>
+                            <span class="badge badge-vip">VIP</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="corporate-vip">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Corporate VIP Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (34 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Premium corporate experience with VIP treatment, perfect for business meetings and team building in the desert.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Corporate Events</span>
+                            <span class="feature-tag">VIP Treatment</span>
+                            <span class="feature-tag">Team Building</span>
+                            <span class="feature-tag">Business Meetings</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>8-50 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 1,200</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="corporate-vip">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="corporate-vip">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bespoke Private Experience -->
+                <div class="park-card" data-location="abu-dhabi" data-experiences="sunrise,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Bespoke Private Experience.jpg" alt="Bespoke Private Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-bespoke">Bespoke</span>
+                            <span class="badge badge-private">Private</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="bespoke-private">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Bespoke Private Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (28 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Abu Dhabi, UAE</p>
+                        <p class="park-description">Completely customized private experience tailored to your preferences with personal guide and exclusive location.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Customized Experience</span>
+                            <span class="feature-tag">Personal Guide</span>
+                            <span class="feature-tag">Exclusive Location</span>
+                            <span class="feature-tag">Flexible Schedule</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>Flexible</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>1-8 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 1,500</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="bespoke-private">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="bespoke-private">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authenticity Experience -->
+                <div class="park-card" data-location="sharjah" data-experiences="cultural,photography">
+                    <div class="park-image">
+                        <img src="images/Authenticity.jpg" alt="Authenticity Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-authentic">Authentic</span>
+                            <span class="badge badge-cultural">Cultural</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="authenticity">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Authenticity Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.7/5 (56 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Sharjah, UAE</p>
+                        <p class="park-description">Immerse yourself in authentic Emirati culture with traditional breakfast and cultural activities in a genuine desert setting.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Authentic Culture</span>
+                            <span class="feature-tag">Traditional Activities</span>
+                            <span class="feature-tag">Cultural Immersion</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-15 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 420</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="authenticity">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="authenticity">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Experience -->
+                <div class="park-card" data-location="al-ain" data-experiences="cultural,photography">
+                    <div class="park-image">
+                        <img src="images/Community.jpg" alt="Community Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-community">Community</span>
+                            <span class="badge badge-social">Social</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="community">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Community Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6/5 (43 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Al Ain, UAE</p>
+                        <p class="park-description">Join local community members for a shared breakfast experience and learn about traditional Emirati lifestyle.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Community Interaction</span>
+                            <span class="feature-tag">Local Culture</span>
+                            <span class="feature-tag">Social Experience</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>4-20 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 350</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="community">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="community">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excellence Experience -->
+                <div class="park-card" data-location="dubai" data-experiences="sunrise,photography,cultural">
+                    <div class="park-image">
+                        <img src="images/Excellence.webp" alt="Excellence Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-excellence">Excellence</span>
+                            <span class="badge badge-premium">Premium</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="excellence">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Excellence Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9/5 (67 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Premium excellence experience with highest quality service, gourmet breakfast, and exclusive desert location.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Premium Service</span>
+                            <span class="feature-tag">Gourmet Breakfast</span>
+                            <span class="feature-tag">Exclusive Location</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>4-5 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-8 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 780</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="excellence">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="excellence">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Experience -->
+                <div class="park-card" data-location="abu-dhabi" data-experiences="sunrise,photography">
+                    <div class="park-image">
+                        <img src="images/Innovation.webp" alt="Innovation Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-innovation">Innovation</span>
+                            <span class="badge badge-modern">Modern</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="innovation">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Innovation Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6/5 (38 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Abu Dhabi, UAE</p>
+                        <p class="park-description">Modern innovative approach to desert breakfast with cutting-edge technology and contemporary amenities.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Modern Technology</span>
+                            <span class="feature-tag">Innovation</span>
+                            <span class="feature-tag">Contemporary Design</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-12 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 520</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="innovation">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="innovation">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety First Experience -->
+                <div class="park-card" data-location="dubai" data-experiences="sunrise,photography">
+                    <div class="park-image">
+                        <img src="images/Safety First.webp" alt="Safety First Experience" class="card-image">
+                        <div class="park-badges">
+                            <span class="badge badge-safety">Safety First</span>
+                            <span class="badge badge-family">Family</span>
+                        </div>
+                        <div class="park-overlay">
+                            <button class="quick-view-btn" data-park="safety-first">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="park-content">
+                        <div class="park-header">
+                            <h3 class="park-title">Safety First Experience</h3>
+                            <div class="park-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8/5 (52 reviews)</span>
+                            </div>
+                        </div>
+                        <p class="park-location">📍 Dubai, UAE</p>
+                        <p class="park-description">Family-friendly experience with highest safety standards, perfect for children and safety-conscious travelers.</p>
+                        <div class="park-features">
+                            <span class="feature-tag">Safety Standards</span>
+                            <span class="feature-tag">Family Friendly</span>
+                            <span class="feature-tag">Child Safe</span>
+                            <span class="feature-tag">Photography</span>
+                        </div>
+                        <div class="park-details">
+                            <div class="detail-item">
+                                <img src="images/icons/clock-icon.webp" alt="Duration" class="detail-icon">
+                                <span>3-4 hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/group-icon.webp" alt="Group Size" class="detail-icon">
+                                <span>2-15 people</span>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/icons/price-icon.webp" alt="Price" class="detail-icon">
+                                <span>From AED 380</span>
+                            </div>
+                        </div>
+                        <div class="park-actions">
+                            <button class="btn btn-primary add-to-route" data-park="safety-first">Add to Route</button>
+                            <button class="btn btn-outline view-details" data-park="safety-first">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="btn btn-outline btn-large" id="loadMore">Load More Parks</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Builder CTA -->
+    <section class="route-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Plan Your Desert Adventure?</h2>
+                <p class="cta-subtitle">Add multiple parks to your route and create the perfect safari breakfast experience</p>
+                <div class="cta-actions">
+                    <a href="route.html" class="btn btn-primary btn-large">View My Route</a>
+                    <button class="btn btn-secondary btn-large" id="clearRoute">Clear Route</button>
+                </div>
+                <div class="route-preview" id="routePreview" style="display: none;">
+                    <h3>Your Route (<span id="routeCount">0</span> parks)</h3>
+                    <div class="route-items" id="routeItems"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Safari Breakfasts UAE</h3>
+                    <p class="footer-description">Creating unforgettable desert experiences in the heart of the UAE.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="parks.html">Parks & Breakfasts</a></li>
+                        <li><a href="route.html">Route Builder</a></li>
+                        <li><a href="vip.html">VIP Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>📧 info@safaribreakfasts.ae</p>
+                        <p>📞 +971 50 073 0213</p>
+                        <p>📍 Dubai Desert Conservation Reserve</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Safari Breakfasts UAE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/parks.js"></script>
+    <script src="js/cookie-consent.js"></script>
+</body>
+</html>
