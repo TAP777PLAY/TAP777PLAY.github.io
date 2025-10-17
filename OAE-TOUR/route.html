@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Builder - Safari Breakfasts UAE | Plan Your Desert Adventure</title>
+    <meta name="description" content="Build your perfect safari breakfast route in UAE. Choose parks, customize your menu, and select animal encounters for an unforgettable desert experience.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="index.html" class="logo">
+                        <img src="images/Sunset Luxury Safari.webp" alt="Safari Breakfasts UAE" class="logo-img">
+                        <span class="logo-text">Safari Breakfasts UAE</span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="parks.html" class="nav-link">Parks & Breakfasts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="route.html" class="nav-link active">Route Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vip.html" class="nav-link">VIP Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="blog.html" class="nav-link">Blog</a></li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Route Builder</h1>
+            <p class="page-subtitle">Create your perfect safari breakfast experience by customizing every detail of your desert adventure</p>
+        </div>
+    </section>
+
+    <!-- Route Builder Steps -->
+    <section class="route-builder">
+        <div class="container">
+            <div class="builder-content">
+                <!-- Progress Steps -->
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Choose Parks</h3>
+                            <p class="step-description">Select your desert locations</p>
+                        </div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Customize Menu</h3>
+                            <p class="step-description">Pick your breakfast options</p>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Select Animals</h3>
+                            <p class="step-description">Choose wildlife encounters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Choose Parks -->
+                <div class="builder-step active" id="step1">
+                    <div class="step-header">
+                        <h2 class="step-title">Step 1: Choose Your Desert Parks</h2>
+                        <p class="step-subtitle">Select one or more parks for your safari breakfast experience</p>
+                    </div>
+                    <div class="parks-selection">
+                        <div class="park-option" data-park="dubai-conservation">
+                            <div class="park-image">
+                                <img src="images/Dubai Desert Conservation Reserve.jpeg" alt="Dubai Desert Conservation Reserve" class="option-image">
+                                <div class="park-badge">Most Popular</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Dubai Desert Conservation Reserve</h3>
+                                <p class="park-location">Dubai, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.9/5</span>
+                                </div>
+                                <p class="park-description">Wildlife conservation experience with traditional breakfast</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">Wildlife Spotting</span>
+                                    <span class="feature-tag">Conservation Tour</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="dubai-conservation">Select Park</button>
+                            </div>
+                        </div>
+
+                        <div class="park-option" data-park="liwa-desert">
+                            <div class="park-image">
+                                <img src="images/Liwa Desert.jfif" alt="Liwa Desert" class="option-image">
+                                <div class="park-badge">Premium</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Liwa Desert</h3>
+                                <p class="park-location">Abu Dhabi, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.8/5</span>
+                                </div>
+                                <p class="park-description">Stunning red dunes with sunrise breakfast experience</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">Red Dunes</span>
+                                    <span class="feature-tag">Sunrise Views</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="liwa-desert">Select Park</button>
+                            </div>
+                        </div>
+
+                        <div class="park-option" data-park="al-ain-oasis">
+                            <div class="park-image">
+                                <img src="images/Al Ain Oasis.webp" alt="Al Ain Oasis" class="option-image">
+                                <div class="park-badge">UNESCO</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Al Ain Oasis</h3>
+                                <p class="park-location">Al Ain, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.7/5</span>
+                                </div>
+                                <p class="park-description">Desert adventure with oasis tranquility</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">UNESCO Site</span>
+                                    <span class="feature-tag">Oasis Views</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="al-ain-oasis">Select Park</button>
+                            </div>
+                        </div>
+
+                        <div class="park-option" data-park="private-oasis">
+                            <div class="park-image">
+                                <img src="images/Private Oasis Retreat.webp" alt="Private Oasis Retreat" class="option-image">
+                                <div class="park-badge">Luxury</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Private Oasis Retreat</h3>
+                                <p class="park-location">Dubai, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.9/5</span>
+                                </div>
+                                <p class="park-description">Exclusive private oasis experience with personalized service</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">Private Experience</span>
+                                    <span class="feature-tag">Luxury Service</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="private-oasis">Select Park</button>
+                            </div>
+                        </div>
+
+                        <div class="park-option" data-park="royal-desert">
+                            <div class="park-image">
+                                <img src="images/Royal Desert Experience.webp" alt="Royal Desert Experience" class="option-image">
+                                <div class="park-badge">Royal</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Royal Desert Experience</h3>
+                                <p class="park-location">Abu Dhabi, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.9/5</span>
+                                </div>
+                                <p class="park-description">Regal desert experience with royal treatment and luxury amenities</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">Royal Treatment</span>
+                                    <span class="feature-tag">Luxury Amenities</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="royal-desert">Select Park</button>
+                            </div>
+                        </div>
+
+                        <div class="park-option" data-park="sunset-safari">
+                            <div class="park-image">
+                                <img src="images/Sunset Luxury Safari.webp" alt="Sunset Luxury Safari" class="option-image">
+                                <div class="park-badge">Sunset</div>
+                            </div>
+                            <div class="park-info">
+                                <h3 class="park-name">Sunset Luxury Safari</h3>
+                                <p class="park-location">Dubai, UAE</p>
+                                <div class="park-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.8/5</span>
+                                </div>
+                                <p class="park-description">Breathtaking sunset views with luxury safari experience</p>
+                                <div class="park-features">
+                                    <span class="feature-tag">Sunset Views</span>
+                                    <span class="feature-tag">Luxury Safari</span>
+                                </div>
+                            </div>
+                            <div class="park-actions">
+                                <button class="btn btn-outline select-park" data-park="sunset-safari">Select Park</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-primary next-step" data-next="2" disabled>Next: Customize Menu</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Customize Menu -->
+                <div class="builder-step" id="step2">
+                    <div class="step-header">
+                        <h2 class="step-title">Step 2: Customize Your Breakfast Menu</h2>
+                        <p class="step-subtitle">Choose from our authentic Emirati and international breakfast options</p>
+                    </div>
+                    <div class="menu-selection">
+                        <div class="menu-category">
+                            <h3 class="category-title">Traditional Emirati Breakfast</h3>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/balaleet.webp" alt="Balaleet" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Balaleet</h4>
+                                        <p class="item-description">Sweet vermicelli noodles with eggs and cardamom</p>
+                                        <span class="item-price">AED 45</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="balaleet" data-price="45">Add</button>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/machboos.webp" alt="Machboos" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Machboos</h4>
+                                        <p class="item-description">Spiced rice with meat and traditional spices</p>
+                                        <span class="item-price">AED 55</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="machboos" data-price="55">Add</button>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/luqaimat.webp" alt="Luqaimat" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Luqaimat</h4>
+                                        <p class="item-description">Sweet dumplings with date syrup</p>
+                                        <span class="item-price">AED 35</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="luqaimat" data-price="35">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-category">
+                            <h3 class="category-title">International Breakfast</h3>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/continental-breakfast.webp" alt="Continental Breakfast" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Continental Breakfast</h4>
+                                        <p class="item-description">Fresh pastries, fruits, and coffee</p>
+                                        <span class="item-price">AED 65</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="continental" data-price="65">Add</button>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/arabic-breakfast.webp" alt="Arabic Breakfast" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Arabic Breakfast</h4>
+                                        <p class="item-description">Hummus, falafel, and fresh bread</p>
+                                        <span class="item-price">AED 50</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="arabic" data-price="50">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="menu-category">
+                            <h3 class="category-title">Beverages</h3>
+                            <div class="menu-items">
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/karak-chai.webp" alt="Karak Chai" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Karak Chai</h4>
+                                        <p class="item-description">Traditional spiced tea</p>
+                                        <span class="item-price">AED 15</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="karak-chai" data-price="15">Add</button>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="item-image">
+                                        <img src="images/menu/fresh-juice.webp" alt="Fresh Juice" class="menu-image">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4 class="item-name">Fresh Juice</h4>
+                                        <p class="item-description">Orange, apple, or mixed fruit</p>
+                                        <span class="item-price">AED 25</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="btn btn-outline add-item" data-item="fresh-juice" data-price="25">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-outline prev-step" data-prev="1">Back to Parks</button>
+                        <button class="btn btn-primary next-step" data-next="3">Next: Select Animals</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Select Animals -->
+                <div class="builder-step" id="step3">
+                    <div class="step-header">
+                        <h2 class="step-title">Step 3: Choose Animal Encounters</h2>
+                        <p class="step-subtitle">Select the wildlife experiences you'd like to include in your safari</p>
+                    </div>
+                    <div class="animals-selection">
+                        <div class="animal-option" data-animal="camel-ride">
+                            <div class="animal-image">
+                                <img src="images/animals/camel-ride.webp" alt="Camel Ride" class="option-image">
+                                <div class="animal-badge">Popular</div>
+                            </div>
+                            <div class="animal-info">
+                                <h3 class="animal-name">Camel Ride</h3>
+                                <p class="animal-description">Traditional camel trekking through the desert dunes</p>
+                                <div class="animal-details">
+                                    <span class="detail-item">Duration: 30-45 min</span>
+                                    <span class="detail-item">Group: 2-8 people</span>
+                                </div>
+                                <span class="animal-price">AED 120</span>
+                            </div>
+                            <div class="animal-actions">
+                                <button class="btn btn-outline select-animal" data-animal="camel-ride" data-price="120">Select</button>
+                            </div>
+                        </div>
+
+                        <div class="animal-option" data-animal="falconry">
+                            <div class="animal-image">
+                                <img src="images/animals/falconry.webp" alt="Falconry Experience" class="option-image">
+                                <div class="animal-badge">Traditional</div>
+                            </div>
+                            <div class="animal-info">
+                                <h3 class="animal-name">Falconry Experience</h3>
+                                <p class="animal-description">Learn about traditional falconry and meet these majestic birds</p>
+                                <div class="animal-details">
+                                    <span class="detail-item">Duration: 45 min</span>
+                                    <span class="detail-item">Group: 2-6 people</span>
+                                </div>
+                                <span class="animal-price">AED 180</span>
+                            </div>
+                            <div class="animal-actions">
+                                <button class="btn btn-outline select-animal" data-animal="falconry" data-price="180">Select</button>
+                            </div>
+                        </div>
+
+                        <div class="animal-option" data-animal="wildlife-safari">
+                            <div class="animal-image">
+                                <img src="images/animals/wildlife-safari.webp" alt="Wildlife Safari" class="option-image">
+                                <div class="animal-badge">Educational</div>
+                            </div>
+                            <div class="animal-info">
+                                <h3 class="animal-name">Wildlife Safari</h3>
+                                <p class="animal-description">Guided tour to spot Arabian oryx, gazelles, and desert foxes</p>
+                                <div class="animal-details">
+                                    <span class="detail-item">Duration: 1 hour</span>
+                                    <span class="detail-item">Group: 2-12 people</span>
+                                </div>
+                                <span class="animal-price">AED 150</span>
+                            </div>
+                            <div class="animal-actions">
+                                <button class="btn btn-outline select-animal" data-animal="wildlife-safari" data-price="150">Select</button>
+                            </div>
+                        </div>
+
+                        <div class="animal-option" data-animal="horse-riding">
+                            <div class="animal-image">
+                                <img src="images/animals/horse-riding.webp" alt="Horse Riding" class="option-image">
+                                <div class="animal-badge">Adventure</div>
+                            </div>
+                            <div class="animal-info">
+                                <h3 class="animal-name">Horse Riding</h3>
+                                <p class="animal-description">Ride through the desert on beautiful Arabian horses</p>
+                                <div class="animal-details">
+                                    <span class="detail-item">Duration: 45 min</span>
+                                    <span class="detail-item">Group: 2-6 people</span>
+                                </div>
+                                <span class="animal-price">AED 200</span>
+                            </div>
+                            <div class="animal-actions">
+                                <button class="btn btn-outline select-animal" data-animal="horse-riding" data-price="200">Select</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-outline prev-step" data-prev="2">Back to Menu</button>
+                        <button class="btn btn-primary next-step" data-next="4">Review Route</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Map -->
+    <section class="route-map">
+        <div class="container">
+            <h2 class="section-title">Your Route Map</h2>
+            <div class="map-container">
+                <img src="images/ui/route-map.webp" alt="Safari Breakfast Route Map" class="route-map-image">
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-marker start"></div>
+                        <span>Starting Point</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker park"></div>
+                        <span>Selected Parks</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker activity"></div>
+                        <span>Activities</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker end"></div>
+                        <span>End Point</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Summary -->
+    <section class="route-summary">
+        <div class="container">
+            <h2 class="section-title">Your Safari Breakfast Route</h2>
+            <div class="summary-content">
+                <div class="summary-details">
+                    <div class="summary-section">
+                        <h3 class="summary-title">Selected Parks</h3>
+                        <div class="selected-items" id="selectedParks">
+                            <p class="no-selection">No parks selected yet</p>
+                        </div>
+                    </div>
+                    <div class="summary-section">
+                        <h3 class="summary-title">Breakfast Menu</h3>
+                        <div class="selected-items" id="selectedMenu">
+                            <p class="no-selection">No menu items selected yet</p>
+                        </div>
+                    </div>
+                    <div class="summary-section">
+                        <h3 class="summary-title">Animal Encounters</h3>
+                        <div class="selected-items" id="selectedAnimals">
+                            <p class="no-selection">No animals selected yet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-pricing">
+                    <div class="pricing-breakdown">
+                        <h3 class="pricing-title">Pricing Breakdown</h3>
+                        <div class="pricing-items" id="pricingItems">
+                            <div class="pricing-item">
+                                <span class="item-name">Parks</span>
+                                <span class="item-price">AED 0</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="item-name">Menu Items</span>
+                                <span class="item-price">AED 0</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="item-name">Animal Encounters</span>
+                                <span class="item-price">AED 0</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="item-name">Transportation</span>
+                                <span class="item-price">AED 100</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="item-name">Guide Service</span>
+                                <span class="item-price">AED 150</span>
+                            </div>
+                        </div>
+                        <div class="pricing-total">
+                            <span class="total-label">Total Price</span>
+                            <span class="total-price" id="totalPrice">AED 250</span>
+                        </div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="btn btn-primary btn-large" id="bookRoute" disabled>Book This Route</button>
+                        <button class="btn btn-outline btn-large" id="saveRoute">Save for Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Safari Breakfasts UAE</h3>
+                    <p class="footer-description">Creating unforgettable desert experiences in the heart of the UAE.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="parks.html">Parks & Breakfasts</a></li>
+                        <li><a href="route.html">Route Builder</a></li>
+                        <li><a href="vip.html">VIP Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>📧 info@safaribreakfasts.ae</p>
+                        <p>📞 +971 50 073 0213</p>
+                        <p>📍 Dubai Desert Conservation Reserve</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Safari Breakfasts UAE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/route-builder.js"></script>
+    <script src="js/cookie-consent.js"></script>
+</body>
+</html>
