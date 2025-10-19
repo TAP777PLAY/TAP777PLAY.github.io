@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erken Erişim - Olimpos Kronikleri | Chronicles of Olympus</title>
+    <meta name="description" content="Olimpos Kronikleri erken erişim başvurusu yapın. Kapalı test sürecine katılın ve oyunun gelişimine katkıda bulunun.">
+    <meta name="keywords" content="Olimpos Kronikleri, erken erişim, kapalı test, oyun başvurusu, beta test">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="image/favicon.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="image/favicon.jpg">
+    <link rel="apple-touch-icon" href="image/favicon.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/apply.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Chronicles of Olympus</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">Proje Hakkında</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="gameplay.html" class="nav-link">Oynanış</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="apply.html" class="nav-link active">Erken Erişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contacts.html" class="nav-link">İletişim</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="burger-menu" aria-label="Menüyü aç">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1 class="page-title">Erken Erişim</h1>
+                    <p class="page-subtitle">Olimpos Kronikleri'nin kapalı test sürecine katılın</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-form">
+            <div class="container">
+                <div class="form-content">
+                    <div class="form-header">
+                        <h2 class="section-title">Başvuru Formu</h2>
+                        <p class="form-description">
+                            Erken erişim sürecine katılmak için aşağıdaki formu doldurun. 
+                            Başvurunuz değerlendirildikten sonra size geri dönüş yapacağız.
+                        </p>
+                    </div>
+                    
+                    <form class="application-form-element" id="applicationForm">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Ad Soyad *</label>
+                            <input type="text" id="fullName" name="fullName" class="form-input" required>
+                            <span class="form-error" id="fullNameError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-posta Adresi *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <span class="form-error" id="emailError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="motivation" class="form-label">Motivasyon *</label>
+                            <textarea id="motivation" name="motivation" class="form-textarea" rows="5" required placeholder="Neden erken erişim sürecine katılmak istiyorsunuz? Oyun geliştirme sürecine nasıl katkıda bulunabilirsiniz?"></textarea>
+                            <span class="form-error" id="motivationError"></span>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">
+                                    <a href="privacy.html" target="_blank">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum. *
+                                </span>
+                            </label>
+                            <span class="form-error" id="privacyPolicyError"></span>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">
+                                    Oyun geliştirme süreci hakkında e-posta güncellemeleri almak istiyorum.
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                Başvuru Gönder
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Formu Temizle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Participation Process -->
+        <section class="participation-process">
+            <div class="process-background">
+                <img src="image/p1_2832072_5e7093ad.jpg" alt="Erken Erişim Süreci" class="process-bg-image">
+                <div class="process-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="process-content">
+                    <h2 class="section-title">Katılım Süreci</h2>
+                    <p class="section-description">Erken erişim sürecine katılım adımları</p>
+                    
+                    <div class="process-steps">
+                        <div class="step-item" data-animation="fadeInUp">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Başvuru Gönderimi</h3>
+                                <p>Başvuru formunu doldurun ve gönderin. Başvurunuz 24 saat içinde değerlendirilecektir.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item" data-animation="fadeInUp">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Onay ve Davet</h3>
+                                <p>Başvurunuz onaylandığında size özel davet e-postası gönderilecektir.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item" data-animation="fadeInUp">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Test Süreci</h3>
+                                <p>Oyunu test edin, geri bildirimlerinizi paylaşın ve geliştirme sürecine katkıda bulunun.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+                <p class="section-description">Erken erişim süreci hakkında merak edilenler</p>
+                
+                <div class="faq-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h3>Erken erişim süreci ne kadar sürecek?</h3>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Erken erişim süreci yaklaşık 3-6 ay sürecektir. Bu süre zarfında oyunun geliştirilmesi devam edecek ve oyuncu geri bildirimleri toplanacaktır. Süreç tamamlandığında tüm katılımcılara bilgi verilecektir.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h3>Erken erişim ücretsiz mi?</h3>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Evet, erken erişim süreci tamamen ücretsizdir. Katılımcılar oyunu ücretsiz olarak test edebilir ve geliştirme sürecine katkıda bulunabilir. Ayrıca katılımcılara özel ödüller de sunulacaktır.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h3>Başvuru kabul edilmezse ne olur?</h3>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Başvurunuz kabul edilmezse, oyunun genel sürümü çıktığında size özel indirim kuponu gönderilecektir. Ayrıca gelecekteki beta testlerine öncelikli olarak davet edileceksiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-info">
+                        <h3>Chronicles of Olympus</h3>
+                        <p>Antik kroniklerin koruyucusu olarak tanrıların tarihini yeniden yazın.</p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>İletişim</h4>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>İstiklal Cd. No:45, Beyoğlu, İstanbul, Türkiye</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:+902124355290">+90 212 435 52 90</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:support@chroniclesolympus.com">support@chroniclesolympus.com</a>
+                        </div>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" data-social="instagram">Instagram</a>
+                            <a href="#" class="social-link" data-social="youtube">YouTube</a>
+                            <a href="#" class="social-link" data-social="twitter">X (Twitter)</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Hızlı Linkler</h4>
+                        <a href="index.html" class="footer-link">Ana Sayfa</a>
+                        <a href="about.html" class="footer-link">Proje Hakkında</a>
+                        <a href="gameplay.html" class="footer-link">Oynanış</a>
+                        <a href="apply.html" class="footer-link">Erken Erişim</a>
+                        <a href="contacts.html" class="footer-link">İletişim</a>
+                    </div>
+                    
+                    <div class="footer-legal">
+                        <h4>Yasal</h4>
+                        <a href="cookie-policy.html" class="footer-link">Çerez Politikası</a>
+                        <a href="terms.html" class="footer-link">Kullanım Şartları</a>
+                        <a href="privacy.html" class="footer-link">Gizlilik Politikası</a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Chronicles of Olympus. Tüm hakları saklıdır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Success Popup -->
+    <div class="success-popup" id="successPopup">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <div class="success-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Başvuru Başarıyla Gönderildi!</h3>
+            <p>Başvurunuz alınmıştır. 24 saat içinde size geri dönüş yapacağız.</p>
+            <div class="popup-actions">
+                <button class="btn btn-primary" id="closeSuccessPopup">Tamam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Popup -->
+    <div class="social-popup" id="socialPopup">
+        <div class="popup-content">
+            <button class="popup-close">&times;</button>
+            <h3>Sosyal Medyada Bizi Bulun</h3>
+            <p><strong>Chronicles of Olympus</strong> adıyla veya <strong>#ChroniclesOlympus2025</strong> etiketiyle bizi bulun</p>
+        </div>
+    </div>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-content">
+            <h3>Çerez Politikası</h3>
+            <p>Sitenizin işleyişini geliştirmek ve size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Devam ederek çerez kullanımını kabul etmiş olursunuz.</p>
+            <div class="cookie-actions">
+                <button class="btn btn-primary" id="acceptCookies">Kabul Et</button>
+                <button class="btn btn-secondary" id="declineCookies">Reddet</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animation.js"></script>
+    <script src="scripts/form-validation.js"></script>
+</body>
+</html>
