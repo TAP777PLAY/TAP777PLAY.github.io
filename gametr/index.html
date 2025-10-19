@@ -147,6 +147,85 @@
             </div>
         </section>
 
+        <!-- Mythology Quiz Mini-Game -->
+        <section class="mythology-quiz">
+            <div class="container">
+                <h2 class="section-title">Mitolojik Bilgi Yarışması</h2>
+                <p class="section-description">Erken erişim beklerken antik mitoloji bilginizi test edin ve kronik koruyucusu olma yolunda ilerleyin</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quizProgress"></div>
+                            </div>
+                            <span class="progress-text" id="quizProgressText">Soru 1 / 10</span>
+                        </div>
+                        <div class="quiz-score">
+                            <span class="score-icon">🏆</span>
+                            <span class="score-text" id="quizScore">0 Puan</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-content" id="quizContent">
+                        <div class="quiz-question" id="quizQuestion">
+                            <h3 id="questionText">Yükleniyor...</h3>
+                        </div>
+                        
+                        <div class="quiz-answers" id="quizAnswers">
+                            <!-- Answers will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="quiz-actions">
+                            <button class="btn btn-secondary" id="quizHint" disabled>
+                                <span class="hint-icon">💡</span>
+                                İpucu
+                            </button>
+                            <button class="btn btn-primary" id="quizNext" disabled>
+                                Sonraki Soru
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="margin-left: 8px;">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-results" id="quizResults" style="display: none;">
+                        <div class="results-content">
+                            <div class="results-icon" id="resultsIcon">🏆</div>
+                            <h3 id="resultsTitle">Tebrikler!</h3>
+                            <p id="resultsDescription">Mitolojik bilginiz harika!</p>
+                            <div class="results-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Doğru Cevap:</span>
+                                    <span class="stat-value" id="correctAnswers">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Toplam Puan:</span>
+                                    <span class="stat-value" id="totalScore">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Seviye:</span>
+                                    <span class="stat-value" id="quizLevel">Başlangıç</span>
+                                </div>
+                            </div>
+                            <div class="results-actions">
+                                <button class="btn btn-primary btn-large" id="quizRestart">
+                                    Tekrar Oyna
+                                </button>
+                                <button class="btn btn-secondary" id="quizStats">
+                                    İstatistikler
+                                </button>
+                                <button class="btn btn-secondary" id="quizShare">
+                                    Sonucu Paylaş
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Gameplay Preview -->
         <section class="gameplay-preview">
             <div class="container">
@@ -242,6 +321,62 @@
         </div>
     </div>
 
+    <!-- Statistics Modal -->
+    <div class="stats-modal" id="statsModal">
+        <div class="stats-content">
+            <button class="stats-close">&times;</button>
+            <h3>İstatistikleriniz</h3>
+            <div class="stats-grid">
+                <div class="stats-section">
+                    <h4>Genel İstatistikler</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Toplam Oyun:</span>
+                        <span class="stat-value" id="totalGames">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">En Yüksek Skor:</span>
+                        <span class="stat-value" id="bestScore">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Ortalama Skor:</span>
+                        <span class="stat-value" id="averageScore">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Mükemmel Oyun:</span>
+                        <span class="stat-value" id="perfectGames">0</span>
+                    </div>
+                </div>
+                
+                <div class="stats-section">
+                    <h4>Başarı Serisi</h4>
+                    <div class="stat-row">
+                        <span class="stat-label">Mevcut Seri:</span>
+                        <span class="stat-value" id="currentStreak">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">En Uzun Seri:</span>
+                        <span class="stat-value" id="longestStreak">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Toplam Doğru:</span>
+                        <span class="stat-value" id="totalCorrect">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Doğruluk Oranı:</span>
+                        <span class="stat-value" id="accuracyRate">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h4>Başarımlar</h4>
+                <div class="achievements-grid" id="achievementsGrid">
+                    <!-- Achievements will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Cookie Popup -->
     <div class="cookie-popup" id="cookiePopup">
         <div class="cookie-content">
@@ -257,5 +392,6 @@
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script src="scripts/animation.js"></script>
+    <script src="scripts/quiz.js"></script>
 </body>
 </html>
