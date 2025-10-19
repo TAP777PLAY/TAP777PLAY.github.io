@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petting Zoos in the UAE - Explore All Locations</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="zoos-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>UAE Zoos</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="zoos.html" class="nav-link active">Zoos</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn-primary book-btn">Book a Visit</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">Discover Amazing Petting Zoos</h1>
+                <p class="page-subtitle">Explore the best animal encounters across Dubai, Abu Dhabi, and Al Ain</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Zoos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Zoo Locations Across UAE</h2>
+            <div class="map-container">
+                <div id="zoo-map"></div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <i class="fas fa-map-marker-alt" style="color: #7B2FF7;"></i>
+                        <span>Dubai Zoos</span>
+                    </div>
+                    <div class="legend-item">
+                        <i class="fas fa-map-marker-alt" style="color: #00C9FF;"></i>
+                        <span>Abu Dhabi Zoos</span>
+                    </div>
+                    <div class="legend-item">
+                        <i class="fas fa-map-marker-alt" style="color: #B366FF;"></i>
+                        <span>Al Ain Zoos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Compare Petting Zoos</h2>
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Zoo Name</th>
+                            <th>Location</th>
+                            <th>Animal Types</th>
+                            <th>Price Range</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="zoo-name">
+                                    <strong>Dubai Safari Park</strong>
+                                    <span class="zoo-badge">Popular</span>
+                                </div>
+                            </td>
+                            <td>Dubai</td>
+                            <td>Giraffes, Camels, Goats</td>
+                            <td>AED 85-120</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn-secondary btn-sm">View Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="zoo-name">
+                                    <strong>Al Ain Zoo</strong>
+                                    <span class="zoo-badge new">New</span>
+                                </div>
+                            </td>
+                            <td>Al Ain</td>
+                            <td>Elephants, Giraffes, Birds</td>
+                            <td>AED 50-75</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>4.2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn-secondary btn-sm">View Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="zoo-name">
+                                    <strong>Abu Dhabi Petting Zoo</strong>
+                                </div>
+                            </td>
+                            <td>Abu Dhabi</td>
+                            <td>Sheep, Rabbits, Chickens</td>
+                            <td>AED 40-60</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn-secondary btn-sm">View Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="zoo-name">
+                                    <strong>Dubai Miracle Garden Zoo</strong>
+                                </div>
+                            </td>
+                            <td>Dubai</td>
+                            <td>Butterflies, Birds, Small Animals</td>
+                            <td>AED 55-80</td>
+                            <td>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>4.3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="btn-secondary btn-sm">View Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accordion Section -->
+    <section class="accordion-section">
+        <div class="container">
+            <h2 class="section-title">Detailed Zoo Information</h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Dubai Safari Park</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="zoo-details">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <h4>Opening Hours</h4>
+                                    <p>Daily: 9:00 AM - 6:00 PM</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Ticket Prices</h4>
+                                    <p>Adults: AED 85 | Children: AED 60 | Family: AED 200</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Special Features</h4>
+                                    <p>Giraffe feeding, camel rides, educational shows</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Best Time to Visit</h4>
+                                    <p>Early morning (9-11 AM) for animal feeding</p>
+                                </div>
+                            </div>
+                            <div class="zoo-highlights">
+                                <h4>What Makes It Special:</h4>
+                                <ul>
+                                    <li>Largest petting zoo in Dubai</li>
+                                    <li>Professional animal handlers</li>
+                                    <li>Educational programs for children</li>
+                                    <li>Photo opportunities with exotic animals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Al Ain Zoo</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="zoo-details">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <h4>Opening Hours</h4>
+                                    <p>Daily: 8:00 AM - 8:00 PM</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Ticket Prices</h4>
+                                    <p>Adults: AED 50 | Children: AED 30 | Family: AED 120</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Special Features</h4>
+                                    <p>Elephant encounters, bird shows, safari tours</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Best Time to Visit</h4>
+                                    <p>Late afternoon (4-6 PM) for cooler weather</p>
+                                </div>
+                            </div>
+                            <div class="zoo-highlights">
+                                <h4>What Makes It Special:</h4>
+                                <ul>
+                                    <li>Historic zoo with heritage animals</li>
+                                    <li>Conservation programs</li>
+                                    <li>Beautiful desert landscape setting</li>
+                                    <li>Affordable family entertainment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Abu Dhabi Petting Zoo</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="zoo-details">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <h4>Opening Hours</h4>
+                                    <p>Daily: 10:00 AM - 5:00 PM</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Ticket Prices</h4>
+                                    <p>Adults: AED 40 | Children: AED 25 | Family: AED 100</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Special Features</h4>
+                                    <p>Farm animals, educational workshops, pony rides</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Best Time to Visit</h4>
+                                    <p>Weekend mornings for family activities</p>
+                                </div>
+                            </div>
+                            <div class="zoo-highlights">
+                                <h4>What Makes It Special:</h4>
+                                <ul>
+                                    <li>Perfect for young children</li>
+                                    <li>Hands-on animal care experiences</li>
+                                    <li>Educational workshops included</li>
+                                    <li>Budget-friendly option</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-modal="gallery-1">
+                    <img src="images/giraffe-feeding.jpg" alt="Giraffe feeding">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-modal="gallery-2">
+                    <img src="images/children-animals.jpg" alt="Children with animals">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-modal="gallery-3">
+                    <img src="images/camel-ride.jpg" alt="Camel ride">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-modal="gallery-4">
+                    <img src="images/petting-zoo-animals.jpg" alt="Petting zoo animals">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Your Zoo Visit Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>1. Entry & Welcome</h3>
+                        <p>Arrive at the zoo, collect your tickets, and get a warm welcome from our staff. Receive your visitor map and feeding schedule.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2. Animal Feeding</h3>
+                        <p>Feed friendly giraffes, goats, and sheep with special treats. Learn about their diet and feeding habits from our experts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>3. Guided Tour</h3>
+                        <p>Join our educational tour to learn about animal behavior, conservation efforts, and the importance of wildlife protection.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>4. Photo Sessions</h3>
+                        <p>Capture amazing memories with our animals. Professional photographers available for special moments and family portraits.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>5. Refreshments</h3>
+                        <p>Enjoy a break at our café with animal-themed snacks and drinks. Perfect time to relax and share your experiences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>6. Souvenir Shop</h3>
+                        <p>Visit our gift shop for animal-themed souvenirs, educational books, and toys to remember your amazing zoo adventure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Visitor Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Absolutely magical experience! My daughter was thrilled to feed the giraffes. The staff was incredibly knowledgeable and patient."</p>
+                    <div class="review-author">
+                        <strong>Emma Thompson</strong>
+                        <span>Dubai Safari Park</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Great value for money! The animals were so friendly and the educational tour was very informative. Highly recommend for families."</p>
+                    <div class="review-author">
+                        <strong>Ahmed Hassan</strong>
+                        <span>Al Ain Zoo</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">"Perfect for young children. The petting area was clean and safe. My 3-year-old loved every minute of it!"</p>
+                    <div class="review-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Abu Dhabi Petting Zoo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section">
+        <div class="container">
+            <h2 class="section-title">Plan Your Visit</h2>
+            <div class="booking-form-container">
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="visitorName">Full Name *</label>
+                            <input type="text" id="visitorName" name="visitorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="visitorEmail">Email Address *</label>
+                            <input type="email" id="visitorEmail" name="visitorEmail" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="selectedZoo">Choose Zoo *</label>
+                            <select id="selectedZoo" name="selectedZoo" required>
+                                <option value="">Select a zoo</option>
+                                <option value="dubai-safari">Dubai Safari Park</option>
+                                <option value="al-ain-zoo">Al Ain Zoo</option>
+                                <option value="abu-dhabi-petting">Abu Dhabi Petting Zoo</option>
+                                <option value="dubai-miracle">Dubai Miracle Garden Zoo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="visitDate">Visit Date *</label>
+                            <input type="date" id="visitDate" name="visitDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="visitorCount">Number of Visitors</label>
+                            <select id="visitorCount" name="visitorCount">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5+">5+ People</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements or requests..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Book Your Visit</button>
+                        <button type="reset" class="btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-paw"></i>
+                        <span>UAE Zoos</span>
+                    </div>
+                    <p>Discover the best petting zoos across the United Arab Emirates. Your gateway to amazing animal encounters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="zoos.html">Zoos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="cookies-policy.html">Cookies Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+971 4 123 4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@uaezoos.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dubai, UAE</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates on new zoos and special events.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UAE Petting Zoos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-caption"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script src="zoos-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Tips - UAE Petting Zoos</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>UAE Zoos</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="zoos.html" class="nav-link">Zoos</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn-primary book-btn">Book a Visit</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1 class="page-title">Blog & Tips</h1>
+                <p class="page-subtitle">Discover expert advice, animal care tips, conservation insights, and the latest news from the world of UAE petting zoos</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Blog</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic Filters -->
+    <section class="topic-filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <h3>Filter by Topic:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Posts</button>
+                    <button class="filter-btn" data-filter="kids">For Kids</button>
+                    <button class="filter-btn" data-filter="safety">Safety</button>
+                    <button class="filter-btn" data-filter="eco">Eco Tourism</button>
+                    <button class="filter-btn" data-filter="care">Animal Care</button>
+                    <button class="filter-btn" data-filter="conservation">Conservation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Feed -->
+    <section class="articles-feed-section">
+        <div class="container">
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card" data-category="kids">
+                    <div class="article-image">
+                        <img src="images/giraffe-feeding.jpg" alt="Kids feeding giraffes">
+                        <div class="article-category">For Kids</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 15, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Dr. Sarah Wilson
+                            </span>
+                        </div>
+                        <h3 class="article-title">10 Fun Facts About Giraffes for Kids</h3>
+                        <p class="article-excerpt">Discover amazing facts about these gentle giants that will fascinate your children and spark their curiosity about wildlife.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>Introduction</h4>
+                                    <p>Giraffes are one of the most fascinating animals in the world, and they're a favorite among children visiting our petting zoos. Here are 10 incredible facts that will amaze your little ones:</p>
+                                    
+                                    <h4>1. Tallest Animals on Earth</h4>
+                                    <p>Giraffes can grow up to 18 feet tall - that's taller than most houses! Their long necks help them reach leaves high up in trees that other animals can't get to.</p>
+                                    
+                                    <h4>2. Unique Pattern</h4>
+                                    <p>Just like human fingerprints, no two giraffes have the same pattern on their skin. Each giraffe's spots are completely unique!</p>
+                                    
+                                    <h4>3. Super Long Tongues</h4>
+                                    <p>Giraffe tongues can be up to 20 inches long - that's longer than your arm! They use their tongues to grab leaves and clean their ears.</p>
+                                    
+                                    <h4>4. Sleep Standing Up</h4>
+                                    <p>Giraffes only need about 30 minutes of sleep per day, and they can sleep standing up! This helps them stay alert for predators.</p>
+                                    
+                                    <h4>5. Baby Giraffes</h4>
+                                    <p>Baby giraffes are called calves, and they can stand up and walk within an hour of being born. They're about 6 feet tall when they're born!</p>
+                                    
+                                    <h4>Conclusion</h4>
+                                    <p>These gentle giants are truly remarkable creatures. Visit our petting zoo to see them up close and learn even more amazing facts!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="safety">
+                    <div class="article-image">
+                        <img src="images/safety-guidelines.jpg" alt="Safety guidelines">
+                        <div class="article-category">Safety</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 12, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Safety Team
+                            </span>
+                        </div>
+                        <h3 class="article-title">Essential Safety Guidelines for Petting Zoo Visits</h3>
+                        <p class="article-excerpt">Learn the important safety rules and best practices to ensure a safe and enjoyable experience for your family.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>Before Your Visit</h4>
+                                    <p>Proper preparation is key to a safe and enjoyable petting zoo experience. Here are essential guidelines to follow:</p>
+                                    
+                                    <h4>What to Wear</h4>
+                                    <ul>
+                                        <li>Closed-toe shoes (no sandals or flip-flops)</li>
+                                        <li>Comfortable, washable clothing</li>
+                                        <li>Long pants to protect legs</li>
+                                        <li>Hat and sunscreen for outdoor areas</li>
+                                    </ul>
+                                    
+                                    <h4>Hand Hygiene</h4>
+                                    <p>Hand washing is the most important safety practice. Always wash your hands:</p>
+                                    <ul>
+                                        <li>Before touching any animals</li>
+                                        <li>After touching animals</li>
+                                        <li>Before eating or drinking</li>
+                                        <li>Before leaving the zoo</li>
+                                    </ul>
+                                    
+                                    <h4>Animal Interaction Rules</h4>
+                                    <ul>
+                                        <li>Always ask staff before approaching animals</li>
+                                        <li>Move slowly and calmly around animals</li>
+                                        <li>Never chase or startle animals</li>
+                                        <li>Don't feed animals unless supervised</li>
+                                        <li>Keep small children within arm's reach</li>
+                                    </ul>
+                                    
+                                    <h4>Emergency Procedures</h4>
+                                    <p>Our staff is trained in first aid and emergency response. In case of any incident, immediately notify a staff member who will provide appropriate assistance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="eco">
+                    <div class="article-image">
+                        <img src="images/eco-tourism.jpg" alt="Eco tourism">
+                        <div class="article-category">Eco Tourism</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 10, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Environmental Team
+                            </span>
+                        </div>
+                        <h3 class="article-title">Sustainable Tourism: How Petting Zoos Support Conservation</h3>
+                        <p class="article-excerpt">Discover how responsible petting zoo tourism contributes to wildlife conservation and environmental education.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>The Role of Petting Zoos in Conservation</h4>
+                                    <p>Petting zoos play a crucial role in wildlife conservation by educating visitors about animals and their habitats. Here's how we contribute to environmental protection:</p>
+                                    
+                                    <h4>Educational Impact</h4>
+                                    <p>Our educational programs teach visitors about:</p>
+                                    <ul>
+                                        <li>Animal behavior and natural habitats</li>
+                                        <li>Conservation challenges facing wildlife</li>
+                                        <li>Simple actions people can take to help</li>
+                                        <li>The importance of biodiversity</li>
+                                    </ul>
+                                    
+                                    <h4>Sustainable Practices</h4>
+                                    <p>We implement eco-friendly practices including:</p>
+                                    <ul>
+                                        <li>Solar-powered facilities</li>
+                                        <li>Water conservation systems</li>
+                                        <li>Organic waste composting</li>
+                                        <li>Native plant landscaping</li>
+                                    </ul>
+                                    
+                                    <h4>Conservation Funding</h4>
+                                    <p>A portion of every admission fee goes directly to wildlife conservation projects, supporting research and habitat protection efforts worldwide.</p>
+                                    
+                                    <h4>Visitor Impact</h4>
+                                    <p>By visiting our petting zoos, you're directly supporting conservation efforts and learning how to become a better environmental steward.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="care">
+                    <div class="article-image">
+                        <img src="images/animal-care.jpg" alt="Animal care">
+                        <div class="article-category">Animal Care</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 8, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Veterinary Team
+                            </span>
+                        </div>
+                        <h3 class="article-title">Daily Care Routine: Behind the Scenes at Our Petting Zoo</h3>
+                        <p class="article-excerpt">Get an inside look at how our dedicated team cares for our animals every day, ensuring their health and happiness.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>Morning Routine (6:00 AM - 9:00 AM)</h4>
+                                    <p>Our day starts early with essential care tasks:</p>
+                                    <ul>
+                                        <li>Health checks for all animals</li>
+                                        <li>Fresh water and food preparation</li>
+                                        <li>Enclosure cleaning and maintenance</li>
+                                        <li>Exercise and enrichment activities</li>
+                                    </ul>
+                                    
+                                    <h4>Midday Care (12:00 PM - 2:00 PM)</h4>
+                                    <p>During the hottest part of the day:</p>
+                                    <ul>
+                                        <li>Shade and cooling measures</li>
+                                        <li>Additional water stations</li>
+                                        <li>Quiet time for rest</li>
+                                        <li>Health monitoring</li>
+                                    </ul>
+                                    
+                                    <h4>Evening Routine (5:00 PM - 8:00 PM)</h4>
+                                    <p>As the day winds down:</p>
+                                    <ul>
+                                        <li>Final health assessments</li>
+                                        <li>Evening feeding</li>
+                                        <li>Enclosure security checks</li>
+                                        <li>Preparation for next day</li>
+                                    </ul>
+                                    
+                                    <h4>Specialized Care</h4>
+                                    <p>Each animal receives individualized care based on their species, age, and health needs, ensuring optimal welfare and happiness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="conservation">
+                    <div class="article-image">
+                        <img src="images/giraffe-feeding.jpg" alt="Conservation efforts">
+                        <div class="article-category">Conservation</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 5, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Conservation Team
+                            </span>
+                        </div>
+                        <h3 class="article-title">Protecting Endangered Species: Our Conservation Mission</h3>
+                        <p class="article-excerpt">Learn about our ongoing efforts to protect endangered species and how you can contribute to wildlife conservation.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>Our Conservation Mission</h4>
+                                    <p>We're committed to protecting endangered species through education, research, and direct conservation action.</p>
+                                    
+                                    <h4>Species We Support</h4>
+                                    <ul>
+                                        <li>Arabian Oryx - National symbol of UAE</li>
+                                        <li>Sand Gazelle - Desert conservation</li>
+                                        <li>Hawksbill Turtle - Marine protection</li>
+                                        <li>Arabian Leopard - Habitat preservation</li>
+                                    </ul>
+                                    
+                                    <h4>Conservation Programs</h4>
+                                    <p>Our programs include:</p>
+                                    <ul>
+                                        <li>Breeding programs for endangered species</li>
+                                        <li>Habitat restoration projects</li>
+                                        <li>Research partnerships with universities</li>
+                                        <li>Community education initiatives</li>
+                                    </ul>
+                                    
+                                    <h4>How You Can Help</h4>
+                                    <p>Every visitor can make a difference by:</p>
+                                    <ul>
+                                        <li>Learning about conservation issues</li>
+                                        <li>Supporting sustainable tourism</li>
+                                        <li>Spreading awareness to others</li>
+                                        <li>Donating to conservation projects</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card" data-category="kids">
+                    <div class="article-image">
+                        <img src="images/kids-activities.jpg" alt="Kids activities">
+                        <div class="article-category">For Kids</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">
+                                <i class="fas fa-calendar"></i>
+                                December 3, 2025
+                            </span>
+                            <span class="article-author">
+                                <i class="fas fa-user"></i>
+                                Education Team
+                            </span>
+                        </div>
+                        <h3 class="article-title">Fun Animal Activities for Kids at Home</h3>
+                        <p class="article-excerpt">Keep the learning going at home with these fun and educational animal-themed activities for children of all ages.</p>
+                        <div class="article-accordion">
+                            <div class="accordion-header">
+                                <span>Read Full Article</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="full-article">
+                                    <h4>Animal Crafts</h4>
+                                    <p>Create fun animal crafts using simple materials:</p>
+                                    <ul>
+                                        <li>Paper plate animal masks</li>
+                                        <li>Toilet roll binoculars</li>
+                                        <li>Animal finger puppets</li>
+                                        <li>Clay animal sculptures</li>
+                                    </ul>
+                                    
+                                    <h4>Educational Games</h4>
+                                    <p>Learning through play:</p>
+                                    <ul>
+                                        <li>Animal sound matching</li>
+                                        <li>Habitat sorting games</li>
+                                        <li>Animal memory cards</li>
+                                        <li>Wildlife scavenger hunts</li>
+                                    </ul>
+                                    
+                                    <h4>Science Experiments</h4>
+                                    <p>Simple experiments to learn about animals:</p>
+                                    <ul>
+                                        <li>Bird feeder observations</li>
+                                        <li>Butterfly life cycle study</li>
+                                        <li>Animal track identification</li>
+                                        <li>Feather and fur comparisons</li>
+                                    </ul>
+                                    
+                                    <h4>Story Time</h4>
+                                    <p>Recommended books about animals and conservation for different age groups.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Posts Slider -->
+    <section class="popular-posts-section">
+        <div class="container">
+            <h2 class="section-title">Popular Posts</h2>
+            <div class="popular-slider">
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <div class="popular-post">
+                            <div class="post-image">
+                                <img src="images/giraffe-feeding.jpg" alt="Popular post 1">
+                            </div>
+                            <div class="post-content">
+                                <h3>Top 10 Petting Zoo Safety Tips</h3>
+                                <p>Essential safety guidelines for families visiting petting zoos.</p>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-eye"></i> 2.5K views</span>
+                                    <span><i class="fas fa-heart"></i> 180 likes</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-post">
+                            <div class="post-image">
+                                <img src="images/children-animals.jpg" alt="Popular post 2">
+                            </div>
+                            <div class="post-content">
+                                <h3>Best Times to Visit Petting Zoos</h3>
+                                <p>Discover the optimal times for animal encounters and photo opportunities.</p>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-eye"></i> 1.8K views</span>
+                                    <span><i class="fas fa-heart"></i> 142 likes</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-post">
+                            <div class="post-image">
+                                <img src="images/camel-ride.jpg" alt="Popular post 3">
+                            </div>
+                            <div class="post-content">
+                                <h3>Animal Care During Summer</h3>
+                                <p>How we keep our animals cool and comfortable in the UAE heat.</p>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-eye"></i> 3.2K views</span>
+                                    <span><i class="fas fa-heart"></i> 256 likes</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="popular-post">
+                            <div class="post-image">
+                                <img src="images/petting-zoo-animals.jpg" alt="Popular post 4">
+                            </div>
+                            <div class="post-content">
+                                <h3>Educational Benefits of Petting Zoos</h3>
+                                <p>How petting zoos contribute to children's learning and development.</p>
+                                <div class="post-stats">
+                                    <span><i class="fas fa-eye"></i> 2.1K views</span>
+                                    <span><i class="fas fa-heart"></i> 198 likes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated with Our Latest Posts</h2>
+                    <p>Subscribe to our newsletter for weekly tips, animal facts, conservation news, and exclusive content.</p>
+                    <div class="newsletter-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Weekly animal care tips</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Exclusive conservation updates</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <span>Special event invitations</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </div>
+                    <div class="form-agreement">
+                        <input type="checkbox" id="newsletterAgreement" name="newsletterAgreement" required>
+                        <label for="newsletterAgreement">I agree to receive newsletters and promotional content</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-paw"></i>
+                        <span>UAE Zoos</span>
+                    </div>
+                    <p>Discover the best petting zoos across the United Arab Emirates. Your gateway to amazing animal encounters.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="zoos.html">Zoos</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="cookies-policy.html">Cookies Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+971 4 123 4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@uaezoos.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dubai, UAE</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates on new zoos and special events.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UAE Petting Zoos. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="blog-script.js"></script>
+</body>
+</html>
