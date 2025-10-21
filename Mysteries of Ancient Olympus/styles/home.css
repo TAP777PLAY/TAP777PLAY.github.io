@@ -1,0 +1,708 @@
+/* ===== СТИЛИ ГЛАВНОЙ СТРАНИЦЫ ===== */
+
+/* Героический баннер */
+.hero {
+    background: linear-gradient(135deg, var(--color-marble) 0%, rgba(212, 175, 55, 0.1) 100%);
+    padding: var(--spacing-xl) 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/olympus-pattern.png') repeat;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: var(--font-size-xxl);
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-tight);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-normal);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    position: relative;
+    max-width: 500px;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-strong);
+    transition: var(--transition-slow);
+}
+
+.hero-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Разделы сайта */
+.sections {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-white);
+}
+
+.sections-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-xl);
+    color: var(--color-dark-blue);
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.section-card {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-medium);
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: var(--transition-slow);
+}
+
+.section-card:hover::before {
+    left: 100%;
+}
+
+.section-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-gold);
+}
+
+.section-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+    display: block;
+    transition: var(--transition-medium);
+}
+
+.section-card:hover .section-icon {
+    transform: scale(1.1);
+}
+
+.section-card h3 {
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+.section-card p {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-normal);
+}
+
+.section-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-medium);
+}
+
+.section-link:hover::before {
+    left: 100%;
+}
+
+.section-link:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Хэштеги в модальном окне */
+.hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.hashtag {
+    background: var(--color-gold);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Адаптивность для главной страницы */
+@media (max-width: 1024px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: var(--spacing-lg) 0;
+        min-height: 60vh;
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-md);
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sections {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .sections-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .section-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: var(--font-size-md);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .section-card {
+        padding: var(--spacing-md);
+    }
+    
+    .section-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Дополнительные анимации */
+.hero-content {
+    animation: slideUp 0.8s ease;
+}
+
+.hero-image {
+    animation: slideUp 0.8s ease 0.2s both;
+}
+
+.section-card {
+    animation: fadeIn 0.6s ease;
+}
+
+.section-card:nth-child(1) { animation-delay: 0.1s; }
+.section-card:nth-child(2) { animation-delay: 0.2s; }
+.section-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Эффекты при скролле */
+.section-card.scroll-animate {
+    animation: slideUp 0.6s ease;
+}
+
+/* Дополнительные стили для улучшения UX */
+.hero-buttons .btn {
+    min-width: 180px;
+}
+
+/* Градиентный фон для секций */
+.sections::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(212, 175, 55, 0.02) 0%, 
+        rgba(245, 245, 220, 0.05) 50%, 
+        rgba(212, 175, 55, 0.02) 100%);
+    pointer-events: none;
+}
+
+/* Улучшенные стили для карточек */
+.section-card {
+    border: 2px solid transparent;
+    transition: all var(--transition-medium);
+}
+
+.section-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* ===== СТИЛИ ГОЛОВОЛОМКИ ОРАКУЛА ===== */
+
+.oracle-riddle {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-marble) 0%, rgba(212, 175, 55, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.oracle-riddle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="greek-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23d4af37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23greek-pattern)"/></svg>') repeat;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.riddle-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+    border: 2px solid var(--color-gold);
+}
+
+.riddle-header {
+    background: linear-gradient(135deg, var(--color-gold) 0%, #b8941f 100%);
+    color: var(--color-white);
+    padding: var(--spacing-xl);
+    text-align: center;
+    position: relative;
+}
+
+.riddle-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #b8941f;
+}
+
+.oracle-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    animation: pulse 2s infinite;
+}
+
+.riddle-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.riddle-subtitle {
+    font-size: var(--font-size-md);
+    opacity: 0.9;
+    margin: 0;
+}
+
+.riddle-content {
+    padding: var(--spacing-xl);
+}
+
+.riddle-question h3 {
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+.riddle-question p {
+    font-size: var(--font-size-md);
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-normal);
+}
+
+.riddle-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.option-btn {
+    background: var(--color-white);
+    border: 2px solid var(--color-gold);
+    color: var(--color-dark-blue);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: var(--transition-medium);
+}
+
+.option-btn:hover::before {
+    left: 100%;
+}
+
+.option-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+}
+
+.option-btn.correct {
+    background: #4CAF50;
+    border-color: #4CAF50;
+    color: var(--color-white);
+    animation: correctAnswer 0.6s ease;
+}
+
+.option-btn.incorrect {
+    background: #f44336;
+    border-color: #f44336;
+    color: var(--color-white);
+    animation: incorrectAnswer 0.6s ease;
+}
+
+.option-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.riddle-feedback {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-correct {
+    color: #4CAF50;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+}
+
+.feedback-incorrect {
+    color: #f44336;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+}
+
+.riddle-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-gold) 0%, #b8941f 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-sm);
+}
+
+.riddle-result {
+    padding: var(--spacing-xl);
+    text-align: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(245, 245, 220, 0.2) 100%);
+}
+
+.result-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    animation: bounce 1s ease infinite;
+}
+
+.result-title {
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.result-message {
+    color: var(--color-gray);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-normal);
+}
+
+.result-score {
+    background: var(--color-gold);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-lg);
+    display: inline-block;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes correctAnswer {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes incorrectAnswer {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Адаптивность для головоломки */
+@media (max-width: 768px) {
+    .oracle-riddle {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .riddle-container {
+        margin: 0 var(--spacing-md);
+    }
+    
+    .riddle-header {
+        padding: var(--spacing-lg);
+    }
+    
+    .riddle-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .riddle-options {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .option-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .oracle-icon {
+        font-size: 2.5rem;
+    }
+    
+    .riddle-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .riddle-subtitle {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .riddle-container {
+        margin: 0 var(--spacing-sm);
+    }
+    
+    .riddle-header {
+        padding: var(--spacing-md);
+    }
+    
+    .riddle-content {
+        padding: var(--spacing-md);
+    }
+    
+    .oracle-icon {
+        font-size: 2rem;
+    }
+    
+    .riddle-title {
+        font-size: var(--font-size-md);
+    }
+    
+    .result-icon {
+        font-size: 3rem;
+    }
+    
+    .result-title {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* Дополнительные эффекты для интерактивности */
+.section-card {
+    cursor: pointer;
+}
+
+.section-card:active {
+    transform: scale(0.98);
+}
+
+/* Стили для улучшения читаемости */
+.hero-subtitle {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+    .hero-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

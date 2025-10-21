@@ -1,0 +1,606 @@
+/* ===== MYTHOLOGY PAGE STYLES ===== */
+
+/* Mythology Hero Section */
+.mythology-hero {
+    background: linear-gradient(135deg, var(--color-marble) 0%, rgba(212, 175, 55, 0.1) 100%);
+    padding: var(--spacing-xl) 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mythology-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/olympus-pattern.png') repeat;
+    opacity: 0.05;
+    z-index: 1;
+}
+
+.mythology-hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mythology-hero-text {
+    text-align: left;
+}
+
+.mythology-hero-image {
+    text-align: center;
+}
+
+.mythology-hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-medium);
+}
+
+.mythology-hero-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-large);
+}
+
+.mythology-hero-title {
+    font-size: var(--font-size-xxl);
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-tight);
+}
+
+.mythology-hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray);
+    line-height: var(--line-height-normal);
+}
+
+/* Gods Section */
+.gods-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-white);
+}
+
+.gods-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-xl);
+}
+
+.gods-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.god-accordion {
+    margin-bottom: var(--spacing-md);
+    border: 2px solid var(--color-light-gray);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition-medium);
+}
+
+.god-accordion:hover {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-light);
+}
+
+.god-accordion.active {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-medium);
+}
+
+.accordion-header {
+    padding: var(--spacing-lg);
+    background: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.accordion-header:hover {
+    background: var(--color-light-gray);
+}
+
+.god-header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.god-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    border-radius: 50%;
+    color: var(--color-white);
+}
+
+.god-header-text h3 {
+    margin: 0;
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-lg);
+}
+
+.god-header-text p {
+    margin: 0;
+    color: var(--color-gold);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+}
+
+.accordion-arrow {
+    font-size: 1.2rem;
+    color: var(--color-gold);
+    transition: var(--transition-fast);
+}
+
+.god-accordion.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-medium), opacity var(--transition-medium);
+    opacity: 0;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.god-details {
+    padding: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.god-image {
+    position: relative;
+}
+
+.god-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-medium);
+}
+
+.god-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+}
+
+.god-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.god-description {
+    color: var(--color-gray);
+    line-height: var(--line-height-normal);
+    margin: 0;
+}
+
+.god-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.attribute {
+    background: var(--color-gold);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.god-card {
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-medium);
+    overflow: hidden;
+    position: relative;
+}
+
+.god-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+.god-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.god-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-medium);
+}
+
+.god-card:hover .god-img {
+    transform: scale(1.1);
+}
+
+.god-content {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.god-name {
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.god-title {
+    color: var(--color-gold);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.god-description {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-normal);
+    flex-grow: 1;
+}
+
+.god-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+}
+
+.attribute {
+    background: var(--color-gold);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Riddles Section */
+.riddles-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-marble) 0%, rgba(212, 175, 55, 0.1) 100%);
+}
+
+.riddles-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.riddles-title {
+    color: var(--color-dark-blue);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-xl);
+}
+
+.riddles-description {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-normal);
+    font-size: var(--font-size-md);
+}
+
+.riddles-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.riddle-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    border-radius: 50%;
+    color: var(--color-white);
+}
+
+.feature-text {
+    color: var(--color-dark-blue);
+    font-weight: var(--font-weight-medium);
+}
+
+.riddles-btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.riddles-image {
+    position: relative;
+}
+
+.riddles-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-medium);
+}
+
+.riddles-img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-strong);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mythology-hero {
+        padding: var(--spacing-lg) 0;
+        min-height: 40vh;
+    }
+    
+    .mythology-hero-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .mythology-hero-subtitle {
+        font-size: var(--font-size-md);
+    }
+    
+    .gods-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .god-card {
+        flex-direction: column;
+    }
+    
+    .god-image {
+        height: 150px;
+    }
+    
+    .god-details {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .god-img {
+        height: 150px;
+    }
+    
+    .riddles-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .riddles-features {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mythology-hero-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .mythology-hero-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .god-content,
+    .story-content {
+        padding: var(--spacing-md);
+    }
+    
+    .god-attributes {
+        justify-content: center;
+    }
+    
+    .attribute {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+/* Animations */
+.mythology-hero-content {
+    animation: fadeIn 0.8s ease;
+}
+
+.god-card {
+    animation: fadeIn 0.6s ease;
+}
+
+.god-card:nth-child(1) { animation-delay: 0.1s; }
+.god-card:nth-child(2) { animation-delay: 0.2s; }
+.god-card:nth-child(3) { animation-delay: 0.3s; }
+.god-card:nth-child(4) { animation-delay: 0.4s; }
+.god-card:nth-child(5) { animation-delay: 0.5s; }
+.god-card:nth-child(6) { animation-delay: 0.6s; }
+.god-card:nth-child(7) { animation-delay: 0.7s; }
+.god-card:nth-child(8) { animation-delay: 0.8s; }
+.god-card:nth-child(9) { animation-delay: 0.9s; }
+.god-card:nth-child(10) { animation-delay: 1.0s; }
+.god-card:nth-child(11) { animation-delay: 1.1s; }
+.god-card:nth-child(12) { animation-delay: 1.2s; }
+
+.story-card {
+    animation: slideUp 0.6s ease;
+}
+
+.story-card:nth-child(1) { animation-delay: 0.1s; }
+.story-card:nth-child(2) { animation-delay: 0.2s; }
+.story-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Hover Effects */
+.god-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: var(--transition-slow);
+    z-index: 1;
+}
+
+.god-card:hover::before {
+    left: 100%;
+}
+
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: var(--transition-slow);
+    z-index: 1;
+}
+
+.story-card:hover::before {
+    left: 100%;
+}
+
+/* Additional Styling */
+.god-card:hover .god-name {
+    color: var(--color-gold);
+    transition: var(--transition-fast);
+}
+
+.story-card:hover .story-content h3 {
+    color: var(--color-gold);
+    transition: var(--transition-fast);
+}
+
+/* Grid Layout for Different Screen Sizes */
+@media (min-width: 1200px) {
+    .gods-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .gods-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Special Effects */
+.god-card[data-god="zeus"] {
+    border-top: 3px solid #FFD700;
+}
+
+.god-card[data-god="hera"] {
+    border-top: 3px solid #FF69B4;
+}
+
+.god-card[data-god="poseidon"] {
+    border-top: 3px solid #4169E1;
+}
+
+.god-card[data-god="athena"] {
+    border-top: 3px solid #9370DB;
+}
+
+.god-card[data-god="apollo"] {
+    border-top: 3px solid #FFA500;
+}
+
+.god-card[data-god="artemis"] {
+    border-top: 3px solid #32CD32;
+}
+
+.god-card[data-god="ares"] {
+    border-top: 3px solid #DC143C;
+}
+
+.god-card[data-god="aphrodite"] {
+    border-top: 3px solid #FFB6C1;
+}
+
+.god-card[data-god="hephaestus"] {
+    border-top: 3px solid #8B4513;
+}
+
+.god-card[data-god="hermes"] {
+    border-top: 3px solid #20B2AA;
+}
+
+.god-card[data-god="dionysus"] {
+    border-top: 3px solid #800080;
+}
+
+.god-card[data-god="demeter"] {
+    border-top: 3px solid #228B22;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mythology-hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .mythology-hero-text {
+        text-align: center;
+    }
+    
+    .mythology-hero-title {
+        font-size: 32px;
+    }
+    
+    .mythology-hero-subtitle {
+        font-size: var(--font-size-md);
+    }
+}

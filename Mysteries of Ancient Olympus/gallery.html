@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympus Gallery - Mysteries of Ancient Olympus</title>
+    <meta name="description" content="Explore the visual treasures of Ancient Olympus through our curated gallery of artifacts, temples, and legendary heroes">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="image/Mysteries of Ancient Olympus.webp" alt="Mysteries of Ancient Olympus" class="logo-img">
+                        <span class="logo-text">Mysteries of Ancient Olympus</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mythology.html" class="nav-link">Mythology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="puzzles.html" class="nav-link">Trials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="gallery.html" class="nav-link active">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contacts.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Burger Menu -->
+                <button class="burger" id="burger" aria-label="Open menu">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="gallery-hero">
+            <div class="container">
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-text">
+                        <h1 class="gallery-hero-title">Olympus Gallery</h1>
+                        <p class="gallery-hero-subtitle">Discover the visual treasures and artistic masterpieces of Ancient Greek mythology</p>
+                    </div>
+                    <div class="gallery-hero-image">
+                        <img src="image/Olympus Gallery.webp" alt="Olympus Gallery" class="gallery-hero-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="gallery-filters">
+            <div class="container">
+                <div class="filter-content">
+                    <h2 class="filter-title">Explore by Category</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">
+                            All Items
+                        </button>
+                        <button class="filter-btn" data-filter="heroes">
+                            Heroes
+                        </button>
+                        <button class="filter-btn" data-filter="temples">
+                            Temples
+                        </button>
+                        <button class="filter-btn" data-filter="artifacts">
+                            Artifacts
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-grid-section">
+            <div class="container">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Hero Items -->
+                    <div class="gallery-item" data-category="heroes">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Achilles - The Greatest Warrior.webp" alt="Achilles - The Greatest Warrior" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Achilles</h3>
+                                        <p class="gallery-item-subtitle">The Greatest Warrior</p>
+                                        <p class="gallery-item-description">The legendary hero of the Trojan War, known for his invulnerability and tragic fate.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="heroes">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Odysseus - The cunning Hero.webp" alt="Odysseus - The Cunning Hero" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Odysseus</h3>
+                                        <p class="gallery-item-subtitle">The Cunning Hero</p>
+                                        <p class="gallery-item-description">King of Ithaca, master of strategy and wit, hero of the Odyssey.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Temple Items -->
+                    <div class="gallery-item" data-category="temples">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Partheon - Temple of Athena.webp" alt="Parthenon - Temple of Athena" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Parthenon</h3>
+                                        <p class="gallery-item-subtitle">Temple of Athena</p>
+                                        <p class="gallery-item-description">The magnificent temple dedicated to Athena, goddess of wisdom and warfare.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="temples">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Temple of Zeus at Olympia.webp" alt="Temple of Zeus at Olympia" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Temple of Zeus</h3>
+                                        <p class="gallery-item-subtitle">Olympia</p>
+                                        <p class="gallery-item-description">The grand temple housing the colossal statue of Zeus, one of the Seven Wonders.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artifact Items -->
+                    <div class="gallery-item" data-category="artifacts">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Ancient greek amphora.webp" alt="Ancient Greek Amphora" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Ancient Amphora</h3>
+                                        <p class="gallery-item-subtitle">Ceramic Vessel</p>
+                                        <p class="gallery-item-description">A beautifully decorated amphora depicting scenes from Greek mythology.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="artifacts">
+                        <div class="gallery-item-inner">
+                            <div class="gallery-image">
+                                <img src="image/Ancient greek coin.webp" alt="Ancient Greek Coin" class="gallery-img">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="gallery-item-title">Olympic Coin</h3>
+                                        <p class="gallery-item-subtitle">Ancient Currency</p>
+                                        <p class="gallery-item-description">A silver coin minted for the ancient Olympic Games, featuring Zeus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="gallery-contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="contact-title">Share Your Discoveries</h2>
+                    <p class="contact-description">
+                        Have questions about these ancient treasures? Want to learn more about Greek mythology? 
+                        We'd love to hear from you and share more stories from Mount Olympus.
+                    </p>
+                    <a href="contacts.html" class="btn btn-primary contact-btn">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p class="copyright">© Mysteries of Ancient Olympus, 2025</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>45 Kingswood Lane, Egham, Surrey<br>TW20 8NB, UNITED KINGDOM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+441784556789">+44 (0) 1784 556 789</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@olymp-mysteries.ru">info@olymp-mysteries.ru</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-legal">
+                    <button class="legal-btn" data-modal="cookies">Cookie Policy</button>
+                    <button class="legal-btn" data-modal="terms">Terms of Use</button>
+                    <button class="legal-btn" data-modal="privacy">Privacy Policy</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Windows -->
+
+    <!-- Cookie Policy -->
+    <div class="modal" id="cookies-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cookie Policy</h3>
+                <button class="modal-close" data-close="cookies-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>We use cookies to enhance your experience on our website. By continuing to use the site, you agree to our cookie policy.</p>
+                <p>Cookies help us to:</p>
+                <ul>
+                    <li>Remember your preferences</li>
+                    <li>Analyse website usage</li>
+                    <li>Provide personalised content</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Use -->
+    <div class="modal" id="terms-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms of Use</h3>
+                <button class="modal-close" data-close="terms-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>By using this website, you agree to the following terms:</p>
+                <ul>
+                    <li>Content is for educational purposes</li>
+                    <li>Unauthorised copying of materials is prohibited</li>
+                    <li>We are not responsible for historical inaccuracies</li>
+                    <li>The site may contain links to external resources</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="modal" id="privacy-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="modal-close" data-close="privacy-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>We take your privacy seriously:</p>
+                <ul>
+                    <li>We do not collect personal information without consent</li>
+                    <li>Data is used only to improve the website</li>
+                    <li>We do not share information with third parties</li>
+                    <li>You can withdraw consent at any time</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>
