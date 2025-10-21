@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - Global Finance Insight</title>
+    <meta name="description" content="Cookie Policy for Global Finance Insight - Learn about how we use cookies and similar technologies on our website.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/Global Markets and Fintech.png">
+    <link rel="shortcut icon" type="image/png" href="images/Global Markets and Fintech.png">
+    <link rel="apple-touch-icon" href="images/Global Markets and Fintech.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .policy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            line-height: 1.8;
+        }
+        
+        .policy-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .policy-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        
+        .policy-date {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .policy-content {
+            color: var(--text-secondary);
+        }
+        
+        .policy-content h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .policy-content h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-content p {
+            margin-bottom: 15px;
+        }
+        
+        .policy-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-content li {
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            background-color: var(--background);
+            padding: 20px;
+            border-radius: var(--radius-medium);
+            margin-top: 30px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--surface);
+            border-radius: var(--radius-medium);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .cookie-table th,
+        .cookie-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cookie-table th {
+            background-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .cookie-table tr:hover {
+            background-color: var(--background);
+        }
+        
+        .cookie-type {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .cookie-purpose {
+            color: var(--text-secondary);
+        }
+        
+        .cookie-duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .info-box {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: var(--radius-medium);
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .info-box h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .info-box p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        
+        .cookie-controls {
+            background-color: var(--background);
+            padding: 20px;
+            border-radius: var(--radius-medium);
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+        
+        .cookie-controls h4 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        
+        .cookie-controls p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Consent Modal -->
+    <div id="cookieModal" class="cookie-modal">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience and provide personalized content. By continuing to use our site, you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn btn-primary">Accept All</button>
+                <button id="declineCookies" class="btn btn-secondary">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Global Finance Insight</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="analytics.html" class="nav-link">Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="markets.html" class="nav-link">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experts.html" class="nav-link">Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacts.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="policy-container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <div class="policy-header">
+            <h1 class="policy-title">Cookie Policy</h1>
+            <p class="policy-date">Last updated: January 1, 2025</p>
+        </div>
+
+        <div class="policy-content">
+            <h2>1. What Are Cookies?</h2>
+            <p>Cookies are small text files that are placed on your computer, smartphone, or other device when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners.</p>
+            
+            <p>Cookies allow a website to recognize a user's device and remember information about their visit, such as their preferred language and other settings. This can make your next visit easier and the site more useful to you.</p>
+
+            <div class="info-box">
+                <h4>Quick Facts About Cookies</h4>
+                <p>• Cookies cannot harm your computer or device<br>
+                • They don't contain viruses or malware<br>
+                • They typically contain anonymous information<br>
+                • You can control and delete cookies through your browser settings</p>
+            </div>
+
+            <h2>2. How We Use Cookies</h2>
+            <p>Global Finance Insight uses cookies and similar technologies to enhance your browsing experience, analyze website traffic, and provide personalized content. We use cookies for several purposes:</p>
+
+            <h3>2.1 Essential Cookies</h3>
+            <p>These cookies are necessary for the website to function properly and cannot be disabled. They include:</p>
+            <ul>
+                <li>Session management cookies that keep you logged in</li>
+                <li>Security cookies that protect against fraud</li>
+                <li>Load balancing cookies that ensure website performance</li>
+                <li>Cookies that remember your cookie preferences</li>
+            </ul>
+
+            <h3>2.2 Functional Cookies</h3>
+            <p>These cookies enable enhanced functionality and personalization, such as:</p>
+            <ul>
+                <li>Remembering your language preferences</li>
+                <li>Storing your display preferences (theme, font size)</li>
+                <li>Remembering your login status</li>
+                <li>Maintaining your shopping cart or subscription status</li>
+            </ul>
+
+            <h3>2.3 Analytics Cookies</h3>
+            <p>We use analytics cookies to understand how visitors interact with our website, including:</p>
+            <ul>
+                <li>Google Analytics to track website usage and performance</li>
+                <li>Heat mapping tools to understand user behavior</li>
+                <li>A/B testing cookies to improve user experience</li>
+                <li>Performance monitoring cookies</li>
+            </ul>
+
+            <h3>2.4 Marketing Cookies</h3>
+            <p>These cookies are used to deliver relevant advertisements and track the effectiveness of our marketing campaigns:</p>
+            <ul>
+                <li>Social media integration cookies</li>
+                <li>Advertising network cookies</li>
+                <li>Retargeting cookies for personalized ads</li>
+                <li>Conversion tracking cookies</li>
+            </ul>
+
+            <h2>3. Types of Cookies We Use</h2>
+            
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Cookie Type</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cookie-type">Essential Cookies</td>
+                        <td class="cookie-purpose">Enable basic website functionality, security, and user authentication</td>
+                        <td class="cookie-duration">Session / 1 year</td>
+                    </tr>
+                    <tr>
+                        <td class="cookie-type">Preference Cookies</td>
+                        <td class="cookie-purpose">Remember your settings and preferences for a better user experience</td>
+                        <td class="cookie-duration">30 days - 1 year</td>
+                    </tr>
+                    <tr>
+                        <td class="cookie-type">Analytics Cookies</td>
+                        <td class="cookie-purpose">Help us understand how visitors use our website and improve performance</td>
+                        <td class="cookie-duration">2 years</td>
+                    </tr>
+                    <tr>
+                        <td class="cookie-type">Marketing Cookies</td>
+                        <td class="cookie-purpose">Deliver relevant advertisements and measure campaign effectiveness</td>
+                        <td class="cookie-duration">30 days - 2 years</td>
+                    </tr>
+                    <tr>
+                        <td class="cookie-type">Social Media Cookies</td>
+                        <td class="cookie-purpose">Enable social media features and content sharing</td>
+                        <td class="cookie-duration">30 days - 1 year</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Third-Party Cookies</h2>
+            <p>We may use third-party services that set their own cookies. These include:</p>
+
+            <h3>4.1 Google Analytics</h3>
+            <p>We use Google Analytics to analyze website traffic and user behavior. Google Analytics uses cookies to collect information about how visitors use our site. This information is used to compile reports and help us improve the site.</p>
+            <ul>
+                <li><strong>Cookie Name:</strong> _ga, _ga_*, _gid</li>
+                <li><strong>Purpose:</strong> Distinguish unique users and track user interactions</li>
+                <li><strong>Duration:</strong> 2 years (_ga), 24 hours (_gid)</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" style="color: var(--accent);">Google Privacy Policy</a></li>
+            </ul>
+
+            <h3>4.2 Social Media Platforms</h3>
+            <p>Our website may include social media features, such as sharing buttons for LinkedIn, Twitter, and YouTube. These features may collect your IP address and the page you are visiting on our site.</p>
+
+            <h3>4.3 Advertising Networks</h3>
+            <p>We may work with advertising partners to display relevant advertisements. These partners may use cookies to track your visits to our site and other sites to provide targeted advertising.</p>
+
+            <h2>5. Managing Your Cookie Preferences</h2>
+            
+            <div class="cookie-controls">
+                <h4>Cookie Consent Management</h4>
+                <p>When you first visit our website, you'll see a cookie consent banner where you can choose which types of cookies to accept. You can change your preferences at any time by:</p>
+                <ul>
+                    <li>Clicking the "Cookie Settings" link in our website footer</li>
+                    <li>Using the cookie management tools in your browser</li>
+                    <li>Contacting us directly to update your preferences</li>
+                </ul>
+            </div>
+
+            <h3>5.1 Browser Settings</h3>
+            <p>You can control and delete cookies through your browser settings. Most browsers allow you to:</p>
+            <ul>
+                <li>View and delete cookies</li>
+                <li>Block cookies from specific websites</li>
+                <li>Block third-party cookies</li>
+                <li>Set your browser to ask for permission before setting cookies</li>
+            </ul>
+
+            <h3>5.2 Browser-Specific Instructions</h3>
+            <p>Here are links to cookie management instructions for popular browsers:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" style="color: var(--accent);">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" style="color: var(--accent);">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" style="color: var(--accent);">Safari</a></li>
+                <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies" style="color: var(--accent);">Internet Explorer</a></li>
+                <li><a href="https://support.microsoft.com/en-us/help/4027947/microsoft-edge-delete-cookies" style="color: var(--accent);">Microsoft Edge</a></li>
+            </ul>
+
+            <h3>5.3 Impact of Disabling Cookies</h3>
+            <p>Please note that disabling certain cookies may affect the functionality of our website. For example:</p>
+            <ul>
+                <li>You may need to re-enter information more frequently</li>
+                <li>Some features may not work as expected</li>
+                <li>Personalized content may not be available</li>
+                <li>Website performance may be affected</li>
+            </ul>
+
+            <h2>6. Mobile Devices</h2>
+            <p>If you access our website from a mobile device, you can manage cookies through your mobile browser settings. The process is similar to desktop browsers, but the exact steps may vary depending on your device and browser.</p>
+
+            <h2>7. Updates to This Cookie Policy</h2>
+            <p>We may update this Cookie Policy from time to time to reflect changes in our practices or applicable laws. When we make changes, we will:</p>
+            <ul>
+                <li>Update the "Last updated" date at the top of this policy</li>
+                <li>Notify you through our website or email if the changes are significant</li>
+                <li>Request new consent if required by law</li>
+            </ul>
+
+            <h2>8. Legal Basis for Processing</h2>
+            <p>Our use of cookies is based on the following legal grounds:</p>
+            <ul>
+                <li><strong>Essential Cookies:</strong> Necessary for the performance of our contract with you</li>
+                <li><strong>Functional Cookies:</strong> Based on your consent</li>
+                <li><strong>Analytics Cookies:</strong> Based on your consent or our legitimate interest in improving our services</li>
+                <li><strong>Marketing Cookies:</strong> Based on your consent</li>
+            </ul>
+
+            <h2>9. Data Protection Rights</h2>
+            <p>Under applicable data protection laws, you have certain rights regarding cookies and your personal data. These rights may include:</p>
+            <ul>
+                <li>The right to access information about cookies we use</li>
+                <li>The right to withdraw consent for non-essential cookies</li>
+                <li>The right to request deletion of cookie data</li>
+                <li>The right to object to certain types of cookie processing</li>
+            </ul>
+
+            <h2>10. Contact Us</h2>
+            <div class="contact-info">
+                <p>If you have any questions about our use of cookies or this Cookie Policy, please contact us:</p>
+                <p><strong>Global Finance Insight</strong><br>
+                Dubai International Financial Centre<br>
+                United Arab Emirates</p>
+                <p><strong>Email:</strong> privacy@globalfinanceinsight.ae<br>
+                <strong>Phone:</strong> +971 4 XXX XXXX</p>
+                <p><strong>Data Protection Officer:</strong> dpo@globalfinanceinsight.ae</p>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.9rem; color: var(--text-secondary);">
+                This Cookie Policy is effective as of January 1, 2025, and was last updated on January 1, 2025.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Global Finance Insight</h3>
+                    <p class="footer-description">
+                        Your trusted partner for comprehensive financial analysis and market intelligence in the UAE and Middle East region.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-social="linkedin" onclick="openSocialModal('linkedin'); return false;">LinkedIn</a>
+                        <a href="#" class="social-link" data-social="twitter" onclick="openSocialModal('twitter'); return false;">Twitter</a>
+                        <a href="#" class="social-link" data-social="youtube" onclick="openSocialModal('youtube'); return false;">YouTube</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analytics.html">Market Analysis</a></li>
+                        <li><a href="markets.html">Research Reports</a></li>
+                        <li><a href="experts.html">Our Expertise</a></li>
+                        <li><a href="contacts.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>Dubai International Financial Centre</p>
+                        <p>United Arab Emirates</p>
+                        <p>Email: info@globalfinanceinsight.ae</p>
+                        <p>Phone: +971 4 XXX XXXX</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Finance Insight. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="cookie-policy.html" class="legal-link">Cookie Policy</a>
+                    <a href="terms-of-service.html" class="legal-link">Terms of Service</a>
+                    <a href="privacy-policy.html" class="legal-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Social Media Modal -->
+    <div id="socialModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Find us on social media</h3>
+            <div class="social-info">
+                <p>Search for us in this social network by name:</p>
+                <p class="social-name"><strong>Global Finance Insight</strong></p>
+                <p>or use hashtags:</p>
+                <p class="social-hashtags">#GlobalFinanceInsight #FinancialAnalysis #UAE</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Modals -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="policyContent">
+                <!-- Policy content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
