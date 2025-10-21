@@ -1,0 +1,7 @@
+.legal { max-width: 900px; }
+.legal h1 { font-size: var(--h1); margin: 0 0 1rem; }
+.legal h2 { font-size: var(--h3); margin: 1.5rem 0 .5rem; }
+.legal p, .legal li { color: var(--onSurface); line-height: var(--lh-loose); }
+.legal ul { padding-left: 1.2rem; }
+.legal a { color: var(--primary); }
+

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacts — Financial Coaching for Executives</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/webp" href="images/Expert portait.webp">
+    <meta name="description" content="Get in touch: contact form, location, and social links.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/contacts.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container site-header__inner" data-animate="fade-in">
+        <button class="site-header__menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span></button>
+        <a class="site-header__brand" href="index.html">Financial Coaching for Executives</a>
+        <nav id="primary-menu" class="site-nav" aria-label="Primary">
+          <ul class="site-nav__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="coaching.html">Coaching</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a aria-current="page" href="contacts.html">Contacts</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary site-header__cta" href="#contact-form">Get Started</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Page Header -->
+      <section class="page-header section" aria-labelledby="contact-title">
+        <div class="container">
+          <h1 id="contact-title" class="page-header__title" data-animate="slide-up">Get in Touch</h1>
+          <p class="page-header__intro" data-animate="fade-in">We’ll respond within 1–2 business days.</p>
+        </div>
+      </section>
+
+      <!-- Contact Form & Info -->
+      <section class="contact section" aria-labelledby="contact-form-title">
+        <div class="container contact__grid">
+          <div class="contact__form" data-animate="fade-in">
+            <h2 id="contact-form-title" class="section__title">Contact Form</h2>
+            <form id="contact-form" class="form" novalidate>
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" required></textarea>
+              </label>
+              <button class="btn btn--primary" type="submit">Send Message</button>
+              <p class="form__note" aria-live="polite"></p>
+            </form>
+          </div>
+          <aside class="contact__info" data-animate="slide-up">
+            <h2 class="section__title">Contact Information</h2>
+            <p>Address: 27 Crown Place, London EC2A 4BT, United Kingdom</p>
+            <p>Phone: <a href="tel:+442071234589">+44 20 7123 4589</a></p>
+            <p>Email: <a href="mailto:contact@financialcoaching2025.com">contact@financialcoaching2025.com</a></p>
+            <div class="socials">
+              <button class="btn btn--secondary" type="button" data-socials-popup>Find us on social media</button>
+              <div class="socials__popup" role="dialog" aria-modal="false" aria-hidden="true">
+                <p>Find us by name or hashtag on Facebook, LinkedIn, X, YouTube</p>
+                <button class="btn" type="button" data-socials-close>Close</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Map -->
+      <section class="map section" aria-labelledby="map-title">
+        <div class="container">
+          <h2 id="map-title" class="section__title" data-animate="slide-up">Our Location</h2>
+          <div class="map__wrap" data-animate="fade-in">
+            <iframe class="map__iframe" title="Map: 27 Crown Place, London" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=27%20Crown%20Place%2C%20London%20EC2A%204BT%2C%20United%20Kingdom&output=embed"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container footer__inner">
+        <p>© 2025 Financial Coaching for Executives</p>
+        <nav aria-label="Legal">
+          <ul class="footer__links">
+            <li><a href="cookies.html" rel="nofollow">Cookies Policy</a></li>
+            <li><a href="terms.html" rel="nofollow">Terms of Service</a></li>
+            <li><a href="privacy.html" rel="nofollow">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/animations.js" defer></script>
+    <script src="js/cookies.js" defer></script>
+    <script src="js/forms.js" defer></script>
+    <script src="js/socials.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+  
+</html>
+
+

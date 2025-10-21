@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Financial Coaching for Executives</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/webp" href="images/Expert portait.webp">
+    <meta name="description" content="Empowering leaders through executive financial coaching. Build a global mindset for financial growth.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container site-header__inner" data-animate="fade-in">
+        <button class="site-header__menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu"><span></span></button>
+        <a class="site-header__brand" href="index.html">Financial Coaching for Executives</a>
+        <nav id="primary-menu" class="site-nav" aria-label="Primary">
+          <ul class="site-nav__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="coaching.html">Coaching</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary site-header__cta" href="#mission">Get Started</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero Section -->
+      <section class="hero section" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content" data-animate="slide-up">
+            <h1 id="hero-title" class="hero__title">Empowering Leaders Through Financial Coaching</h1>
+            <p class="hero__subtitle">Build a global mindset for financial growth</p>
+            <div class="hero__actions">
+              <a href="#mission" class="btn btn--primary" data-animate="fade-in">Learn More</a>
+            </div>
+          </div>
+          <div class="hero__media" aria-hidden="true" data-animate="fade-in">
+            <img class="hero__image" src="images/Empowering Leaders Through Financial Coaching.webp" alt="Executive financial coaching" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="benefits section" aria-labelledby="benefits-title">
+        <div class="container">
+          <h2 id="benefits-title" class="section__title" data-animate="slide-up">Executive Outcomes</h2>
+          <div class="benefits__grid">
+            <article class="card benefits__item" data-animate="fade-in">
+              <img class="benefits__icon" src="images/Strategic Financial Clarity.jpg" alt="Strategy icon" loading="lazy" decoding="async">
+              <h3 class="card__title">Strategic Financial Clarity</h3>
+              <p class="card__text">Sharpen decision-making with executive-grade financial frameworks.</p>
+            </article>
+            <article class="card benefits__item" data-animate="fade-in">
+              <img class="benefits__icon" src="images/Digital Finance Readiness.png" alt="Digital finance icon" loading="lazy" decoding="async">
+              <h3 class="card__title">Digital Finance Readiness</h3>
+              <p class="card__text">Adopt tools and practices for modern, data-driven leadership.</p>
+            </article>
+            <article class="card benefits__item" data-animate="fade-in">
+              <img class="benefits__icon" src="images/Crypto Economy Insight.png" alt="Crypto economy icon" loading="lazy" decoding="async">
+              <h3 class="card__title">Crypto Economy Insight</h3>
+              <p class="card__text">Navigate emerging markets with confidence and governance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Crypto Investment Calculator Section -->
+      <section class="crypto-calculator section" aria-labelledby="crypto-calc-title">
+        <div class="container">
+          <h2 id="crypto-calc-title" class="section__title" data-animate="slide-up">Crypto Investment Calculator</h2>
+          <p class="crypto-calc__subtitle" data-animate="fade-in">Calculate potential returns and risks for your cryptocurrency investments</p>
+          
+          <div class="crypto-calc__wrapper" data-animate="fade-in">
+            <div class="crypto-calc__form">
+              <div class="form-group">
+                <label for="initial-investment">Initial Investment ($)</label>
+                <input type="number" id="initial-investment" value="1" placeholder="1" min="0" step="1">
+              </div>
+              
+              <div class="form-group">
+                <label for="crypto-select">Cryptocurrency</label>
+                <select id="crypto-select">
+                  <option value="bitcoin" selected>Bitcoin (BTC)</option>
+                  <option value="ethereum">Ethereum (ETH)</option>
+                  <option value="cardano">Cardano (ADA)</option>
+                  <option value="solana">Solana (SOL)</option>
+                  <option value="polygon">Polygon (MATIC)</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="time-horizon">Investment Period (years)</label>
+                <input type="range" id="time-horizon" min="1" max="10" value="5" step="1">
+                <span class="range-value">5 years</span>
+              </div>
+              
+              <div class="form-group">
+                <label for="risk-level">Risk Level</label>
+                <select id="risk-level">
+                  <option value="conservative">Conservative (5-15% annual)</option>
+                  <option value="moderate">Moderate (15-30% annual)</option>
+                  <option value="aggressive">Aggressive (30-50% annual)</option>
+                </select>
+              </div>
+              
+              <button type="button" class="btn btn--primary crypto-calc__calculate">Calculate Projection</button>
+            </div>
+            
+            <div class="crypto-calc__results">
+              <div class="results-card">
+                <h3>Projected Returns</h3>
+                <div class="result-item">
+                  <span class="result-label">Conservative Scenario:</span>
+                  <span class="result-value" id="conservative-return">$0</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-label">Moderate Scenario:</span>
+                  <span class="result-value" id="moderate-return">$0</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-label">Aggressive Scenario:</span>
+                  <span class="result-value" id="aggressive-return">$0</span>
+                </div>
+              </div>
+              
+              <div class="results-card">
+                <h3>Risk Analysis</h3>
+                <div class="risk-indicator">
+                  <div class="risk-bar">
+                    <div class="risk-fill" id="risk-fill"></div>
+                  </div>
+                  <span class="risk-text" id="risk-text">Moderate Risk</span>
+                </div>
+                <div class="volatility-info" id="volatility-info">
+                  <p>Historical volatility: <span id="volatility-value">25%</span></p>
+                  <p>Market correlation: <span id="correlation-value">0.7</span></p>
+                </div>
+              </div>
+              
+              <div class="results-card">
+                <h3>Market Insights</h3>
+                <div class="market-insights" id="market-insights">
+                  <div class="insight-item">
+                    <span class="insight-icon">📈</span>
+                    <span class="insight-text">Current market trend: Bullish</span>
+                  </div>
+                  <div class="insight-item">
+                    <span class="insight-icon">⚠️</span>
+                    <span class="insight-text">Regulatory environment: Stable</span>
+                  </div>
+                  <div class="insight-item">
+                    <span class="insight-icon">🔮</span>
+                    <span class="insight-text">Adoption rate: Growing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission Section -->
+      <section id="mission" class="mission section" aria-labelledby="mission-title">
+        <div class="container mission__inner">
+          <div class="mission__content" data-animate="fade-in">
+            <h2 id="mission-title" class="section__title">Our Mission</h2>
+            <p>We coach executives to build resilient, scalable financial capability—integrating strategic thinking, digital finance, and the crypto economy to unlock sustainable growth.</p>
+            <p>Through tailored programmes and actionable playbooks, leaders gain clarity, confidence, and a competitive edge.</p>
+          </div>
+          <figure class="mission__media" data-animate="slide-up">
+            <img src="images/Leaders discussing financial strategy.jpg" alt="Leaders discussing financial strategy" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Testimonials Slider -->
+      <section class="testimonials section" aria-labelledby="testimonials-title">
+        <div class="container">
+          <h2 id="testimonials-title" class="section__title" data-animate="slide-up">What Leaders Say</h2>
+          <div class="slider" data-autoplay="true" aria-roledescription="carousel" aria-label="Testimonials" aria-live="off">
+            <div class="slider__track">
+              <article class="testimonial slide" aria-label="Testimonial 1">
+                <img class="testimonial__photo" src="images/photo of client 1.webp" alt="Photo of client 1" loading="lazy" decoding="async">
+                <blockquote class="testimonial__quote">“The sessions transformed our financial decision-making. Clear, pragmatic, executive-level.”</blockquote>
+                <p class="testimonial__author">COO, FTSE 250</p>
+              </article>
+              <article class="testimonial slide" aria-label="Testimonial 2">
+                <img class="testimonial__photo" src="images/photo of client 2.webp" alt="Photo of client 2" loading="lazy" decoding="async">
+                <blockquote class="testimonial__quote">“A modern approach to digital finance—precise and immediately applicable.”</blockquote>
+                <p class="testimonial__author">CFO, London</p>
+              </article>
+              <article class="testimonial slide" aria-label="Testimonial 3">
+                <img class="testimonial__photo" src="images/photo of client 3.webp" alt="Photo of client 3" loading="lazy" decoding="async">
+                <blockquote class="testimonial__quote">“Insightful coaching on crypto economy risks and opportunities.”</blockquote>
+                <p class="testimonial__author">VP Strategy, EMEA</p>
+              </article>
+            </div>
+            <div class="slider__controls" aria-hidden="true">
+              <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous slide">‹</button>
+              <button class="slider__btn slider__btn--next" type="button" aria-label="Next slide">›</button>
+            </div>
+            <div class="slider__dots" role="tablist" aria-label="Select testimonial"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pre-Footer CTA -->
+      <section class="cta-band section" aria-labelledby="cta-title">
+        <div class="container cta-band__inner" data-animate="fade-in">
+          <h2 id="cta-title" class="cta-band__title">Start your coaching journey today</h2>
+          <a href="contacts.html" class="btn btn--secondary">Get in touch</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container footer__inner">
+        <p>© 2025 Financial Coaching for Executives</p>
+        <nav aria-label="Legal">
+          <ul class="footer__links">
+            <li><a href="cookies.html" rel="nofollow">Cookies Policy</a></li>
+            <li><a href="terms.html" rel="nofollow">Terms of Service</a></li>
+            <li><a href="privacy.html" rel="nofollow">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/animations.js" defer></script>
+    <script src="js/cookies.js" defer></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/crypto-calculator.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+  
+</html>
+
+

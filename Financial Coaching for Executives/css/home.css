@@ -1,0 +1,489 @@
+/* Hero */
+.hero { position: relative; overflow: clip; padding-top: calc(var(--space-lg) + 2rem); }
+.hero__inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--grid-gutter); align-items: center; }
+.hero__title { font-size: var(--h1); margin: 0 0 var(--space-sm); }
+.hero__subtitle { color: var(--muted); margin: 0 0 var(--space-md); max-width: 40ch; }
+.hero__image { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--radius-lg); box-shadow: var(--shadow-medium); }
+
+/* Benefits */
+.benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--grid-gutter); }
+.benefits__icon { width: 40px; height: 40px; }
+
+/* Mission */
+.mission__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gutter); align-items: center; }
+.mission__media img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
+
+/* Testimonials */
+.slider { position: relative; overflow: hidden; }
+.slider__track { display: flex; transition: transform var(--dur-slow) var(--ease-standard); will-change: transform; }
+.slide { flex: 0 0 100%; padding: var(--space-md); }
+.testimonial { text-align: center; }
+.testimonial__photo { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto var(--space-sm); object-fit: cover; }
+.testimonial__quote { font-size: 1.125rem; line-height: var(--lh-loose); margin: 0 0 .5rem; }
+.testimonial__author { color: var(--muted); margin: 0; }
+.slider__btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(18,26,44,0.9); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .5rem .75rem; cursor: pointer; color: var(--onSurface); }
+.slider__btn--prev { left: .5rem; }
+.slider__btn--next { right: .5rem; }
+.slider__dots { display: flex; gap: .5rem; justify-content: center; margin-top: var(--space-sm); }
+.slider__dots button { width: 8px; height: 8px; border-radius: 50%; border: 0; background: #334155; cursor: pointer; }
+.slider__dots button[aria-selected="true"] { background: var(--primary); }
+
+/* CTA Band */
+.cta-band { background: linear-gradient(180deg, rgba(10,92,255,0.06), rgba(10,92,255,0.0)); }
+.cta-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); }
+.cta-band__title { margin: 0; font-size: var(--h2); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .mission__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .benefits__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero__media { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .slider__btn { background: rgba(18,26,44,0.9); border-color: var(--border); color: var(--onSurface); }
+  .slider__dots button { background: #334155; }
+}
+
+/* Hover effects for slider buttons */
+.slider__btn:hover {
+  background: rgba(18,26,44,1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Crypto Calculator */
+.crypto-calculator {
+  background: linear-gradient(135deg, rgba(10,92,255,0.03), rgba(10,92,255,0.08));
+  border-radius: var(--radius-lg);
+  margin: var(--space-xl) 0;
+}
+
+.crypto-calc__subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: var(--space-lg);
+  font-size: 1.125rem;
+}
+
+.crypto-calc__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.crypto-calc__form {
+  background: var(--surface);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+  color: var(--onSurface);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--onSurface);
+  font-size: 1rem;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(10,92,255,0.1);
+}
+
+.form-group input[type="range"] {
+  padding: 0;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-group input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-soft);
+}
+
+.range-value {
+  display: inline-block;
+  margin-left: var(--space-sm);
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.crypto-calc__calculate {
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.crypto-calc__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.results-card {
+  background: var(--surface);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+.results-card h3 {
+  margin: 0 0 var(--space-md);
+  color: var(--onSurface);
+  font-size: 1.25rem;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.result-value {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--primary);
+}
+
+.risk-indicator {
+  margin-bottom: var(--space-md);
+}
+
+.risk-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.risk-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+  border-radius: 4px;
+  transition: width var(--dur-slow) var(--ease-standard);
+  width: 50%;
+}
+
+.risk-text {
+  font-weight: 600;
+  color: var(--onSurface);
+}
+
+.volatility-info p {
+  margin: var(--space-xs) 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.market-insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.insight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: rgba(10,92,255,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+}
+
+.insight-icon {
+  font-size: 1.25rem;
+}
+
+.insight-text {
+  color: var(--onSurface);
+  font-weight: 500;
+}
+
+/* Responsive Design for Calculator */
+@media (max-width: 1024px) {
+  .crypto-calc__wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .crypto-calc__form,
+  .results-card {
+    padding: var(--space-md);
+  }
+  
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+  
+  .insight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Calculator Animations */
+.crypto-calc__wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+
+.crypto-calc__form {
+  transition: transform var(--dur-slow) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.crypto-calc__form:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.results-card {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all var(--dur-slow) var(--ease-standard);
+}
+
+.results-card.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.result-value {
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
+}
+
+.result-value.updating {
+  animation: pulse 0.6s ease-in-out;
+}
+
+.risk-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.risk-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.insight-item {
+  transition: all var(--dur-fast) var(--ease-standard);
+  cursor: pointer;
+}
+
+.insight-item:hover {
+  transform: translateX(5px);
+  background: rgba(10,92,255,0.1);
+  border-left-color: var(--primary);
+}
+
+.crypto-calc__calculate {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--dur-fast) var(--ease-standard);
+}
+
+.crypto-calc__calculate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10,92,255,0.3);
+}
+
+.crypto-calc__calculate:active {
+  transform: translateY(0);
+}
+
+.crypto-calc__calculate:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading animation for calculate button */
+.crypto-calc__calculate.loading {
+  background: linear-gradient(45deg, var(--primary), #3b82f6, var(--primary));
+  background-size: 200% 200%;
+  animation: gradientShift 1.5s ease-in-out infinite;
+}
+
+/* Keyframe animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Staggered animation for result cards */
+.results-card:nth-child(1) { animation-delay: 0.1s; }
+.results-card:nth-child(2) { animation-delay: 0.2s; }
+.results-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Form input focus animations */
+.form-group input:focus,
+.form-group select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(10,92,255,0.1), 0 2px 8px rgba(10,92,255,0.2);
+}
+
+/* Range slider enhanced styling */
+.form-group input[type="range"]:focus {
+  box-shadow: 0 0 0 3px rgba(10,92,255,0.1);
+}
+
+/* Result item hover effects */
+.result-item {
+  transition: background-color var(--dur-fast) var(--ease-standard);
+  border-radius: var(--radius-sm);
+  margin: 0 -var(--space-sm);
+  padding: var(--space-sm);
+}
+
+.result-item:hover {
+  background: rgba(10,92,255,0.05);
+}
+
+/* Risk indicator animations */
+.risk-text {
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+/* Market insights animation */
+.market-insights {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  .crypto-calc__wrapper {
+    animation: slideUpFade 0.6s ease-out forwards;
+  }
+  
+  .results-card {
+    transform: translateY(20px);
+  }
+  
+  .results-card.animate-in {
+    transform: translateY(0);
+  }
+}
+
+
