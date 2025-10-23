@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Новости и события Олимпа - ЗевсПротивАида</title>
+
+    <meta name="description" content="Следите за последними обновлениями проекта, событиями и тестами, которые помогут вам стать частью мифологической истории и узнать о будущих обновлениях игры.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-image: url('assets/images/fon.jpg');
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-attachment: fixed;
+
+      background-repeat: no-repeat;
+
+      z-index: -2;
+
+    "></div>
+
+    <div class="background-overlay" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: rgba(0, 0, 0, 0.4);
+
+      z-index: -1;
+
+      pointer-events: none;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ff0000;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Новости и события Олимпа</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #ff0000;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">Следите за последними обновлениями проекта, событиями и тестами, которые помогут вам стать частью мифологической истории и узнать о будущих обновлениях игры.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to bottom, #ffffff, #f3f3f3); opacity: 1; border: 1px solid #d1d1d1; border-left: 4px solid #d1d1d1; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #1a73e8;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #0a2a6b;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">В ноябре 2025 года стартовала регистрация на ранний доступ, предоставляющая возможность игрокам получить уникальные бонусы и протестировать ключевые механики перед официальным релизом игры в 2026 году</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #333333;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">С 10 ноября 2025 года каждый желающий может подать заявку на участие в раннем доступе. Участникам будет предоставлен доступ к закрытой альфа-версии, где можно испытать систему боя и сюжетные миссии. Также будут активированы эксклюзивные задания с наградами. Количество мест ограничено, регистрация закроется 20 декабря. Все обновления будут публиковаться в разделе «Хроники» на официальной платформе.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #1a73e8;
+
+                border-radius: 12px;
+
+                color: #1a73e8;
+
+                font-weight: 500;
+
+              ">новость</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to bottom, #ffffff, #f3f3f3); opacity: 1; border: 1px solid #d1d1d1; border-left: 4px solid #d1d1d1; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #1a73e8;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #0a2a6b;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">В декабре 2025 года разработчики проведут первое открытое тестирование, включающее сражения с боссами, активацию артефактов и испытание режима PvP между участниками разных фракций богов</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #333333;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Тестирование пройдет с 15 по 30 декабря 2025 года и станет крупнейшим событием раннего доступа. Игроки смогут выбрать сторону — Зевса или Аида, испытать механику управления элементами и проверить баланс игровых классов. Все участники получат символический знак Олимпа, подтверждающий их участие в истории создания проекта. Финальные итоги тестирования будут опубликованы в январе 2026 года.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #1a73e8;
+
+                border-radius: 12px;
+
+                color: #1a73e8;
+
+                font-weight: 500;
+
+              ">объявление</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_3" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to bottom, #ffffff, #f3f3f3); opacity: 1; border: 1px solid #d1d1d1; border-left: 4px solid #d1d1d1; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #1a73e8;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #0a2a6b;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Команда MythGame Studio объявила о запуске международной версии сайта в декабре 2025 года, чтобы игроки из Великобритании и Европы могли присоединиться к тестированию мифологической игры</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #333333;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Благодаря новой платформе пользователи смогут получить доступ к локализованным версиям, включая русский и английский языки. Регистрация доступна с 25 декабря 2025 года. Игроки из Великобритании получат приоритетный доступ к серверам и смогут испытать стабильный игровой процесс без ограничений по региону. Команда активно расширяет инфраструктуру, чтобы обеспечить максимальную производительность и комфорт.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #1a73e8;
+
+                border-radius: 12px;
+
+                color: #1a73e8;
+
+                font-weight: 500;
+
+              ">обновление</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element chart-component" style="
+
+            margin: 2rem 0;
+
+            padding: 25px;
+
+            background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+
+            border-radius: 10px;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+            max-width: 1200px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            position: relative;
+
+            
+
+          ">
+
+            <h3 style="
+
+              margin-bottom: 2rem;
+
+              margin-left: 2rem;
+
+              margin-right: 2rem;
+
+              color: #0a2a6b;
+
+              font-size: 1.25rem;
+
+              font-weight: bold;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Распределение участников раннего доступа по регионам, языкам и активным игровым сессиям за декабрь 2025 года, отражающее глобальный интерес к проекту</h3>
+
+            
+
+            <div style="
+
+              display: flex;
+
+              flex-direction: column;
+
+              align-items: center;
+
+              gap: 24px;
+
+            ">
+
+              <!-- Диаграмма по центру -->
+
+              <div style="display: flex; justify-content: center;">
+
+                <svg width="300" height="300" viewBox="0 0 300 300" style="overflow: visible;">
+
+                  <defs>
+
+                    
+
+                      <filter id="shadow-element-service_4-0" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-1" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-2" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-3" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-4" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-5" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                      <filter id="shadow-element-service_4-6" x="-50%" y="-50%" width="200%" height="200%">
+
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+
+                      </filter>
+
+                    
+
+                  </defs>
+
+                  
+
+                  
+
+                      <path 
+
+                        d="M 150 150 L 150 30 A 120 120 0 0 1 270 150 Z" 
+
+                        fill="#8884d8" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-0)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="0"
+
+                        data-name="Россия"
+
+                        data-value="25"
+
+                        data-percentage="25"
+
+                        data-color="#8884d8"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="209.39696961967" 
+
+                          y="90.60303038033001" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="0"
+
+                        >
+
+                          25%
+
+                        </text>
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 270 150 A 120 120 0 0 1 187.0820393249937 264.12678195541844 Z" 
+
+                        fill="#82ca9d" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-1)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="1"
+
+                        data-name="Великобритания"
+
+                        data-value="20"
+
+                        data-percentage="20"
+
+                        data-color="#82ca9d"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="217.95742752749558" 
+
+                          y="199.37396119256775" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="1"
+
+                        >
+
+                          20%
+
+                        </text>
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 187.0820393249937 264.12678195541844 A 120 120 0 0 1 79.46576972490324 247.0820393249937 Z" 
+
+                        fill="#ffc658" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-2)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="2"
+
+                        data-name="Германия"
+
+                        data-value="15"
+
+                        data-percentage="15"
+
+                        data-color="#ffc658"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="136.8595049366206" 
+
+                          y="232.96582060999157" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="2"
+
+                        >
+
+                          15%
+
+                        </text>
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 79.46576972490324 247.0820393249937 A 120 120 0 0 1 35.87321804458158 187.0820393249937 Z" 
+
+                        fill="#ff7300" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-3)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="3"
+
+                        data-name="Франция"
+
+                        data-value="10"
+
+                        data-percentage="10"
+
+                        data-color="#ff7300"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="82.04257247250442" 
+
+                          y="199.37396119256775" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="3"
+
+                        >
+
+                          10%
+
+                        </text>
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 35.87321804458158 187.0820393249937 A 120 120 0 0 1 52.9179606750063 79.46576972490324 Z" 
+
+                        fill="#0088fe" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-4)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="4"
+
+                        data-name="США"
+
+                        data-value="15"
+
+                        data-percentage="15"
+
+                        data-color="#0088fe"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="67.03417939000843" 
+
+                          y="136.85950493662062" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="4"
+
+                        >
+
+                          15%
+
+                        </text>
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 52.9179606750063 79.46576972490324 A 120 120 0 0 1 79.46576972490321 52.91796067500631 Z" 
+
+                        fill="#00c49f" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-5)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="5"
+
+                        data-name="Испания"
+
+                        data-value="5"
+
+                        data-percentage="5"
+
+                        data-color="#00c49f"
+
+
+
+                      />
+
+                      
+
+                    
+
+                      <path 
+
+                        d="M 150 150 L 79.46576972490321 52.91796067500631 A 120 120 0 0 1 149.99999999999997 30 Z" 
+
+                        fill="#ffbb28" 
+
+                        stroke="white" 
+
+                        stroke-width="2"
+
+                        filter="url(#shadow-element-service_4-6)"
+
+                        style="cursor: pointer; transition: all 0.3s ease;"
+
+                        class="pie-segment"
+
+                        data-index="6"
+
+                        data-name="Италия"
+
+                        data-value="10"
+
+                        data-percentage="10"
+
+                        data-color="#ffbb28"
+
+
+
+                      />
+
+                      
+
+                        <text 
+
+                          x="124.0425724725044" 
+
+                          y="70.11125263120711" 
+
+                          text-anchor="middle" 
+
+                          dominant-baseline="middle"
+
+                          fill="white" 
+
+                          font-size="12" 
+
+                          font-weight="bold"
+
+                          font-family="Montserrat"
+
+                          style="pointer-events: none; transition: all 0.3s ease;"
+
+                          class="pie-segment-text"
+
+                          data-index="6"
+
+                        >
+
+                          10%
+
+                        </text>
+
+                      
+
+                    
+
+                </svg>
+
+              </div>
+
+              
+
+              <!-- JavaScript для умных всплывающих подсказок -->
+
+              <script>
+
+                (function() {
+
+                  const chartContainer = document.getElementById('element-service_4') || document.querySelector('.chart-component');
+
+                  const svg = chartContainer ? chartContainer.querySelector('svg') : null;
+
+                  
+
+                  // Проверяем, что необходимые элементы найдены
+
+                  if (!chartContainer || !svg) {
+
+                    console.error('❌ Chart container or SVG not found');
+
+                    return;
+
+                  }
+
+                  
+
+                  let tooltip = null;
+
+                  
+
+                  // Определяем данные для tooltip'ов напрямую
+
+                  const pieData = [{"name":"Россия","value":25,"fill":"#8884d8"},{"name":"Великобритания","value":20,"fill":"#82ca9d"},{"name":"Германия","value":15,"fill":"#ffc658"},{"name":"Франция","value":10,"fill":"#ff7300"},{"name":"США","value":15,"fill":"#0088fe"},{"name":"Испания","value":5,"fill":"#00c49f"},{"name":"Италия","value":10,"fill":"#ffbb28"}];
+
+                  const pieColors = ["#8884d8","#82ca9d","#ffc658","#ff7300","#0088fe","#00c49f","#ffbb28","#ff8042"];
+
+                  
+
+                  // Функция для создания tooltip
+
+                  function createTooltip() {
+
+                    if (tooltip) return;
+
+                    
+
+                    tooltip = document.createElement('div');
+
+                    tooltip.style.cssText = `
+
+                      position: fixed;
+
+                      background: rgba(0, 0, 0, 0.95);
+
+                      color: white;
+
+                      padding: 12px 16px;
+
+                      border-radius: 8px;
+
+                      font-family: 'Montserrat', sans-serif;
+
+                      font-size: 13px;
+
+                      line-height: 1.5;
+
+                      pointer-events: none;
+
+                      z-index: 10000;
+
+                      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+
+                      border: 1px solid rgba(255,255,255,0.2);
+
+                      min-width: 160px;
+
+                      backdrop-filter: blur(10px);
+
+                      -webkit-backdrop-filter: blur(10px);
+
+                      white-space: pre-line;
+
+                    `;
+
+                    tooltip.className = 'pie-chart-tooltip-element-service_4';
+
+                    document.body.appendChild(tooltip);
+
+                  }
+
+                  
+
+                  // Функция для показа tooltip
+
+                  function showTooltip(mouseX, mouseY) {
+
+                    const chartRect = svg.getBoundingClientRect();
+
+                    const relativeX = mouseX - chartRect.left;
+
+                    const relativeY = mouseY - chartRect.top;
+
+                    
+
+                    // Находим ближайший сегмент
+
+                    const centerX = 150;
+
+                    const centerY = 150;
+
+                    const radius = 120;
+
+                    
+
+                    // Вычисляем расстояние от центра
+
+                    const distanceFromCenter = Math.sqrt(
+
+                      Math.pow(relativeX - centerX, 2) + 
+
+                      Math.pow(relativeY - centerY, 2)
+
+                    );
+
+                    
+
+                    // Если мышь находится в пределах диаграммы
+
+                    if (distanceFromCenter <= radius) {
+
+                      // Вычисляем угол от центра
+
+                      const angle = Math.atan2(relativeY - centerY, relativeX - centerX) * 180 / Math.PI;
+
+                      // Нормализуем угол (0-360 градусов)
+
+                      const normalizedAngle = (angle + 90 + 360) % 360;
+
+                      
+
+                      // Находим соответствующий сегмент
+
+                      let currentAngle = 0;
+
+                      let segmentIndex = -1;
+
+                      
+
+                      for (let i = 0; i < pieData.length; i++) {
+
+                        const percentage = (pieData[i].value / pieData.reduce((sum, item) => sum + item.value, 0)) * 100;
+
+                        const segmentAngle = (percentage / 100) * 360;
+
+                        
+
+                        if (normalizedAngle >= currentAngle && normalizedAngle <= currentAngle + segmentAngle) {
+
+                          segmentIndex = i;
+
+                          break;
+
+                        }
+
+                        currentAngle += segmentAngle;
+
+                      }
+
+                      
+
+                      if (segmentIndex !== -1) {
+
+                        const segment = pieData[segmentIndex];
+
+                        const total = pieData.reduce((sum, item) => sum + item.value, 0);
+
+                        const percentage = ((segment.value / total) * 100).toFixed(1);
+
+                        
+
+                        createTooltip();
+
+                        
+
+                        // Формируем содержимое tooltip
+
+                        const tooltipContent = `
+
+                          <strong>${segment.name}</strong>
+
+                          <span style="color: ${segment.fill || pieColors[segmentIndex % pieColors.length]}">●</span> <span style="color: ${segment.fill || pieColors[segmentIndex % pieColors.length]}">${segment.value}</span>
+
+                        `;
+
+                        
+
+                        tooltip.innerHTML = tooltipContent;
+
+                        
+
+                        // Позиционируем tooltip
+
+                        const tooltipRect = tooltip.getBoundingClientRect();
+
+                        let tooltipX = mouseX + 15;
+
+                        let tooltipY = mouseY - tooltipRect.height - 10;
+
+                        
+
+                        // Проверяем границы экрана
+
+                        if (tooltipX + tooltipRect.width > window.innerWidth) {
+
+                          tooltipX = mouseX - tooltipRect.width - 15;
+
+                        }
+
+                        if (tooltipY < 0) {
+
+                          tooltipY = mouseY + 20;
+
+                        }
+
+                        
+
+                        tooltip.style.left = tooltipX + 'px';
+
+                        tooltip.style.top = tooltipY + 'px';
+
+                        tooltip.style.display = 'block';
+
+                      }
+
+                    }
+
+                  }
+
+                  
+
+                  // Функция для скрытия tooltip
+
+                  function hideTooltip() {
+
+                    if (tooltip) {
+
+                      tooltip.style.display = 'none';
+
+                    }
+
+                  }
+
+                  
+
+                  // Добавляем обработчики событий
+
+                  svg.addEventListener('mousemove', (e) => {
+
+                    showTooltip(e.clientX, e.clientY);
+
+                  });
+
+                  
+
+                  svg.addEventListener('mouseleave', () => {
+
+                    hideTooltip();
+
+                  });
+
+                  
+
+                  // Анимация сегментов и текста при наведении
+
+                  const segments = svg.querySelectorAll('.pie-segment');
+
+                  const textElements = svg.querySelectorAll('.pie-segment-text');
+
+                  
+
+                  segments.forEach((segment, index) => {
+
+                    const textElement = textElements[index];
+
+                    const centerX = 150;
+
+                    const centerY = 150;
+
+                    
+
+                    segment.addEventListener('mouseenter', () => {
+
+                      // Анимируем сегмент
+
+                      segment.style.transform = 'scale(1.05)';
+
+                      segment.style.transformOrigin = centerX + 'px ' + centerY + 'px';
+
+                      
+
+                      // Анимируем текст вместе с сегментом
+
+                      if (textElement) {
+
+                        textElement.style.transform = 'scale(1.05)';
+
+                        textElement.style.transformOrigin = centerX + 'px ' + centerY + 'px';
+
+                      }
+
+                    });
+
+                    
+
+                    segment.addEventListener('mouseleave', () => {
+
+                      // Возвращаем сегмент в исходное состояние
+
+                      segment.style.transform = 'scale(1)';
+
+                      
+
+                      // Возвращаем текст в исходное состояние
+
+                      if (textElement) {
+
+                        textElement.style.transform = 'scale(1)';
+
+                      }
+
+                    });
+
+                  });
+
+                  
+
+                  // Очистка при уничтожении элемента
+
+                  window.addEventListener('beforeunload', () => {
+
+                    if (tooltip && tooltip.parentNode) {
+
+                      tooltip.parentNode.removeChild(tooltip);
+
+                    }
+
+                  });
+
+                })();
+
+              </script>
+
+              
+
+              <!-- Легенда снизу в несколько строк -->
+
+              <div style="
+
+                display: flex;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 20px;
+
+                max-width: 600px;
+
+              ">
+
+                
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #8884d8;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #8884d8;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Россия</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #82ca9d;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #82ca9d;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Великобритания</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #ffc658;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #ffc658;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Германия</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #ff7300;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #ff7300;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Франция</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #0088fe;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #0088fe;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">США</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #00c49f;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #00c49f;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Испания</span>
+
+                    </div>
+
+                  
+
+                    <div style="
+
+                      display: flex;
+
+                      align-items: center;
+
+                      gap: 8px;
+
+                    ">
+
+                      <div style="
+
+                        width: 12px;
+
+                        height: 12px;
+
+                        background: #ffbb28;
+
+                        border-radius: 2px;
+
+                        flex-shrink: 0;
+
+                      "></div>
+
+                      <span style="
+
+                        color: #ffbb28;
+
+                        font-size: 12px;
+
+                        font-weight: 500;
+
+                        font-family: 'Montserrat', sans-serif;
+
+                        white-space: nowrap;
+
+                      ">Италия</span>
+
+                    </div>
+
+                  
+
+              </div>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_5" class="content-element accordion" style="
+
+            width: 100%;
+
+            max-width: 100%;
+
+            margin: 2rem 0;
+
+            padding: 0;
+
+          ">
+
+            
+
+              <div style="
+
+                text-align: center;
+
+                padding: 0 0 2rem 0;
+
+                margin-bottom: 2rem;
+
+              ">
+
+                <h3 style="
+
+                  color: #0a2a6b;
+
+                  font-size: 24px;
+
+                  font-weight: bold;
+
+                  margin: 0;
+
+                  line-height: 1.4;
+
+                ">Ответы на популярные вопросы о тестировании, регистрации, наградах и предстоящих обновлениях игры, которые помогут участникам раннего доступа в декабре 2025 года</h3>
+
+              </div>
+
+            
+
+            
+
+            <div class="accordion-container" style="
+
+              display: flex; 
+
+              flex-direction: column; 
+
+              gap: 2px;
+
+              width: 100%;
+
+            ">
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(0)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Как подать заявку на участие</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-0" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Регистрация доступна через официальную платформу с 10 ноября по 20 декабря 2025 года, необходимо указать email и страну проживания.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(1)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Будет ли ранний доступ платным</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-1" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Первые 3000 игроков участвуют бесплатно, остальные — за 1500 рублей, включая бонусы.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(2)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Что входит в ранний доступ</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-2" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Основные миссии, PvE и PvP режимы, тестирование боевой системы и доступ к закрытому форуму.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(3)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Можно ли сохранить прогресс</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-3" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Все достижения и награды сохраняются и переносятся в релизную версию 2026 года.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(4)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Где следить за обновлениями</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-4" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Актуальные новости публикуются в разделе «Хроники» и на официальных страницах социальных сетей проекта.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(5)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Когда будет релиз</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-5" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Официальный релиз запланирован на лето 2026 года.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(6)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Какие бонусы получат участники</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-6" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Уникальные скины, артефакты и титул «Герой Олимпа».
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+                <div class="accordion-item" style="
+
+                  width: 100%;
+
+                  background: #ffffff;
+
+                  border: 1px solid #cccccc;
+
+                  border-radius: 8px;
+
+                  overflow: hidden;
+
+                  transition: all 0.3s ease;
+
+                  margin: 0;
+
+                ">
+
+                  <div class="accordion-header" onclick="toggleAccordionelement_service_5(7)" style="
+
+                    padding: 16px 24px;
+
+                    background: #ffffff;
+
+                    color: #0a2a6b;
+
+                    font-weight: bold;
+
+                    cursor: pointer;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    align-items: center;
+
+                    transition: all 0.3s ease;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    font-size: 16px;
+
+                    min-height: 56px;
+
+                  " onmouseover="this.style.backgroundColor='#4a90e2'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    <span style="font-weight: bold;">Где получить помощь</span>
+
+                    <span class="accordion-toggle" style="
+
+                      font-size: 18px;
+
+                      color: #0a2a6b;
+
+                      transform: rotate(0deg);
+
+                      transition: transform 0.3s ease;
+
+                      margin-left: 16px;
+
+                    ">▼</span>
+
+                  </div>
+
+                  <div class="accordion-content" id="accordion-content-element_service_5-7" style="
+
+                    padding: 0 24px;
+
+                    background: #ffffff;
+
+                    max-height: 0;
+
+                    overflow: hidden;
+
+                    transition: max-height 0.3s ease, padding 0.3s ease;
+
+                    color: #000000;
+
+                    border-top: 1px solid #cccccc;
+
+                    box-sizing: border-box;
+
+                  ">
+
+                    <div style="padding: 16px 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">
+
+                      Поддержка доступна через форму обратной связи на сайте в любое время суток.
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 JAVASCRIPT для аккордеона -->
+
+          <script>
+
+            function toggleAccordionelement_service_5(index) {
+
+              const content = document.getElementById('accordion-content-element_service_5-' + index);
+
+              const toggle = content.previousElementSibling.querySelector('.accordion-toggle');
+
+              
+
+              if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+
+                content.style.maxHeight = content.scrollHeight + 'px';
+
+                content.style.padding = '16px 24px';
+
+                toggle.style.transform = 'rotate(180deg)';
+
+              } else {
+
+                content.style.maxHeight = '0px';
+
+                content.style.padding = '0 24px';
+
+                toggle.style.transform = 'rotate(0deg)';
+
+              }
+
+            }
+
+          </script>
+
+        
+
+          <div id="element-service_6" class="content-element typography" style="margin: 1rem 0; text-align: left; background: linear-gradient(to bottom, #ffffff, #f6f6f6); opacity: 1; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px;">
+
+            <h2 style="
+
+              color: #000000;
+
+              margin: 0;
+
+              font-size: 2rem;
+
+            ">Команда MythGame Studio продолжает активно развивать проект «Зевс против Аида» и приглашает всех желающих принять участие в раннем доступе. В декабре 2025 года открывается финальный этап тестирования, который определит баланс и финальные механики игры. Игроки смогут почувствовать атмосферу древнегреческих мифов, поучаствовать в битвах богов и внести свой вклад в создание истории. Мы ценим каждого участника и готовы превратить ваше игровое путешествие в легенду, которая останется в памяти надолго. Присоединяйтесь к Олимпу уже сегодня.</h2>
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Благодарим за вашу заявку!');
+
+          const closeButtonText = encodeURIComponent('Вернуться на главную страницу');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>

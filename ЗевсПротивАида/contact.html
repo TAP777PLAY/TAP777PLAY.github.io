@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Контакты - ЗевсПротивАида</title>
+
+    <meta name="description" content="Свяжитесь с нами для получения дополнительной информации о раннем доступе, регистрации и обновлениях игры. Наша команда ответит на все вопросы и поможет стать частью сообщества Олимпа.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Contact section styles - точно как в одностраничном экспорте */
+
+      .contact-section {
+
+        padding: 4rem 2rem;
+
+        width: 100%;
+
+        margin: 0;
+
+        position: relative;
+
+        z-index: 2;
+
+      }
+
+      
+
+      .contact-container {
+
+        max-width: 1140px;
+
+        margin: 0 auto;
+
+        padding: 0 20px;
+
+      }
+
+      
+
+      .contact-header {
+
+        text-align: center;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-title {
+
+        font-size: 2.5rem;
+
+        margin-bottom: 1rem;
+
+        position: relative;
+
+        display: inline-block;
+
+      }
+
+      
+
+      .contact-title::after {
+
+        content: '';
+
+        position: absolute;
+
+        bottom: -10px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 50px;
+
+        height: 3px;
+
+        background-color: currentColor;
+
+      }
+
+      
+
+      .contact-description {
+
+        font-size: 1.1rem;
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        line-height: 1.6;
+
+      }
+
+      
+
+      .contact-content {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 2rem;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-form-container {
+
+        padding: 2.5rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .contact-form .form-group {
+
+        margin-bottom: 1.5rem;
+
+      }
+
+      
+
+      .contact-form label {
+
+        display: block;
+
+        margin-bottom: 0.5rem;
+
+        font-weight: 500;
+
+      }
+
+      
+
+      .contact-form input,
+
+      .contact-form textarea {
+
+        width: 100%;
+
+        padding: 0.85rem 1rem;
+
+        border: 1px solid #ddd;
+
+        border-radius: 6px;
+
+        font-size: 1rem;
+
+        box-sizing: border-box;
+
+        font-family: inherit;
+
+      }
+
+      
+
+      .contact-form textarea {
+
+        resize: vertical;
+
+        min-height: 100px;
+
+      }
+
+      
+
+      .contact-form button {
+
+        width: 100%;
+
+        padding: 0.9rem 1.5rem;
+
+        border: none;
+
+        border-radius: 6px;
+
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+
+        font-weight: 500;
+
+        font-size: 1rem;
+
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+      }
+
+      
+
+      .contact-form button:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      .contact-info-container {
+
+        padding: 2rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .info-title {
+
+        font-size: 1.5rem;
+
+        margin-bottom: 1.5rem;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-info-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 1rem;
+
+        padding: 8px 0;
+
+      }
+
+
+
+      .contact-icon {
+
+        color: #1976d2;
+
+        font-size: 1.2rem;
+
+        min-width: 24px;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-map,
+
+      .contact-map-container {
+
+        margin-top: 2rem;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+      }
+
+      
+
+      .contact-map iframe,
+
+      .contact-map-container iframe {
+
+        width: 100%;
+
+        height: 300px;
+
+        border: 0;
+
+      }
+
+      
+
+      @media (max-width: 768px) {
+
+        .contact-section {
+
+          padding: 2rem 1rem;
+
+        }
+
+
+
+        .contact-title {
+
+          font-size: 2rem;
+
+        }
+
+
+
+        .contact-description {
+
+          font-size: 1.1rem;
+
+        }
+
+
+
+        .contact-content {
+
+          grid-template-columns: 1fr;
+
+        }
+
+        
+
+        .contact-form-container,
+
+        .contact-info-container {
+
+          padding: 1.5rem;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-image: url('assets/images/fon.jpg');
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-attachment: fixed;
+
+      background-repeat: no-repeat;
+
+      z-index: -2;
+
+    "></div>
+
+    <div class="background-overlay" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: rgba(0, 0, 0, 0.4);
+
+      z-index: -1;
+
+      pointer-events: none;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        <!-- Применяем точно такую же структуру как в одностраничном экспорте -->
+
+        <section id="contact" class="contact-section" style="background: linear-gradient(to bottom, #f4f0f4, #ffffff)">
+
+          <div class="contact-container">
+
+            <div class="contact-header">
+
+              <h2 class="contact-title" style="color: #ff0000">Контакты</h2>
+
+              <p class="contact-description" style="color: #ff0000">Свяжитесь с нами для получения дополнительной информации о раннем доступе, регистрации и обновлениях игры. Наша команда ответит на все вопросы и поможет стать частью сообщества Олимпа.</p>
+
+            </div>
+
+            
+
+            <div class="contact-content">
+
+              
+
+                <div class="contact-form-container" style="background-color: #ffffff; border: 1px solid #ce93d8">
+
+                  <h3 style="color: #ff0000">Get In Touch</h3>
+
+                  <form class="contact-form" onsubmit="handleSubmit(event)" id="contactForm">
+
+                    <input type="hidden" name="_captcha" value="false" />
+
+                    <input type="hidden" name="_template" value="table" />
+
+                    <input type="hidden" name="_subject" value="New message from website" />
+
+                    <input type="hidden" name="_language" value="en" />
+
+                    <div class="form-group">
+
+                      <label style="color: #8e24aa">Full Name</label>
+
+                      <input type="text" name="name" required style="background-color: #ffffff; color: #000000;" placeholder="Enter your full name">
+
+                </div>
+
+                    <div class="form-group">
+
+                      <label style="color: #8e24aa">Phone Number</label>
+
+                      <input type="tel" name="phone" required style="background-color: #ffffff; color: #000000;" placeholder="Enter your phone number">
+
+                </div>
+
+                    <div class="form-group">
+
+                      <label style="color: #8e24aa">Email</label>
+
+                      <input type="email" name="email" required style="background-color: #ffffff; color: #000000;" placeholder="Enter your email address">
+
+                    </div>
+
+                    <div class="form-group">
+
+                      <label style="color: #8e24aa">Message</label>
+
+                      <textarea name="message" required style="background-color: #ffffff; color: #000000; min-height: 100px;" placeholder="Tell us about your inquiry..."></textarea>
+
+                    </div>
+
+                    <button type="submit" style="background-color: #6a1b9a; color: #ffffff;">
+
+                      Send Message
+
+                    </button>
+
+                  </form>
+
+                </div>
+
+              
+
+              
+
+              
+
+                <div class="contact-info-container" style="background-color: #ffffff; border: 1px solid #e0e0e0">
+
+                  <h3 class="info-title" style="color: #6a1b9a">Contact Information</h3>
+
+                  <div class="contact-info">
+
+            
+
+                    <!-- Компания -->
+
+                    
+
+                      <div class="contact-info-item">
+
+                        <span class="contact-icon" style="color: #6a1b9a">🏢</span>
+
+                        <span style="color: #8e24aa; font-weight: 500;">ЗевсПротивАида</span>
+
+                      </div>
+
+                    
+
+                    
+
+                    <!-- Адрес -->
+
+                    
+
+                      <div class="contact-info-item">
+
+                        <span class="contact-icon" style="color: #6a1b9a">📍</span>
+
+                        <span style="color: #8e24aa; font-weight: 500;">221B Baker Street, London, NW1 6XE, UK</span>
+
+                </div>
+
+                    
+
+                    
+
+                    <!-- Телефон -->
+
+                    
+
+                      <div class="contact-info-item">
+
+                        <span class="contact-icon" style="color: #6a1b9a">📞</span>
+
+                        <span style="color: #8e24aa; font-weight: 500;">+44 20 7156 7099</span>
+
+                </div>
+
+                    
+
+                    
+
+                    <!-- Email -->
+
+                    
+
+                      <div class="contact-info-item">
+
+                        <span class="contact-icon" style="color: #6a1b9a">✉️</span>
+
+                        <span style="color: #8e24aa; font-weight: 500;">welcome@zevsprotivaida.com</span>
+
+                </div>
+
+                    
+
+                    
+
+                    <!-- Часы работы -->
+
+                    
+
+                  </div>
+
+                </div>
+
+              
+
+                </div>
+
+                
+
+            
+
+              <!-- Генерируем Google Maps если есть адрес -->
+
+              <div class="contact-map-container" style="
+
+                margin-top: 3rem;
+
+                border-radius: 12px;
+
+                overflow: hidden;
+
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+              ">
+
+                <div style="position: relative; width: 100%; height: 400px;">
+
+                  <iframe
+
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=221B%20Baker%20Street%2C%20London%2C%20NW1%206XE%2C%20UK&language=ru"
+
+                    width="100%"
+
+                    height="100%"
+
+                    style="border: 0;"
+
+                    allowfullscreen=""
+
+                    loading="lazy"
+
+                    referrerpolicy="no-referrer-when-downgrade"
+
+                    title="Map: 221B Baker Street, London, NW1 6XE, UK">
+
+                  </iframe>
+
+                  <div style="
+
+                    position: absolute;
+
+                    bottom: 10px;
+
+                    left: 10px;
+
+                    background: rgba(255, 255, 255, 0.9);
+
+                    padding: 8px 12px;
+
+                    border-radius: 6px;
+
+                    display: flex;
+
+                    align-items: center;
+
+                    gap: 8px;
+
+                    font-size: 14px;
+
+                    color: #333;
+
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+                  ">
+
+                    <span style="color: #1976d2;">📍</span>
+
+                    <span>221B Baker Street, London, NW1 6XE, UK</span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Обработчик отправки формы
+
+      function handleSubmit(event) {
+
+        event.preventDefault();
+
+        const form = document.getElementById('contactForm');
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные формы
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Всегда перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Благодарим за вашу заявку!');
+
+          const closeButtonText = encodeURIComponent('Вернуться на главную страницу');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+      }
+
+    </script>
+
+</body>
+
+</html>

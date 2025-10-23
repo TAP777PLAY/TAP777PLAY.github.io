@@ -1,0 +1,3373 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Отзывы и мнения первых участников - ЗевсПротивАида</title>
+
+    <meta name="description" content="Этот раздел собирает отклики игроков, которые первыми испытали игру «Зевс против Аида» в декабре 2025 года. Их впечатления помогают совершенствовать проект и вдохновляют будущих героев Олимпа.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-image: url('assets/images/fon.jpg');
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-attachment: fixed;
+
+      background-repeat: no-repeat;
+
+      z-index: -2;
+
+    "></div>
+
+    <div class="background-overlay" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: rgba(0, 0, 0, 0.4);
+
+      z-index: -1;
+
+      pointer-events: none;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ff0000;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Отзывы и мнения первых участников</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #ff0000;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">Этот раздел собирает отклики игроков, которые первыми испытали игру «Зевс против Аида» в декабре 2025 года. Их впечатления помогают совершенствовать проект и вдохновляют будущих героев Олимпа.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element typography" style="margin: 1rem 0; text-align: left; background: linear-gradient(to bottom, #ffffff, #f6f6f6); opacity: 1; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px;">
+
+            <h2 style="
+
+              color: #000000;
+
+              margin: 0;
+
+              font-size: 2rem;
+
+            ">Раздел «Голоса героев» создан, чтобы передать реальные эмоции игроков, ощутивших атмосферу древнегреческих легенд и масштаб сражений богов. Каждый отзыв отражает уникальный опыт, полученный в рамках раннего доступа. Эти истории вдохновляют других участников вступить в мир мифов и испытать себя на пути к бессмертию. Мы гордимся тем, что наша команда смогла объединить сообщество людей, верящих в силу легенд и желающих стать частью эпической истории.</h2>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element testimonial-card" style="
+
+            margin: 2rem 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          width: 100%;
+
+         background: linear-gradient(to right, #ffffff, #f7f7f7); opacity: 1; border-radius: 8px; padding: 24px;">
+
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+
+              
+
+                <div style="
+
+                  width: 60px;
+
+                  height: 60px;
+
+                  border-radius: 50%;
+
+                  background: linear-gradient(45deg, #1976d2, #64b5f6);
+
+                  display: flex;
+
+                  align-items: center;
+
+                  justify-content: center;
+
+                  color: white;
+
+                  font-weight: bold;
+
+                  font-size: 1.5rem;
+
+                  margin-right: 1rem;
+
+                ">
+
+                  А
+
+                </div>
+
+              
+
+              <div>
+
+                <h4 style="margin: 0; color: #0a2a6b; font-size: 1.2rem;">Алексей Воронов</h4>
+
+                <p style="margin: 0; color: #333333; font-size: 0.9rem;">Игрок-тестер</p>
+
+                <p style="margin: 0; color: #666666; font-size: 0.8rem;">MythGame Studio</p>
+
+              </div>
+
+            </div>
+
+            <div style="color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem;">
+
+              ★★★★★
+
+            </div>
+
+            <p style="
+
+              color: #000000;
+
+              font-style: italic;
+
+              line-height: 1.6;
+
+              margin: 0;
+
+            ">"Удивительно детализированный мир и потрясающая атмосфера. Сражения с богами ощущаются мощно и реалистично, а система выбора действительно влияет на исход миссий. Неожиданно впечатлен вниманием к деталям, особенно в диалогах с Аидом и Афиной. С нетерпением жду релиза в 2026 году."</p>
+
+          </div>
+
+        
+
+          <div id="element-service_3" class="content-element testimonial-card" style="
+
+            margin: 2rem 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          width: 100%;
+
+         background: linear-gradient(to right, #ffffff, #f7f7f7); opacity: 1; border-radius: 8px; padding: 24px;">
+
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+
+              
+
+                <div style="
+
+                  width: 60px;
+
+                  height: 60px;
+
+                  border-radius: 50%;
+
+                  background: linear-gradient(45deg, #1976d2, #64b5f6);
+
+                  display: flex;
+
+                  align-items: center;
+
+                  justify-content: center;
+
+                  color: white;
+
+                  font-weight: bold;
+
+                  font-size: 1.5rem;
+
+                  margin-right: 1rem;
+
+                ">
+
+                  М
+
+                </div>
+
+              
+
+              <div>
+
+                <h4 style="margin: 0; color: #0a2a6b; font-size: 1.2rem;">Марина Костина</h4>
+
+                <p style="margin: 0; color: #333333; font-size: 0.9rem;">Геймдизайнер</p>
+
+                <p style="margin: 0; color: #666666; font-size: 0.8rem;">Olympus Interactive</p>
+
+              </div>
+
+            </div>
+
+            <div style="color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem;">
+
+              ★★★★★
+
+            </div>
+
+            <p style="
+
+              color: #000000;
+
+              font-style: italic;
+
+              line-height: 1.6;
+
+              margin: 0;
+
+            ">"Участие в раннем доступе стало одним из лучших впечатлений года. Разработчики создали гармоничное сочетание истории, стратегии и динамики. Система наград и артефактов мотивирует возвращаться снова и снова. Рекомендую всем, кто любит мифологию и глубокий сюжет."</p>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element testimonial-card" style="
+
+            margin: 2rem 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          width: 100%;
+
+         background: linear-gradient(to right, #ffffff, #f7f7f7); opacity: 1; border-radius: 8px; padding: 24px;">
+
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+
+              
+
+                <div style="
+
+                  width: 60px;
+
+                  height: 60px;
+
+                  border-radius: 50%;
+
+                  background: linear-gradient(45deg, #1976d2, #64b5f6);
+
+                  display: flex;
+
+                  align-items: center;
+
+                  justify-content: center;
+
+                  color: white;
+
+                  font-weight: bold;
+
+                  font-size: 1.5rem;
+
+                  margin-right: 1rem;
+
+                ">
+
+                  Р
+
+                </div>
+
+              
+
+              <div>
+
+                <h4 style="margin: 0; color: #0a2a6b; font-size: 1.2rem;">Роберт Миллер</h4>
+
+                <p style="margin: 0; color: #333333; font-size: 0.9rem;">Игровой журналист</p>
+
+                <p style="margin: 0; color: #666666; font-size: 0.8rem;">London Gaming Review</p>
+
+              </div>
+
+            </div>
+
+            <div style="color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem;">
+
+              ★★★★☆
+
+            </div>
+
+            <p style="
+
+              color: #000000;
+
+              font-style: italic;
+
+              line-height: 1.6;
+
+              margin: 0;
+
+            ">"Отличная проработка персонажей и эмоциональная глубина диалогов. Даже на раннем этапе видно, что проект имеет огромный потенциал. Механика взаимодействия с богами добавляет игре стратегический элемент, который редко встречается в жанре."</p>
+
+          </div>
+
+        
+
+          <div id="element-service_5" class="content-element testimonial-card" style="
+
+            margin: 2rem 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          width: 100%;
+
+         background: linear-gradient(to right, #ffffff, #f7f7f7); opacity: 1; border-radius: 8px; padding: 24px;">
+
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+
+              
+
+                <div style="
+
+                  width: 60px;
+
+                  height: 60px;
+
+                  border-radius: 50%;
+
+                  background: linear-gradient(45deg, #1976d2, #64b5f6);
+
+                  display: flex;
+
+                  align-items: center;
+
+                  justify-content: center;
+
+                  color: white;
+
+                  font-weight: bold;
+
+                  font-size: 1.5rem;
+
+                  margin-right: 1rem;
+
+                ">
+
+                  С
+
+                </div>
+
+              
+
+              <div>
+
+                <h4 style="margin: 0; color: #0a2a6b; font-size: 1.2rem;">София Ли</h4>
+
+                <p style="margin: 0; color: #333333; font-size: 0.9rem;">Бета-тестер</p>
+
+                <p style="margin: 0; color: #666666; font-size: 0.8rem;">MythGame Global</p>
+
+              </div>
+
+            </div>
+
+            <div style="color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem;">
+
+              ★★★★★
+
+            </div>
+
+            <p style="
+
+              color: #000000;
+
+              font-style: italic;
+
+              line-height: 1.6;
+
+              margin: 0;
+
+            ">"Я была впечатлена качеством визуала и музыкальным сопровождением. Атмосфера Олимпа передана невероятно точно, каждая сцена вызывает восхищение. Ощущается, что разработчики вложили душу в проект. С радостью приму участие в финальном тестировании."</p>
+
+          </div>
+
+        
+
+          <div id="element-service_6" class="content-element testimonial-card" style="
+
+            margin: 2rem 0;
+
+          display: flex;
+
+          flex-direction: column;
+
+          width: 100%;
+
+         background: linear-gradient(to right, #ffffff, #f7f7f7); opacity: 1; border-radius: 8px; padding: 24px;">
+
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+
+              
+
+                <div style="
+
+                  width: 60px;
+
+                  height: 60px;
+
+                  border-radius: 50%;
+
+                  background: linear-gradient(45deg, #1976d2, #64b5f6);
+
+                  display: flex;
+
+                  align-items: center;
+
+                  justify-content: center;
+
+                  color: white;
+
+                  font-weight: bold;
+
+                  font-size: 1.5rem;
+
+                  margin-right: 1rem;
+
+                ">
+
+                  Э
+
+                </div>
+
+              
+
+              <div>
+
+                <h4 style="margin: 0; color: #0a2a6b; font-size: 1.2rem;">Эндрю Томпсон</h4>
+
+                <p style="margin: 0; color: #333333; font-size: 0.9rem;">Игровой аналитик</p>
+
+                <p style="margin: 0; color: #666666; font-size: 0.8rem;">GameCore UK</p>
+
+              </div>
+
+            </div>
+
+            <div style="color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem;">
+
+              ★★★★☆
+
+            </div>
+
+            <p style="
+
+              color: #000000;
+
+              font-style: italic;
+
+              line-height: 1.6;
+
+              margin: 0;
+
+            ">"Инновационная боевая система и сбалансированная механика взаимодействия со стихиями делают игру уникальной. Радует, что обратная связь игроков учитывается при каждом обновлении. Это современный стандарт качества для мифологических проектов."</p>
+
+          </div>
+
+        
+
+          <div id="element-service_7" class="content-element rating" style="
+
+            width: 100%;
+
+            max-width: 100%;
+
+            margin: 2rem 0;
+
+            text-align: center;
+
+            padding: 24px;
+
+            background: linear-gradient(to bottom, #ffffff, #f2f2f2);
+
+            border: 2px solid #ffc107;
+
+            border-radius: 16px;
+
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+
+            opacity: 1;
+
+            transition: all 0.3s ease;
+
+          ">
+
+            <style>
+
+              .rating-star {
+
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+
+                transition: all 0.3s ease;
+
+              }
+
+              .rating-star:hover {
+
+                filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+
+                text-shadow: 0 4px 8px rgba(0,0,0,0.6);
+
+                z-index: 10;
+
+              }
+
+              #rating-display-element-service_7 {
+
+                transition: all 0.3s ease;
+
+              }
+
+              .rating-star[data-rating] {
+
+                position: relative;
+
+              }
+
+              
+
+              /* 🔥 Стили для частично заполненных звезд */
+
+              .rating-star.partial {
+
+                position: relative;
+
+                overflow: hidden;
+
+              }
+
+              
+
+              .rating-star.partial::before {
+
+                content: '★';
+
+                position: absolute;
+
+                top: 0;
+
+                left: 0;
+
+                color: #e0e0e0;
+
+                z-index: 1;
+
+              }
+
+              
+
+              .rating-star.partial::after {
+
+                content: '★';
+
+                position: absolute;
+
+                top: 0;
+
+                left: 0;
+
+                color: #ffc107;
+
+                z-index: 2;
+
+                clip-path: polygon(0 0, var(--partial-width, 30%) 0, var(--partial-width, 30%) 100%, 0 100%);
+
+              }
+
+            </style>
+
+            
+
+              <h3 style="
+
+                color: #0a2a6b;
+
+                margin-bottom: 1rem;
+
+                font-size: 1.8rem;
+
+                font-weight: bold;
+
+                text-align: center;
+
+                margin: 0 0 1rem 0;
+
+                line-height: 1.4;
+
+              ">Средняя оценка игроков по итогам раннего доступа 2025 года, отражающая общий уровень удовлетворенности визуалом, геймплеем и качеством сюжета</h3>
+
+            
+
+            
+
+            
+
+              <p style="
+
+                color: #000000;
+
+                margin-bottom: 1.5rem;
+
+                font-size: 1.1rem;
+
+                text-align: center;
+
+                margin: 0 0 1.5rem 0;
+
+                line-height: 1.5;
+
+                opacity: 0.9;
+
+              ">Оцените наш сервис:</p>
+
+            
+
+            
+
+            <div style="
+
+              margin-bottom: 1.5rem;
+
+              display: flex;
+
+              justify-content: center;
+
+              align-items: center;
+
+              flex-wrap: wrap;
+
+              gap: 12px;
+
+              padding: 20px;
+
+              background: rgba(255,255,255,0.05);
+
+              border-radius: 16px;
+
+              backdrop-filter: blur(10px);
+
+            ">
+
+              <span 
+
+            class="rating-star filled" 
+
+            data-rating="1"
+
+            data-state="filled"
+
+            style="
+
+              color: #ffc107; 
+
+              font-size: 3rem; 
+
+              margin: 0 8px; 
+
+              cursor: pointer;
+
+              transition: all 0.3s ease;
+
+              display: inline-block;
+
+              user-select: none;
+
+              position: relative;
+
+            "
+
+            onmouseover="window.hoverRating_element_service_7(1, 5, '#ffc107');"
+
+            onmouseout="window.resetHoverRating_element_service_7(5, '#ffc107', '#e0e0e0');"
+
+            onclick="window.updateRating_element_service_7(1, 5)"
+
+          >★</span><span 
+
+            class="rating-star filled" 
+
+            data-rating="2"
+
+            data-state="filled"
+
+            style="
+
+              color: #ffc107; 
+
+              font-size: 3rem; 
+
+              margin: 0 8px; 
+
+              cursor: pointer;
+
+              transition: all 0.3s ease;
+
+              display: inline-block;
+
+              user-select: none;
+
+              position: relative;
+
+            "
+
+            onmouseover="window.hoverRating_element_service_7(2, 5, '#ffc107');"
+
+            onmouseout="window.resetHoverRating_element_service_7(5, '#ffc107', '#e0e0e0');"
+
+            onclick="window.updateRating_element_service_7(2, 5)"
+
+          >★</span><span 
+
+            class="rating-star filled" 
+
+            data-rating="3"
+
+            data-state="filled"
+
+            style="
+
+              color: #ffc107; 
+
+              font-size: 3rem; 
+
+              margin: 0 8px; 
+
+              cursor: pointer;
+
+              transition: all 0.3s ease;
+
+              display: inline-block;
+
+              user-select: none;
+
+              position: relative;
+
+            "
+
+            onmouseover="window.hoverRating_element_service_7(3, 5, '#ffc107');"
+
+            onmouseout="window.resetHoverRating_element_service_7(5, '#ffc107', '#e0e0e0');"
+
+            onclick="window.updateRating_element_service_7(3, 5)"
+
+          >★</span><span 
+
+            class="rating-star filled" 
+
+            data-rating="4"
+
+            data-state="filled"
+
+            style="
+
+              color: #ffc107; 
+
+              font-size: 3rem; 
+
+              margin: 0 8px; 
+
+              cursor: pointer;
+
+              transition: all 0.3s ease;
+
+              display: inline-block;
+
+              user-select: none;
+
+              position: relative;
+
+            "
+
+            onmouseover="window.hoverRating_element_service_7(4, 5, '#ffc107');"
+
+            onmouseout="window.resetHoverRating_element_service_7(5, '#ffc107', '#e0e0e0');"
+
+            onclick="window.updateRating_element_service_7(4, 5)"
+
+          >★</span><span 
+
+            class="rating-star filled" 
+
+            data-rating="5"
+
+            data-state="filled"
+
+            style="
+
+              color: #ffc107; 
+
+              font-size: 3rem; 
+
+              margin: 0 8px; 
+
+              cursor: pointer;
+
+              transition: all 0.3s ease;
+
+              display: inline-block;
+
+              user-select: none;
+
+              position: relative;
+
+            "
+
+            onmouseover="window.hoverRating_element_service_7(5, 5, '#ffc107');"
+
+            onmouseout="window.resetHoverRating_element_service_7(5, '#ffc107', '#e0e0e0');"
+
+            onclick="window.updateRating_element_service_7(5, 5)"
+
+          >★</span>
+
+            </div>
+
+            
+
+            <div style="
+
+              color: #000000;
+
+              font-size: 1.1rem;
+
+              font-weight: 500;
+
+              background: rgba(255,255,255,0.1);
+
+              padding: 8px 16px;
+
+              border-radius: 20px;
+
+              display: inline-block;
+
+              backdrop-filter: blur(10px);
+
+            ">
+
+              <span id="rating-display-element-service_7">5</span> из 5
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 JAVASCRIPT для интерактивного рейтинга -->
+
+          <script>
+
+            // Глобальные функции для рейтинга (должны быть доступны везде)
+
+            window.hoverRating_element_service_7 = function(hoverRating, maxRating, starColor) {
+
+              const stars = document.querySelectorAll('.rating-star');
+
+              console.log('⭐ [Rating Export] Hover rating:', hoverRating, 'maxRating:', maxRating);
+
+              
+
+              stars.forEach((star, index) => {
+
+                const starRating = index + 1;
+
+                const starElement = star;
+
+                
+
+                if (starRating <= hoverRating) {
+
+                  starElement.style.color = starColor;
+
+                  starElement.style.transform = 'scale(1.1)';
+
+                  
+
+                  // Убираем частичное заполнение при hover
+
+                  starElement.classList.remove('partial');
+
+                  starElement.classList.add('filled');
+
+                } else {
+
+                  starElement.style.color = '#e0e0e0';
+
+                  starElement.style.transform = 'scale(1)';
+
+                  
+
+                  // Убираем все классы состояния при hover
+
+                  starElement.classList.remove('filled', 'partial');
+
+                  starElement.classList.add('empty');
+
+                }
+
+              });
+
+            };
+
+            
+
+            window.resetHoverRating_element_service_7 = function(currentRating, starColor, emptyStarColor) {
+
+              const stars = document.querySelectorAll('.rating-star');
+
+              
+
+              stars.forEach((star, index) => {
+
+                const starRating = index + 1;
+
+                const starElement = star;
+
+                
+
+                // Убираем hover эффекты
+
+                starElement.style.transform = 'scale(1)';
+
+                
+
+                // Восстанавливаем правильное состояние звезды
+
+                if (starRating <= Math.floor(window.currentRating_element_service_7)) {
+
+                  // Полностью заполненная звезда
+
+                  starElement.style.color = starColor;
+
+                  starElement.classList.remove('partial');
+
+                  starElement.classList.add('filled');
+
+                  starElement.setAttribute('data-state', 'filled');
+
+                } else if (starRating === Math.ceil(window.currentRating_element_service_7) && window.currentRating_element_service_7 % 1 > 0) {
+
+                  // Частично заполненная звезда
+
+                  starElement.style.color = starColor;
+
+                  starElement.classList.remove('filled', 'empty');
+
+                  starElement.classList.add('partial');
+
+                  starElement.setAttribute('data-state', 'partial');
+
+                  
+
+                  // Восстанавливаем clip-path
+
+                  const partialPercentage = (window.currentRating_element_service_7 % 1) * 100;
+
+                  starElement.style.setProperty('--partial-width', partialPercentage + '%');
+
+                } else {
+
+                  // Пустая звезда
+
+                  starElement.style.color = emptyStarColor;
+
+                  starElement.classList.remove('filled', 'partial');
+
+                  starElement.classList.add('empty');
+
+                  starElement.setAttribute('data-state', 'empty');
+
+                }
+
+              });
+
+            };
+
+            
+
+            window.updateRating_element_service_7 = function(newRating, maxRating) {
+
+              console.log('⭐ [Rating Export] updateRating called with:', newRating, 'maxRating:', maxRating);
+
+              console.log('⭐ [Rating Export] Current rating before update:', window.currentRating_element_service_7);
+
+              
+
+              const ratingDisplay = document.getElementById('rating-display-element-service_7');
+
+              const stars = document.querySelectorAll('.rating-star');
+
+              
+
+              // Если кликнули на ту же звезду - снимаем выбор (рейтинг = 0)
+
+              if (newRating === window.currentRating_element_service_7) {
+
+                newRating = 0;
+
+                console.log('⭐ [Rating Export] Same star clicked, resetting to 0');
+
+              }
+
+              
+
+              // Обновляем глобальную переменную
+
+              window.currentRating_element_service_7 = newRating;
+
+              console.log('⭐ [Rating Export] Updated currentRating_element_service_7 to:', window.currentRating_element_service_7);
+
+              
+
+              // Обновляем отображение рейтинга
+
+              ratingDisplay.textContent = newRating;
+
+              
+
+              // 🔥 ИСПРАВЛЕНИЕ: Обновляем звезды с поддержкой дробных рейтингов
+
+              stars.forEach((star, index) => {
+
+                const starRating = index + 1;
+
+                const starElement = star;
+
+                
+
+                // Убираем старые классы
+
+                starElement.classList.remove('filled', 'partial', 'empty');
+
+                
+
+                if (starRating <= Math.floor(newRating)) {
+
+                  // Полностью заполненная звезда
+
+                  starElement.classList.add('filled');
+
+                  starElement.style.color = '#ffc107';
+
+                  starElement.setAttribute('data-state', 'filled');
+
+                } else if (starRating === Math.ceil(newRating) && newRating % 1 > 0) {
+
+                  // Частично заполненная звезда
+
+                  starElement.classList.add('partial');
+
+                  starElement.style.color = '#ffc107';
+
+                  starElement.setAttribute('data-state', 'partial');
+
+                  
+
+                  // Обновляем clip-path для частичного заполнения
+
+                  const partialPercentage = (newRating % 1) * 100;
+
+                  starElement.style.setProperty('--partial-width', partialPercentage + '%');
+
+                } else {
+
+                  // Пустая звезда
+
+                  starElement.classList.add('empty');
+
+                  starElement.style.color = '#e0e0e0';
+
+                  starElement.setAttribute('data-state', 'empty');
+
+                }
+
+              });
+
+              
+
+              // Анимация обновления
+
+              ratingDisplay.style.transform = 'scale(1.2)';
+
+              ratingDisplay.style.transition = 'transform 0.3s ease';
+
+              setTimeout(() => {
+
+                ratingDisplay.style.transform = 'scale(1)';
+
+              }, 300);
+
+              
+
+              console.log('⭐ [Rating Export] Rating updated to:', newRating, 'Previous:', 5);
+
+            };
+
+            
+
+            // Глобальная переменная для хранения текущего рейтинга
+
+            window.currentRating_element_service_7 = 5;
+
+            
+
+            // Инициализация при загрузке страницы
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+              console.log('⭐ [Rating Export] Rating component initialized with rating:', 5, 'interactive:', true);
+
+              console.log('⭐ [Rating Export] Element ID:', 'element-service_7', 'Safe ID:', 'element_service_7');
+
+              
+
+              // Если рейтинг не интерактивный, убираем hover эффекты
+
+              if (!true) {
+
+                const stars = document.querySelectorAll('.rating-star');
+
+                stars.forEach(star => {
+
+                  star.style.cursor = 'default';
+
+                  star.removeAttribute('onmouseover');
+
+                  star.removeAttribute('onmouseout');
+
+                  star.removeAttribute('onclick');
+
+                });
+
+                console.log('⭐ [Rating Export] Interactive disabled, removed event handlers');
+
+              } else {
+
+                console.log('⭐ [Rating Export] Interactive enabled, event handlers active');
+
+              }
+
+            });
+
+          </script>
+
+        
+
+          <div id="element-service_8" class="content-element chart-component" style="
+
+            margin: 2rem 0;
+
+            padding: 24px;
+
+            background: linear-gradient(to bottom right, #ffffff, #f5f5f5);
+
+            border-radius: 8px;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+            max-width: 100%;
+
+            width: 100%;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            position: relative;
+
+            
+
+          ">
+
+            <h3 style="
+
+              margin-bottom: 1rem;
+
+              color: #0a2a6b;
+
+              font-size: 1.25rem;
+
+              font-weight: bold;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Динамика интереса и вовлеченности игроков в проект «Зевс против Аида» с начала ноября по декабрь 2025 года, отражающая рост популярности среди тестеров</h3>
+
+            
+
+            
+
+              <p style="
+
+                margin-bottom: 2rem;
+
+                color: #0a2a6b;
+
+                font-size: 0.9rem;
+
+                line-height: 1.5;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Montserrat', sans-serif;
+
+              ">График демонстрирует стабильный рост активности игроков, увеличение времени сессий и положительную динамику отзывов. Это подтверждает высокий уровень интереса к проекту перед релизом 2026 года.</p>
+
+            
+
+            
+
+            <div style="
+
+              position: relative;
+
+              height: 450px;
+
+              padding: 20px;
+
+              background: rgba(255,255,255,0.05);
+
+              border-radius: 8px;
+
+              border: 1px solid rgba(255,255,255,0.1);
+
+            ">
+
+              <style>
+
+                /* Стили для точек графика */
+
+                .chart-point-1, .chart-point-2 {
+
+                  cursor: pointer;
+
+                  transition: all 0.2s ease;
+
+                }
+
+                /* Hover эффекты для точек графика */
+
+                .chart-point-1:hover, .chart-point-2:hover {
+
+                  stroke: rgba(255,255,255,0.3) !important;
+
+                  stroke-width: 8 !important;
+
+                }
+
+                /* Улучшение линий сетки */
+
+                line[stroke-dasharray="3,3"] {
+
+                  pointer-events: none;
+
+                }
+
+                /* Hover эффекты для круговых точек */
+
+                circle[class*="chart-point"]:hover {
+
+                  filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
+
+                }
+
+                /* Стили для невидимых областей - убираем hover эффект */
+
+                rect[class*="chart-point"] {
+
+                  cursor: pointer;
+
+                }
+
+                
+
+                /* Стили для кастомных tooltip'ов */
+
+                .chart-tooltip-element-service_8 {
+
+                  animation: tooltipFadeIn 0.2s ease-out;
+
+                }
+
+                
+
+                @keyframes tooltipFadeIn {
+
+                  from {
+
+                    opacity: 0;
+
+                    transform: translateY(5px);
+
+                  }
+
+                  to {
+
+                    opacity: 1;
+
+                    transform: translateY(0);
+
+                  }
+
+                }
+
+                
+
+
+
+              </style>
+
+              <svg width="100%" height="100%" viewBox="0 0 800 400" style="overflow: visible;">
+
+                <!-- Сетка -->
+
+                <defs>
+
+                  <pattern id="grid-element-service_8" width="80" height="70" patternUnits="userSpaceOnUse">
+
+                                         <path d="M 80 0 L 0 0 0 70" fill="none" stroke="#cccccc" stroke-width="1" opacity="0.3"/>
+
+                   </pattern>
+
+                 </defs>
+
+                 <rect width="100%" height="100%" fill="url(#grid-element-service_8)" />
+
+                 
+
+                 <!-- Область под линией -->
+
+                 <defs>
+
+                   <linearGradient id="areaGradient-element-service_8" x1="0%" y1="0%" x2="0%" y2="100%">
+
+                     <stop offset="0%" style="stop-color:#8884d8;stop-opacity:0.3" />
+
+                     <stop offset="100%" style="stop-color:#8884d8;stop-opacity:0.1" />
+
+                   </linearGradient>
+
+                 </defs>
+
+                 
+
+                 
+
+                     <!-- Ось Y -->
+
+                     <line x1="50" y1="40" x2="50" y2="280" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                     
+
+                     <!-- Шкала Y -->
+
+                     
+
+                       <line x1="45" y1="280" x2="55" y2="280" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="284" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         0
+
+                       </text>
+
+                     
+
+                       <line x1="45" y1="232" x2="55" y2="232" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="236" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         220
+
+                       </text>
+
+                     
+
+                       <line x1="45" y1="184" x2="55" y2="184" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="188" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         440
+
+                       </text>
+
+                     
+
+                       <line x1="45" y1="136" x2="55" y2="136" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="140" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         660
+
+                       </text>
+
+                     
+
+                       <line x1="45" y1="88" x2="55" y2="88" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="92" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         880
+
+                       </text>
+
+                     
+
+                       <line x1="45" y1="40" x2="55" y2="40" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                       <text x="40" y="44" text-anchor="end" fill="#999999" font-size="10" font-family="Montserrat">
+
+                         1100
+
+                       </text>
+
+                     
+
+                     
+
+                     <!-- Горизонтальные линии сетки -->
+
+                     
+
+                       <line x1="100" y1="280" x2="720" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="100" y1="232" x2="720" y2="232" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="100" y1="184" x2="720" y2="184" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="100" y1="136" x2="720" y2="136" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="100" y1="88" x2="720" y2="88" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="100" y1="40" x2="720" y2="40" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                     
+
+                     <!-- Ось X -->
+
+                     <line x1="50" y1="280" x2="750" y2="280" stroke="#999999" stroke-width="1" opacity="0.5"/>
+
+                     
+
+                     <!-- Вертикальные линии сетки для месяцев -->
+
+                     
+
+                       <line x1="80" y1="40" x2="80" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="186.66666666666669" y1="40" x2="186.66666666666669" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="293.33333333333337" y1="40" x2="293.33333333333337" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="400" y1="40" x2="400" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="506.6666666666667" y1="40" x2="506.6666666666667" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="613.3333333333334" y1="40" x2="613.3333333333334" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                       <line x1="720" y1="40" x2="720" y2="280" stroke="#999999" stroke-width="1" opacity="0.1" stroke-dasharray="3,3"/>
+
+                     
+
+                     
+
+                     <!-- Область заливки для первой линии -->
+
+                     <path d="M 80 280 L 80 225.45454545454544 L 186.66666666666669 192.72727272727272 L 293.33333333333337 160 L 400 127.27272727272728 L 506.6666666666667 101.0909090909091 L 613.3333333333334 74.90909090909093 L 720 40 L 720 280 Z" fill="url(#areaGradient-element-service_8)" />
+
+                     
+
+                     <!-- Первая линия -->
+
+                     <path d="M 80 225.45454545454544 L 186.66666666666669 192.72727272727272 L 293.33333333333337 160 L 400 127.27272727272728 L 506.6666666666667 101.0909090909091 L 613.3333333333334 74.90909090909093 L 720 40" fill="none" stroke="#8884d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+                     
+
+                     <!-- Точки первой линии -->
+
+                     
+
+                         <circle cx="80" cy="225.45454545454544" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="80" cy="225.45454545454544" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="0">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="65" y="210.45454545454544" width="30" height="30" fill="transparent" class="chart-point-1" data-index="0">
+
+                         </rect>
+
+                       
+
+                         <circle cx="186.66666666666669" cy="192.72727272727272" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="186.66666666666669" cy="192.72727272727272" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="1">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="171.66666666666669" y="177.72727272727272" width="30" height="30" fill="transparent" class="chart-point-1" data-index="1">
+
+                         </rect>
+
+                       
+
+                         <circle cx="293.33333333333337" cy="160" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="293.33333333333337" cy="160" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="2">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="278.33333333333337" y="145" width="30" height="30" fill="transparent" class="chart-point-1" data-index="2">
+
+                         </rect>
+
+                       
+
+                         <circle cx="400" cy="127.27272727272728" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="400" cy="127.27272727272728" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="3">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="385" y="112.27272727272728" width="30" height="30" fill="transparent" class="chart-point-1" data-index="3">
+
+                         </rect>
+
+                       
+
+                         <circle cx="506.6666666666667" cy="101.0909090909091" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="506.6666666666667" cy="101.0909090909091" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="4">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="491.6666666666667" y="86.0909090909091" width="30" height="30" fill="transparent" class="chart-point-1" data-index="4">
+
+                         </rect>
+
+                       
+
+                         <circle cx="613.3333333333334" cy="74.90909090909093" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="613.3333333333334" cy="74.90909090909093" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="5">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="598.3333333333334" y="59.909090909090935" width="30" height="30" fill="transparent" class="chart-point-1" data-index="5">
+
+                         </rect>
+
+                       
+
+                         <circle cx="720" cy="40" r="4" fill="#8884d8" stroke="white" stroke-width="2" />
+
+                         <circle cx="720" cy="40" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-1" data-index="6">
+
+                         </circle>
+
+                         <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                         <rect x="705" y="25" width="30" height="30" fill="transparent" class="chart-point-1" data-index="6">
+
+                         </rect>
+
+                       
+
+                     
+
+                     
+
+                       <!-- Вторая линия -->
+
+                       <path d="M 80 258.1818181818182 L 186.66666666666669 214.54545454545456 L 293.33333333333337 175.27272727272728 L 400 140.36363636363637 L 506.6666666666667 122.9090909090909 L 613.3333333333334 98.9090909090909 L 720 68.36363636363637" fill="none" stroke="#82ca9d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+                       
+
+                       <!-- Точки второй линии -->
+
+                       
+
+                           <circle cx="80" cy="258.1818181818182" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="80" cy="258.1818181818182" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="0">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="65" y="243.1818181818182" width="30" height="30" fill="transparent" class="chart-point-2" data-index="0">
+
+                           </rect>
+
+                         
+
+                           <circle cx="186.66666666666669" cy="214.54545454545456" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="186.66666666666669" cy="214.54545454545456" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="1">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="171.66666666666669" y="199.54545454545456" width="30" height="30" fill="transparent" class="chart-point-2" data-index="1">
+
+                           </rect>
+
+                         
+
+                           <circle cx="293.33333333333337" cy="175.27272727272728" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="293.33333333333337" cy="175.27272727272728" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="2">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="278.33333333333337" y="160.27272727272728" width="30" height="30" fill="transparent" class="chart-point-2" data-index="2">
+
+                           </rect>
+
+                         
+
+                           <circle cx="400" cy="140.36363636363637" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="400" cy="140.36363636363637" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="3">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="385" y="125.36363636363637" width="30" height="30" fill="transparent" class="chart-point-2" data-index="3">
+
+                           </rect>
+
+                         
+
+                           <circle cx="506.6666666666667" cy="122.9090909090909" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="506.6666666666667" cy="122.9090909090909" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="4">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="491.6666666666667" y="107.9090909090909" width="30" height="30" fill="transparent" class="chart-point-2" data-index="4">
+
+                           </rect>
+
+                         
+
+                           <circle cx="613.3333333333334" cy="98.9090909090909" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="613.3333333333334" cy="98.9090909090909" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="5">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="598.3333333333334" y="83.9090909090909" width="30" height="30" fill="transparent" class="chart-point-2" data-index="5">
+
+                           </rect>
+
+                         
+
+                           <circle cx="720" cy="68.36363636363637" r="4" fill="#82ca9d" stroke="white" stroke-width="2" />
+
+                           <circle cx="720" cy="68.36363636363637" r="8" fill="transparent" stroke="transparent" stroke-width="6" class="chart-point-2" data-index="6">
+
+                           </circle>
+
+                           <!-- Невидимая область для лучшего взаимодействия с tooltip -->
+
+                           <rect x="705" y="53.363636363636374" width="30" height="30" fill="transparent" class="chart-point-2" data-index="6">
+
+                           </rect>
+
+                         
+
+                     
+
+                     
+
+                     <!-- Подписи оси X -->
+
+                     
+
+                       <text x="80" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Ноябрь 1
+
+                       </text>
+
+                     
+
+                       <text x="186.66666666666669" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Ноябрь 10
+
+                       </text>
+
+                     
+
+                       <text x="293.33333333333337" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Ноябрь 20
+
+                       </text>
+
+                     
+
+                       <text x="400" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Декабрь 1
+
+                       </text>
+
+                     
+
+                       <text x="506.6666666666667" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Декабрь 10
+
+                       </text>
+
+                     
+
+                       <text x="613.3333333333334" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Декабрь 20
+
+                       </text>
+
+                     
+
+                       <text x="720" y="300" text-anchor="middle" fill="#999999" font-size="12" font-family="Montserrat">
+
+                         Декабрь 30
+
+                       </text>
+
+                     
+
+                     
+
+                     <!-- Легенда внизу (вертикально) -->
+
+                     <g transform="translate(80, 320)">
+
+                       <!-- Первая линия -->
+
+                       <rect x="0" y="0" width="15" height="3" fill="#8884d8"/>
+
+                       <text x="20" y="8" fill="#8884d8" font-size="12" font-family="Montserrat">Игровая активность</text>
+
+                       
+
+                         <!-- Вторая линия (под первой) -->
+
+                         <rect x="0" y="20" width="15" height="3" fill="#82ca9d"/>
+
+                         <text x="20" y="28" fill="#82ca9d" font-size="12" font-family="Montserrat">Отзывы игроков</text>
+
+                       
+
+                     </g>
+
+                  
+
+              </svg>
+
+              
+
+
+
+              
+
+              <!-- JavaScript для умных всплывающих подсказок -->
+
+              <script>
+
+                (function() {
+
+                  const chartContainer = document.getElementById('element-service_8') || document.querySelector('.chart-component');
+
+                  const svg = chartContainer ? chartContainer.querySelector('svg') : null;
+
+                  
+
+                  // Проверяем, что необходимые элементы найдены
+
+                  if (!chartContainer || !svg) {
+
+                    console.error('❌ Chart container or SVG not found');
+
+                    return;
+
+                  }
+
+                  let tooltip = null;
+
+                  
+
+                  // Определяем данные для tooltip'ов напрямую
+
+                  const chartData = [{"name":"Ноябрь 1","value":250,"value2":100},{"name":"Ноябрь 10","value":400,"value2":300},{"name":"Ноябрь 20","value":550,"value2":480},{"name":"Декабрь 1","value":700,"value2":640},{"name":"Декабрь 10","value":820,"value2":720},{"name":"Декабрь 20","value":940,"value2":830},{"name":"Декабрь 30","value":1100,"value2":970}];
+
+                  const lineNames = ["Игровая активность","Отзывы игроков"];
+
+                  const lineColors = ["#8884d8","#82ca9d"];
+
+                  
+
+                  // Функция для создания tooltip
+
+                  function createTooltip() {
+
+                    if (tooltip) return;
+
+                    
+
+                    tooltip = document.createElement('div');
+
+                    tooltip.style.cssText = `
+
+                      position: fixed;
+
+                      background: rgba(0, 0, 0, 0.95);
+
+                      color: white;
+
+                      padding: 12px 16px;
+
+                      border-radius: 8px;
+
+                      font-family: 'Montserrat', sans-serif;
+
+                      font-size: 13px;
+
+                      line-height: 1.5;
+
+                      pointer-events: none;
+
+                      z-index: 10000;
+
+                      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+
+                      border: 1px solid rgba(255,255,255,0.2);
+
+                      min-width: 160px;
+
+                      backdrop-filter: blur(10px);
+
+                      -webkit-backdrop-filter: blur(10px);
+
+                      white-space: pre-line;
+
+                    `;
+
+                    tooltip.className = 'chart-tooltip-element-service_8';
+
+                    document.body.appendChild(tooltip);
+
+                  }
+
+                  
+
+                  // Функция для определения ближайшей точки
+
+                  function findNearestPoint(mouseX, mouseY) {
+
+                    const chartRect = svg.getBoundingClientRect();
+
+                    const relativeX = mouseX - chartRect.left;
+
+                    const relativeY = mouseY - chartRect.top;
+
+                    
+
+                    // Получаем все точки графика с правильными индексами
+
+                    const points1 = Array.from(svg.querySelectorAll('.chart-point-1')).map((point, index) => {
+
+                      const cx = parseFloat(point.getAttribute('cx') || '0');
+
+                      const cy = parseFloat(point.getAttribute('cy') || '0');
+
+                      // Используем data-index атрибут, если он есть, иначе используем порядковый индекс
+
+                      const dataIndex = point.getAttribute('data-index');
+
+                      const pointIndex = dataIndex !== null ? parseInt(dataIndex) : index;
+
+                      return { x: cx, y: cy, index: pointIndex, line: 1 };
+
+                    });
+
+                    
+
+                    const points2 = Array.from(svg.querySelectorAll('.chart-point-2')).map((point, index) => {
+
+                      const cx = parseFloat(point.getAttribute('cx') || '0');
+
+                      const cy = parseFloat(point.getAttribute('cy') || '0');
+
+                      // Используем data-index атрибут, если он есть, иначе используем порядковый индекс
+
+                      const dataIndex = point.getAttribute('data-index');
+
+                      const pointIndex = dataIndex !== null ? parseInt(dataIndex) : index;
+
+                      return { x: cx, y: cy, index: pointIndex, line: 2 };
+
+                    });
+
+                    
+
+                    const allPoints = [...points1, ...points2];
+
+                    
+
+                    // Находим ближайшую точку с учетом радиуса взаимодействия
+
+                    let nearestPoint = null;
+
+                    let minDistance = Infinity;
+
+                    const interactionRadius = 30; // Увеличиваем радиус для лучшего взаимодействия
+
+                    
+
+                    allPoints.forEach(point => {
+
+                      const distance = Math.sqrt(
+
+                        Math.pow(relativeX - point.x, 2) + 
+
+                        Math.pow(relativeY - point.y, 2)
+
+                      );
+
+                      
+
+                      // Если точка в радиусе взаимодействия и ближе предыдущей
+
+                      if (distance <= interactionRadius && distance < minDistance) {
+
+                        minDistance = distance;
+
+                        nearestPoint = point;
+
+                      }
+
+                    });
+
+                    
+
+                    // Если не нашли точку в радиусе, ищем ближайшую в пределах большего радиуса
+
+                    if (!nearestPoint) {
+
+                      const extendedRadius = 50; // Увеличиваем расширенный радиус
+
+                      allPoints.forEach(point => {
+
+                        const distance = Math.sqrt(
+
+                          Math.pow(relativeX - point.x, 2) + 
+
+                          Math.pow(relativeY - point.y, 2)
+
+                        );
+
+                        
+
+                        if (distance <= extendedRadius && distance < minDistance) {
+
+                          minDistance = distance;
+
+                          nearestPoint = point;
+
+                        }
+
+                      });
+
+                    }
+
+                    
+
+                    // Отладочная информация
+
+                    if (nearestPoint) {
+
+                      console.log('🎯 Nearest point found:', {
+
+                        index: nearestPoint.index,
+
+                        line: nearestPoint.line,
+
+                        distance: minDistance,
+
+                        pointX: nearestPoint.x,
+
+                        pointY: nearestPoint.y,
+
+                        mouseRelativeX: relativeX,
+
+                        mouseRelativeY: relativeY
+
+                      });
+
+                      
+
+                      // Дополнительная отладка для понимания проблемы с индексами
+
+                      console.log('🔍 Points1 indices:', points1.map(p => p.index));
+
+                      console.log('🔍 Points2 indices:', points2.map(p => p.index));
+
+                      console.log('🔍 All points indices:', allPoints.map(p => p.index));
+
+                    }
+
+                    
+
+                    return nearestPoint;
+
+                  }
+
+                  
+
+                  // Функция для показа tooltip
+
+                  function showTooltip(mouseX, mouseY) {
+
+                    console.log('🔍 showTooltip called with:', { mouseX, mouseY });
+
+                    console.log('🔍 chartData:', chartData);
+
+                    console.log('🔍 lineNames:', lineNames);
+
+                    console.log('🔍 lineColors:', lineColors);
+
+                    
+
+                    const nearestPoint = findNearestPoint(mouseX, mouseY);
+
+                    if (!nearestPoint) {
+
+                      console.log('❌ No nearest point found');
+
+                      return;
+
+                    }
+
+                    
+
+                    console.log('🎯 Nearest point:', nearestPoint);
+
+                    
+
+                    createTooltip();
+
+                    
+
+                    // Получаем данные для tooltip
+
+                    const pointData = chartData[nearestPoint.index];
+
+                    
+
+                    // Проверяем, что индекс находится в допустимых пределах
+
+                    if (nearestPoint.index < 0 || nearestPoint.index >= chartData.length) {
+
+                      console.error('❌ Invalid index:', nearestPoint.index, 'chartData length:', chartData.length);
+
+                      hideTooltip();
+
+                      return;
+
+                    }
+
+                    
+
+                    // Проверяем, что данные существуют
+
+                    if (!pointData) {
+
+                      console.error('❌ Point data not found for index:', nearestPoint.index, 'chartData:', chartData);
+
+                      hideTooltip();
+
+                      return;
+
+                    }
+
+                    
+
+                    // Проверяем, что chartData и lineNames существуют
+
+                    if (!chartData || !Array.isArray(chartData)) {
+
+                      console.error('❌ chartData is not an array:', chartData);
+
+                      hideTooltip();
+
+                      return;
+
+                    }
+
+                    
+
+                    if (!lineNames || !Array.isArray(lineNames)) {
+
+                      console.error('❌ lineNames is not an array:', lineNames);
+
+                      hideTooltip();
+
+                      return;
+
+                    }
+
+                    
+
+                    if (!lineColors || !Array.isArray(lineColors)) {
+
+                      console.error('❌ lineColors is not an array:', lineColors);
+
+                      hideTooltip();
+
+                      return;
+
+                    }
+
+                    
+
+                    // Формируем содержимое tooltip с улучшенным форматированием
+
+                    let tooltipContent = `<strong>${pointData.name || 'Точка ' + (nearestPoint.index + 1)}</strong>`;
+
+                    
+
+                    // НОВЫЙ ПОРЯДОК: Зеленая строка ПЕРВАЯ, фиолетовая ВТОРАЯ
+
+                    console.log('🔍 [TOOLTIP DEBUG] value2:', pointData.value2, 'value:', pointData.value);
+
+                    console.log('🔍 [TOOLTIP DEBUG] lineColors:', lineColors);
+
+                    console.log('🔍 [TOOLTIP DEBUG] lineNames:', lineNames);
+
+                    
+
+                    // 1. ЗЕЛЕНАЯ строка ПЕРВАЯ (Капитализация рынка - value2)
+
+                    if (pointData.value2 !== undefined) {
+
+                      tooltipContent += `
+<span style="color: ${lineColors[1]}">●</span> <span style="color: ${lineColors[1]}">${lineNames[1]}: <strong>${pointData.value2}</strong></span>`;
+
+                      console.log('🔍 [TOOLTIP DEBUG] Добавлена ЗЕЛЕНАЯ строка:', lineNames[1], pointData.value2);
+
+                    }
+
+                    
+
+                    // 2. ФИОЛЕТОВАЯ строка ВТОРАЯ (Объем инвестиций - value)
+
+                    if (pointData.value !== undefined) {
+
+                      tooltipContent += `
+<span style="color: ${lineColors[0]}">●</span> <span style="color: ${lineColors[0]}">${lineNames[0]}: <strong>${pointData.value}</strong></span>`;
+
+                      console.log('🔍 [TOOLTIP DEBUG] Добавлена ФИОЛЕТОВАЯ строка:', lineNames[0], pointData.value);
+
+                    }
+
+                    
+
+                    // Добавляем процентное соотношение (если есть вторая линия)
+
+                    if (pointData.value2 !== undefined && pointData.value > 0) {
+
+                      const percentage = ((pointData.value2 / pointData.value) * 100).toFixed(1);
+
+                      tooltipContent += `
+<span style="opacity: 0.8; font-size: 11px; color: #cccccc;">⚖ ${percentage}%</span>`;
+
+                    }
+
+                    
+
+                    tooltip.innerHTML = tooltipContent;
+
+                    
+
+                    // Улучшенное позиционирование tooltip с учетом границ экрана и элемента
+
+                    const chartRect = chartContainer ? chartContainer.getBoundingClientRect() : svg.getBoundingClientRect();
+
+                    const tooltipRect = tooltip.getBoundingClientRect();
+
+                    
+
+                    // Умное позиционирование в зависимости от положения курсора
+
+                    let left, top;
+
+                    
+
+                    // Определяем, где лучше показать tooltip
+
+                    const spaceOnRight = window.innerWidth - mouseX;
+
+                    const spaceOnLeft = mouseX;
+
+                    const tooltipWidth = tooltipRect.width + 30; // 15px отступ с каждой стороны
+
+                    
+
+                    // Если справа достаточно места, показываем справа
+
+                    if (spaceOnRight >= tooltipWidth) {
+
+                      left = mouseX + 15;
+
+                    } 
+
+                    // Если справа мало места, но слева много - показываем слева
+
+                    else if (spaceOnLeft >= tooltipWidth) {
+
+                      left = mouseX - tooltipRect.width - 15;
+
+                    }
+
+                    // Если нигде не хватает места, показываем по центру курсора
+
+                    else {
+
+                      left = mouseX - (tooltipRect.width / 2);
+
+                    }
+
+                    
+
+                    // Вертикальное позиционирование
+
+                    top = mouseY - tooltipRect.height / 2;
+
+                    
+
+                    // Проверяем границы экрана
+
+                    if (left < 0) left = 10;
+
+                    if (left + tooltipRect.width > window.innerWidth) {
+
+                      left = window.innerWidth - tooltipRect.width - 10;
+
+                    }
+
+                    if (top < 0) top = 10;
+
+                    if (top + tooltipRect.height > window.innerHeight) {
+
+                      top = window.innerHeight - tooltipRect.height - 10;
+
+                    }
+
+                    
+
+                    // Дополнительная проверка - tooltip не должен выходить за пределы элемента графика
+
+                    if (chartRect) {
+
+                      // Если tooltip выходит за левую границу элемента
+
+                      if (left < chartRect.left) {
+
+                        left = chartRect.left + 10;
+
+                      }
+
+                      
+
+                      // Если tooltip выходит за правую границу элемента
+
+                      if (left + tooltipRect.width > chartRect.right) {
+
+                        left = chartRect.right - tooltipRect.width - 10;
+
+                      }
+
+                      
+
+                      // Если tooltip выходит за верхнюю границу элемента
+
+                      if (top < chartRect.top) {
+
+                        top = chartRect.top + 10;
+
+                      }
+
+                      
+
+                      // Если tooltip выходит за нижнюю границу элемента
+
+                      if (top + tooltipRect.height > chartRect.bottom) {
+
+                        top = chartRect.bottom - tooltipRect.height - 10;
+
+                      }
+
+                    }
+
+                    
+
+                    // Применяем позицию
+
+                    tooltip.style.left = left + 'px';
+
+                    tooltip.style.top = top + 'px';
+
+                    
+
+                    // Отладочная информация (можно убрать в продакшене)
+
+                    console.log('🔍 Tooltip positioning:', {
+
+                      mouseX, mouseY,
+
+                      tooltipWidth: tooltipRect.width,
+
+                      tooltipHeight: tooltipRect.height,
+
+                      spaceOnRight,
+
+                      spaceOnLeft,
+
+                      finalLeft: left,
+
+                      finalTop: top,
+
+                      chartRect: chartRect ? {
+
+                        left: chartRect.left,
+
+                        right: chartRect.right,
+
+                        top: chartRect.top,
+
+                        bottom: chartRect.bottom
+
+                      } : null,
+
+                      chartContainer: chartContainer ? chartContainer.id : 'not found',
+
+                      svg: svg ? 'found' : 'not found'
+
+                    });
+
+                  }
+
+                  
+
+                  // Функция для скрытия tooltip
+
+                  function hideTooltip() {
+
+                    if (tooltip) {
+
+                      tooltip.remove();
+
+                      tooltip = null;
+
+                      isTooltipVisible = false;
+
+                    }
+
+                  }
+
+                  
+
+                  // Обработчики событий для SVG с улучшенным throttling для производительности
+
+                  let tooltipTimeout = null;
+
+                  let lastMouseX = null;
+
+                  let lastMouseY = null;
+
+                  let isTooltipVisible = false;
+
+                  
+
+                  svg.addEventListener('mousemove', function(e) {
+
+                    // Throttling для улучшения производительности
+
+                    if (tooltipTimeout) return;
+
+                    
+
+                    tooltipTimeout = setTimeout(() => {
+
+                      // Показываем tooltip только если он еще не видим или курсор значительно переместился
+
+                      if (!isTooltipVisible || 
+
+                          lastMouseX === null || 
+
+                          lastMouseY === null ||
+
+                          Math.abs(e.clientX - lastMouseX) > 5 || 
+
+                          Math.abs(e.clientY - lastMouseY) > 5) {
+
+                        showTooltip(e.clientX, e.clientY);
+
+                        isTooltipVisible = true;
+
+                      }
+
+                      
+
+                      // Обновляем последние координаты ПОСЛЕ показа tooltip
+
+                      lastMouseX = e.clientX;
+
+                      lastMouseY = e.clientY;
+
+                      
+
+                      tooltipTimeout = null;
+
+                    }, 20); // Увеличиваем интервал для лучшей производительности
+
+                  });
+
+                  
+
+                  svg.addEventListener('mouseleave', function() {
+
+                    if (tooltipTimeout) {
+
+                      clearTimeout(tooltipTimeout);
+
+                      tooltipTimeout = null;
+
+                    }
+
+                    hideTooltip();
+
+                    isTooltipVisible = false;
+
+                  });
+
+                  
+
+                  // Обработчики для точек графика и невидимых областей
+
+                  const chartPoints = svg.querySelectorAll('.chart-point-1, .chart-point-2');
+
+                  const invisibleRects = svg.querySelectorAll('rect[class*="chart-point"]');
+
+                  
+
+                  // Объединяем все элементы для обработки событий
+
+                  const allInteractiveElements = [...chartPoints, ...invisibleRects];
+
+                  
+
+                  allInteractiveElements.forEach(element => {
+
+                    element.addEventListener('mouseenter', function(e) {
+
+                      if (tooltipTimeout) {
+
+                        clearTimeout(tooltipTimeout);
+
+                        tooltipTimeout = null;
+
+                      }
+
+                      showTooltip(e.clientX, e.clientY);
+
+                      isTooltipVisible = true;
+
+                    });
+
+                    
+
+                    element.addEventListener('mouseleave', function() {
+
+                      hideTooltip();
+
+                    });
+
+                  });
+
+                  
+
+                  // Добавляем обработчик для клика по точкам (опционально)
+
+                  chartPoints.forEach(point => {
+
+                    point.addEventListener('click', function(e) {
+
+                      // Можно добавить дополнительную функциональность при клике
+
+                      const clickedPoint = findNearestPoint(e.clientX, e.clientY);
+
+                      if (clickedPoint) {
+
+                        console.log('Clicked on chart point:', clickedPoint);
+
+                      }
+
+                    });
+
+                  });
+
+                })();
+
+              </script>
+
+            </div>
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Благодарим за вашу заявку!');
+
+          const closeButtonText = encodeURIComponent('Вернуться на главную страницу');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,3526 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ощути могущество Олимпа - ЗевсПротивАида</title>
+
+    <meta name="description" content="Познайте божественные способности, исследуйте древние тайны и используйте силу стихий, чтобы стать частью легенды и изменить ход мифологической истории.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-image: url('assets/images/fon.jpg');
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-attachment: fixed;
+
+      background-repeat: no-repeat;
+
+      z-index: -2;
+
+    "></div>
+
+    <div class="background-overlay" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: rgba(0, 0, 0, 0.4);
+
+      z-index: -1;
+
+      pointer-events: none;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ff0000;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Ощути могущество Олимпа</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #ff0000;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">Познайте божественные способности, исследуйте древние тайны и используйте силу стихий, чтобы стать частью легенды и изменить ход мифологической истории.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element blockquote border-left" style="margin: 1.5rem 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: left; font-family: Georgia; background: linear-gradient(to right, #ffffff, #f2f2f2); opacity: 1; border-left: 4px solid #e0e0e0; padding: 24px;">
+
+            <blockquote style="margin: 0; position: relative;">
+
+              
+
+                <div class="quote-title" style="
+
+                  color: #0a2a6b;
+
+                  font-weight: 600;
+
+                  margin-bottom: 0.5rem;
+
+                  font-size: 1.1rem;
+
+                ">Когда человек получает возможность управлять силами богов, он открывает не просто способности, а путь к осознанию своей роли в мире и гармонии с древними стихиями</div>
+
+              
+
+              <p class="quote-text" style="
+
+                color: #333333;
+
+                font-size: 18px;
+
+                line-height: 1.6;
+
+                margin: 0 0 1rem 0;
+
+                font-style: italic;
+
+                font-weight: normal;
+
+              ">"В игре «Зевс против Аида» сила богов не просто инструмент для сражений, а философская концепция, основанная на мифах о равновесии стихий. Управление молниями, ветром, водой и землей требует не только мастерства, но и понимания гармонии. Каждый игрок учится владеть мощью, сохраняя баланс между разрушением и созиданием."</p>
+
+              
+
+                <footer class="quote-author" style="
+
+                  color: #0a2a6b;
+
+                  font-size: 14px;
+
+                  text-align: right;
+
+                  opacity: 0.8;
+
+                ">
+
+                  — Никита Орлов, MythGame Design Journal
+
+                </footer>
+
+              
+
+            </blockquote>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element multiple-cards" data-color-settings='{"sectionBackground":{"enabled":true,"useGradient":true,"solidColor":"#ffffff","gradientColor1":"#ffffff","gradientColor2":"#f5f5f5","gradientDirection":"to right","opacity":1,"isElementBackground":true},"padding":24,"textFields":{"title":"#0a2a6b","text":"#000000","description":"#333333","cardTitle":"#0a2a6b","cardText":"#000000","cardContent":"#333333","fontSize":"16px"},"cardBackground":{"enabled":true,"useGradient":true,"solidColor":"#ffffff","gradientColor1":"#ffffff","gradientColor2":"#f0f0f0","gradientDirection":"to bottom right","opacity":1},"borderWidth":1,"borderRadius":8,"boxShadow":true}' style="
+
+            margin: 2rem 0;
+
+            padding: 24px;
+
+            background: linear-gradient(to right, #ffffff, #f5f5f5);
+
+            border-radius: 8px;
+
+            border: 1px solid #e0e0e0;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+            opacity: 1;
+
+            max-width: 1200px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+          ">
+
+            
+
+              <h3 style="
+
+                text-align: center;
+
+                color: #0a2a6b;
+
+                font-size: 28px;
+
+                margin-bottom: 1rem;
+
+                font-weight: bold;
+
+              ">Основные игровые направления, раскрывающие могущество богов Олимпа и уникальные механики, доступные только участникам раннего доступа в 2025 году</h3>
+
+            
+
+            
+
+              <p style="
+
+                text-align: center;
+
+                color: #000000;
+
+                font-size: 16px;
+
+                margin-bottom: 2rem;
+
+                line-height: 1.6;
+
+              ">Узнайте больше о ключевых особенностях игры, которые делают ее уникальной среди мифологических проектов. Сила богов раскрывается через глубокую сюжетную систему и динамичный геймплей.</p>
+
+            
+
+            <div style="
+
+              display: flex;
+
+              flex-wrap: wrap;
+
+              gap: 1.5rem;
+
+              justify-content: center;
+
+              align-items: flex-start;
+
+              width: 100%;
+
+            ">
+
+              
+
+                <div style="
+
+                    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+
+                    border: 1px solid #e0e0e0;
+
+                    border-radius: 8px;
+
+                    padding: 24px;
+
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+                    opacity: 1;
+
+                    text-align: left;
+
+                    transition: all 0.3s ease;
+
+                    width: calc(33.333% - 16px);
+
+                    min-width: 250px;
+
+                    max-width: 320px;
+
+                    height: auto;
+
+                    min-height: 320px;
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    justify-content: space-between;
+
+                    cursor: pointer;
+
+                  " onclick="openMultipleCardModalelement_service_2(0)" data-card-index="0" 
+
+                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'" 
+
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
+
+                    
+                            <div class="service-image" style="
+                              width: 100%;
+                              height: 140px;
+                              margin-bottom: 1rem;
+                              border-radius: 4px;
+                              overflow: hidden;
+                              flex-shrink: 0;
+                            ">
+                              <img src="assets/images/card_untitled_1761132551788_1761133956055.jpg" alt="Управление стихиями" style="
+                          width: 100%;
+
+                          height: 100%;
+
+                          object-fit: cover;
+
+                  transition: transform 0.3s ease;
+
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                      </div>
+
+                          
+                    
+
+                  <h4 style="
+
+                        color: #0a2a6b;
+
+                        font-size: 20px;
+
+                        margin-bottom: 1rem;
+
+                        font-weight: bold;
+
+                        line-height: 1.3;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        hyphens: auto;
+
+                        display: -webkit-box;
+
+                        -webkit-line-clamp: 2;
+
+                        -webkit-box-orient: vertical;
+
+                        overflow: hidden;
+
+                        text-overflow: ellipsis;
+
+                        max-height: 2.6em;
+
+                        text-align: center;
+
+                  ">Управление стихиями</h4>
+
+                    
+
+                    
+
+                      <div style="
+
+                        position: relative;
+
+                        flex: 1;
+
+                        margin-bottom: 16px;
+
+                      ">
+
+                  <p style="
+
+                          color: #000000;
+
+                          font-size: 16px;
+
+                    line-height: 1.6;
+
+                          display: -webkit-box;
+
+                          -webkit-line-clamp: 6;
+
+                          -webkit-box-orient: vertical;
+
+                          overflow: hidden;
+
+                          text-overflow: ellipsis;
+
+                          padding-bottom: 8px;
+
+                          word-break: break-word;
+
+                  ">Используйте молнии, землетрясения и бури, чтобы повлиять на ход битвы. Каждая способность требует стратегического мышления, а энергия богов восстанавливается через ритуалы и подношения. Игра обучает балансу мощи и ответственности.</p>
+
+                      <!-- 🔥 МНОГОТОЧИЕ для показа что есть продолжение -->
+
+                      <div style="
+
+                        position: absolute;
+
+                        bottom: 0;
+
+                        right: 0;
+
+                        width: 40px;
+
+                        height: 20px;
+
+                        background: linear-gradient(transparent, linear-gradient(to bottom right, #ffffff, #f0f0f0));
+
+                        pointer-events: none;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        font-size: 18px;
+
+                        color: #000000;
+
+                        font-weight: bold;
+
+                                              ">...</div>
+
+                </div>
+
+                    
+
+                    <!-- 🔥 УБРАЛИ КНОПКУ: Карточка теперь кликабельна для открытия модального окна -->
+
+            </div>
+
+                
+
+                <div style="
+
+                    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+
+                    border: 1px solid #e0e0e0;
+
+                    border-radius: 8px;
+
+                    padding: 24px;
+
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+                    opacity: 1;
+
+                    text-align: left;
+
+                    transition: all 0.3s ease;
+
+                    width: calc(33.333% - 16px);
+
+                    min-width: 250px;
+
+                    max-width: 320px;
+
+                    height: auto;
+
+                    min-height: 320px;
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    justify-content: space-between;
+
+                    cursor: pointer;
+
+                  " onclick="openMultipleCardModalelement_service_2(1)" data-card-index="1" 
+
+                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'" 
+
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
+
+                    
+                            <div class="service-image" style="
+                              width: 100%;
+                              height: 140px;
+                              margin-bottom: 1rem;
+                              border-radius: 4px;
+                              overflow: hidden;
+                              flex-shrink: 0;
+                            ">
+                              <img src="assets/images/card_untitled_1761132551790_1761133968650.jpg" alt="Божественные артефакты" style="
+                          width: 100%;
+
+                          height: 100%;
+
+                          object-fit: cover;
+
+                  transition: transform 0.3s ease;
+
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                      </div>
+
+                          
+                    
+
+                  <h4 style="
+
+                        color: #0a2a6b;
+
+                        font-size: 20px;
+
+                        margin-bottom: 1rem;
+
+                        font-weight: bold;
+
+                        line-height: 1.3;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        hyphens: auto;
+
+                        display: -webkit-box;
+
+                        -webkit-line-clamp: 2;
+
+                        -webkit-box-orient: vertical;
+
+                        overflow: hidden;
+
+                        text-overflow: ellipsis;
+
+                        max-height: 2.6em;
+
+                        text-align: center;
+
+                  ">Божественные артефакты</h4>
+
+                    
+
+                    
+
+                      <div style="
+
+                        position: relative;
+
+                        flex: 1;
+
+                        margin-bottom: 16px;
+
+                      ">
+
+                  <p style="
+
+                          color: #000000;
+
+                          font-size: 16px;
+
+                    line-height: 1.6;
+
+                          display: -webkit-box;
+
+                          -webkit-line-clamp: 6;
+
+                          -webkit-box-orient: vertical;
+
+                          overflow: hidden;
+
+                          text-overflow: ellipsis;
+
+                          padding-bottom: 8px;
+
+                          word-break: break-word;
+
+                  ">В игре можно найти редкие предметы, связанные с мифами Олимпа: молнии Зевса, шлем Аида, трезубец Посейдона. Каждый артефакт добавляет новые возможности и усиливает влияние игрока на события.</p>
+
+                      <!-- 🔥 МНОГОТОЧИЕ для показа что есть продолжение -->
+
+                      <div style="
+
+                        position: absolute;
+
+                        bottom: 0;
+
+                        right: 0;
+
+                        width: 40px;
+
+                        height: 20px;
+
+                        background: linear-gradient(transparent, linear-gradient(to bottom right, #ffffff, #f0f0f0));
+
+                        pointer-events: none;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        font-size: 18px;
+
+                        color: #000000;
+
+                        font-weight: bold;
+
+                                              ">...</div>
+
+                </div>
+
+                    
+
+                    <!-- 🔥 УБРАЛИ КНОПКУ: Карточка теперь кликабельна для открытия модального окна -->
+
+            </div>
+
+                
+
+                <div style="
+
+                    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+
+                    border: 1px solid #e0e0e0;
+
+                    border-radius: 8px;
+
+                    padding: 24px;
+
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+                    opacity: 1;
+
+                    text-align: left;
+
+                    transition: all 0.3s ease;
+
+                    width: calc(33.333% - 16px);
+
+                    min-width: 250px;
+
+                    max-width: 320px;
+
+                    height: auto;
+
+                    min-height: 320px;
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    justify-content: space-between;
+
+                    cursor: pointer;
+
+                  " onclick="openMultipleCardModalelement_service_2(2)" data-card-index="2" 
+
+                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'" 
+
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
+
+                    
+                            <div class="service-image" style="
+                              width: 100%;
+                              height: 140px;
+                              margin-bottom: 1rem;
+                              border-radius: 4px;
+                              overflow: hidden;
+                              flex-shrink: 0;
+                            ">
+                              <img src="assets/images/card_untitled_1761132551792_1761133972811.jfif" alt="Сюжетные миссии" style="
+                          width: 100%;
+
+                          height: 100%;
+
+                          object-fit: cover;
+
+                  transition: transform 0.3s ease;
+
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                      </div>
+
+                          
+                    
+
+                  <h4 style="
+
+                        color: #0a2a6b;
+
+                        font-size: 20px;
+
+                        margin-bottom: 1rem;
+
+                        font-weight: bold;
+
+                        line-height: 1.3;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        hyphens: auto;
+
+                        display: -webkit-box;
+
+                        -webkit-line-clamp: 2;
+
+                        -webkit-box-orient: vertical;
+
+                        overflow: hidden;
+
+                        text-overflow: ellipsis;
+
+                        max-height: 2.6em;
+
+                        text-align: center;
+
+                  ">Сюжетные миссии</h4>
+
+                    
+
+                    
+
+                      <div style="
+
+                        position: relative;
+
+                        flex: 1;
+
+                        margin-bottom: 16px;
+
+                      ">
+
+                  <p style="
+
+                          color: #000000;
+
+                          font-size: 16px;
+
+                    line-height: 1.6;
+
+                          display: -webkit-box;
+
+                          -webkit-line-clamp: 6;
+
+                          -webkit-box-orient: vertical;
+
+                          overflow: hidden;
+
+                          text-overflow: ellipsis;
+
+                          padding-bottom: 8px;
+
+                          word-break: break-word;
+
+                  ">Игроки смогут выполнять задания, связанные с древними мифами, открывая тайны происхождения богов. Миссии варьируются по сложности, предлагая глубокие диалоги и выбор, влияющий на судьбу мира.</p>
+
+                      <!-- 🔥 МНОГОТОЧИЕ для показа что есть продолжение -->
+
+                      <div style="
+
+                        position: absolute;
+
+                        bottom: 0;
+
+                        right: 0;
+
+                        width: 40px;
+
+                        height: 20px;
+
+                        background: linear-gradient(transparent, linear-gradient(to bottom right, #ffffff, #f0f0f0));
+
+                        pointer-events: none;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        font-size: 18px;
+
+                        color: #000000;
+
+                        font-weight: bold;
+
+                                              ">...</div>
+
+                </div>
+
+                    
+
+                    <!-- 🔥 УБРАЛИ КНОПКУ: Карточка теперь кликабельна для открытия модального окна -->
+
+            </div>
+
+                
+
+                <div style="
+
+                    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+
+                    border: 1px solid #e0e0e0;
+
+                    border-radius: 8px;
+
+                    padding: 24px;
+
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+                    opacity: 1;
+
+                    text-align: left;
+
+                    transition: all 0.3s ease;
+
+                    width: calc(33.333% - 16px);
+
+                    min-width: 250px;
+
+                    max-width: 320px;
+
+                    height: auto;
+
+                    min-height: 320px;
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    justify-content: space-between;
+
+                    cursor: pointer;
+
+                  " onclick="openMultipleCardModalelement_service_2(3)" data-card-index="3" 
+
+                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'" 
+
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
+
+                    
+                            <div class="service-image" style="
+                              width: 100%;
+                              height: 140px;
+                              margin-bottom: 1rem;
+                              border-radius: 4px;
+                              overflow: hidden;
+                              flex-shrink: 0;
+                            ">
+                              <img src="assets/images/card_untitled_1761132551794_1761133975576.webp" alt="Союзы и противостояния" style="
+                          width: 100%;
+
+                          height: 100%;
+
+                          object-fit: cover;
+
+                  transition: transform 0.3s ease;
+
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                      </div>
+
+                          
+                    
+
+                  <h4 style="
+
+                        color: #0a2a6b;
+
+                        font-size: 20px;
+
+                        margin-bottom: 1rem;
+
+                        font-weight: bold;
+
+                        line-height: 1.3;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        hyphens: auto;
+
+                        display: -webkit-box;
+
+                        -webkit-line-clamp: 2;
+
+                        -webkit-box-orient: vertical;
+
+                        overflow: hidden;
+
+                        text-overflow: ellipsis;
+
+                        max-height: 2.6em;
+
+                        text-align: center;
+
+                  ">Союзы и противостояния</h4>
+
+                    
+
+                    
+
+                      <div style="
+
+                        position: relative;
+
+                        flex: 1;
+
+                        margin-bottom: 16px;
+
+                      ">
+
+                  <p style="
+
+                          color: #000000;
+
+                          font-size: 16px;
+
+                    line-height: 1.6;
+
+                          display: -webkit-box;
+
+                          -webkit-line-clamp: 6;
+
+                          -webkit-box-orient: vertical;
+
+                          overflow: hidden;
+
+                          text-overflow: ellipsis;
+
+                          padding-bottom: 8px;
+
+                          word-break: break-word;
+
+                  ">Выберите сторону света или тьмы, создайте альянсы с другими игроками и участвуйте в глобальных событиях. Коллективные битвы определяют баланс сил на Олимпе, формируя историю, которая пишется в реальном времени.</p>
+
+                      <!-- 🔥 МНОГОТОЧИЕ для показа что есть продолжение -->
+
+                      <div style="
+
+                        position: absolute;
+
+                        bottom: 0;
+
+                        right: 0;
+
+                        width: 40px;
+
+                        height: 20px;
+
+                        background: linear-gradient(transparent, linear-gradient(to bottom right, #ffffff, #f0f0f0));
+
+                        pointer-events: none;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        font-size: 18px;
+
+                        color: #000000;
+
+                        font-weight: bold;
+
+                                              ">...</div>
+
+                </div>
+
+                    
+
+                    <!-- 🔥 УБРАЛИ КНОПКУ: Карточка теперь кликабельна для открытия модального окна -->
+
+            </div>
+
+                
+
+          </div>
+
+            
+
+            <!-- 🔥 МОДАЛЬНОЕ ОКНО теперь использует глобальные функции openCardModal/closeCardModal -->
+
+          </div>
+
+          
+
+          <!-- 🔥 МОДАЛЬНОЕ ОКНО теперь использует глобальные функции openCardModal/closeCardModal -->
+
+        
+
+          <div id="element-service_3" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to bottom, #ffffff, #f3f3f3); opacity: 1; border: 1px solid #d1d1d1; border-left: 4px solid #d1d1d1; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #1a73e8;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #0a2a6b;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Как принять участие в раннем доступе и стать одним из первых игроков, кто испытал силу богов до официального релиза в 2026 году</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #333333;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Чтобы получить ранний доступ к игре «Зевс против Аида», достаточно подать заявку через официальную платформу. В декабре 2025 года участники программы смогут опробовать ключевые механики, протестировать PvE и PvP режимы и оставить обратную связь разработчикам. Участие в раннем доступе бесплатно для первых 5000 игроков, после чего стоимость участия составит 1500 рублей. Этот этап позволит сообществу повлиять на баланс, механику и развитие игрового мира, став частью истории создания мифологического шедевра.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #1a73e8;
+
+                border-radius: 12px;
+
+                color: #1a73e8;
+
+                font-weight: 500;
+
+              ">рекомендация</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element data-table" style="
+
+            margin: 2rem 0;
+
+            max-width: 1000px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+         background: linear-gradient(to bottom right, #ffffff, #f7f7f7); opacity: 1; padding: 24px;">
+
+                      
+
+              <h3 style="
+
+                text-align: center;
+
+                color: #0a2a6b;
+
+                margin-bottom: 2rem;
+
+                font-size: 1.5rem;
+
+                font-weight: bold;
+
+                font-family: 'Montserrat', sans-serif;
+
+              background-color: transparent;
+
+              padding: 1rem;
+
+              border-radius: 8px;
+
+              border: none;
+
+            ">Игровые преимущества, доступные участникам раннего доступа к игре «Зевс против Аида» в декабре 2025 года, и их уникальные бонусы в финальной версии</h3>
+
+            
+
+            <div style="
+
+              overflow-x: auto;
+
+              border-radius: 8px;
+
+              box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+              background: white;
+
+              border: 1px solid rgba(0,0,0,0.12);
+
+              max-width: 100%;
+
+            ">
+
+              <table id="element-service_4" style="
+
+                width: 100%;
+
+                min-width: 600px;
+
+                border-collapse: collapse;
+
+                background: white;
+
+                font-family: 'Montserrat', sans-serif;
+
+                table-layout: fixed;
+
+              ">
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #f2f2f2;
+
+                      background-image: linear-gradient(135deg, #f2f2f2 0%, #f2f2f2DD 100%);
+
+                    
+
+                    border-bottom: 2px solid rgba(0,0,0,0.2);
+
+                    transition: background-color 0.2s ease;
+
+                  " >
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 0)">Возможность ↕</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 1)">Описание</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 2)">Бонус</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 3)">Срок действия</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 4)">Доступность</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 5)">Стоимость</th>
+
+                    
+
+                      <th style="
+
+                        padding: 16px 20px;
+
+                        text-align: center;
+
+                        color: #0a2a6b;
+
+                        font-weight: bold;
+
+                        font-size: 14px;
+
+                        text-transform: uppercase; letter-spacing: 0.5px;
+
+                        
+
+                        border-right: none;
+
+                        cursor: pointer; user-select: none;
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " onclick="sortTable('element-service_4', 6)">Примечание</th>
+
+                    
+
+                  </tr>
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #ffffff;
+
+                    
+
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                    transition: background-color 0.2s ease;
+
+                  " onmouseover="this.style.backgroundColor='#e8e8e8'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        font-weight: 500;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Ранний доступ</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Играть первым в декабре 2025</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Уникальный титул</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >До релиза 2026</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Ограничено</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Бесплатно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: none;
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Только 5000 игроков</td>
+
+                    
+
+                  </tr>
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #ffffff;
+
+                    
+
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                    transition: background-color 0.2s ease;
+
+                  " onmouseover="this.style.backgroundColor='#e8e8e8'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        font-weight: 500;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Артефакты</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Получить эксклюзивные предметы</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Вечный бонус</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Постоянно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Для всех участников</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >1500 рублей</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: none;
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >При оплате участия</td>
+
+                    
+
+                  </tr>
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #ffffff;
+
+                    
+
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                    transition: background-color 0.2s ease;
+
+                  " onmouseover="this.style.backgroundColor='#e8e8e8'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        font-weight: 500;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Скины богов</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Уникальные визуальные эффекты</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Персональный стиль</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >До 2026 года</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >По заявке</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Бесплатно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: none;
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >После регистрации</td>
+
+                    
+
+                  </tr>
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #ffffff;
+
+                    
+
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                    transition: background-color 0.2s ease;
+
+                  " onmouseover="this.style.backgroundColor='#e8e8e8'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        font-weight: 500;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Альянсы</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Присоединяйтесь к мифическим фракциям</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Социальные бонусы</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Постоянно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Для всех</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Бесплатно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: none;
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Требует подтверждения профиля</td>
+
+                    
+
+                  </tr>
+
+                
+
+                  <tr style="
+
+                    
+
+                      background: #ffffff;
+
+                    
+
+                    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                    transition: background-color 0.2s ease;
+
+                  " onmouseover="this.style.backgroundColor='#e8e8e8'" onmouseout="this.style.backgroundColor='#ffffff'">
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        font-weight: 500;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Награды</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Получайте бонусы за участие</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Тестовые награды</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >До релиза</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Для участников</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Бесплатно</td>
+
+                    
+
+                      <td style="
+
+                        padding: 14px 20px;
+
+                        text-align: left;
+
+                        color: #000000;
+
+                        font-weight: normal;
+
+                        font-size: 13px;
+
+                        
+
+                        
+
+                        border-right: none;
+
+                        
+
+                        word-wrap: break-word;
+
+                        overflow-wrap: break-word;
+
+                        max-width: 0;
+
+                        white-space: normal;
+
+                      " >Зависит от активности</td>
+
+                    
+
+                  </tr>
+
+                
+
+              </table>
+
+            </div>
+
+            
+
+            <!-- Дополнительная информация удалена из экспорта -->
+
+            
+
+            <style>
+
+              @media (max-width: 768px) {
+
+                #element-service_4 {
+
+                  min-width: 400px !important;
+
+                }
+
+                #element-service_4 th,
+
+                #element-service_4 td {
+
+                  padding: 8px 12px !important;
+
+                  font-size: 12px !important;
+
+                }
+
+              }
+
+              @media (max-width: 480px) {
+
+                #element-service_4 {
+
+                  min-width: 300px !important;
+
+                }
+
+                #element-service_4 th,
+
+                #element-service_4 td {
+
+                  padding: 6px 8px !important;
+
+                  font-size: 11px !important;
+
+                }
+
+              }
+
+            </style>
+
+            
+
+            
+
+            <script>
+
+              // Функция сортировки таблицы
+
+              function sortTable(tableId, columnIndex) {
+
+                const table = document.getElementById(tableId);
+
+                const tbody = table.querySelector('tbody') || table;
+
+                const rows = Array.from(tbody.querySelectorAll('tr')).slice(1); // Пропускаем заголовок
+
+                const headerRow = tbody.querySelector('tr');
+
+                
+
+                // Определяем направление сортировки (по умолчанию desc - обратный порядок)
+
+                const currentDirection = table.getAttribute('data-sort-direction') || 'desc';
+
+                const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
+
+                
+
+                // Сортируем строки
+
+                rows.sort((a, b) => {
+
+                  const aValue = a.cells[columnIndex]?.textContent || '';
+
+                  const bValue = b.cells[columnIndex]?.textContent || '';
+
+                  
+
+                  // Пытаемся преобразовать в числа для числовой сортировки
+
+                  const aNum = parseFloat(aValue);
+
+                  const bNum = parseFloat(bValue);
+
+                  
+
+                  if (!isNaN(aNum) && !isNaN(bNum)) {
+
+                    return newDirection === 'asc' ? aNum - bNum : bNum - aNum;
+
+                  }
+
+                  
+
+                  // Строковая сортировка
+
+                  return newDirection === 'asc' 
+
+                    ? aValue.localeCompare(bValue, 'ru') 
+
+                    : bValue.localeCompare(aValue, 'ru');
+
+                });
+
+                
+
+                // Обновляем таблицу
+
+                rows.forEach(row => tbody.appendChild(row));
+
+                table.setAttribute('data-sort-direction', newDirection);
+
+                
+
+                // Обновляем заголовки - стрелка переходит к активному столбцу
+
+                const headers = headerRow.querySelectorAll('th');
+
+                headers.forEach((header, index) => {
+
+                  const baseText = header.textContent.replace(/ [↑↓↕]/g, ''); // Убираем все стрелки
+
+                  if (index === columnIndex) {
+
+                    // Активный столбец показывает направление сортировки
+
+                    header.innerHTML = baseText + (newDirection === 'asc' ? ' ↑' : ' ↓');
+
+                  } else {
+
+                    // Остальные столбцы без стрелок
+
+                    header.innerHTML = baseText;
+
+                  }
+
+                });
+
+              }
+
+              
+
+              // Автоматическая сортировка при загрузке страницы
+
+              document.addEventListener('DOMContentLoaded', function() {
+
+                const table = document.getElementById('element-service_4');
+
+                if (table) {
+
+                  // Автоматически сортируем по первому столбцу при загрузке
+
+                  setTimeout(() => sortTable('element-service_4', 0), 100);
+
+                }
+
+              });
+
+            </script>
+
+            
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Благодарим за вашу заявку!');
+
+          const closeButtonText = encodeURIComponent('Вернуться на главную страницу');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>
