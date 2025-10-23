@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Echoes of Valhalla: The Legacy Reborn - ShadowsOfValhalla</title>
+
+    <meta name="description" content="In 2025, Shadows of Valhalla invites players and history enthusiasts into a realm inspired by Norse gods, ancient myths, and heroic battles. This world blends epic storytelling with immersive design, creating a journey that connects modern players with timeless legends. Each story within the game echoes the courage and destiny of those who walked the lands of the North, guiding players through a saga of honor, fate, and unity.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: linear-gradient(to right, 
+
+        #0a0a0a, 
+
+        #1a1a1a);
+
+      z-index: -2;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ffffff;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Echoes of Valhalla: The Legacy Reborn</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #ffffff;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">In 2025, Shadows of Valhalla invites players and history enthusiasts into a realm inspired by Norse gods, ancient myths, and heroic battles. This world blends epic storytelling with immersive design, creating a journey that connects modern players with timeless legends. Each story within the game echoes the courage and destiny of those who walked the lands of the North, guiding players through a saga of honor, fate, and unity.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element rich-text" style="margin: 1.5rem 0; padding: 16px; border-radius: 8px; border-left: 4px solid #e0e0e0; background: linear-gradient(to left, #FBC02D, #F57C00); opacity: 1; padding: 24px;">
+
+            
+
+              <h3 style="
+
+                color: #ffffff;
+
+                margin: 0 0 1rem 0;
+
+                font-size: 1.25rem;
+
+                font-family: inherit;
+
+                font-weight: normal;
+
+              ">Through the mist of time, the whispers of Odin and the cries of warriors forge the foundation of Shadows of Valhalla’s world, uniting myth, courage, and the eternal call of destiny in a new age of discovery</h3>
+
+            
+
+            <div class="rich-content" style="
+
+              color: #ffffff;
+
+              line-height: 1.6;
+
+              font-size: 1rem;
+
+              font-family: inherit;
+
+              text-align: left;
+
+            ">
+
+              <p>The concept behind Shadows of Valhalla was born from the desire to merge Nordic mythology with modern interactive storytelling. As we move toward the 2026 release, every element is crafted with precision to honor the gods, heroes, and sagas that shaped the Viking spirit. Our team studies historical sources, ancient texts, and archaeological references to ensure cultural authenticity. Players will feel the weight of destiny as they traverse lands of snow and fire, witnessing a tale that intertwines bravery, sacrifice, and eternal legacy in every battle and every choice made.</p>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element blockquote border-left" style="margin: 1.5rem 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: left; font-family: Georgia; background: linear-gradient(to bottom right, #FBC02D, #F57C00); opacity: 1; border-left: 4px solid #e0e0e0; padding: 24px;">
+
+            <blockquote style="margin: 0; position: relative;">
+
+              
+
+                <div class="quote-title" style="
+
+                  color: #ffffff;
+
+                  font-weight: 600;
+
+                  margin-bottom: 0.5rem;
+
+                  font-size: 1.1rem;
+
+                ">In the twilight of gods and men, stories become the bridges between worlds, carrying the voice of courage across generations and reminding us that legends never truly fade from memory</div>
+
+              
+
+              <p class="quote-text" style="
+
+                color: #ffffff;
+
+                font-size: 18px;
+
+                line-height: 1.6;
+
+                margin: 0 0 1rem 0;
+
+                font-style: italic;
+
+                font-weight: normal;
+
+              ">"Every saga begins with a whisper and ends with a song, carried through the ages by those who dare to remember."</p>
+
+              
+
+                <footer class="quote-author" style="
+
+                  color: #ffffff;
+
+                  font-size: 14px;
+
+                  text-align: right;
+
+                  opacity: 0.8;
+
+                ">
+
+                  — Eirik Halvardsson, Journal of Northern Tales, 2024
+
+                </footer>
+
+              
+
+            </blockquote>
+
+          </div>
+
+        
+
+          <div id="element-service_3" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Each design choice within Shadows of Valhalla stems from a deep respect for Norse tradition, blending authentic mythological elements with modern storytelling to evoke an atmosphere of power and reverence</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">The world is built using historical inspirations from Viking settlements and Scandinavian landscapes. Every structure, rune, and artifact is designed to reflect meaning. The combination of ancient textures and new rendering technology ensures a visual experience that is both mystical and grounded in history, appealing to audiences who value cultural depth.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">feature</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">The team behind the project works with historians, artists, and writers to ensure every rune, every god, and every legend feels alive within the modern context of gaming and interactive storytelling</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Collaboration with cultural experts allows Shadows of Valhalla to maintain historical credibility while remaining engaging for today’s audiences. This balance between fact and imagination builds trust and keeps the experience immersive without distorting the cultural roots it draws from.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">insight</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_5" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Development of the project follows a research-driven approach where every mythological character is reinterpreted through authentic symbolism and narrative design for emotional and cultural resonance</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">This ensures the legends of the North are portrayed with respect. The development team focuses on symbolic storytelling, weaving in ancient motifs that resonate emotionally with players. The result is a story world that feels timeless yet innovative, traditional yet accessible.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">development</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_6" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">The sound design features authentic Nordic instruments, ancient chants, and environmental ambience recorded from real northern landscapes to transport players into the heart of ancient Scandinavia</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Music is a crucial narrative force in Shadows of Valhalla. Each sound evokes the energy of the north, guiding emotional tone and storytelling rhythm. The game’s soundtrack creates immersion by combining natural recordings with modern orchestration.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">culture</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_7" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Shadows of Valhalla aims to connect the human experience of struggle and destiny to ancient myth, offering modern audiences a chance to rediscover courage, loyalty, and legacy through timeless legends</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">The narrative philosophy is built around universal values. It shows that myths are more than old stories—they are reflections of who we are today. Every scene is designed to remind players that the human heart has not changed, even if centuries have passed.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">vision</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_8" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">The visual identity combines natural light dynamics, handcrafted textures, and narrative-driven cinematics to evoke awe and reflection in equal measure for every visitor to the world of Valhalla</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Through careful composition and symbolic design, the visuals create a sense of presence and emotional weight. Shadows and light play a symbolic role, representing the balance between fate and choice, guiding players through each chapter of the journey.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">experience</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_9" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #FBC02D, #F57C00); opacity: 1; border: 1px solid #FFB74D; border-left: 4px solid #FFB74D; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffffff;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #ffffff;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Early access begins Autumn 2025, allowing players across the UK and beyond to experience the evolving story of Valhalla before its worldwide release in 2026 as a full immersive digital adventure</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #ffffff;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">The early access phase invites community feedback and participation. Players will be able to influence final content and contribute to the evolution of the world. The official release will include expanded storylines, enhanced gameplay mechanics, and new mythic regions.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #00B0FF;
+
+                border-radius: 12px;
+
+                color: #00B0FF;
+
+                font-weight: 500;
+
+              ">release</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_10" class="content-element image-card" style="
+
+            margin: 1.5rem 0;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+            overflow: hidden;
+
+        
+
+              background: linear-gradient(to right, #FBC02D, #F57C00);
+
+              opacity: 1;
+
+            border: 1px solid #e0e0e0;padding: 24px; cursor: pointer;" onclick="openModalelement_service_10()">
+
+            
+
+                <div class="service-image" style="
+
+                  width: 100%;
+
+                  height: 200px;
+
+                  overflow: hidden;
+
+                  border-radius: 12px;
+
+                  margin-bottom: 1rem;
+
+                ">
+
+                  <img src="assets/images/card_echoes_10_-iqliz.jpg" alt="" style="
+
+          width: 100%;
+
+          height: 200px;
+
+          object-fit: cover;
+
+          filter: none;
+
+          opacity: 1;
+
+        ">
+
+                </div>
+
+              
+
+            <div style="padding: 24px;">
+
+              <h3 style="
+
+                color: #ffffff;
+
+                margin: 0 0 1rem 0;
+
+                font-size: 1.25rem;
+
+                font-weight: bold;
+
+                text-align: center;
+
+              ">The Northern Realms come alive through vast digital landscapes capturing the soul of ancient fjords, deep forests, and the eternal glow of the aurora that defines the realm of the gods</h3>
+
+              <p style="
+
+                color: #ffffff;
+
+                line-height: 1.5;
+
+                margin: 0;
+
+                text-align: center;
+
+              ">The environment design process merges modern rendering with mythic artistry. Every detail from the shifting mist to the runes carved in stone reflects the soul of Scandinavian lore. This attention to natural and spiritual elements invites players to explore both inner and outer worlds.</p>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 МОДАЛЬНОЕ ОКНО для карточки с изображением -->
+
+          <div id="modal-element_service_10" style="
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 1000;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0,0,0,0.5);
+
+            backdrop-filter: blur(5px);
+
+            justify-content: center;
+
+            align-items: center;
+
+          ">
+
+            <div style="
+
+              position: relative;
+
+              background-color: transparent;
+
+              margin: 5% auto;
+
+              padding: 0;
+
+              width: auto;
+
+              max-width: 90vw;
+
+              max-height: 90vh;
+
+              overflow: auto;
+
+              border-radius: 16px;
+
+              box-shadow: none;
+
+              display: inline-block;
+
+            ">
+
+              <!-- Контент модального окна -->
+
+              <div id="modal-content-element_service_10" style="
+
+                background: linear-gradient(to right, #FBC02D, #F57C00);
+
+                border: 1px solid #e0e0e0;
+
+                border-radius: 12px;
+
+                padding: 24px;
+
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+                opacity: 1;
+
+                width: auto;
+
+                max-width: 90vw;
+
+                max-height: 90vh;
+
+                overflow: auto;
+
+              ">
+
+                
+
+                  <div id="modal-image-container-element_service_10" style="
+
+                    width: 100%;
+
+                    margin-bottom: 24px;
+
+                    border-radius: 12px;
+
+                    overflow: hidden;
+
+                    display: flex;
+
+                    justify-content: center;
+
+                    align-items: center;
+
+                  ">
+
+                    <img id="modal-image-element_service_10" src="assets/images/card_echoes_10_-iqliz.jpg" alt="" style="
+
+                      max-width: calc(90vw - 48px);
+
+                      max-height: calc(80vh - 150px);
+
+                      width: auto;
+
+                      height: auto;
+
+                      object-fit: contain;
+
+                      cursor: zoom-in;
+
+                      transition: transform 0.3s ease;
+
+                      border-radius: 12px;
+
+                      display: block;
+
+                    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+                  </div>
+
+                
+
+                <h2 style="
+
+                  color: #ffffff;
+
+                  font-size: 28px;
+
+                  margin-bottom: 16px;
+
+                  font-weight: bold;
+
+                  line-height: 1.3;
+
+                  text-align: center;
+
+                ">The Northern Realms come alive through vast digital landscapes capturing the soul of ancient fjords, deep forests, and the eternal glow of the aurora that defines the realm of the gods</h2>
+
+                <div style="
+
+                  color: #ffffff;
+
+                  font-size: 16px;
+
+                  line-height: 1.6;
+
+                  text-align: center;
+
+                ">The environment design process merges modern rendering with mythic artistry. Every detail from the shifting mist to the runes carved in stone reflects the soul of Scandinavian lore. This attention to natural and spiritual elements invites players to explore both inner and outer worlds.</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 JAVASCRIPT для модального окна карточки с изображением -->
+
+          <script>
+
+            // Функция открытия модального окна
+
+            function openModalelement_service_10() {
+
+              console.log('🔥 [ImageCard Modal] openModalelement_service_10 вызвана');
+
+              
+
+              const modal = document.getElementById('modal-element_service_10');
+
+              const modalContent = document.getElementById('modal-content-element_service_10');
+
+              
+
+              console.log('🔥 [ImageCard Modal] Найденные элементы:', { modal, modalContent });
+
+              
+
+              if (modal && modalContent) {
+
+                console.log('🔥 [ImageCard Modal] Элементы найдены, показываем модальное окно...');
+
+                
+
+                modal.style.display = 'flex';
+
+                
+
+                // Анимация появления
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                modalContent.style.transition = 'all 0.3s ease';
+
+                
+
+                setTimeout(() => {
+
+                  modalContent.style.opacity = '1';
+
+                  modalContent.style.transform = 'scale(1)';
+
+                  console.log('🔥 [ImageCard Modal] Модальное окно успешно открыто!');
+
+                }, 10);
+
+              } else {
+
+                console.error('🔥 [ImageCard Modal] ОШИБКА: Элементы модального окна не найдены!');
+
+                console.error('🔥 [ImageCard Modal] modal:', modal);
+
+                console.error('🔥 [ImageCard Modal] modalContent:', modalContent);
+
+                console.error('🔥 [ImageCard Modal] elementId:', 'element-service_10');
+
+              }
+
+            }
+
+            
+
+            // Функция закрытия модального окна
+
+            function closeModalelement_service_10() {
+
+              const modal = document.getElementById('modal-element_service_10');
+
+              const modalContent = document.getElementById('modal-content-element_service_10');
+
+              
+
+              if (modal && modalContent) {
+
+                // Анимация исчезновения
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                
+
+                setTimeout(() => {
+
+                  modal.style.display = 'none';
+
+                }, 300);
+
+              }
+
+            }
+
+            
+
+            // Закрытие по клику вне модального окна
+
+            document.getElementById('modal-element_service_10').addEventListener('click', function(e) {
+
+              if (e.target === this) {
+
+                closeModalelement_service_10();
+
+              }
+
+            });
+
+            
+
+            // Закрытие по Escape
+
+            document.addEventListener('keydown', function(e) {
+
+              if (e.key === 'Escape') {
+
+                closeModalelement_service_10();
+
+              }
+
+            });
+
+            
+
+            // 🔥 ИСПРАВЛЕНИЕ: Ждем загрузки DOM перед добавлением обработчиков
+
+            if (document.readyState === 'loading') {
+
+              document.addEventListener('DOMContentLoaded', function() {
+
+                const modal = document.getElementById('modal-element_service_10');
+
+                if (modal) {
+
+                  modal.addEventListener('click', function(e) {
+
+                    if (e.target === this) {
+
+                      closeModalelement_service_10();
+
+                    }
+
+                  });
+
+                }
+
+              });
+
+            } else {
+
+              // DOM уже загружен
+
+              const modal = document.getElementById('modal-element_service_10');
+
+              if (modal) {
+
+                modal.addEventListener('click', function(e) {
+
+                  if (e.target === this) {
+
+                    closeModalelement_service_10();
+
+                  }
+
+                });
+
+              }
+
+            }
+
+          </script>
+
+        
+
+          <div id="element-service_11" class="content-element image-card" style="
+
+            margin: 1.5rem 0;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+            overflow: hidden;
+
+        
+
+              background: linear-gradient(to right, #FBC02D, #F57C00);
+
+              opacity: 1;
+
+            border: 1px solid #e0e0e0;padding: 24px; cursor: pointer;" onclick="openModalelement_service_11()">
+
+            
+
+                <div class="service-image" style="
+
+                  width: 100%;
+
+                  height: 200px;
+
+                  overflow: hidden;
+
+                  border-radius: 12px;
+
+                  margin-bottom: 1rem;
+
+                ">
+
+                  <img src="assets/images/card_echoes_11_a30y2w.jpg" alt="" style="
+
+          width: 100%;
+
+          height: 200px;
+
+          object-fit: cover;
+
+          filter: none;
+
+          opacity: 1;
+
+        ">
+
+                </div>
+
+              
+
+            <div style="padding: 24px;">
+
+              <h3 style="
+
+                color: #ffffff;
+
+                margin: 0 0 1rem 0;
+
+                font-size: 1.25rem;
+
+                font-weight: bold;
+
+                text-align: center;
+
+              ">Warriors of the North stand ready beneath banners of fate, their stories bound by honor and eternal oaths to gods whose names still echo across the winds of Valhalla</h3>
+
+              <p style="
+
+                color: #ffffff;
+
+                line-height: 1.5;
+
+                margin: 0;
+
+                text-align: center;
+
+              ">Character design focuses on authenticity, combining historically inspired armor with individual stories that define courage and loyalty. Each warrior carries personal motivations shaped by mythic forces, allowing the narrative to feel grounded yet expansive.</p>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 МОДАЛЬНОЕ ОКНО для карточки с изображением -->
+
+          <div id="modal-element_service_11" style="
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 1000;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0,0,0,0.5);
+
+            backdrop-filter: blur(5px);
+
+            justify-content: center;
+
+            align-items: center;
+
+          ">
+
+            <div style="
+
+              position: relative;
+
+              background-color: transparent;
+
+              margin: 5% auto;
+
+              padding: 0;
+
+              width: auto;
+
+              max-width: 90vw;
+
+              max-height: 90vh;
+
+              overflow: auto;
+
+              border-radius: 16px;
+
+              box-shadow: none;
+
+              display: inline-block;
+
+            ">
+
+              <!-- Контент модального окна -->
+
+              <div id="modal-content-element_service_11" style="
+
+                background: linear-gradient(to right, #FBC02D, #F57C00);
+
+                border: 1px solid #e0e0e0;
+
+                border-radius: 12px;
+
+                padding: 24px;
+
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+                opacity: 1;
+
+                width: auto;
+
+                max-width: 90vw;
+
+                max-height: 90vh;
+
+                overflow: auto;
+
+              ">
+
+                
+
+                  <div id="modal-image-container-element_service_11" style="
+
+                    width: 100%;
+
+                    margin-bottom: 24px;
+
+                    border-radius: 12px;
+
+                    overflow: hidden;
+
+                    display: flex;
+
+                    justify-content: center;
+
+                    align-items: center;
+
+                  ">
+
+                    <img id="modal-image-element_service_11" src="assets/images/card_echoes_11_a30y2w.jpg" alt="" style="
+
+                      max-width: calc(90vw - 48px);
+
+                      max-height: calc(80vh - 150px);
+
+                      width: auto;
+
+                      height: auto;
+
+                      object-fit: contain;
+
+                      cursor: zoom-in;
+
+                      transition: transform 0.3s ease;
+
+                      border-radius: 12px;
+
+                      display: block;
+
+                    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+                  </div>
+
+                
+
+                <h2 style="
+
+                  color: #ffffff;
+
+                  font-size: 28px;
+
+                  margin-bottom: 16px;
+
+                  font-weight: bold;
+
+                  line-height: 1.3;
+
+                  text-align: center;
+
+                ">Warriors of the North stand ready beneath banners of fate, their stories bound by honor and eternal oaths to gods whose names still echo across the winds of Valhalla</h2>
+
+                <div style="
+
+                  color: #ffffff;
+
+                  font-size: 16px;
+
+                  line-height: 1.6;
+
+                  text-align: center;
+
+                ">Character design focuses on authenticity, combining historically inspired armor with individual stories that define courage and loyalty. Each warrior carries personal motivations shaped by mythic forces, allowing the narrative to feel grounded yet expansive.</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 JAVASCRIPT для модального окна карточки с изображением -->
+
+          <script>
+
+            // Функция открытия модального окна
+
+            function openModalelement_service_11() {
+
+              console.log('🔥 [ImageCard Modal] openModalelement_service_11 вызвана');
+
+              
+
+              const modal = document.getElementById('modal-element_service_11');
+
+              const modalContent = document.getElementById('modal-content-element_service_11');
+
+              
+
+              console.log('🔥 [ImageCard Modal] Найденные элементы:', { modal, modalContent });
+
+              
+
+              if (modal && modalContent) {
+
+                console.log('🔥 [ImageCard Modal] Элементы найдены, показываем модальное окно...');
+
+                
+
+                modal.style.display = 'flex';
+
+                
+
+                // Анимация появления
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                modalContent.style.transition = 'all 0.3s ease';
+
+                
+
+                setTimeout(() => {
+
+                  modalContent.style.opacity = '1';
+
+                  modalContent.style.transform = 'scale(1)';
+
+                  console.log('🔥 [ImageCard Modal] Модальное окно успешно открыто!');
+
+                }, 10);
+
+              } else {
+
+                console.error('🔥 [ImageCard Modal] ОШИБКА: Элементы модального окна не найдены!');
+
+                console.error('🔥 [ImageCard Modal] modal:', modal);
+
+                console.error('🔥 [ImageCard Modal] modalContent:', modalContent);
+
+                console.error('🔥 [ImageCard Modal] elementId:', 'element-service_11');
+
+              }
+
+            }
+
+            
+
+            // Функция закрытия модального окна
+
+            function closeModalelement_service_11() {
+
+              const modal = document.getElementById('modal-element_service_11');
+
+              const modalContent = document.getElementById('modal-content-element_service_11');
+
+              
+
+              if (modal && modalContent) {
+
+                // Анимация исчезновения
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                
+
+                setTimeout(() => {
+
+                  modal.style.display = 'none';
+
+                }, 300);
+
+              }
+
+            }
+
+            
+
+            // Закрытие по клику вне модального окна
+
+            document.getElementById('modal-element_service_11').addEventListener('click', function(e) {
+
+              if (e.target === this) {
+
+                closeModalelement_service_11();
+
+              }
+
+            });
+
+            
+
+            // Закрытие по Escape
+
+            document.addEventListener('keydown', function(e) {
+
+              if (e.key === 'Escape') {
+
+                closeModalelement_service_11();
+
+              }
+
+            });
+
+            
+
+            // 🔥 ИСПРАВЛЕНИЕ: Ждем загрузки DOM перед добавлением обработчиков
+
+            if (document.readyState === 'loading') {
+
+              document.addEventListener('DOMContentLoaded', function() {
+
+                const modal = document.getElementById('modal-element_service_11');
+
+                if (modal) {
+
+                  modal.addEventListener('click', function(e) {
+
+                    if (e.target === this) {
+
+                      closeModalelement_service_11();
+
+                    }
+
+                  });
+
+                }
+
+              });
+
+            } else {
+
+              // DOM уже загружен
+
+              const modal = document.getElementById('modal-element_service_11');
+
+              if (modal) {
+
+                modal.addEventListener('click', function(e) {
+
+                  if (e.target === this) {
+
+                    closeModalelement_service_11();
+
+                  }
+
+                });
+
+              }
+
+            }
+
+          </script>
+
+        
+
+          <style>
+
+            .typewriter-container {
+
+              min-height: 38.4px;
+
+            display: block;
+
+            text-align: center;
+
+              position: relative;
+
+              line-height: 1.2;
+
+            }
+
+            
+
+            .typewriter-text-content {
+
+              font-family: Courier New, monospace;
+
+              white-space: pre-wrap;
+
+              overflow: hidden;
+
+              word-wrap: break-word;
+
+              max-width: 100%;
+
+              display: inline;
+
+            }
+
+            
+
+            .typewriter-cursor {
+
+              animation: blink 1.5s infinite;
+
+              margin-left: 2px;
+
+              color: #ffffff;
+
+              font-family: Courier New, monospace;
+
+              user-select: none;
+
+              display: inline;
+
+              opacity: 0.8;
+
+            }
+
+            
+
+            @keyframes blink {
+
+              0%, 70% { opacity: 1; }
+
+              71%, 100% { opacity: 0.3; }
+
+            }
+
+          </style>
+
+          <div id="element-service_12" class="content-element typewriter-text" style="margin: 2rem 0; text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; background: linear-gradient(to left, #FBC02D, #F57C00); opacity: 1; padding: 24px;">
+
+            <div class="typewriter typewriter-container" 
+
+                data-texts='["Rise through the storms of destiny","Hear the call of Valhalla","Become part of the legend reborn in 2025"]'
+
+                data-speed="150"
+
+                data-pause="2000"
+
+                data-repeat="true"
+
+                style="
+
+                  color: #ffffff;
+
+                  font-size: 32px;
+
+                  font-weight: normal;
+
+                  font-family: Courier New, monospace;
+
+                  margin: 0;
+
+                ">
+
+                <span class="typewriter-text-content"></span><span class="typewriter-cursor">|</span>
+
+            </div>
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Thank you for reaching out to Shadows of Valhalla. Your message has been received, and our team will contact you shortly with a detailed response.');
+
+          const closeButtonText = encodeURIComponent('Return to Home');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>

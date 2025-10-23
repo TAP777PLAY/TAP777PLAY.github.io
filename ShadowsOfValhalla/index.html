@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShadowsOfValhalla</title>
+
+    <meta name="description" content="Step into a world of Nordic legends and Viking battles. Discover ancient myths reimagined with modern storytelling and cinematic visuals. Early access begins Autumn 2025, with the full release scheduled for 2026.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    
+
+    <style>
+
+      /* Contact section styles - точно как в contacts.html */
+
+      .contact-section {
+
+        padding: 4rem 2rem;
+
+        width: 100%;
+
+        margin: 0;
+
+        position: relative;
+
+        z-index: 2;
+
+      }
+
+      
+
+      .contact-container {
+
+        max-width: 1140px;
+
+        margin: 0 auto;
+
+        padding: 0 20px;
+
+      }
+
+      
+
+      .contact-header {
+
+        text-align: center;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-title {
+
+        font-size: 2.5rem;
+
+        margin-bottom: 1rem;
+
+        position: relative;
+
+        display: inline-block;
+
+      }
+
+      
+
+      .contact-title::after {
+
+        content: '';
+
+        position: absolute;
+
+        bottom: -10px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 50px;
+
+        height: 3px;
+
+        background-color: currentColor;
+
+      }
+
+      
+
+      .contact-description {
+
+        font-size: 1.1rem;
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        line-height: 1.6;
+
+      }
+
+      
+
+      .contact-content {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 2rem;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-form-container {
+
+        padding: 2.5rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .contact-form .form-group {
+
+        margin-bottom: 1.5rem;
+
+      }
+
+      
+
+      .contact-form label {
+
+        display: block;
+
+        margin-bottom: 0.5rem;
+
+        font-weight: 500;
+
+      }
+
+      
+
+      .contact-form input,
+
+      .contact-form textarea {
+
+        width: 100%;
+
+        padding: 0.85rem 1rem;
+
+        border: 1px solid #ddd;
+
+        border-radius: 6px;
+
+        font-size: 1rem;
+
+        box-sizing: border-box;
+
+        font-family: inherit;
+
+      }
+
+      
+
+      .contact-form textarea {
+
+        resize: vertical;
+
+        min-height: 100px;
+
+      }
+
+      
+
+      .contact-form button {
+
+        width: 100%;
+
+        padding: 0.9rem 1.5rem;
+
+        border: none;
+
+        border-radius: 6px;
+
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+
+        font-weight: 500;
+
+        font-size: 1rem;
+
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+      }
+
+      
+
+      .contact-form button:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      .contact-info-container {
+
+        padding: 2rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .info-title {
+
+        font-size: 1.5rem;
+
+        margin-bottom: 1.5rem;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-info-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 1rem;
+
+        padding: 8px 0;
+
+      }
+
+
+
+      .contact-icon {
+
+        color: #000000; /* Default icon color */
+
+        font-size: 1.2rem;
+
+        min-width: 24px;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-map,
+
+      .contact-map-container {
+
+        margin-top: 2rem;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+      }
+
+      
+
+      .contact-map iframe,
+
+      .contact-map-container iframe {
+
+        width: 100%;
+
+        height: 300px;
+
+        border: 0;
+
+      }
+
+      
+
+      @media (max-width: 768px) {
+
+        .contact-section {
+
+          padding: 2rem 1rem;
+
+        }
+
+
+
+        .contact-title {
+
+          font-size: 2rem;
+
+        }
+
+
+
+        .contact-description {
+
+          font-size: 1.1rem;
+
+        }
+
+
+
+        .contact-content {
+
+          grid-template-columns: 1fr;
+
+        }
+
+        
+
+        .contact-form-container,
+
+        .contact-info-container {
+
+          padding: 1.5rem;
+
+        }
+
+      }
+
+      
+
+      /* Styles for .contact-info (the inner container for text items) */
+
+      .contact-info {
+
+        border-radius: 15px;
+
+        padding: 2rem;
+
+      }
+
+    </style>
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: linear-gradient(to right, 
+
+        #0a0a0a, 
+
+        #1a1a1a);
+
+      z-index: -2;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        <section class="hero-section" style="
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5dc;
+    padding: 4rem 0;
+  ">
+    
+    <div class="container">
+      <div class="hero-content" style="
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      ">
+        <!-- Text on the left -->
+        <div class="hero-text-section" style="
+          flex: 1;
+          text-align: left;
+        ">
+          <div class="hero-text-wrapper" style="
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          ">
+            <h1 class="hero-title" style="
+              color: #2c3e50;
+              font-size: 3.5rem;
+              font-weight: 700;
+              margin-bottom: 1.5rem;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+              font-family: 'Montserrat', sans-serif;
+              line-height: 1.1;
+            ">Where Legends Rise Again</h1>
+            <p class="hero-subtitle" style="
+              color: #34495e;
+              font-size: 1.3rem;
+              font-weight: 400;
+              margin-bottom: 2rem;
+              opacity: 0.9;
+              font-family: 'Montserrat', sans-serif;
+              line-height: 1.6;
+            ">Step into a world of Nordic legends and Viking battles. Discover ancient myths reimagined with modern storytelling and cinematic visuals. Early access begins Autumn 2025, with the full release scheduled for 2026.</p>
+            
+            <div class="hero-actions" style="
+              display: flex;
+              gap: 1rem;
+              flex-wrap: wrap;
+            ">
+              <button class="hero-button" style="
+                background: linear-gradient(135deg, #ff6b35, #f7931e);
+                color: white;
+                padding: 1rem 2rem;
+                border: none;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+                font-family: 'Montserrat', sans-serif;
+              ">Explore Valhalla</button>
+              <button class="hero-button-secondary" style="
+                background: transparent;
+                color: #0ff;
+                padding: 1rem 2rem;
+                border: 2px solid #0ff;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-family: 'Montserrat', sans-serif;
+              ">Learn More</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Картинка справа -->
+        <div class="hero-image-section" style="
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        ">
+          <div class="hero-image-wrapper" style="
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+          ">
+            <img src="assets/images/hero.jpg" alt="Shadows of Valhalla" style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            ">
+            <div class="hero-image-overlay" style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(0, 255, 255, 0.1));
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            "></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Viking Quiz Section -->
+  <section class="viking-quiz-section" style="
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div class="quiz-container" style="
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    ">
+      <div class="quiz-header" style="
+        text-align: center;
+        margin-bottom: 3rem;
+      ">
+        <h2 class="quiz-title" style="
+          font-size: 3rem;
+          font-weight: 800;
+          background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #00ffff 50%, #ff6b35 75%, #f7931e 100%);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 1rem;
+          font-family: 'Montserrat', sans-serif;
+          animation: gradientShift 3s ease-in-out infinite;
+        ">Discover Your Viking Spirit</h2>
+        <p class="quiz-subtitle" style="
+          font-size: 1.2rem;
+          color: rgba(255, 255, 255, 0.8);
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        ">Answer these ancient questions to reveal which legendary Viking warrior you embody</p>
+      </div>
+
+      <div class="quiz-content" style="
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 107, 53, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      ">
+        <div id="quiz-container" class="quiz-questions">
+          <!-- Quiz will be populated by JavaScript -->
+        </div>
+        
+        <div id="quiz-results" class="quiz-results" style="display: none;">
+          <!-- Results will be shown here -->
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Rune Simulator Section -->
+  <section class="rune-simulator-section" style="
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div class="simulator-container" style="
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    ">
+      <div class="simulator-header" style="
+        text-align: center;
+        margin-bottom: 3rem;
+      ">
+        <h2 class="simulator-title" style="
+          font-size: 3rem;
+          font-weight: 800;
+          background: linear-gradient(135deg, #00ffff 0%, #0080ff 25%, #ff6b35 50%, #00ffff 75%, #0080ff 100%);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 1rem;
+          font-family: 'Montserrat', sans-serif;
+          animation: gradientShift 4s ease-in-out infinite;
+        ">Ancient Rune Divination</h2>
+        <p class="simulator-subtitle" style="
+          font-size: 1.2rem;
+          color: rgba(255, 255, 255, 0.8);
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        ">Cast the ancient runes and discover what the gods have in store for your destiny</p>
+      </div>
+
+      <div class="simulator-content" style="
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 3rem;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      ">
+        <div class="rune-casting-area" style="
+          margin-bottom: 2rem;
+        ">
+          <button id="cast-runes-btn" class="cast-button" style="
+            background: linear-gradient(135deg, #00ffff 0%, #0080ff 25%, #ff6b35 50%, #00ffff 75%, #0080ff 100%);
+            background-size: 300% 300%;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            animation: gradientShift 3s ease-in-out infinite;
+          ">Cast the Runes</button>
+        </div>
+        
+        <div id="rune-results" class="rune-results" style="
+          display: none;
+          margin-top: 2rem;
+        ">
+          <!-- Rune results will appear here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    
+<!-- Cookie Consent Modal -->
+<div id="cookie-consent-modal" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  max-width: 400px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 10000;
+  display: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: slideInLeft 0.5s ease-out;
+  overflow: hidden;
+">
+  <div style="padding: 16px;">
+    <h3 style="
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #000000;
+      line-height: 1.3;
+    ">Cookie Preferences</h3>
+    
+    <p style="
+      margin: 0 0 12px 0;
+      font-size: 12px;
+      line-height: 1.4;
+      color: #000000;
+    ">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.</p>
+    
+    <div style="
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px;
+    ">
+      <a href="privacy-policy.html" target="_blank" style="
+        color: #000000;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        Privacy Policy
+      </a>
+      <span style="color: #6c757d; font-size: 11px;">•</span>
+      <a href="cookie-policy.html" target="_blank" style="
+        color: #000000;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        Cookie Policy
+      </a>
+    </div>
+    
+    <!-- Buttons -->
+    <div style="
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    ">
+      <button id="cookie-reject-all" style="
+        background: transparent;
+        color: #000000;
+        border: 1px solid #6c757d;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+      " onmouseover="
+        this.style.backgroundColor='#6c757d';
+        this.style.color='white';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.backgroundColor='transparent';
+        this.style.color='#000000';
+        this.style.transform='translateY(0)';
+      ">
+        Reject All
+      </button>
+      
+      <button id="cookie-customize" style="
+        background: transparent;
+        color: #000000;
+        border: 1px solid #1976d2;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+      " onmouseover="
+        this.style.backgroundColor='#1976d2';
+        this.style.color='white';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.backgroundColor='transparent';
+        this.style.color='#000000';
+        this.style.transform='translateY(0)';
+      ">
+        Customize
+      </button>
+      
+      <button id="cookie-accept-all" style="
+        background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+        box-shadow: 0 2px 6px rgba(25, 118, 210, 0.3);
+      " onmouseover="
+        this.style.transform='translateY(-1px)';
+        this.style.boxShadow='0 3px 10px rgba(25, 118, 210, 0.4)';
+        this.style.background='linear-gradient(135deg, #1565c0 0%, #0d47a1 100%)';
+      " onmouseout="
+        this.style.transform='translateY(0)';
+        this.style.boxShadow='0 2px 6px rgba(25, 118, 210, 0.3)';
+        this.style.background='linear-gradient(135deg, #1976d2 0%, #1565c0 100%)';
+      ">
+        Accept All
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-settings-modal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 10001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+">
+  <div style="
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+  ">
+    <!-- Header -->
+    <div style="
+      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    ">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600;">Cookie Preferences</h2>
+      </div>
+      <button id="cookie-settings-close" style="
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      " onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'">
+        ×
+      </button>
+    </div>
+    
+    <!-- Content -->
+    <div style="padding: 24px; max-height: 60vh; overflow-y: auto;">
+      <p style="
+        margin: 0 0 24px 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #000000;
+      ">We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.</p>
+      
+      <!-- Cookie Categories -->
+      <div style="margin-bottom: 24px;">
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-necessary" checked disabled style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: not-allowed;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-necessary" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: not-allowed;
+            ">Necessary Cookies</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #000000;
+              line-height: 1.4;
+            ">These cookies are essential for the website to function properly. They cannot be disabled.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-analytics" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-analytics" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Analytics Cookies</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #000000;
+              line-height: 1.4;
+            ">These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-marketing" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-marketing" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Marketing Cookies</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #000000;
+              line-height: 1.4;
+            ">These cookies are used to track visitors across websites to display relevant and engaging advertisements.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+        ">
+          <input type="checkbox" id="cookie-preferences" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-preferences" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Preference Cookies</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #000000;
+              line-height: 1.4;
+            ">These cookies remember your choices and preferences to provide a more personalized experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div style="
+      background: #f8f9fa;
+      padding: 20px 24px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    ">
+      <button id="cookie-save-preferences" style="
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+      " onmouseover="
+        this.style.transform='translateY(-2px)';
+        this.style.boxShadow='0 6px 20px rgba(40, 167, 69, 0.4)';
+        this.style.background='linear-gradient(135deg, #218838 0%, #1ea085 100%)';
+      " onmouseout="
+        this.style.transform='translateY(0)';
+        this.style.boxShadow='0 4px 12px rgba(40, 167, 69, 0.3)';
+        this.style.background='linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+      ">
+        Save Preferences
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #cookie-consent-modal {
+    left: 10px !important;
+    bottom: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+  
+  #cookie-consent-modal > div {
+    padding: 14px !important;
+  }
+  
+  #cookie-consent-modal button {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+  
+  #cookie-settings-modal > div {
+    width: 95% !important;
+    margin: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #cookie-consent-modal {
+    left: 8px !important;
+    bottom: 8px !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+  
+  #cookie-consent-modal h3 {
+    font-size: 14px !important;
+  }
+  
+  #cookie-consent-modal p {
+    font-size: 11px !important;
+  }
+  
+  #cookie-consent-modal button {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+  }
+  
+  #cookie-consent-modal > div {
+    padding: 12px !important;
+  }
+}
+</style>
+
+<script>
+// Cookie Consent Logic
+(function() {
+  // Check if already consented
+  function isAlreadyConsented() {
+    const consent = localStorage.getItem('cookieConsent');
+    const consentDate = localStorage.getItem('cookieConsentDate');
+    
+    if (consent && consentDate) {
+      const date = new Date(consentDate);
+      const now = new Date();
+      const daysDiff = (now - date) / (1000 * 60 * 60 * 24);
+      
+      // Consent is valid for 365 days
+      return daysDiff < 365;
+    }
+    
+    return false;
+  }
+
+  // Show cookie consent if not already consented
+  if (!isAlreadyConsented()) {
+    document.getElementById('cookie-consent-modal').style.display = 'block';
+  }
+
+  // Event listeners
+  document.getElementById('cookie-accept-all').addEventListener('click', function() {
+    const preferences = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+      preferences: true
+    };
+    
+    localStorage.setItem('cookieConsent', 'accepted');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-reject-all').addEventListener('click', function() {
+    const preferences = {
+      necessary: true,
+      analytics: false,
+      marketing: false,
+      preferences: false
+    };
+    
+    localStorage.setItem('cookieConsent', 'rejected');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-customize').addEventListener('click', function() {
+    document.getElementById('cookie-settings-modal').style.display = 'flex';
+  });
+
+  document.getElementById('cookie-settings-close').addEventListener('click', function() {
+    document.getElementById('cookie-settings-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-save-preferences').addEventListener('click', function() {
+    const preferences = {
+      necessary: true, // Always true
+      analytics: document.getElementById('cookie-analytics').checked,
+      marketing: document.getElementById('cookie-marketing').checked,
+      preferences: document.getElementById('cookie-preferences').checked
+    };
+    
+    localStorage.setItem('cookieConsent', 'customized');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-settings-modal').style.display = 'none';
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  // Close settings modal when clicking outside
+  document.getElementById('cookie-settings-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+})();
+</script>
+
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <style>
+      /* Hero Layout Styles - Text Left, Image Right */
+      .hero-section {
+        background: #f5f5dc !important;
+        min-height: 100vh !important;
+        padding: 4rem 0 !important;
+      }
+
+      .hero-content {
+        display: flex !important;
+        align-items: center !important;
+        gap: 4rem !important;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 2rem !important;
+      }
+
+      .hero-text-section {
+        flex: 1;
+        text-align: left;
+      }
+
+      .hero-text-wrapper {
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px) !important;
+        padding: 3rem !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .hero-title {
+        color: #2c3e50 !important;
+        font-size: 3.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1.5rem !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1) !important;
+        font-family: 'Montserrat', sans-serif !important;
+        line-height: 1.1 !important;
+      }
+
+      .hero-subtitle {
+        color: #34495e !important;
+        font-size: 1.3rem !important;
+        font-weight: 400 !important;
+        margin-bottom: 2rem !important;
+        opacity: 0.9 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        line-height: 1.6 !important;
+      }
+
+      .hero-image-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .hero-image-wrapper:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .hero-image-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      .hero-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(0, 255, 255, 0.1));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .hero-image-wrapper:hover .hero-image-overlay {
+        opacity: 1;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .hero-button {
+        background: linear-gradient(135deg, #2c3e50, #34495e) !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border: none !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3) !important;
+        font-family: 'Montserrat', sans-serif !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+      }
+
+      .hero-button:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4) !important;
+        background: linear-gradient(135deg, #34495e, #2c3e50) !important;
+      }
+
+      .hero-button-secondary {
+        background: transparent !important;
+        color: #2c3e50 !important;
+        padding: 1rem 2rem !important;
+        border: 2px solid #2c3e50 !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        font-family: 'Montserrat', sans-serif !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+      }
+
+      .hero-button-secondary:hover {
+        background: #2c3e50 !important;
+        color: white !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3) !important;
+      }
+
+      /* Мобильная адаптивность */
+      @media (max-width: 1024px) {
+        .hero-content {
+          gap: 2rem !important;
+          padding: 1.5rem !important;
+        }
+
+        .hero-text-wrapper {
+          padding: 2rem !important;
+        }
+
+        .hero-title {
+          font-size: 3rem !important;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem !important;
+        }
+
+        .hero-image-wrapper {
+          max-width: 400px;
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          flex-direction: column !important;
+          gap: 2rem !important;
+          text-align: center !important;
+        }
+
+        .hero-text-section {
+          text-align: center !important;
+        }
+
+        .hero-text-wrapper {
+          padding: 2rem !important;
+        }
+
+        .hero-title {
+          font-size: 2.5rem !important;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem !important;
+        }
+
+        .hero-actions {
+          justify-content: center !important;
+        }
+
+        .hero-image-wrapper {
+          max-width: 100%;
+          height: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          padding: 1rem !important;
+          gap: 1.5rem !important;
+        }
+
+        .hero-text-wrapper {
+          padding: 1.5rem !important;
+        }
+
+        .hero-title {
+          font-size: 2rem !important;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem !important;
+        }
+
+        .hero-actions {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .hero-button,
+        .hero-button-secondary {
+          width: 100% !important;
+          max-width: 250px !important;
+        }
+
+        .hero-image-wrapper {
+          height: 250px;
+        }
+      }
+
+      /* Quiz and Simulator Styles */
+      @keyframes gradientShift {
+        0%, 100% { 
+          background-position: 0% 50%; 
+        }
+        50% { 
+          background-position: 100% 50%; 
+        }
+      }
+
+      @keyframes floatRune {
+        0%, 100% { 
+          transform: translateY(0px) rotate(0deg); 
+        }
+        25% { 
+          transform: translateY(-15px) rotate(90deg); 
+        }
+        50% { 
+          transform: translateY(-8px) rotate(180deg); 
+        }
+        75% { 
+          transform: translateY(-12px) rotate(270deg); 
+        }
+      }
+
+      .quiz-question {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 107, 53, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .quiz-question:hover {
+        background: rgba(255, 107, 53, 0.05);
+        border-color: rgba(255, 107, 53, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .quiz-option {
+        display: block;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        margin: 0.5rem 0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        text-align: left;
+      }
+
+      .quiz-option:hover {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 107, 53, 0.2));
+        border-color: rgba(0, 255, 255, 0.5);
+        transform: translateX(5px);
+        box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      }
+
+      .quiz-option.selected {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 107, 53, 0.3));
+        border-color: #00ffff;
+        box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      }
+
+      .quiz-button {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #00ffff 50%, #ff6b35 75%, #f7931e 100%);
+        background-size: 300% 300%;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        font-family: 'Montserrat', sans-serif;
+        margin: 1rem 0.5rem;
+        animation: gradientShift 3s ease-in-out infinite;
+      }
+
+      .quiz-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+      }
+
+      .quiz-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .rune-card {
+        display: inline-block;
+        margin: 1rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 107, 53, 0.1));
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        animation: runeAppear 0.6s ease-out;
+        box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+      }
+
+      .rune-card:hover {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 107, 53, 0.2));
+        border-color: rgba(0, 255, 255, 0.6);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+      }
+
+      @keyframes runeAppear {
+        0% {
+          opacity: 0;
+          transform: scale(0.5) rotate(180deg);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      .cast-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(0, 255, 255, 0.4);
+        animation-duration: 1s;
+      }
+
+      .cast-button:active {
+        transform: translateY(0);
+        animation-play-state: paused;
+      }
+    </style>
+
+    <script>
+      // Re-initialize typewriter animations after page load
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          if (window.reinitializeTypewriters) {
+            window.reinitializeTypewriters();
+          }
+          // Re-initialize counter animations
+          if (window.reinitializeCounters) {
+            window.reinitializeCounters();
+          }
+        }, 500);
+
+        // Viking Quiz System
+        class VikingQuiz {
+          constructor() {
+            this.questions = [
+              {
+                question: "What weapon calls to your soul?",
+                options: [
+                  { text: "The mighty axe of Thor", type: "berserker" },
+                  { text: "The swift sword of Odin", type: "warrior" },
+                  { text: "The mystical staff of magic", type: "seer" },
+                  { text: "The cunning bow of the hunt", type: "hunter" }
+                ]
+              },
+              {
+                question: "Which realm would you call home?",
+                options: [
+                  { text: "Asgard - Realm of the Gods", type: "warrior" },
+                  { text: "Midgard - Realm of Men", type: "berserker" },
+                  { text: "Alfheim - Realm of Light Elves", type: "seer" },
+                  { text: "Vanaheim - Realm of Nature", type: "hunter" }
+                ]
+              },
+              {
+                question: "What drives your heart in battle?",
+                options: [
+                  { text: "Pure rage and fury", type: "berserker" },
+                  { text: "Honor and glory", type: "warrior" },
+                  { text: "Wisdom and strategy", type: "seer" },
+                  { text: "Protection of the innocent", type: "hunter" }
+                ]
+              },
+              {
+                question: "Which god do you serve?",
+                options: [
+                  { text: "Thor - God of Thunder", type: "berserker" },
+                  { text: "Odin - All-Father", type: "warrior" },
+                  { text: "Frigg - Goddess of Wisdom", type: "seer" },
+                  { text: "Freya - Goddess of Love and War", type: "hunter" }
+                ]
+              }
+            ];
+            
+            this.currentQuestion = 0;
+            this.answers = [];
+            this.results = {
+              berserker: { name: "Berserker", description: "A fierce warrior who fights with primal rage and unmatched fury. You are the storm that breaks upon your enemies." },
+              warrior: { name: "Noble Warrior", description: "A skilled fighter who values honor above all. You are the shield that protects the innocent and the sword that brings justice." },
+              seer: { name: "Wise Seer", description: "A mystical figure who sees beyond the veil of time. You are the wisdom that guides others through darkness." },
+              hunter: { name: "Swift Hunter", description: "A cunning tracker who moves like shadow and strikes like lightning. You are the arrow that never misses its mark." }
+            };
+            
+            this.init();
+          }
+
+          init() {
+            this.renderQuestion();
+            this.bindEvents();
+          }
+
+          renderQuestion() {
+            const container = document.getElementById('quiz-container');
+            const question = this.questions[this.currentQuestion];
+            
+            container.innerHTML = `
+              <div class="quiz-question">
+                <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.5rem;">${question.question}</h3>
+                <div class="quiz-options">
+                  ${question.options.map((option, index) => `
+                    <button class="quiz-option" data-type="${option.type}">${option.text}</button>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="quiz-navigation">
+                <button class="quiz-button" id="next-btn" disabled>Next Question</button>
+                <div class="quiz-progress" style="color: #ffffff; margin-top: 1rem;">
+                  Question ${this.currentQuestion + 1} of ${this.questions.length}
+                </div>
+              </div>
+            `;
+          }
+
+          bindEvents() {
+            document.addEventListener('click', (e) => {
+              if (e.target.classList.contains('quiz-option')) {
+                this.selectAnswer(e.target);
+              }
+              if (e.target.id === 'next-btn') {
+                this.nextQuestion();
+              }
+            });
+          }
+
+          selectAnswer(option) {
+            // Remove previous selection
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Select new option
+            option.classList.add('selected');
+            
+            // Store answer
+            this.answers[this.currentQuestion] = option.dataset.type;
+            
+            // Enable next button
+            document.getElementById('next-btn').disabled = false;
+          }
+
+          nextQuestion() {
+            this.currentQuestion++;
+            
+            if (this.currentQuestion < this.questions.length) {
+              this.renderQuestion();
+            } else {
+              this.showResults();
+            }
+          }
+
+          showResults() {
+            // Calculate result
+            const typeCounts = {};
+            this.answers.forEach(answer => {
+              typeCounts[answer] = (typeCounts[answer] || 0) + 1;
+            });
+            
+            const resultType = Object.keys(typeCounts).reduce((a, b) => 
+              typeCounts[a] > typeCounts[b] ? a : b
+            );
+            
+            const result = this.results[resultType];
+            
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            document.getElementById('quiz-results').innerHTML = `
+              <div style="text-align: center; padding: 2rem;">
+                <h2 style="color: #ff6b35; font-size: 2.5rem; margin-bottom: 1rem;">You are a ${result.name}!</h2>
+                <p style="color: #ffffff; font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">${result.description}</p>
+                <button class="quiz-button" onclick="location.reload()">Take Quiz Again</button>
+              </div>
+            `;
+          }
+        }
+
+        // Rune Simulator System
+        class RuneSimulator {
+          constructor() {
+            this.runes = [
+              { symbol: "ᚠ", name: "Fehu", meaning: "Wealth, prosperity, success" },
+              { symbol: "ᚢ", name: "Uruz", meaning: "Strength, courage, determination" },
+              { symbol: "ᚦ", name: "Thurisaz", meaning: "Giant, thorn, protection" },
+              { symbol: "ᚨ", name: "Ansuz", meaning: "God, communication, wisdom" },
+              { symbol: "ᚱ", name: "Raidho", meaning: "Journey, travel, movement" },
+              { symbol: "ᚲ", name: "Kenaz", meaning: "Torch, knowledge, creativity" },
+              { symbol: "ᚷ", name: "Gebo", meaning: "Gift, generosity, balance" },
+              { symbol: "ᚹ", name: "Wunjo", meaning: "Joy, harmony, satisfaction" },
+              { symbol: "ᚺ", name: "Hagalaz", meaning: "Hail, disruption, change" },
+              { symbol: "ᚾ", name: "Naudhiz", meaning: "Need, constraint, necessity" },
+              { symbol: "ᛁ", name: "Isa", meaning: "Ice, stillness, patience" },
+              { symbol: "ᛃ", name: "Jera", meaning: "Year, harvest, cycles" },
+              { symbol: "ᛇ", name: "Eihwaz", meaning: "Yew, endurance, transformation" },
+              { symbol: "ᛈ", name: "Perthro", meaning: "Dice cup, mystery, fate" },
+              { symbol: "ᛉ", name: "Algiz", meaning: "Elk, protection, defense" },
+              { symbol: "ᛊ", name: "Sowilo", meaning: "Sun, success, energy" },
+              { symbol: "ᛏ", name: "Tiwaz", meaning: "Tyr, justice, sacrifice" },
+              { symbol: "ᛒ", name: "Berkana", meaning: "Birch, growth, renewal" },
+              { symbol: "ᛖ", name: "Ehwaz", meaning: "Horse, partnership, trust" },
+              { symbol: "ᛗ", name: "Mannaz", meaning: "Man, humanity, community" },
+              { symbol: "ᛚ", name: "Laguz", meaning: "Lake, water, intuition" },
+              { symbol: "ᛜ", name: "Ingwaz", meaning: "Ing, fertility, potential" },
+              { symbol: "ᛟ", name: "Othala", meaning: "Heritage, home, inheritance" },
+              { symbol: "ᛞ", name: "Dagaz", meaning: "Day, breakthrough, awareness" }
+            ];
+            
+            this.init();
+          }
+
+          init() {
+            this.bindEvents();
+          }
+
+          bindEvents() {
+            document.getElementById('cast-runes-btn').addEventListener('click', () => {
+              this.castRunes();
+            });
+          }
+
+          castRunes() {
+            const button = document.getElementById('cast-runes-btn');
+            const resultsDiv = document.getElementById('rune-results');
+            
+            // Disable button during casting
+            button.disabled = true;
+            button.textContent = 'Casting...';
+            
+            // Simulate casting animation
+            setTimeout(() => {
+              const selectedRunes = this.selectRandomRunes(3);
+              this.displayResults(selectedRunes);
+              
+              // Re-enable button
+              button.disabled = false;
+              button.textContent = 'Cast the Runes';
+            }, 2000);
+          }
+
+          selectRandomRunes(count) {
+            const shuffled = [...this.runes].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+          }
+
+          displayResults(runes) {
+            const resultsDiv = document.getElementById('rune-results');
+            resultsDiv.style.display = 'block';
+            
+            resultsDiv.innerHTML = `
+              <h3 style="color: #00ffff; font-size: 2rem; margin-bottom: 2rem;">The Gods Have Spoken</h3>
+              <div class="rune-cards">
+                ${runes.map(rune => `
+                  <div class="rune-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">${rune.symbol}</div>
+                    <h4 style="color: #ffffff; margin-bottom: 0.5rem;">${rune.name}</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">${rune.meaning}</p>
+                  </div>
+                `).join('')}
+              </div>
+              <button class="quiz-button" onclick="document.getElementById('rune-results').style.display='none'">Cast Again</button>
+            `;
+          }
+        }
+
+        // Initialize interactive features
+        new VikingQuiz();
+        new RuneSimulator();
+
+        // Hero button interactions
+        const heroButton = document.querySelector('.hero-button');
+        const heroButtonSecondary = document.querySelector('.hero-button-secondary');
+
+        if (heroButton) {
+          heroButton.addEventListener('click', function() {
+            // Scroll to sections preview or first section
+            const sectionsPreview = document.querySelector('.sections-preview');
+            if (sectionsPreview) {
+              sectionsPreview.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        }
+
+        if (heroButtonSecondary) {
+          heroButtonSecondary.addEventListener('click', function() {
+            // Scroll to about section or contact
+            const aboutSection = document.querySelector('.about-section');
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              // Fallback to contact
+              const contactSection = document.querySelector('.contact-section');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        }
+
+        // Hero image hover effects
+        const heroImageWrapper = document.querySelector('.hero-image-wrapper');
+        if (heroImageWrapper) {
+          heroImageWrapper.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+          });
+
+          heroImageWrapper.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+          });
+        }
+      });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hall of Legends: Guardians of the North - ShadowsOfValhalla</title>
+
+    <meta name="description" content="The Hall of Legends is a tribute to those who shaped the legacy of Valhalla through courage, art, and remembrance. A timeless archive of stories, artifacts, and memories forged in the spirit of the North.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: linear-gradient(to right, 
+
+        #0a0a0a, 
+
+        #1a1a1a);
+
+      z-index: -2;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ffffff;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Hall of Legends: Guardians of the North</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #ffffff;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">The Hall of Legends is a tribute to those who shaped the legacy of Valhalla through courage, art, and remembrance. A timeless archive of stories, artifacts, and memories forged in the spirit of the North.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element rich-text" style="margin: 1.5rem 0; padding: 16px; border-radius: 8px; border-left: 4px solid #e0e0e0; background: linear-gradient(to left, #FBC02D, #F57C00); opacity: 1; padding: 24px;">
+
+            
+
+              <h3 style="
+
+                color: #000000;
+
+                margin: 0 0 1rem 0;
+
+                font-size: 1.25rem;
+
+                font-family: inherit;
+
+                font-weight: normal;
+
+              ">Within the Hall of Legends, the echoes of heroes, artists, and dreamers converge into one eternal chorus, uniting past and present to honour the unbreakable spirit that defines the northern soul across generations and realms</h3>
+
+            
+
+            <div class="rich-content" style="
+
+              color: #000000;
+
+              line-height: 1.6;
+
+              font-size: 1rem;
+
+              font-family: inherit;
+
+              text-align: left;
+
+            ">
+
+              <p>The Hall of Legends serves as a living archive for the Shadows of Valhalla universe, celebrating the influence of real and mythic figures who embody honour and creativity. Here, visitors can explore the lives and deeds of those who continue to inspire the world through resilience and imagination. This space offers a blend of education and emotional reflection, connecting guests with the wisdom of ancient traditions and the artistry that keeps them alive. In 2025, the Hall also functions as a platform for digital exhibitions, historical insights, and cultural discussions. It is both a museum of memory and a growing tribute to human legacy, reminding every visitor that legend begins with courage and ends with remembrance.</p>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element blockquote border-left" style="margin: 1.5rem 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: left; font-family: Georgia; background: linear-gradient(to bottom right, #FBC02D, #F57C00); opacity: 1; border-left: 4px solid #e0e0e0; padding: 24px;">
+
+            <blockquote style="margin: 0; position: relative;">
+
+              
+
+                <div class="quote-title" style="
+
+                  color: #000000;
+
+                  font-weight: 600;
+
+                  margin-bottom: 0.5rem;
+
+                  font-size: 1.1rem;
+
+                ">Legends are not born from silence; they rise from struggle, endurance, and the unyielding belief that meaning survives through stories carried from one heart to another across time</div>
+
+              
+
+              <p class="quote-text" style="
+
+                color: #000000;
+
+                font-size: 18px;
+
+                line-height: 1.6;
+
+                margin: 0 0 1rem 0;
+
+                font-style: italic;
+
+                font-weight: normal;
+
+              ">"To walk through the Hall of Legends is to step into a dialogue between history and destiny. The voices of ancestors resonate through every stone and every song, reminding us that we are both the storytellers and the story itself."</p>
+
+              
+
+                <footer class="quote-author" style="
+
+                  color: #000000;
+
+                  font-size: 14px;
+
+                  text-align: right;
+
+                  opacity: 0.8;
+
+                ">
+
+                  — Arvid Sturluson, Nordic Historical Review, 2025
+
+                </footer>
+
+              
+
+            </blockquote>
+
+          </div>
+
+        
+
+          <div id="element-service_3" class="content-element list spacing-normal bullet-circle" style="margin: 1.5rem 0; padding: 0; background: linear-gradient(to bottom right, #FBC02D, #F57C00); opacity: 1; padding: 24px;">
+
+            
+
+            <div style="
+
+              color: #000000;
+
+              line-height: 1.6;
+
+              font-family: inherit;
+
+              font-size: inherit;
+
+            ">
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Explore interactive exhibits that connect myth with history</span>
+
+                </div>
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Learn about the craftsmanship behind Viking-era artifacts</span>
+
+                </div>
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Participate in cultural workshops and storytelling sessions</span>
+
+                </div>
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Experience digital recreations of ancient Norse temples</span>
+
+                </div>
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Contribute to ongoing cultural preservation initiatives</span>
+
+                </div>
+
+              
+
+                <div style="
+
+                  display: flex;
+
+                  align-items: flex-start;
+
+                margin-bottom: 0.5rem;
+
+                ">
+
+                  <span style="
+
+                    color: #8E24AA;
+
+                    margin-right: 8px;
+
+                    font-weight: bold;
+
+                    min-width: 24px;
+
+                    font-size: 18px;
+
+                    line-height: 1.6;
+
+                  ">
+
+                    ●
+
+                  </span>
+
+                  <span style="
+
+                    color: #000000;
+
+                    line-height: 1.6;
+
+                    flex: 1;
+
+                  ">Discover the role of legends in shaping modern identity</span>
+
+                </div>
+
+              
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element image-card" style="
+
+            margin: 1.5rem 0;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+            overflow: hidden;
+
+        
+
+              background: linear-gradient(to right, #FBC02D, #F57C00);
+
+              opacity: 1;
+
+            border: 1px solid #e0e0e0;padding: 24px; cursor: pointer;" onclick="openModalelement_service_4()">
+
+            
+
+                <div class="service-image" style="
+
+                  width: 100%;
+
+                  height: 200px;
+
+                  overflow: hidden;
+
+                  border-radius: 12px;
+
+                  margin-bottom: 1rem;
+
+                ">
+
+                  <img src="assets/images/card_hall_4_9o9k4u.jpg" alt="" style="
+
+          width: 100%;
+
+          height: 200px;
+
+          object-fit: cover;
+
+          filter: none;
+
+          opacity: 1;
+
+        ">
+
+                </div>
+
+              
+
+            <div style="padding: 24px;">
+
+              <h3 style="
+
+                color: #000000;
+
+                margin: 0 0 1rem 0;
+
+                font-size: 1.25rem;
+
+                font-weight: bold;
+
+                text-align: center;
+
+              ">Each chamber of the Hall of Legends is designed to capture the essence of mythic history, blending light, texture, and sound to evoke reverence for the gods, heroes, and storytellers who shaped the northern world</h3>
+
+              <p style="
+
+                color: #000000;
+
+                line-height: 1.5;
+
+                margin: 0;
+
+                text-align: center;
+
+              ">The Hall’s visual layout is built around symbolic symmetry inspired by Norse architecture. Its design integrates stone, wood, and light to represent balance between nature and divinity. Visitors can explore themed galleries dedicated to Odin’s wisdom, Freyja’s beauty, and Thor’s strength. Through digital and physical storytelling, each room reveals how mythology reflects human experience—love, loss, and legacy—bridging centuries of cultural evolution.</p>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 МОДАЛЬНОЕ ОКНО для карточки с изображением -->
+
+          <div id="modal-element_service_4" style="
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 1000;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0,0,0,0.5);
+
+            backdrop-filter: blur(5px);
+
+            justify-content: center;
+
+            align-items: center;
+
+          ">
+
+            <div style="
+
+              position: relative;
+
+              background-color: transparent;
+
+              margin: 5% auto;
+
+              padding: 0;
+
+              width: auto;
+
+              max-width: 90vw;
+
+              max-height: 90vh;
+
+              overflow: auto;
+
+              border-radius: 16px;
+
+              box-shadow: none;
+
+              display: inline-block;
+
+            ">
+
+              <!-- Контент модального окна -->
+
+              <div id="modal-content-element_service_4" style="
+
+                background: linear-gradient(to right, #FBC02D, #F57C00);
+
+                border: 1px solid #e0e0e0;
+
+                border-radius: 12px;
+
+                padding: 24px;
+
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+                opacity: 1;
+
+                width: auto;
+
+                max-width: 90vw;
+
+                max-height: 90vh;
+
+                overflow: auto;
+
+              ">
+
+                
+
+                  <div id="modal-image-container-element_service_4" style="
+
+                    width: 100%;
+
+                    margin-bottom: 24px;
+
+                    border-radius: 12px;
+
+                    overflow: hidden;
+
+                    display: flex;
+
+                    justify-content: center;
+
+                    align-items: center;
+
+                  ">
+
+                    <img id="modal-image-element_service_4" src="assets/images/card_hall_4_9o9k4u.jpg" alt="" style="
+
+                      max-width: calc(90vw - 48px);
+
+                      max-height: calc(80vh - 150px);
+
+                      width: auto;
+
+                      height: auto;
+
+                      object-fit: contain;
+
+                      cursor: zoom-in;
+
+                      transition: transform 0.3s ease;
+
+                      border-radius: 12px;
+
+                      display: block;
+
+                    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+                  </div>
+
+                
+
+                <h2 style="
+
+                  color: #000000;
+
+                  font-size: 28px;
+
+                  margin-bottom: 16px;
+
+                  font-weight: bold;
+
+                  line-height: 1.3;
+
+                  text-align: center;
+
+                ">Each chamber of the Hall of Legends is designed to capture the essence of mythic history, blending light, texture, and sound to evoke reverence for the gods, heroes, and storytellers who shaped the northern world</h2>
+
+                <div style="
+
+                  color: #000000;
+
+                  font-size: 16px;
+
+                  line-height: 1.6;
+
+                  text-align: center;
+
+                ">The Hall’s visual layout is built around symbolic symmetry inspired by Norse architecture. Its design integrates stone, wood, and light to represent balance between nature and divinity. Visitors can explore themed galleries dedicated to Odin’s wisdom, Freyja’s beauty, and Thor’s strength. Through digital and physical storytelling, each room reveals how mythology reflects human experience—love, loss, and legacy—bridging centuries of cultural evolution.</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          
+
+          <!-- 🔥 JAVASCRIPT для модального окна карточки с изображением -->
+
+          <script>
+
+            // Функция открытия модального окна
+
+            function openModalelement_service_4() {
+
+              console.log('🔥 [ImageCard Modal] openModalelement_service_4 вызвана');
+
+              
+
+              const modal = document.getElementById('modal-element_service_4');
+
+              const modalContent = document.getElementById('modal-content-element_service_4');
+
+              
+
+              console.log('🔥 [ImageCard Modal] Найденные элементы:', { modal, modalContent });
+
+              
+
+              if (modal && modalContent) {
+
+                console.log('🔥 [ImageCard Modal] Элементы найдены, показываем модальное окно...');
+
+                
+
+                modal.style.display = 'flex';
+
+                
+
+                // Анимация появления
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                modalContent.style.transition = 'all 0.3s ease';
+
+                
+
+                setTimeout(() => {
+
+                  modalContent.style.opacity = '1';
+
+                  modalContent.style.transform = 'scale(1)';
+
+                  console.log('🔥 [ImageCard Modal] Модальное окно успешно открыто!');
+
+                }, 10);
+
+              } else {
+
+                console.error('🔥 [ImageCard Modal] ОШИБКА: Элементы модального окна не найдены!');
+
+                console.error('🔥 [ImageCard Modal] modal:', modal);
+
+                console.error('🔥 [ImageCard Modal] modalContent:', modalContent);
+
+                console.error('🔥 [ImageCard Modal] elementId:', 'element-service_4');
+
+              }
+
+            }
+
+            
+
+            // Функция закрытия модального окна
+
+            function closeModalelement_service_4() {
+
+              const modal = document.getElementById('modal-element_service_4');
+
+              const modalContent = document.getElementById('modal-content-element_service_4');
+
+              
+
+              if (modal && modalContent) {
+
+                // Анимация исчезновения
+
+                modalContent.style.opacity = '0';
+
+                modalContent.style.transform = 'scale(0.9)';
+
+                
+
+                setTimeout(() => {
+
+                  modal.style.display = 'none';
+
+                }, 300);
+
+              }
+
+            }
+
+            
+
+            // Закрытие по клику вне модального окна
+
+            document.getElementById('modal-element_service_4').addEventListener('click', function(e) {
+
+              if (e.target === this) {
+
+                closeModalelement_service_4();
+
+              }
+
+            });
+
+            
+
+            // Закрытие по Escape
+
+            document.addEventListener('keydown', function(e) {
+
+              if (e.key === 'Escape') {
+
+                closeModalelement_service_4();
+
+              }
+
+            });
+
+            
+
+            // 🔥 ИСПРАВЛЕНИЕ: Ждем загрузки DOM перед добавлением обработчиков
+
+            if (document.readyState === 'loading') {
+
+              document.addEventListener('DOMContentLoaded', function() {
+
+                const modal = document.getElementById('modal-element_service_4');
+
+                if (modal) {
+
+                  modal.addEventListener('click', function(e) {
+
+                    if (e.target === this) {
+
+                      closeModalelement_service_4();
+
+                    }
+
+                  });
+
+                }
+
+              });
+
+            } else {
+
+              // DOM уже загружен
+
+              const modal = document.getElementById('modal-element_service_4');
+
+              if (modal) {
+
+                modal.addEventListener('click', function(e) {
+
+                  if (e.target === this) {
+
+                    closeModalelement_service_4();
+
+                  }
+
+                });
+
+              }
+
+            }
+
+          </script>
+
+        
+
+          <style>
+
+            .typewriter-container {
+
+              min-height: 38.4px;
+
+            display: block;
+
+            text-align: center;
+
+              position: relative;
+
+              line-height: 1.2;
+
+            }
+
+            
+
+            .typewriter-text-content {
+
+              font-family: Courier New, monospace;
+
+              white-space: pre-wrap;
+
+              overflow: hidden;
+
+              word-wrap: break-word;
+
+              max-width: 100%;
+
+              display: inline;
+
+            }
+
+            
+
+            .typewriter-cursor {
+
+              animation: blink 1.5s infinite;
+
+              margin-left: 2px;
+
+              color: #000000;
+
+              font-family: Courier New, monospace;
+
+              user-select: none;
+
+              display: inline;
+
+              opacity: 0.8;
+
+            }
+
+            
+
+            @keyframes blink {
+
+              0%, 70% { opacity: 1; }
+
+              71%, 100% { opacity: 0.3; }
+
+            }
+
+          </style>
+
+          <div id="element-service_5" class="content-element typewriter-text" style="margin: 2rem 0; text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; background: linear-gradient(to left, #FBC02D, #F57C00); opacity: 1; padding: 24px;">
+
+            <div class="typewriter typewriter-container" 
+
+                data-texts='["Enter the Hall of Legends","Discover the heroes of the North","Become part of a story that never ends"]'
+
+                data-speed="150"
+
+                data-pause="2000"
+
+                data-repeat="true"
+
+                style="
+
+                  color: #000000;
+
+                  font-size: 32px;
+
+                  font-weight: normal;
+
+                  font-family: Courier New, monospace;
+
+                  margin: 0;
+
+                ">
+
+                <span class="typewriter-text-content"></span><span class="typewriter-cursor">|</span>
+
+            </div>
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Thank you for reaching out to Shadows of Valhalla. Your message has been received, and our team will contact you shortly with a detailed response.');
+
+          const closeButtonText = encodeURIComponent('Return to Home');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>
