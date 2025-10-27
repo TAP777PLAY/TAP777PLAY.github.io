@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Новости и обновления SocialSpin Casino - SocialSpin</title>
+
+    <meta name="description" content="Будьте в курсе последних событий, турниров и обновлений платформы SocialSpin Casino, где каждый месяц появляются новые функции, игры и возможности для игроков.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+    <style>
+
+      /* Анимации для галереи */
+
+      .gallery-dot:hover {
+
+        background-color: #ffffff !important;
+
+        transform: scale(1.2);
+
+      }
+
+      
+
+      .service-block:hover {
+
+        transform: translateY(-5px);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      /* Адаптивность */
+
+      @media (max-width: 768px) {
+
+        .image-container,
+
+        .section-gallery {
+
+          height: 250px !important;
+
+          margin: 1rem auto !important;
+
+        }
+
+        
+
+        .service-block {
+
+          padding: 1.5rem !important;
+
+          margin-bottom: 1.5rem !important;
+
+        }
+
+        
+
+        .service-block h3 {
+
+          font-size: 1.3rem !important;
+
+        }
+
+        
+
+        .service-block p {
+
+          font-size: 1rem !important;
+
+        }
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-color: #04142a;
+
+      z-index: -2;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        
+
+        <section class="section-content" style="
+
+          padding: 3rem 0;
+
+          background: transparent;
+
+          margin: 0;
+
+        ">
+
+          <div class="container" style="
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 0 2rem;
+
+          ">
+
+            <h1 style="
+
+              color: #ffffff;
+
+              font-size: 2.5rem;
+
+              font-weight: 700;
+
+              margin-bottom: 1.5rem;
+
+              text-align: center;
+
+              font-family: 'Montserrat', sans-serif;
+
+            ">Новости и обновления SocialSpin Casino</h1>
+
+            
+
+            
+
+              <p style="
+
+                color: #00ffff;
+
+                font-size: 1.2rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 3rem;
+
+                text-align: center;
+
+                max-width: 800px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-family: 'Roboto', sans-serif;
+
+              ">Будьте в курсе последних событий, турниров и обновлений платформы SocialSpin Casino, где каждый месяц появляются новые функции, игры и возможности для игроков.</p>
+
+            
+
+            
+
+            
+
+            
+
+            <div class="cards-container">
+
+              
+
+            </div>
+
+            
+
+            <div class="elements-container">
+
+              
+
+          <div id="element-service_1" class="content-element typography" style="margin: 1rem 0; text-align: left; background: linear-gradient(to right, #000000, #1a0033); opacity: 1; border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px;">
+
+            <h2 style="
+
+              color: #f0f0f0;
+
+              margin: 0;
+
+              font-size: 2rem;
+
+            ">В 2025 году SocialSpin Casino активно развивается, внедряя инновации и улучшая игровой процесс. Недавно запущены новые режимы турниров, расширена система уровней удачи и добавлены тематические события. Теперь игроки могут зарабатывать специальные сезонные награды, участвовать в международных чемпионатах и формировать собственные клубы по интересам. Разработчики также улучшили систему подбора соперников, что делает каждую игру более справедливой и динамичной. SocialSpin Casino продолжает укреплять позицию лидера среди виртуальных игровых платформ без реальных ставок, предоставляя пользователям безопасное и увлекательное пространство для общения и развития.</h2>
+
+          </div>
+
+        
+
+          <div id="element-service_2" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #050505, #111133); opacity: 1; border: 1px solid #ff0000; border-left: 4px solid #ff0000; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffd700;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #00ffd5;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">В 2025 году SocialSpin Casino представило новые игровые режимы, включая тематические слоты, улучшенные версии покера и рулетки, а также уникальные испытания на время и командные события</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #e0e0e0;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Новые игры разработаны с учетом пожеланий игроков. В них добавлены достижения, бонусные задания и возможность совместной игры с друзьями. Каждое обновление делает процесс более захватывающим и социальным, сохраняя при этом атмосферу классического казино без денежных рисков.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #ff6b6b;
+
+                border-radius: 12px;
+
+                color: #ff6b6b;
+
+                font-weight: 500;
+
+              ">Новые игры</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_3" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #050505, #111133); opacity: 1; border: 1px solid #ff0000; border-left: 4px solid #ff0000; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffd700;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #00ffd5;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Турнирная система получила масштабное обновление с добавлением сезонных чемпионатов, ежедневных событий и специальных наград за участие в рейтинговых матчах</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #e0e0e0;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Теперь турниры проходят по расписанию с прозрачной системой подсчета очков. Игроки могут следить за результатами в реальном времени, а победители получают эксклюзивные награды. Участие стало доступным для всех уровней игроков, включая новичков и профессионалов.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #ff6b6b;
+
+                border-radius: 12px;
+
+                color: #ff6b6b;
+
+                font-weight: 500;
+
+              ">Турнирные обновления</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_4" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #050505, #111133); opacity: 1; border: 1px solid #ff0000; border-left: 4px solid #ff0000; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffd700;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #00ffd5;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Внедрена новая система общения, включающая голосовые чаты, клубы интересов и возможность создавать собственные мини-сообщества внутри SocialSpin Casino</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #e0e0e0;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Теперь игроки могут объединяться по интересам, создавать турниры внутри клубов и обмениваться стратегиями. Это усиливает социальный аспект игры, делая платформу не просто казино, а полноценной социальной сетью для геймеров.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #ff6b6b;
+
+                border-radius: 12px;
+
+                color: #ff6b6b;
+
+                font-weight: 500;
+
+              ">Социальные функции</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_5" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #050505, #111133); opacity: 1; border: 1px solid #ff0000; border-left: 4px solid #ff0000; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffd700;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #00ffd5;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">Каждый месяц в SocialSpin Casino проходят сезонные события с уникальными темами, бонусами, миссиями и временными турнирами, где можно заработать редкие награды</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #e0e0e0;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Тематические сезоны вдохновлены различными праздниками и культурными событиями. В феврале — турнир "Зимняя удача", в мае — "Весенний джекпот". Такие события добавляют динамики и интереса, мотивируя игроков возвращаться ежедневно.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #ff6b6b;
+
+                border-radius: 12px;
+
+                color: #ff6b6b;
+
+                font-weight: 500;
+
+              ">Сезонные события</span>
+
+            </div>
+
+          </div>
+
+        
+
+          <div id="element-service_6" class="content-element callout callout-callout" style="margin: 1.5rem 0; padding: 16px 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; background: linear-gradient(to right, #050505, #111133); opacity: 1; border: 1px solid #ff0000; border-left: 4px solid #ff0000; padding: 24px;">
+
+            <div class="callout-header" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+
+              
+
+                <span class="callout-icon" style="
+
+                  font-size: 20px;
+
+                  margin-top: 0.1rem;
+
+                  flex-shrink: 0;
+
+                  color: #ffd700;
+
+                ">
+
+                  ℹ️
+
+                </span>
+
+              
+
+              <div class="callout-content" style="flex: 1;">
+
+                <h4 class="callout-title" style="
+
+                  margin: 0 0 0.5rem 0;
+
+                  color: #00ffd5;
+
+                  font-size: 1.1rem;
+
+                  font-weight: 600;
+
+                  font-family: inherit;
+
+                ">В 2025 году обновлена система уровней удачи и карьерного прогресса, которая теперь включает индивидуальные достижения, награды и специальные привилегии для опытных игроков</h4>
+
+                <p class="callout-text" style="
+
+                  margin: 0;
+
+                  color: #e0e0e0;
+
+                  line-height: 1.5;
+
+                  font-size: 0.95rem;
+
+                  font-family: inherit;
+
+                ">Новая система делает развитие более гибким и персонализированным. Игроки получают уникальные значки, статусы и доступ к эксклюзивным турнирам. Чем выше уровень удачи, тем больше возможностей для взаимодействия и лидерства в сообществе.</p>
+
+                
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- Индикатор типа выноски -->
+
+            <div style="
+
+              position: absolute;
+
+              bottom: 8px;
+
+              right: 8px;
+
+            ">
+
+              <span style="
+
+                display: inline-block;
+
+                padding: 2px 6px;
+
+                font-size: 10px;
+
+                background-color: rgba(255,255,255,0.8);
+
+                border: 1px solid #ff6b6b;
+
+                border-radius: 12px;
+
+                color: #ff6b6b;
+
+                font-weight: 500;
+
+              ">Карьера и уровни</span>
+
+            </div>
+
+          </div>
+
+        
+
+            </div>
+
+          </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+    <!-- 🔞 Проверка возраста -->
+    <script src="assets/js/age-verification.js"></script>
+
+    <script>
+
+      // Function to initialize typewriter effect
+      function initTypewriter(element) {
+        const texts = JSON.parse(element.dataset.texts || '["Default text"]');
+        const speed = parseInt(element.dataset.speed) || 150;
+        const pauseTime = parseInt(element.dataset.pause) || 2000;
+        const repeat = element.dataset.repeat !== 'false';
+        
+        // Find the text content span
+        const textContentSpan = element.querySelector('.typewriter-text-content');
+        if (!textContentSpan) {
+          console.error('Typewriter text content span not found');
+          return;
+        }
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+          const fullText = texts[textIndex];
+          let displayText = '';
+          
+          if (isDeleting) {
+            displayText = fullText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = fullText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          
+          // Update only the text content, cursor stays separate
+          textContentSpan.textContent = displayText;
+          
+          let typeSpeed = speed;
+          
+          if (isDeleting) {
+            typeSpeed = speed / 2;
+          }
+          
+          if (!isDeleting && charIndex === fullText.length) {
+            // Finished typing, pause before deleting
+            typeSpeed = pauseTime;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, move to next text
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            
+            // If not repeating and we've gone through all texts, stop
+            if (!repeat && textIndex === 0) {
+              // Show final text and hide cursor
+              textContentSpan.textContent = texts[0];
+              const cursor = element.querySelector('.typewriter-cursor');
+              if (cursor) cursor.style.display = 'none';
+              return;
+            }
+            
+            typeSpeed = speed;
+          }
+          
+          setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typewriter when element is visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              typeText();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      }
+
+      // Инициализация галереи изображений
+
+      function initImageGalleries() {
+
+        const galleries = document.querySelectorAll('.section-gallery');
+
+        
+
+        galleries.forEach(gallery => {
+
+          const images = gallery.querySelectorAll('.gallery-img');
+
+          const dots = gallery.querySelectorAll('.gallery-dot');
+
+          let currentIndex = 0;
+
+          let interval = null;
+
+          
+
+          if (images.length < 2) return;
+
+          
+
+          function showSlide(index) {
+
+            images.forEach(img => img.style.display = 'none');
+
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.5)');
+
+            
+
+            if (images[index]) {
+
+              images[index].style.display = 'block';
+
+            }
+
+            
+
+            if (dots[index]) {
+
+              dots[index].style.backgroundColor = '#ffffff';
+
+            }
+
+            
+
+            currentIndex = index;
+
+          }
+
+          
+
+          dots.forEach((dot, index) => {
+
+            dot.addEventListener('click', () => {
+
+              clearInterval(interval);
+
+              showSlide(index);
+
+              startAutoScroll();
+
+            });
+
+          });
+
+          
+
+          function startAutoScroll() {
+
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(() => {
+
+              const nextIndex = (currentIndex + 1) % images.length;
+
+              showSlide(nextIndex);
+
+            }, 3000);
+
+          }
+
+          
+
+          gallery.addEventListener('mouseenter', () => clearInterval(interval));
+
+          gallery.addEventListener('mouseleave', startAutoScroll);
+
+          
+
+          startAutoScroll();
+
+        });
+
+      }
+
+      
+
+      // Function to initialize AI elements
+
+      function initAIElements() {
+
+        // Initialize animated counters
+
+        const counters = document.querySelectorAll('.animated-counter .counter');
+
+        counters.forEach(counter => {
+
+          const startValue = parseInt(counter.dataset.start) || 0;
+
+          const endValue = parseInt(counter.dataset.end) || 100;
+
+          const duration = parseInt(counter.dataset.duration) || 2000;
+
+          
+
+          let startTime = null;
+
+          function animateCounter(timestamp) {
+
+            if (!startTime) startTime = timestamp;
+
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+
+            counter.textContent = currentValue;
+
+            
+
+            if (progress < 1) {
+
+              requestAnimationFrame(animateCounter);
+
+            }
+
+          }
+
+          
+
+          // Start animation when element is visible
+
+          const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+              if (entry.isIntersecting) {
+
+                requestAnimationFrame(animateCounter);
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          });
+
+          observer.observe(counter);
+
+        });
+
+        
+
+        // Initialize typewriter text with new structure
+
+        const typewriters = document.querySelectorAll('.typewriter');
+
+        typewriters.forEach(initTypewriter);
+
+        
+
+        // Re-initialize typewriter text after a short delay to catch dynamically loaded content
+
+        setTimeout(() => {
+
+          const newTypewriters = document.querySelectorAll('.typewriter:not([data-initialized])');
+
+          newTypewriters.forEach(element => {
+
+            element.setAttribute('data-initialized', 'true');
+
+            initTypewriter(element);
+
+          });
+
+        }, 100);
+
+         
+
+         // Initialize FAQ accordion functionality
+
+         window.toggleFAQ = function(index) {
+           console.log('🔧 [toggleFAQ] Called with index:', index);
+           
+           const answer = document.getElementById('faq-answer-' + index);
+           console.log('🔧 [toggleFAQ] Found answer element:', answer);
+           
+           const container = answer ? answer.parentElement : null;
+           const icon = container ? container.querySelector('span') : null;
+           console.log('🔧 [toggleFAQ] Found icon:', icon);
+           
+           if (answer) {
+             const isVisible = answer.style.display !== 'none';
+             console.log('🔧 [toggleFAQ] Is visible:', isVisible);
+             
+             answer.style.display = isVisible ? 'none' : 'block';
+             
+             // Обновляем иконку
+             if (icon) {
+               icon.textContent = isVisible ? '▼' : '▲';
+               console.log('🔧 [toggleFAQ] Updated icon to:', icon.textContent);
+             }
+           } else {
+             console.error('🔧 [toggleFAQ] Answer element not found for index:', index);
+           }
+
+             // Применяем hover эффекты к контейнеру
+
+             if (container) {
+
+               const originalBg = container.style.backgroundColor;
+
+               const hoverBg = container.getAttribute('data-hover-bg') || '#f0f0f0';
+
+               
+
+               // Добавляем обработчики hover для развернутого состояния
+
+               container.onmouseover = function() {
+
+                 this.style.backgroundColor = hoverBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = hoverBg;
+
+                 }
+
+               };
+
+               
+
+               container.onmouseout = function() {
+
+                 this.style.backgroundColor = originalBg;
+
+                 if (answer.style.display !== 'none') {
+
+                   answer.style.backgroundColor = originalBg;
+
+                 }
+
+               };
+
+             }
+
+           }
+
+         };
+
+         
+
+         // Initialize charts when libraries are loaded
+
+         function initializeCharts() {
+
+           const chartElements = document.querySelectorAll('.chart-component canvas, .chart-component div[id^="chart-"]');
+
+           chartElements.forEach(element => {
+
+             const scripts = element.parentElement.querySelectorAll('script');
+
+             scripts.forEach(script => {
+
+               if (script.textContent.includes('Chart(') || script.textContent.includes('ApexCharts')) {
+
+                 try {
+
+                   eval(script.textContent);
+
+                 } catch (e) {
+
+                   console.log('Chart initialization delayed:', e.message);
+
+                 }
+
+               }
+
+             });
+
+           });
+
+         }
+
+         
+
+         // Try to initialize charts after a delay to ensure libraries are loaded
+
+         setTimeout(initializeCharts, 1000);
+
+         setTimeout(initializeCharts, 2000);
+
+       }
+
+      
+
+      document.addEventListener('DOMContentLoaded', initImageGalleries);
+
+      
+
+      // Функция отправки формы контактов
+
+      function submitContactForm(event) {
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const formData = new FormData(form);
+
+        
+
+        // Отправляем данные на Formspree
+
+        fetch('https://formspree.io/f/', {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+
+            'Accept': 'application/json'
+
+          }
+
+        }).finally(() => {
+
+          // Перенаправляем на страницу благодарности с параметрами
+
+          const thankYouMessage = encodeURIComponent('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
+
+          const closeButtonText = encodeURIComponent('Закрыть');
+
+          window.location.href = `merci.html?message=${thankYouMessage}&closeButtonText=${closeButtonText}`;
+
+        });
+
+        
+
+        return false;
+
+      }
+
+    </script>
+
+</body>
+
+</html>

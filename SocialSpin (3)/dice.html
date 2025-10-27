@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кости - SocialSpin Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+        body { background: #04142a; font-family: 'Roboto', sans-serif; color: #fff; }
+        
+        .game-wrapper { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 0.5rem; 
+            gap: 0.5rem; 
+        }
+        
+        .header { 
+            position: relative; 
+            text-align: center; 
+            flex-shrink: 0; 
+        }
+        
+        .header h1 { 
+            font-size: clamp(1rem, 2rem, 2rem); 
+            color: #e91616; 
+            margin: 0; 
+            text-shadow: 0 0 20px rgba(233, 22, 22, 0.5); 
+        }
+        
+        .header p { 
+            font-size: clamp(0.6rem, 0.9rem, 0.9rem); 
+            color: #00ffff; 
+            margin: 0.3rem 0; 
+        }
+        
+        .home-btn { 
+            position: absolute; 
+            top: 0.5rem; 
+            left: 0.5rem; 
+            background: #4caf50; 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 8px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: all 0.3s; 
+        }
+        
+        .stats-bar { 
+            display: flex; 
+            justify-content: space-around; 
+            background: linear-gradient(135deg, #1a0038 0%, #04142a 100%); 
+            padding: 0.6rem; 
+            border-radius: 8px; 
+            border: 2px solid #2196f3; 
+            flex-shrink: 0; 
+        }
+        
+        .stat-item { text-align: center; }
+        .stat-label { font-size: 0.6rem; color: #888; margin-bottom: 0.2rem; }
+        .stat-value { font-size: clamp(0.9rem, 1.3rem, 1.3rem); font-weight: 700; color: #00ffff; }
+        
+        .game-box { 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%); 
+            border-radius: 12px; 
+            padding: 1rem; 
+            border: 2px solid #e91616; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; 
+            min-height: 0; 
+        }
+        
+        .bet-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .bet-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .bet-section-title {
+            text-align: center;
+            color: #ffd700;
+            font-size: clamp(0.8rem, 1rem, 1rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+        
+        .bet-option {
+            background: linear-gradient(135deg, #1a0038, #04142a);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .bet-option:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4); }
+        .bet-option.selected { background: linear-gradient(135deg, #2196f3, #1976d2); border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+        
+        .bet-label { font-size: 0.7rem; color: #888; margin-bottom: 0.3rem; }
+        .bet-odds { font-size: clamp(0.9rem, 1.2rem, 1.2rem); font-weight: 700; color: #00ffff; }
+        
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .dice {
+            width: clamp(80px, 18vw, 120px);
+            height: clamp(80px, 18vw, 120px);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            border: 3px solid #333;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            padding: 8px;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dice.rolling {
+            animation: diceRoll 0.6s ease-in-out;
+        }
+        
+        .dot {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #000;
+            box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes diceRoll {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.2); }
+            50% { transform: rotate(180deg) scale(0.9); }
+            75% { transform: rotate(270deg) scale(1.2); }
+        }
+        
+        .sum-display {
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 3rem);
+            font-weight: 900;
+            color: #ffd700;
+            margin: 1rem 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        
+        .btn { 
+            padding: clamp(0.7rem, 1rem, 1rem) clamp(1.2rem, 1.8rem, 1.8rem); 
+            border: none; 
+            border-radius: 10px; 
+            font-size: clamp(0.85rem, 1.1rem, 1.1rem); 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-family: 'Montserrat', sans-serif; 
+            text-transform: uppercase; 
+            transition: all 0.3s; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+        }
+        
+        .btn-roll { background: linear-gradient(135deg, #e91616 0%, #c62828 100%); color: white; }
+        .btn-new { background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%); color: white; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .message-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            pointer-events: none;
+        }
+        
+        .msg {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: messageAppear 0.6s ease-out;
+            text-align: center;
+            min-width: 250px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+        
+        .msg-win { background: linear-gradient(135deg, #4caf50, #66bb6a); border: 5px solid #ffd700; color: #fff; }
+        .msg-lose { background: linear-gradient(135deg, #e91616, #f44336); border: 5px solid #ff6b6b; color: #fff; }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .game-wrapper { padding: 0.3rem; gap: 0.3rem; }
+            .header h1 { font-size: 0.9rem; }
+            .home-btn { top: 0.3rem; left: 0.3rem; padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .stats-bar { padding: 0.4rem; }
+            .stat-label { font-size: 0.5rem; }
+            .stat-value { font-size: 0.85rem; }
+            .game-box { padding: 0.6rem; }
+            .dice { width: 50px; height: 50px; font-size: 1.5rem; }
+            .dice-container { gap: 1rem; margin: 1rem 0; }
+            .bet-option { padding: 0.6rem 0.8rem; min-width: 60px; }
+            .bet-odds { font-size: 0.85rem; }
+            .sum-display { font-size: 1.2rem; }
+            .controls { gap: 0.5rem; flex-direction: column; }
+            .btn { padding: 0.6rem 1rem; font-size: 0.8rem; width: 100%; }
+            .msg { font-size: 1.5rem; padding: 1rem 1.5rem; min-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="header">
+            <a href="index.html" class="home-btn">Главная</a>
+            <h1>Кости</h1>
+            <p>Бросьте кости и угадайте сумму!</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Баланс</div>
+                <div class="stat-value" id="balance">1000 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Ставка</div>
+                <div class="stat-value" id="bet">50 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Побед</div>
+                <div class="stat-value" id="wins">0</div>
+            </div>
+        </div>
+        
+        <div class="game-box">
+            <div class="bet-area" id="betArea"></div>
+            
+            <div class="dice-container">
+                <div class="dice" id="dice1">⚫</div>
+                <div class="dice" id="dice2">⚫</div>
+            </div>
+            <div class="sum-display" id="sumDisplay">Сумма: 0</div>
+            
+            <div class="controls">
+                <button class="btn btn-roll" id="btnRoll">Бросить кости</button>
+                <button class="btn btn-new" id="btnNew">Новая ставка</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="message" class="message-overlay"></div>
+    
+    <script>
+        let balance = 1000, bet = 50, wins = 0;
+        let selectedSum = null;
+        let selectedType = null;
+        let dice1 = 1, dice2 = 1;
+        
+        const odds = {
+            2: 18, 3: 12, 4: 9, 5: 7, 6: 6,
+            7: 6, 8: 6, 9: 7, 10: 9, 11: 12, 12: 18
+        };
+        
+        const rangeOdds = {
+            'less7': 2,
+            'more7': 2,
+            'less8': 1.8,
+            'more8': 1.8
+        };
+        
+        function load() {
+            try {
+                balance = parseInt(localStorage.getItem('diceBalance')) || 1000;
+                bet = parseInt(localStorage.getItem('diceBet')) || 50;
+                wins = parseInt(localStorage.getItem('diceWins')) || 0;
+            } catch(e) {}
+        }
+        
+        function save() {
+            try {
+                localStorage.setItem('diceBalance', balance);
+                localStorage.setItem('diceBet', bet);
+                localStorage.setItem('diceWins', wins);
+            } catch(e) {}
+        }
+        
+        function updateStats() {
+            document.getElementById('balance').textContent = balance + ' ₽';
+            document.getElementById('bet').textContent = bet + ' ₽';
+            document.getElementById('wins').textContent = wins;
+        }
+        
+        function renderBetArea() {
+            const container = document.getElementById('betArea');
+            container.innerHTML = '';
+            
+            // Секция ставок по диапазонам
+            const rangeSection = document.createElement('div');
+            rangeSection.innerHTML = '<div class="bet-section-title">Ставки по диапазонам</div>';
+            const rangeOptions = document.createElement('div');
+            rangeOptions.className = 'bet-section';
+            
+            const rangeBets = [
+                { type: 'less7', label: 'Меньше 7', odds: rangeOdds.less7 },
+                { type: 'more7', label: 'Больше 7', odds: rangeOdds.more7 },
+                { type: 'less8', label: 'Меньше 8', odds: rangeOdds.less8 },
+                { type: 'more8', label: 'Больше 8', odds: rangeOdds.more8 }
+            ];
+            
+            rangeBets.forEach(range => {
+                const div = document.createElement('div');
+                div.className = 'bet-option';
+                div.dataset.type = 'range';
+                div.dataset.range = range.type;
+                div.innerHTML = `
+                    <div class="bet-label">${range.label}</div>
+                    <div class="bet-odds">${range.odds}x</div>
+                `;
+                div.onclick = () => selectRange(range.type);
+                rangeOptions.appendChild(div);
+            });
+            rangeSection.appendChild(rangeOptions);
+            container.appendChild(rangeSection);
+            
+            // Секция точных ставок
+            const exactSection = document.createElement('div');
+            exactSection.innerHTML = '<div class="bet-section-title">Точные ставки</div>';
+            const exactOptions = document.createElement('div');
+            exactOptions.className = 'bet-section';
+            
+            for (let sum = 2; sum <= 12; sum++) {
+                const div = document.createElement('div');
+                div.className = 'bet-option';
+                div.dataset.type = 'exact';
+                div.dataset.sum = sum;
+                div.innerHTML = `
+                    <div class="bet-label">Сумма ${sum}</div>
+                    <div class="bet-odds">${odds[sum]}x</div>
+                `;
+                div.onclick = () => selectBet(sum);
+                exactOptions.appendChild(div);
+            }
+            exactSection.appendChild(exactOptions);
+            container.appendChild(exactSection);
+        }
+        
+        function selectBet(sum) {
+            selectedSum = sum;
+            selectedType = 'exact';
+            document.querySelectorAll('.bet-option').forEach(el => el.classList.remove('selected'));
+            event.target.closest('.bet-option').classList.add('selected');
+            document.getElementById('btnRoll').disabled = false;
+        }
+        
+        function selectRange(rangeType) {
+            selectedSum = null;
+            selectedType = 'range';
+            const range = rangeType;
+            document.querySelectorAll('.bet-option').forEach(el => el.classList.remove('selected'));
+            event.target.closest('.bet-option').classList.add('selected');
+            document.getElementById('btnRoll').disabled = false;
+        }
+        
+        function rollDice() {
+            if (selectedSum === null && selectedType === null) {
+                showMessage('Выберите ставку!', 'lose');
+                return;
+            }
+            
+            if (balance < bet) {
+                showMessage('Недостаточно средств!', 'lose');
+                return;
+            }
+            
+            balance -= bet;
+            updateStats();
+            
+            const diceEl1 = document.getElementById('dice1');
+            const diceEl2 = document.getElementById('dice2');
+            
+            diceEl1.classList.add('rolling');
+            diceEl2.classList.add('rolling');
+            
+            let rollCount = 0;
+            const rollInterval = setInterval(() => {
+                dice1 = Math.floor(Math.random() * 6) + 1;
+                dice2 = Math.floor(Math.random() * 6) + 1;
+                
+                renderDiceFace(diceEl1, dice1);
+                renderDiceFace(diceEl2, dice2);
+                
+                rollCount++;
+                if (rollCount >= 10) {
+                    clearInterval(rollInterval);
+                    diceEl1.classList.remove('rolling');
+                    diceEl2.classList.remove('rolling');
+                    
+                    const sum = dice1 + dice2;
+                    document.getElementById('sumDisplay').textContent = 'Сумма: ' + sum;
+                    
+                    setTimeout(() => {
+                        let winAmount = 0;
+                        let isWin = false;
+                        
+                        if (selectedType === 'exact' && sum === selectedSum) {
+                            winAmount = bet * odds[sum];
+                            isWin = true;
+                        } else if (selectedType === 'range') {
+                            const selectedRange = document.querySelector('.bet-option.selected').dataset.range;
+                            if (selectedRange === 'less7' && sum < 7) {
+                                winAmount = bet * rangeOdds.less7;
+                                isWin = true;
+                            } else if (selectedRange === 'more7' && sum > 7) {
+                                winAmount = bet * rangeOdds.more7;
+                                isWin = true;
+                            } else if (selectedRange === 'less8' && sum < 8) {
+                                winAmount = bet * rangeOdds.less8;
+                                isWin = true;
+                            } else if (selectedRange === 'more8' && sum > 8) {
+                                winAmount = bet * rangeOdds.more8;
+                                isWin = true;
+                            }
+                        }
+                        
+                        if (isWin) {
+                            balance += winAmount;
+                            wins++;
+                            showMessage('ВЫИГРЫШ!\n+' + winAmount + '₽', 'win');
+                        } else {
+                            showMessage('ПРОИГРЫШ!\nВыпало ' + sum, 'lose');
+                        }
+                        document.getElementById('btnRoll').disabled = true;
+                        document.getElementById('btnNew').disabled = false;
+                        save();
+                        updateStats();
+                    }, 500);
+                }
+            }, 50);
+        }
+        
+        function renderDiceFace(diceEl, value) {
+            diceEl.innerHTML = '';
+            const patterns = {
+                1: [[0,0,0],[0,1,0],[0,0,0]],
+                2: [[1,0,0],[0,0,0],[0,0,1]],
+                3: [[1,0,0],[0,1,0],[0,0,1]],
+                4: [[1,0,1],[0,0,0],[1,0,1]],
+                5: [[1,0,1],[0,1,0],[1,0,1]],
+                6: [[1,0,1],[1,0,1],[1,0,1]]
+            };
+            
+            const pattern = patterns[value];
+            pattern.forEach(row => {
+                row.forEach(cell => {
+                    if (cell === 1) {
+                        const dot = document.createElement('div');
+                        dot.className = 'dot';
+                        diceEl.appendChild(dot);
+                    } else {
+                        const empty = document.createElement('div');
+                        diceEl.appendChild(empty);
+                    }
+                });
+            });
+        }
+        
+        function newBet() {
+            selectedSum = null;
+            selectedType = null;
+            document.querySelectorAll('.bet-option').forEach(el => el.classList.remove('selected'));
+            renderDiceFace(document.getElementById('dice1'), 1);
+            renderDiceFace(document.getElementById('dice2'), 1);
+            document.getElementById('sumDisplay').textContent = 'Сумма: 0';
+            document.getElementById('btnRoll').disabled = true;
+            document.getElementById('btnNew').disabled = false;
+            document.getElementById('message').innerHTML = '';
+        }
+        
+        function showMessage(text, type = 'win') {
+            const msgArea = document.getElementById('message');
+            if (msgArea) {
+                msgArea.innerHTML = '<div class="msg msg-' + type + '">' + text + '</div>';
+                setTimeout(() => msgArea.innerHTML = '', 3000);
+            }
+        }
+        
+        function adjustBet(amount) {
+            bet = Math.max(10, Math.min(500, bet + amount));
+            save();
+            updateStats();
+        }
+        
+        function init() {
+            load();
+            updateStats();
+            renderBetArea();
+            document.getElementById('btnRoll').addEventListener('click', rollDice);
+            document.getElementById('btnNew').addEventListener('click', newBet);
+            
+            // Отрисовка начальных костей
+            renderDiceFace(document.getElementById('dice1'), 1);
+            renderDiceFace(document.getElementById('dice2'), 1);
+            
+            const betControls = `
+                <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <button onclick="adjustBet(-10)" style="background: #e91616; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">-</button>
+                    <button onclick="adjustBet(-10)" style="background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">-10</button>
+                    <button onclick="adjustBet(10)" style="background: #2196f3; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">+10</button>
+                    <button onclick="adjustBet(10)" style="background: #4caf50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">+</button>
+                </div>
+            `;
+            document.querySelector('.stats-bar').insertAdjacentHTML('afterend', betControls);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+        function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+            else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+            else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+        }
+        setTimeout(enterFullscreen, 500);
+    </script>
+</body>
+</html>
+

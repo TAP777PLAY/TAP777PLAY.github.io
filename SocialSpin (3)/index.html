@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SocialSpin</title>
+
+    <meta name="description" content="SocialSpin Casino — современное игровое пространство 2025 года, где азарт, стратегия и живое общение объединяют игроков со всего мира. Играйте без риска, развивайтесь и зарабатывайте виртуальные монеты за активность и победы.">
+
+    <link rel="icon" type="image/png" href="assets/images/Favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    
+
+    <style>
+
+      /* Contact section styles - точно как в contacts.html */
+
+      .contact-section {
+
+        padding: 4rem 2rem;
+
+        width: 100%;
+
+        margin: 0;
+
+        position: relative;
+
+        z-index: 2;
+
+      }
+
+      
+
+      .contact-container {
+
+        max-width: 1140px;
+
+        margin: 0 auto;
+
+        padding: 0 20px;
+
+      }
+
+      
+
+      .contact-header {
+
+        text-align: center;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-title {
+
+        font-size: 2.5rem;
+
+        margin-bottom: 1rem;
+
+        position: relative;
+
+        display: inline-block;
+
+      }
+
+      
+
+      .contact-title::after {
+
+        content: '';
+
+        position: absolute;
+
+        bottom: -10px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 50px;
+
+        height: 3px;
+
+        background-color: currentColor;
+
+      }
+
+      
+
+      .contact-description {
+
+        font-size: 1.1rem;
+
+        max-width: 800px;
+
+        margin: 0 auto;
+
+        line-height: 1.6;
+
+      }
+
+      
+
+      .contact-content {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 2rem;
+
+        margin-bottom: 3rem;
+
+      }
+
+      
+
+      .contact-form-container {
+
+        padding: 2.5rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .contact-form .form-group {
+
+        margin-bottom: 1.5rem;
+
+      }
+
+      
+
+      .contact-form label {
+
+        display: block;
+
+        margin-bottom: 0.5rem;
+
+        font-weight: 500;
+
+      }
+
+      
+
+      .contact-form input,
+
+      .contact-form textarea {
+
+        width: 100%;
+
+        padding: 0.85rem 1rem;
+
+        border: 1px solid #ddd;
+
+        border-radius: 6px;
+
+        font-size: 1rem;
+
+        box-sizing: border-box;
+
+        font-family: inherit;
+
+      }
+
+      
+
+      .contact-form textarea {
+
+        resize: vertical;
+
+        min-height: 100px;
+
+      }
+
+      
+
+      .contact-form button {
+
+        width: 100%;
+
+        padding: 0.9rem 1.5rem;
+
+        border: none;
+
+        border-radius: 6px;
+
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+
+        font-weight: 500;
+
+        font-size: 1rem;
+
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+      }
+
+      
+
+      .contact-form button:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+      }
+
+      
+
+      .contact-info-container {
+
+        padding: 2rem;
+
+        border-radius: 8px;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        border: 1px solid #ddd;
+
+      }
+
+      
+
+      .info-title {
+
+        font-size: 1.5rem;
+
+        margin-bottom: 1.5rem;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-info-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 1rem;
+
+        padding: 8px 0;
+
+      }
+
+
+
+      .contact-icon {
+
+        color: #1976d2; /* Default icon color */
+
+        font-size: 1.2rem;
+
+        min-width: 24px;
+
+        text-align: center;
+
+      }
+
+      
+
+      .contact-map,
+
+      .contact-map-container {
+
+        margin-top: 2rem;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+      }
+
+      
+
+      .contact-map iframe,
+
+      .contact-map-container iframe {
+
+        width: 100%;
+
+        height: 300px;
+
+        border: 0;
+
+      }
+
+      
+
+      @media (max-width: 768px) {
+
+        .contact-section {
+
+          padding: 2rem 1rem;
+
+        }
+
+
+
+        .contact-title {
+
+          font-size: 2rem;
+
+        }
+
+
+
+        .contact-description {
+
+          font-size: 1.1rem;
+
+        }
+
+
+
+        .contact-content {
+
+          grid-template-columns: 1fr;
+
+        }
+
+        
+
+        .contact-form-container,
+
+        .contact-info-container {
+
+          padding: 1.5rem;
+
+        }
+
+      }
+
+      
+
+      /* Styles for .contact-info (the inner container for text items) */
+
+      .contact-info {
+
+        border-radius: 15px;
+
+        padding: 2rem;
+
+      }
+
+    </style>
+
+    
+
+    <!-- React и основные библиотеки -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    
+
+    <!-- Material-UI -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script src="https://unpkg.com/@mui/material@5.15.10/umd/material-ui.production.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/react@11.14.0/dist/emotion-react.umd.min.js"></script>
+
+    <script src="https://unpkg.com/@emotion/styled@11.14.1/dist/emotion-styled.umd.min.js"></script>
+
+    
+
+    <!-- Дополнительные библиотеки для элементов -->
+
+    <script src="https://unpkg.com/framer-motion@12.23.0/dist/framer-motion.js"></script>
+
+    <script src="https://unpkg.com/react-countup@6.5.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-confetti@6.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/qrcode.react@4.2.0/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-player@3.1.0/dist/ReactPlayer.js"></script>
+
+    <script src="https://unpkg.com/react-rating-stars-component@2.2.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-text-transition@3.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-share@5.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-copy-to-clipboard@5.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-color@2.19.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-datepicker@8.4.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-select@5.10.1/dist/react-select.umd.js"></script>
+
+    <script src="https://unpkg.com/react-scroll@1.9.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-rnd@10.5.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-image-crop@11.0.10/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-markdown@9.0.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-plotly.js@2.6.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-apexcharts@1.7.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/recharts@3.0.2/lib/index.umd.js"></script>
+
+    <script src="https://unpkg.com/apexcharts@4.7.0/dist/apexcharts.min.js"></script>
+
+    <script src="https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js"></script>
+
+    <script src="https://unpkg.com/plotly.js@3.0.1/dist/plotly.min.js"></script>
+
+    <script src="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11.2.10/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/dayjs@1.11.13/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/marked@15.0.10/marked.min.js"></script>
+
+    <script src="https://unpkg.com/uuid@11.1.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.umd.js"></script>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+
+    <script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <script src="https://unpkg.com/formik@2.4.6/dist/formik.umd.min.js"></script>
+
+    <script src="https://unpkg.com/yup@1.6.1/dist/yup.umd.min.js"></script>
+
+    <script src="https://unpkg.com/react-hook-form@7.59.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@hookform/resolvers@5.1.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate@0.117.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-react@0.117.3/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/slate-history@0.113.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/react@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/starter-kit@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-color@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-highlight@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-image@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-link@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-table@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-text-align@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@tiptap/extension-underline@2.25.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/core@6.3.1/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/sortable@10.0.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@dnd-kit/utilities@3.2.2/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/@visx/visx@3.12.0/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/victory@37.3.6/dist/index.umd.js"></script>
+
+    <script src="https://unpkg.com/zustand@5.0.6/umd/index.production.min.js"></script>
+
+</head>
+
+<body>
+
+    
+
+    <div class="background-image" style="
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background-color: #04142a;
+
+      z-index: -2;
+
+    "></div>
+
+    
+
+    
+
+    <!-- 🧹 Шапка создается автоматически через header.js -->
+
+    
+
+    <main>
+
+        <section class="hero-section hero-animation-zoom" style="
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-image: none;">
+    <div class="hero-bg-animation" style="background-image: url('assets/images/hero.jpg'); filter: blur(0.1px);"></div>
+    
+      <div class="hero-overlay" style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0,0,0,0.001), rgba(0,0,0,0.001));
+        backdrop-filter: none;
+        z-index: 2;
+      "></div>
+    
+    <div class="container">
+      <div class="hero-content" style="
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      ">
+        <div class="hero-text-wrapper" style="
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(0.1px);
+          padding: 2rem 3rem;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          max-width: 800px;
+          margin: 0 auto;
+        ">
+          <h1 class="hero-title" style="
+            color: #e91616;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+            font-family: 'Montserrat', sans-serif;
+          ">Играй, общайся и побеждай каждый день</h1>
+          <p class="hero-subtitle" style="
+            color: #2196f3;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9), -1px -1px 1px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 255, 255, 0.2);
+            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+            filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+            font-family: 'Montserrat', sans-serif;
+          ">SocialSpin Casino — современное игровое пространство 2025 года, где азарт, стратегия и живое общение объединяют игроков со всего мира. Играйте без риска, развивайтесь и зарабатывайте виртуальные монеты за активность и победы.</p>
+          
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Play Games Section -->
+  <section style="
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #04142a 0%, #0a0a1f 100%);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #e91616;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(233, 22, 22, 0.5);
+      ">Популярные игры</h2>
+      <p style="
+        text-align: center;
+        font-size: 1.2rem;
+        color: #00ffff;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+      ">Играйте в любимые казино-классики без риска</p>
+      
+      <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      ">
+        <!-- Blackjack Game Card -->
+        <div style="
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
+          border-radius: 16px;
+          padding: 2rem;
+          border: 2px solid #2196f3;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(33, 150, 243, 0.4);
+          ">🃏</div>
+          <h3 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e91616;
+            margin-bottom: 1rem;
+          ">Блэкджек 21</h3>
+          <p style="
+            color: #00ffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          ">Цель игры - набрать близко к 21 очкам, но не перебрать. Классическая карточная игра казино.</p>
+          <a href="blackjack.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+            text-decoration: none;
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(33, 150, 243, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(33, 150, 243, 0.3)';">
+            ▶ Играть
+          </a>
+        </div>
+        
+        <!-- Poker Game Card -->
+        <div style="
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
+          border-radius: 16px;
+          padding: 2rem;
+          border: 2px solid #2196f3;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(156, 39, 176, 0.4);
+          ">🂡</div>
+          <h3 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e91616;
+            margin-bottom: 1rem;
+          ">Покер 5 Card Draw</h3>
+          <p style="
+            color: #00ffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          ">Соберите комбинации: от пары до роял-флэша! Выберите карты для замены.</p>
+          <a href="poker.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+            text-decoration: none;
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(156, 39, 176, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(156, 39, 176, 0.3)';">
+            ▶ Играть
+          </a>
+        </div>
+        
+        <!-- Dice Game Card -->
+        <div style="
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
+          border-radius: 16px;
+          padding: 2rem;
+          border: 2px solid #2196f3;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+          ">⚫⚫⚫</div>
+          <h3 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e91616;
+            margin-bottom: 1rem;
+          ">Кости</h3>
+          <p style="
+            color: #00ffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          ">Бросьте кости и угадайте сумму! Чем меньше вероятность, тем выше выигрыш!</p>
+          <a href="dice.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            text-decoration: none;
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 152, 0, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.3)';">
+            ▶ Играть
+          </a>
+        </div>
+        
+        <!-- Slots Game Card -->
+        <div style="
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
+          border-radius: 16px;
+          padding: 2rem;
+          border: 2px solid #2196f3;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff1744, #d50000);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(255, 23, 68, 0.4);
+          ">🎰</div>
+          <h3 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e91616;
+            margin-bottom: 1rem;
+          ">Слоты</h3>
+          <p style="
+            color: #00ffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          ">Крутите барабаны и выигрывайте! Соберите одинаковые символы на одной линии.</p>
+          <a href="slots.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #ff1744 0%, #d50000 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
+            text-decoration: none;
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 23, 68, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 23, 68, 0.3)';">
+            ▶ Играть
+          </a>
+        </div>
+        
+        <!-- Roulette Game Card -->
+        <div style="
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
+          border-radius: 16px;
+          padding: 2rem;
+          border: 2px solid #2196f3;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
+          <div style="
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00e676, #00c853);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
+          ">🎯</div>
+          <h3 style="
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e91616;
+            margin-bottom: 1rem;
+          ">Рулетка</h3>
+          <p style="
+            color: #00ffff;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          ">Вращайте колесо удачи! Ставьте на чётное, нечётное, красное или чёрное.</p>
+          <a href="roulette.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+            text-decoration: none;
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 230, 118, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 230, 118, 0.3)';">
+            ▶ Играть
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+    </main>
+
+    
+
+    <!-- 🧹 Футер создается автоматически через footer.js -->
+    <div id="site-footer-container"></div>
+
+    
+
+    
+<!-- Cookie Consent Modal -->
+<div id="cookie-consent-modal" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  max-width: 400px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 10000;
+  display: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: slideInLeft 0.5s ease-out;
+  overflow: hidden;
+">
+  <div style="padding: 16px;">
+    <h3 style="
+      margin: 0 0 8px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1976d2;
+      line-height: 1.3;
+    ">Настройки файлов cookie</h3>
+    
+    <p style="
+      margin: 0 0 12px 0;
+      font-size: 12px;
+      line-height: 1.4;
+      color: #495057;
+    ">Мы используем файлы cookie для улучшения вашего опыта просмотра, предоставления персонализированного контента и анализа нашего трафика. Нажимая 'Принять все', вы соглашаетесь с использованием файлов cookie.</p>
+    
+    <div style="
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px;
+    ">
+      <a href="privacy-policy.html" target="_blank" style="
+        color: #1976d2;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        Политика конфиденциальности
+      </a>
+      <span style="color: #6c757d; font-size: 11px;">•</span>
+      <a href="cookie-policy.html" target="_blank" style="
+        color: #1976d2;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        Политика файлов cookie
+      </a>
+    </div>
+    
+    <!-- Buttons -->
+    <div style="
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    ">
+      <button id="cookie-reject-all" style="
+        background: transparent;
+        color: #6c757d;
+        border: 1px solid #6c757d;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+      " onmouseover="
+        this.style.backgroundColor='#6c757d';
+        this.style.color='white';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.backgroundColor='transparent';
+        this.style.color='#6c757d';
+        this.style.transform='translateY(0)';
+      ">
+        Отклонить все
+      </button>
+      
+      <button id="cookie-customize" style="
+        background: transparent;
+        color: #1976d2;
+        border: 1px solid #1976d2;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+      " onmouseover="
+        this.style.backgroundColor='#1976d2';
+        this.style.color='white';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.backgroundColor='transparent';
+        this.style.color='#1976d2';
+        this.style.transform='translateY(0)';
+      ">
+        Настроить
+      </button>
+      
+      <button id="cookie-accept-all" style="
+        background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 70px;
+        box-shadow: 0 2px 6px rgba(25, 118, 210, 0.3);
+      " onmouseover="
+        this.style.transform='translateY(-1px)';
+        this.style.boxShadow='0 3px 10px rgba(25, 118, 210, 0.4)';
+        this.style.background='linear-gradient(135deg, #1565c0 0%, #0d47a1 100%)';
+      " onmouseout="
+        this.style.transform='translateY(0)';
+        this.style.boxShadow='0 2px 6px rgba(25, 118, 210, 0.3)';
+        this.style.background='linear-gradient(135deg, #1976d2 0%, #1565c0 100%)';
+      ">
+        Принять все
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-settings-modal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 10001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+">
+  <div style="
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+  ">
+    <!-- Header -->
+    <div style="
+      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    ">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600;">Настройки файлов cookie</h2>
+      </div>
+      <button id="cookie-settings-close" style="
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      " onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'">
+        ×
+      </button>
+    </div>
+    
+    <!-- Content -->
+    <div style="padding: 24px; max-height: 60vh; overflow-y: auto;">
+      <p style="
+        margin: 0 0 24px 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #495057;
+      ">Мы используем файлы cookie для улучшения вашего опыта просмотра, предоставления персонализированного контента и анализа нашего трафика. Нажимая 'Принять все', вы соглашаетесь с использованием файлов cookie.</p>
+      
+      <!-- Cookie Categories -->
+      <div style="margin-bottom: 24px;">
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-necessary" checked disabled style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: not-allowed;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-necessary" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: not-allowed;
+            ">Необходимые файлы cookie</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #6c757d;
+              line-height: 1.4;
+            ">Эти файлы cookie необходимы для правильной работы веб-сайта. Их нельзя отключить.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-analytics" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-analytics" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Аналитические файлы cookie</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #6c757d;
+              line-height: 1.4;
+            ">Эти файлы cookie помогают нам понять, как посетители взаимодействуют с нашим веб-сайтом, собирая и сообщая информацию анонимно.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+          margin-bottom: 16px;
+        ">
+          <input type="checkbox" id="cookie-marketing" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-marketing" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Маркетинговые файлы cookie</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #6c757d;
+              line-height: 1.4;
+            ">Эти файлы cookie используются для отслеживания посетителей на веб-сайтах для отображения релевантной и привлекательной рекламы.</p>
+          </div>
+        </div>
+        
+        <div style="
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 12px;
+        ">
+          <input type="checkbox" id="cookie-preferences" style="
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+          ">
+          <div style="flex: 1;">
+            <label for="cookie-preferences" style="
+              display: block;
+              font-weight: 600;
+              font-size: 16px;
+              color: #212529;
+              margin-bottom: 4px;
+              cursor: pointer;
+            ">Файлы cookie предпочтений</label>
+            <p style="
+              margin: 0;
+              font-size: 13px;
+              color: #6c757d;
+              line-height: 1.4;
+            ">Эти файлы cookie запоминают ваш выбор и предпочтения для обеспечения более персонализированного опыта.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div style="
+      background: #f8f9fa;
+      padding: 20px 24px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    ">
+      <button id="cookie-save-preferences" style="
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 120px;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+      " onmouseover="
+        this.style.transform='translateY(-2px)';
+        this.style.boxShadow='0 6px 20px rgba(40, 167, 69, 0.4)';
+        this.style.background='linear-gradient(135deg, #218838 0%, #1ea085 100%)';
+      " onmouseout="
+        this.style.transform='translateY(0)';
+        this.style.boxShadow='0 4px 12px rgba(40, 167, 69, 0.3)';
+        this.style.background='linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+      ">
+        Сохранить настройки
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #cookie-consent-modal {
+    left: 10px !important;
+    bottom: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+  
+  #cookie-consent-modal > div {
+    padding: 14px !important;
+  }
+  
+  #cookie-consent-modal button {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+  
+  #cookie-settings-modal > div {
+    width: 95% !important;
+    margin: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #cookie-consent-modal {
+    left: 8px !important;
+    bottom: 8px !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+  
+  #cookie-consent-modal h3 {
+    font-size: 14px !important;
+  }
+  
+  #cookie-consent-modal p {
+    font-size: 11px !important;
+  }
+  
+  #cookie-consent-modal button {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+  }
+  
+  #cookie-consent-modal > div {
+    padding: 12px !important;
+  }
+}
+</style>
+
+<script>
+// Cookie Consent Logic
+(function() {
+  // Check if already consented
+  function isAlreadyConsented() {
+    const consent = localStorage.getItem('cookieConsent');
+    const consentDate = localStorage.getItem('cookieConsentDate');
+    
+    if (consent && consentDate) {
+      const date = new Date(consentDate);
+      const now = new Date();
+      const daysDiff = (now - date) / (1000 * 60 * 60 * 24);
+      
+      // Consent is valid for 365 days
+      return daysDiff < 365;
+    }
+    
+    return false;
+  }
+
+  // Show cookie consent if not already consented
+  if (!isAlreadyConsented()) {
+    document.getElementById('cookie-consent-modal').style.display = 'block';
+  }
+
+  // Event listeners
+  document.getElementById('cookie-accept-all').addEventListener('click', function() {
+    const preferences = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+      preferences: true
+    };
+    
+    localStorage.setItem('cookieConsent', 'accepted');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-reject-all').addEventListener('click', function() {
+    const preferences = {
+      necessary: true,
+      analytics: false,
+      marketing: false,
+      preferences: false
+    };
+    
+    localStorage.setItem('cookieConsent', 'rejected');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-customize').addEventListener('click', function() {
+    document.getElementById('cookie-settings-modal').style.display = 'flex';
+  });
+
+  document.getElementById('cookie-settings-close').addEventListener('click', function() {
+    document.getElementById('cookie-settings-modal').style.display = 'none';
+  });
+
+  document.getElementById('cookie-save-preferences').addEventListener('click', function() {
+    const preferences = {
+      necessary: true, // Always true
+      analytics: document.getElementById('cookie-analytics').checked,
+      marketing: document.getElementById('cookie-marketing').checked,
+      preferences: document.getElementById('cookie-preferences').checked
+    };
+    
+    localStorage.setItem('cookieConsent', 'customized');
+    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    
+    document.getElementById('cookie-settings-modal').style.display = 'none';
+    document.getElementById('cookie-consent-modal').style.display = 'none';
+  });
+
+  // Close settings modal when clicking outside
+  document.getElementById('cookie-settings-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+})();
+</script>
+
+
+    <script src="assets/js/script.js"></script>
+    <!-- 🆕 Подключаем отдельный файл шапки -->
+    <script src="assets/js/header.js"></script>
+    <!-- 🆕 Подключаем отдельный файл футера -->
+    <script src="assets/js/footer.js"></script>
+    <!-- 🔞 Проверка возраста -->
+    <script src="assets/js/age-verification.js"></script>
+
+    <script>
+      // Re-initialize typewriter animations after page load
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          if (window.reinitializeTypewriters) {
+            window.reinitializeTypewriters();
+          }
+          // Re-initialize counter animations
+          if (window.reinitializeCounters) {
+            window.reinitializeCounters();
+          }
+        }, 500);
+      });
+    </script>
+</body>
+
+</html>

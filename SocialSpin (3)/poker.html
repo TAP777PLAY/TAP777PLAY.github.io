@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Покер 5 Card Draw - SocialSpin Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+        body { background: #04142a; font-family: 'Roboto', sans-serif; color: #fff; }
+        
+        .game-wrapper { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 0.5rem; 
+            gap: 0.5rem; 
+        }
+        
+        .header { 
+            position: relative; 
+            text-align: center; 
+            flex-shrink: 0; 
+        }
+        
+        .header h1 { 
+            font-size: clamp(1rem, 2rem, 2rem); 
+            color: #e91616; 
+            margin: 0; 
+            text-shadow: 0 0 20px rgba(233, 22, 22, 0.5); 
+        }
+        
+        .header p { 
+            font-size: clamp(0.6rem, 0.9rem, 0.9rem); 
+            color: #00ffff; 
+            margin: 0.3rem 0; 
+        }
+        
+        .home-btn { 
+            position: absolute; 
+            top: 0.5rem; 
+            left: 0.5rem; 
+            background: #4caf50; 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 8px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: all 0.3s; 
+        }
+        
+        .home-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4); 
+        }
+        
+        .stats-bar { 
+            display: flex; 
+            justify-content: space-around; 
+            background: linear-gradient(135deg, #1a0038 0%, #04142a 100%); 
+            padding: 0.6rem; 
+            border-radius: 8px; 
+            border: 2px solid #2196f3; 
+            flex-shrink: 0; 
+        }
+        
+        .stat-item { 
+            text-align: center; 
+        }
+        
+        .stat-label { 
+            font-size: 0.6rem; 
+            color: #888; 
+            margin-bottom: 0.2rem; 
+        }
+        
+        .stat-value { 
+            font-size: clamp(0.9rem, 1.3rem, 1.3rem); 
+            font-weight: 700; 
+            color: #00ffff; 
+        }
+        
+        .game-box { 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%); 
+            border-radius: 12px; 
+            padding: 1rem; 
+            border: 2px solid #e91616; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; 
+            min-height: 0; 
+        }
+        
+        .hand-result { 
+            text-align: center; 
+            font-size: clamp(0.9rem, 1.3rem, 1.3rem); 
+            font-weight: 700; 
+            color: #ffd700; 
+            margin-bottom: 1rem; 
+            min-height: 30px; 
+        }
+        
+        .cards-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 0.8rem; 
+            justify-content: center; 
+            align-items: center; 
+            flex: 1; 
+            padding: 1rem; 
+            overflow-y: auto; 
+        }
+        
+        .card { 
+            width: clamp(50px, 11vw, 90px); 
+            height: clamp(70px, 15vw, 126px); 
+            background: #fff; 
+            border-radius: 8px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            font-weight: 700; 
+            font-size: clamp(1rem, 2.5vw, 1.8rem); 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
+        }
+        
+        .card:hover { 
+            transform: translateY(-8px) scale(1.1); 
+        }
+        
+        .card.selected { 
+            transform: translateY(-8px) scale(1.15); 
+            border: 3px solid #ffd700; 
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); 
+        }
+        
+        .card-red { color: #e91616; }
+        .card-black { color: #333; }
+        
+        .card-suit { 
+            font-size: clamp(0.8rem, 2vw, 1.4rem); 
+            margin-top: 0.2rem; 
+        }
+        
+        .controls { 
+            display: flex; 
+            justify-content: center; 
+            gap: 1rem; 
+            margin-top: 1rem; 
+            flex-wrap: wrap; 
+            flex-shrink: 0; 
+        }
+        
+        .btn { 
+            padding: clamp(0.7rem, 1rem, 1rem) clamp(1.2rem, 1.8rem, 1.8rem); 
+            border: none; 
+            border-radius: 10px; 
+            font-size: clamp(0.85rem, 1.1rem, 1.1rem); 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-family: 'Montserrat', sans-serif; 
+            text-transform: uppercase; 
+            transition: all 0.3s; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+        }
+        
+        .btn-draw { 
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%); 
+            color: white; 
+        }
+        
+        .btn-new { 
+            background: linear-gradient(135deg, #e91616 0%, #c62828 100%); 
+            color: white; 
+        }
+        
+        .btn:disabled { 
+            opacity: 0.5; 
+            cursor: not-allowed; 
+        }
+        
+        /* Message overlay */
+        .message-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            pointer-events: none;
+        }
+        
+        .msg {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 900;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: messageAppear 0.6s ease-out;
+            text-align: center;
+            min-width: 200px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+        
+        .msg-win { 
+            background: linear-gradient(135deg, #4caf50, #66bb6a); 
+            border: 6px solid #ffd700; 
+            color: #fff; 
+        }
+        
+        .msg-info { 
+            background: linear-gradient(135deg, #2196f3, #42a5f5); 
+            border: 6px solid #90caf9; 
+            color: #fff; 
+        }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .game-wrapper { padding: 0.3rem; gap: 0.3rem; }
+            .header h1 { font-size: 0.9rem; }
+            .header p { font-size: 0.55rem; margin: 0.2rem 0; }
+            .home-btn { top: 0.3rem; left: 0.3rem; padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .stats-bar { padding: 0.4rem; }
+            .stat-label { font-size: 0.5rem; }
+            .stat-value { font-size: 0.85rem; }
+            .game-box { padding: 0.6rem; }
+            .hand-result { font-size: 0.75rem; margin-bottom: 0.5rem; }
+            .cards-container { gap: 0.5rem; padding: 0.5rem; }
+            .card { width: 45px; height: 63px; font-size: 0.85rem; }
+            .card-suit { font-size: 0.7rem; }
+            .controls { gap: 0.5rem; margin-top: 0.5rem; flex-direction: column; }
+            .btn { padding: 0.6rem 1rem; font-size: 0.8rem; width: 100%; }
+            .msg { font-size: 1.8rem; padding: 1.5rem 2rem; min-width: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="header">
+            <a href="index.html" class="home-btn">Главная</a>
+            <h1>Покер 5 Card Draw</h1>
+            <p>Выберите карты для замены и соберите комбинацию</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Баланс</div>
+                <div class="stat-value" id="balance">1000 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Ставка</div>
+                <div class="stat-value" id="bet">50 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Побед</div>
+                <div class="stat-value" id="wins">0</div>
+            </div>
+        </div>
+        
+        <div class="bet-controls" style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <button class="bet-btn" id="btnBetDown" style="background: #e91616; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">-</button>
+            <button class="bet-btn" id="btnBetDown10" style="background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">-10</button>
+            <button class="bet-btn" id="btnBetUp10" style="background: #2196f3; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">+10</button>
+            <button class="bet-btn" id="btnBetUp" style="background: #4caf50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer;">+</button>
+        </div>
+        
+        <div class="game-box">
+            <div class="hand-result" id="handResult">Текущая комбинация</div>
+            <div class="cards-container" id="playerHand"></div>
+            
+            <div class="controls">
+                <button class="btn btn-draw" id="btnDraw" disabled>Заменить</button>
+                <button class="btn btn-new" id="btnNew">Новая игра</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="message" class="message-overlay"></div>
+    
+    <script>
+        const suits = ['♠', '♥', '♦', '♣'];
+        const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        let deck = [], playerHand = [], selectedCards = [];
+        let balance = 1000, bet = 50, wins = 0;
+        
+        function load() {
+            try {
+                balance = parseInt(localStorage.getItem('pokerBalance')) || 1000;
+                bet = parseInt(localStorage.getItem('pokerBet')) || 50;
+                wins = parseInt(localStorage.getItem('pokerWins')) || 0;
+            } catch(e) {}
+        }
+        
+        function save() {
+            try {
+                localStorage.setItem('pokerBalance', balance);
+                localStorage.setItem('pokerBet', bet);
+                localStorage.setItem('pokerWins', wins);
+            } catch(e) {}
+        }
+        
+        function updateStats() {
+            document.getElementById('balance').textContent = balance + ' ₽';
+            document.getElementById('bet').textContent = bet + ' ₽';
+            document.getElementById('wins').textContent = wins;
+        }
+        
+        function createDeck() {
+            deck = [];
+            suits.forEach(s => values.forEach(v => deck.push({ suit: s, value: v })));
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+        }
+        
+        function dealInitialHand() {
+            playerHand = [];
+            // Стараемся дать хорошие карты для начальной комбинации
+            for (let i = 0; i < 5; i++) {
+                playerHand.push(deck.pop());
+            }
+            
+            // Проверяем, есть ли хотя бы пара в начальной раздаче
+            const ranks = playerHand.map(c => values.indexOf(c.value));
+            const counts = {};
+            ranks.forEach(r => counts[r] = (counts[r] || 0) + 1);
+            const freq = Object.values(counts).sort((a, b) => b - a);
+            
+            // Если нет хотя бы одной пары, пытаемся улучшить
+            if (freq[0] < 2 && deck.length > 5) {
+                let improved = false;
+                for (let i = 0; i < 5 && !improved; i++) {
+                    const tempHand = [...playerHand];
+                    tempHand[i] = deck[0];
+                    const tempRanks = tempHand.map(c => values.indexOf(c.value));
+                    const tempCounts = {};
+                    tempRanks.forEach(r => tempCounts[r] = (tempCounts[r] || 0) + 1);
+                    const tempFreq = Object.values(tempCounts).sort((a, b) => b - a);
+                    if (tempFreq[0] >= 2) {
+                        playerHand[i] = deck.shift();
+                        improved = true;
+                    }
+                }
+            }
+            
+            renderHand();
+            selectedCards = [];
+        }
+        
+        function renderHand() {
+            const container = document.getElementById('playerHand');
+            container.innerHTML = '';
+            playerHand.forEach((card, index) => {
+                const div = document.createElement('div');
+                const red = card.suit === '♥' || card.suit === '♦';
+                div.className = 'card ' + (red ? 'card-red' : 'card-black') + (selectedCards.includes(index) ? ' selected' : '');
+                div.innerHTML = '<div>' + card.value + '</div><div class="card-suit">' + card.suit + '</div>';
+                div.onclick = () => toggleCard(index);
+                div.title = 'Кликните чтобы выбрать/убрать из замены';
+                container.appendChild(div);
+            });
+            
+            const result = evaluateHand(playerHand);
+            if (selectedCards.length > 0) {
+                document.getElementById('handResult').textContent = result.name + ' (Выбрано: ' + selectedCards.length + ')';
+            } else {
+                document.getElementById('handResult').textContent = result.name + ' - Выберите карты для замены';
+            }
+        }
+        
+        function toggleCard(index) {
+            if (selectedCards.includes(index)) {
+                selectedCards = selectedCards.filter(i => i !== index);
+            } else {
+                selectedCards.push(index);
+            }
+            renderHand();
+        }
+        
+        function replaceCards() {
+            if (selectedCards.length === 0) {
+                showMessage('Выберите карты для замены!', 'info');
+                return;
+            }
+            
+            selectedCards.sort((a, b) => b - a);
+            selectedCards.forEach(index => {
+                playerHand[index] = deck.pop();
+            });
+            selectedCards = [];
+            renderHand();
+            
+            const result = evaluateHand(playerHand);
+            
+            // Всегда показываем результат
+            if (result.rank >= 1) {
+                const multipliers = {1: 3, 2: 5, 3: 7, 4: 9, 5: 11, 6: 13, 7: 15, 8: 17, 9: 19};
+                const winAmount = bet * multipliers[result.rank];
+                balance += winAmount;
+                wins++;
+                showMessage(result.name + '\nВыигрыш: ' + winAmount + '₽', 'win');
+            } else {
+                showMessage(result.name + '\nВы проиграли!', 'info');
+            }
+            
+            document.getElementById('btnDraw').disabled = true;
+            document.getElementById('btnNew').disabled = false;
+            save();
+            updateStats();
+        }
+        
+        function evaluateHand(hand) {
+            const ranks = hand.map(c => values.indexOf(c.value));
+            ranks.sort((a, b) => a - b);
+            const suits = hand.map(c => c.suit);
+            
+            const counts = {};
+            ranks.forEach(r => counts[r] = (counts[r] || 0) + 1);
+            const freq = Object.values(counts).sort((a, b) => b - a);
+            
+            const isFlush = suits.every(s => s === suits[0]);
+            const isStraight = ranks.every((r, i) => i === 0 || r === ranks[i-1] + 1) || JSON.stringify(ranks) === JSON.stringify([0, 9, 10, 11, 12]);
+            const isRoyal = JSON.stringify(ranks) === JSON.stringify([0, 9, 10, 11, 12]) && isFlush;
+            
+            if (isRoyal) return { name: 'РОЯЛ-ФЛЭШ!', rank: 9 };
+            if (isStraight && isFlush) return { name: 'СТРИТ-ФЛЭШ!', rank: 8 };
+            if (freq[0] === 4) return { name: 'КАРЕ!', rank: 7 };
+            if (freq[0] === 3 && freq[1] === 2) return { name: 'ФУЛЛ-ХАУС!', rank: 6 };
+            if (isFlush) return { name: 'ФЛЭШ!', rank: 5 };
+            if (isStraight) return { name: 'СТРИТ!', rank: 4 };
+            if (freq[0] === 3) return { name: 'ТРОЙКА', rank: 3 };
+            if (freq[0] === 2 && freq[1] === 2) return { name: 'ДВЕ ПАРЫ', rank: 2 };
+            if (freq[0] === 2) return { name: 'ПАРА', rank: 1 };
+            return { name: 'СТАРШАЯ КАРТА', rank: 0 };
+        }
+        
+        function showMessage(text, type = 'info') {
+            const msgArea = document.getElementById('message');
+            if (msgArea) {
+                msgArea.innerHTML = '<div class="msg msg-' + type + '">' + text + '</div>';
+                setTimeout(() => msgArea.innerHTML = '', 3000);
+            }
+        }
+        
+        function adjustBet(amount) {
+            bet = Math.max(10, Math.min(500, bet + amount));
+            save();
+            updateStats();
+        }
+        
+        function newGame() {
+            if (balance < bet) {
+                showMessage('Недостаточно средств!', 'info');
+                return;
+            }
+            
+            // Сбрасываем счетчик если заново начали
+            if (balance > 0) {
+                document.getElementById('btnNew').disabled = false;
+            }
+            createDeck();
+            dealInitialHand();
+            selectedCards = [];
+            document.getElementById('btnDraw').disabled = false;
+            document.getElementById('btnNew').disabled = true;
+            document.getElementById('message').innerHTML = '';
+            balance -= bet;
+            updateStats();
+        }
+        
+        function init() {
+            load();
+            updateStats();
+            document.getElementById('btnNew').addEventListener('click', newGame);
+            document.getElementById('btnDraw').addEventListener('click', replaceCards);
+            document.getElementById('btnBetDown').addEventListener('click', () => adjustBet(-10));
+            document.getElementById('btnBetDown10').addEventListener('click', () => adjustBet(-10));
+            document.getElementById('btnBetUp').addEventListener('click', () => adjustBet(10));
+            document.getElementById('btnBetUp10').addEventListener('click', () => adjustBet(10));
+            newGame();
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+        function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+            else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+            else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+        }
+        
+        setTimeout(enterFullscreen, 500);
+    </script>
+</body>
+</html>
+

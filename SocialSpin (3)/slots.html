@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слоты - SocialSpin Casino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+        body { background: #04142a; font-family: 'Roboto', sans-serif; color: #fff; }
+        
+        .game-wrapper { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 0.5rem; 
+            gap: 0.5rem; 
+        }
+        
+        .header { 
+            position: relative; 
+            text-align: center; 
+            flex-shrink: 0; 
+        }
+        
+        .header h1 { 
+            font-size: clamp(1rem, 2rem, 2rem); 
+            color: #e91616; 
+            margin: 0; 
+            text-shadow: 0 0 20px rgba(233, 22, 22, 0.5); 
+        }
+        
+        .header p { 
+            font-size: clamp(0.6rem, 0.9rem, 0.9rem); 
+            color: #00ffff; 
+            margin: 0.3rem 0; 
+        }
+        
+        .home-btn { 
+            position: absolute; 
+            top: 0.5rem; 
+            left: 0.5rem; 
+            background: #4caf50; 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            border-radius: 8px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: all 0.3s; 
+        }
+        
+        .stats-bar { 
+            display: flex; 
+            justify-content: space-around; 
+            background: linear-gradient(135deg, #1a0038 0%, #04142a 100%); 
+            padding: 0.6rem; 
+            border-radius: 8px; 
+            border: 2px solid #2196f3; 
+            flex-shrink: 0; 
+        }
+        
+        .stat-item { text-align: center; }
+        .stat-label { font-size: 0.6rem; color: #888; margin-bottom: 0.2rem; }
+        .stat-value { font-size: clamp(0.9rem, 1.3rem, 1.3rem); font-weight: 700; color: #00ffff; }
+        
+        .game-box { 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%); 
+            border-radius: 12px; 
+            padding: 1rem; 
+            border: 2px solid #e91616; 
+            flex: 1; 
+            display: grid; 
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            overflow: hidden; 
+            min-height: 0; 
+        }
+        
+        .game-content {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 0;
+        }
+        
+        .wins-panel {
+            background: linear-gradient(135deg, #1a0038 0%, #0a0a0a 100%);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 2px solid #00ffff;
+            min-width: 200px;
+            max-width: 250px;
+        }
+        
+        .wins-panel h3 {
+            font-size: clamp(0.9rem, 1.1rem, 1.1rem);
+            color: #00ffff;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .wins-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .wins-table td {
+            padding: 0.5rem;
+            font-size: clamp(0.7rem, 0.85rem, 0.85rem);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .wins-table td:first-child {
+            text-align: center;
+            font-size: clamp(1.2rem, 1.5rem, 1.5rem);
+        }
+        
+        .wins-table td:last-child {
+            text-align: right;
+            color: #4caf50;
+            font-weight: 700;
+        }
+        
+        .wins-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .reels-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .reel {
+            width: clamp(80px, 20vw, 120px);
+            height: clamp(240px, 60vw, 360px);
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0038 100%);
+            border: 4px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reel-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .symbol {
+            width: 100%;
+            height: 33.333%;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(3rem, 7vw, 5rem);
+            background: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .symbol:last-child {
+            border-bottom: none;
+        }
+        
+        .bet-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .bet-btn {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: clamp(0.75rem, 1rem, 1rem);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .bet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+        }
+        
+        .bet-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        
+        .btn { 
+            padding: clamp(0.7rem, 1rem, 1rem) clamp(1.2rem, 1.8rem, 1.8rem); 
+            border: none; 
+            border-radius: 10px; 
+            font-size: clamp(0.85rem, 1.1rem, 1.1rem); 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-family: 'Montserrat', sans-serif; 
+            text-transform: uppercase; 
+            transition: all 0.3s; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+        }
+        
+        .btn-spin { 
+            background: linear-gradient(135deg, #e91616 0%, #c62828 100%); 
+            color: white; 
+            font-size: clamp(1rem, 1.3rem, 1.3rem); 
+        }
+        .btn-spin:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .message-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            pointer-events: none;
+        }
+        
+        .msg {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: messageAppear 0.6s ease-out;
+            text-align: center;
+            min-width: 250px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+        
+        .msg-win { background: linear-gradient(135deg, #4caf50, #66bb6a); border: 5px solid #ffd700; color: #fff; }
+        .msg-lose { background: linear-gradient(135deg, #e91616, #f44336); border: 5px solid #ff6b6b; color: #fff; }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .game-wrapper { padding: 0.3rem; gap: 0.3rem; }
+            .header h1 { font-size: 0.9rem; }
+            .home-btn { top: 0.3rem; left: 0.3rem; padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .stats-bar { padding: 0.4rem; }
+            .stat-label { font-size: 0.5rem; }
+            .stat-value { font-size: 0.85rem; }
+            .game-box { 
+                padding: 0.6rem; 
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto;
+            }
+            .wins-panel {
+                min-width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+            .wins-panel h3 {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            .wins-table td {
+                padding: 0.4rem;
+                font-size: 0.65rem;
+            }
+            .wins-table td:first-child {
+                font-size: 1rem;
+            }
+            .reels-container { gap: 0.5rem; }
+            .reel { width: 60px; height: 180px; }
+            .symbol { height: 60px; font-size: 2.5rem; }
+            .bet-controls { gap: 0.3rem; }
+            .bet-btn { padding: 0.4rem 0.8rem; font-size: 0.7rem; }
+            .controls { gap: 0.5rem; flex-direction: column; }
+            .btn { padding: 0.6rem 1rem; font-size: 0.8rem; width: 100%; }
+            .msg { font-size: 1.5rem; padding: 1rem 1.5rem; min-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="header">
+            <a href="index.html" class="home-btn">Главная</a>
+            <h1>Слоты</h1>
+            <p>Крутите барабаны и выигрывайте!</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Баланс</div>
+                <div class="stat-value" id="balance">1000 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Ставка</div>
+                <div class="stat-value" id="bet">50 ₽</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Побед</div>
+                <div class="stat-value" id="wins">0</div>
+            </div>
+        </div>
+        
+        <div class="game-box">
+            <div class="game-content">
+                <div class="reels-container" id="reelsContainer"></div>
+                
+                <div class="bet-controls">
+                    <button class="bet-btn" onclick="adjustBet(-50)">-50</button>
+                    <button class="bet-btn" onclick="adjustBet(-10)">-10</button>
+                    <button class="bet-btn" onclick="adjustBet(10)">+10</button>
+                    <button class="bet-btn" onclick="adjustBet(50)">+50</button>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn btn-spin" id="btnSpin">КРУТИТЬ</button>
+                </div>
+            </div>
+            
+            <div class="wins-panel">
+                <h3>Выигрышные комбинации</h3>
+                <table class="wins-table">
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.6rem; color: #888; text-align: center; border-bottom: 1px solid rgba(0, 255, 255, 0.3);">
+                            3 одинаковых (линии)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>🍒🍒🍒</td>
+                        <td>x5</td>
+                    </tr>
+                    <tr>
+                        <td>🍋🍋🍋</td>
+                        <td>x8</td>
+                    </tr>
+                    <tr>
+                        <td>🔔🔔🔔</td>
+                        <td>x10</td>
+                    </tr>
+                    <tr>
+                        <td>⭐⭐⭐</td>
+                        <td>x15</td>
+                    </tr>
+                    <tr>
+                        <td>💎💎💎</td>
+                        <td>x25</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.6rem; color: #888; text-align: center; border-top: 1px solid rgba(0, 255, 255, 0.3); border-bottom: 1px solid rgba(0, 255, 255, 0.3);">
+                            Дополнительно:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.6rem; color: #888; text-align: center;">
+                            • Диагонали
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.6rem; color: #888; text-align: center;">
+                            • V-образные
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.6rem; color: #4caf50; text-align: center; border-top: 1px solid rgba(0, 255, 255, 0.3); border-bottom: 1px solid rgba(0, 255, 255, 0.3); font-weight: 700;">
+                            2 одинаковых = x1.5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0.3rem; font-size: 0.65rem; color: #ffd700; text-align: center; font-weight: 700;">
+                            В любой строке!
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div id="message" class="message-overlay"></div>
+    
+    <script>
+        let balance = 1000, bet = 50, wins = 0;
+        const symbols = ['🍒', '🍋', '🔔', '⭐', '💎'];
+        const multipliers = {
+            '🍒🍒🍒': 5, '🍋🍋🍋': 8, '🔔🔔🔔': 10, '⭐⭐⭐': 15, '💎💎💎': 25
+        };
+        
+        function load() {
+            try {
+                balance = parseInt(localStorage.getItem('slotsBalance')) || 1000;
+                bet = parseInt(localStorage.getItem('slotsBet')) || 50;
+                wins = parseInt(localStorage.getItem('slotsWins')) || 0;
+            } catch(e) {}
+        }
+        
+        function save() {
+            try {
+                localStorage.setItem('slotsBalance', balance);
+                localStorage.setItem('slotsBet', bet);
+                localStorage.setItem('slotsWins', wins);
+            } catch(e) {}
+        }
+        
+        function updateStats() {
+            document.getElementById('balance').textContent = balance + ' ₽';
+            document.getElementById('bet').textContent = bet + ' ₽';
+            document.getElementById('wins').textContent = wins;
+        }
+        
+        function adjustBet(amount) {
+            bet = Math.max(10, Math.min(500, bet + amount));
+            save();
+            updateStats();
+        }
+        
+        function initReels() {
+            const container = document.getElementById('reelsContainer');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 3; i++) {
+                const reel = document.createElement('div');
+                reel.className = 'reel';
+                reel.id = `reel${i}`;
+                
+                const content = document.createElement('div');
+                content.className = 'reel-content';
+                content.id = `reelContent${i}`;
+                
+                // Создаем много символов для бесшовного вращения (50 символов)
+                for (let j = 0; j < 50; j++) {
+                    const symbol = document.createElement('div');
+                    symbol.className = 'symbol';
+                    symbol.textContent = symbols[j % symbols.length];
+                    content.appendChild(symbol);
+                }
+                
+                reel.appendChild(content);
+                container.appendChild(reel);
+            }
+            
+            // Устанавливаем начальную позицию для всех барабанов
+            for (let i = 0; i < 3; i++) {
+                const content = document.getElementById(`reelContent${i}`);
+                content.style.transform = 'translateY(0%)';
+            }
+        }
+        
+        function spin() {
+            if (balance < bet) {
+                showMessage('Недостаточно средств!', 'lose');
+                return;
+            }
+            
+            balance -= bet;
+            updateStats();
+            document.getElementById('btnSpin').disabled = true;
+            
+            const finalSymbols = [];
+            const spinConfigs = [
+                { duration: 2000, slowdownStart: 1500 },
+                { duration: 2500, slowdownStart: 2000 },
+                { duration: 3000, slowdownStart: 2500 }
+            ];
+            let stopped = 0;
+            
+            for (let i = 0; i < 3; i++) {
+                const content = document.getElementById(`reelContent${i}`);
+                const targetSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                finalSymbols.push(targetSymbol);
+                
+                // Вычисляем финальную позицию для целевого символа
+                const targetIndex = symbols.indexOf(targetSymbol);
+                
+                let currentPosition = 0;
+                let speed = 20;
+                let startTime = null;
+                let lastFrameTime = null;
+                const config = spinConfigs[i];
+                
+                function animateFrame(timestamp) {
+                    if (!startTime) {
+                        startTime = timestamp;
+                        lastFrameTime = timestamp;
+                        requestAnimationFrame(animateFrame);
+                        return;
+                    }
+                    
+                    const elapsed = timestamp - startTime;
+                    const deltaTime = timestamp - lastFrameTime;
+                    lastFrameTime = timestamp;
+                    
+                    // Фаза ускорения и постоянной скорости (0-60%)
+                    if (elapsed < config.slowdownStart) {
+                        speed = 20;
+                    }
+                    // Фаза замедления (60-80%)
+                    else if (elapsed < config.duration * 0.8) {
+                        const slowdownProgress = (elapsed - config.slowdownStart) / (config.duration * 0.8 - config.slowdownStart);
+                        speed = 20 * (1 - slowdownProgress);
+                        if (speed < 5) speed = 5; // Минимальная скорость
+                    }
+                    // Финальная фаза - подвод к целевому символу (80-100%)
+                    else if (elapsed < config.duration) {
+                        speed = 2; // Очень медленная
+                    }
+                    
+                    if (elapsed < config.duration) {
+                        currentPosition += speed;
+                        
+                        // Циклическое движение (50 символов, каждый с высотой 33.333%)
+                        // 50 символов × 33.333% = 1666.65%
+                        if (currentPosition >= 1666.65) {
+                            currentPosition = currentPosition % 1666.65;
+                        }
+                        
+                        content.style.transform = `translateY(-${currentPosition}%)`;
+                        requestAnimationFrame(animateFrame);
+                    } else {
+                        // Финальное выравнивание - устанавливаем целевую позицию с нужным символом
+                        content.style.transition = 'none';
+                        
+                        // Переставляем символы так, чтобы целевой символ был первым (видимым)
+                        const children = content.children;
+                        for (let j = 0; j < children.length; j++) {
+                            const symbolIndex = (targetIndex + j) % symbols.length;
+                            children[j].textContent = symbols[symbolIndex];
+                        }
+                        
+                        // Сбрасываем позицию на 0
+                        content.style.transform = 'translateY(0%)';
+                        
+                        stopped++;
+                        if (stopped === 3) {
+                            setTimeout(() => {
+                                checkWin(finalSymbols);
+                                document.getElementById('btnSpin').disabled = false;
+                                save();
+                                updateStats();
+                            }, 500);
+                        }
+                    }
+                }
+                
+                setTimeout(() => {
+                    requestAnimationFrame(animateFrame);
+                }, i * 300);
+            }
+        }
+        
+        function checkWin(result) {
+            let winAmount = 0;
+            let winningCombo = '';
+            
+            // Получаем все видимые символы (3 символа из каждого барабана)
+            const reels = [];
+            for (let i = 0; i < 3; i++) {
+                const reelContent = document.getElementById(`reelContent${i}`);
+                // Получаем все символы и берем первые 3 (верхние, которые видны)
+                const allSymbols = Array.from(reelContent.children).map(el => el.textContent);
+                // Берем первые 3 символа (верхняя часть, которая видна)
+                const visibleSymbols = allSymbols.slice(0, 3);
+                reels.push(visibleSymbols);
+            }
+            
+            // Проверка горизонтальной линии (верхняя, средняя, нижняя)
+            for (let row = 0; row < 3; row++) {
+                if (reels[0][row] === reels[1][row] && reels[1][row] === reels[2][row]) {
+                    const combo = reels[0][row].repeat(3);
+                    winAmount = bet * (multipliers[combo] || 2);
+                    winningCombo = reels[0][row] + reels[1][row] + reels[2][row];
+                    break;
+                }
+            }
+            
+            // Проверка диагонали слева направо (верх → центр → низ)
+            if (reels[0][0] === reels[1][1] && reels[1][1] === reels[2][2] && winAmount === 0) {
+                const combo = reels[0][0].repeat(3);
+                winAmount = bet * (multipliers[combo] || 2);
+                winningCombo = reels[0][0] + reels[1][1] + reels[2][2];
+            }
+            
+            // Проверка диагонали справа налево (верх → центр → низ)
+            if (reels[0][2] === reels[1][1] && reels[1][1] === reels[2][0] && winAmount === 0) {
+                const combo = reels[0][2].repeat(3);
+                winAmount = bet * (multipliers[combo] || 2);
+                winningCombo = reels[0][2] + reels[1][1] + reels[2][0];
+            }
+            
+            // Проверка V-образной комбинации (верх-лево, верх-право, низ-центр)
+            if (reels[0][0] === reels[2][0] && reels[0][0] === reels[1][2] && winAmount === 0) {
+                const combo = reels[0][0].repeat(3);
+                winAmount = bet * (multipliers[combo] || 2);
+                winningCombo = reels[0][0] + reels[1][2] + reels[2][0];
+            }
+            
+            // Проверка V-образной комбинации (низ-лево, низ-право, верх-центр)
+            if (reels[0][2] === reels[2][2] && reels[0][2] === reels[1][0] && winAmount === 0) {
+                const combo = reels[0][2].repeat(3);
+                winAmount = bet * (multipliers[combo] || 2);
+                winningCombo = reels[0][2] + reels[1][0] + reels[2][2];
+            }
+            
+            // Проверка любых 2 одинаковых символа в строке (WAYS to WIN система)
+            if (winAmount === 0) {
+                for (let row = 0; row < 3; row++) {
+                    // Проверяем все комбинации 2 одинаковых
+                    if (reels[0][row] === reels[1][row] || reels[1][row] === reels[2][row] || reels[0][row] === reels[2][row]) {
+                        winAmount = bet * 1.5; // Умеренный выигрыш за 2 символа
+                        winningCombo = reels[0][row] + reels[1][row] + reels[2][row] + ' (2x)';
+                        break;
+                    }
+                }
+            }
+            
+            if (winAmount > 0) {
+                balance += winAmount;
+                wins++;
+                showMessage(`ВЫИГРЫШ!\n+${winAmount}₽`, 'win');
+            } else {
+                showMessage('НЕ ВЫИГРЫШ', 'lose');
+            }
+        }
+        
+        function showMessage(text, type = 'win') {
+            const msgArea = document.getElementById('message');
+            msgArea.innerHTML = '<div class="msg msg-' + type + '">' + text + '</div>';
+            setTimeout(() => msgArea.innerHTML = '', 3000);
+        }
+        
+        function init() {
+            load();
+            updateStats();
+            initReels();
+            document.getElementById('btnSpin').addEventListener('click', spin);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+        function enterFullscreen() {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+            else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+            else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+        }
+        setTimeout(enterFullscreen, 500);
+    </script>
+</body>
+</html>
+
