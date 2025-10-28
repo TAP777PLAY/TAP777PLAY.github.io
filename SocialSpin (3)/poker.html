@@ -51,6 +51,10 @@
             transition: all 0.3s; 
         }
         
+        .home-btn::before {
+            content: "Главная";
+        }
+        
         .home-btn:hover { 
             transform: translateY(-2px); 
             box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4); 
@@ -228,7 +232,26 @@
             .game-wrapper { padding: 0.3rem; gap: 0.3rem; }
             .header h1 { font-size: 0.9rem; }
             .header p { font-size: 0.55rem; margin: 0.2rem 0; }
-            .home-btn { top: 0.3rem; left: 0.3rem; padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .home-btn { 
+                top: -0.3rem; 
+                left: 0.3rem; 
+                padding: 0.5rem !important; 
+                font-size: 1.2rem !important; 
+                background: #000 !important; 
+                color: #fff !important; 
+                border: 2px solid #fff !important;
+                width: 40px !important;
+                height: 40px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-decoration: none !important;
+                border-radius: 4px !important;
+            }
+            
+            .home-btn::before {
+                content: "☰" !important;
+            }
             .stats-bar { padding: 0.4rem; }
             .stat-label { font-size: 0.5rem; }
             .stat-value { font-size: 0.85rem; }
@@ -246,7 +269,7 @@
 <body>
     <div class="game-wrapper">
         <div class="header">
-            <a href="index.html" class="home-btn">Главная</a>
+            <a href="index.html" class="home-btn"></a>
             <h1>Покер 5 Card Draw</h1>
             <p>Выберите карты для замены и соберите комбинацию</p>
         </div>
@@ -290,25 +313,56 @@
         const suits = ['♠', '♥', '♦', '♣'];
         const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
         let deck = [], playerHand = [], selectedCards = [];
-        let balance = 1000, bet = 50, wins = 0;
+        let balance, bet, wins;
         
         function load() {
-            try {
-                balance = parseInt(localStorage.getItem('pokerBalance')) || 1000;
-                bet = parseInt(localStorage.getItem('pokerBet')) || 50;
-                wins = parseInt(localStorage.getItem('pokerWins')) || 0;
-            } catch(e) {}
+            console.log('Загрузка данных в покере...');
+            
+            // Ждем готовности HeaderBalance
+            function waitForHeaderBalance() {
+                if (window.HeaderBalance) {
+                    const headerBalance = window.HeaderBalance.getBalance();
+                    const headerBet = window.HeaderBalance.getBet();
+                    
+                    // Проверяем, что значения валидны
+                    if (!isNaN(headerBalance) && !isNaN(headerBet) && headerBalance >= 0 && headerBet >= 0) {
+                        balance = headerBalance;
+                        bet = headerBet;
+                        wins = 0; // Сбрасываем победы для каждой игры отдельно
+                        try {
+                            if (localStorage.getItem('pokerWins')) wins = parseInt(localStorage.getItem('pokerWins'));
+                        } catch(e) {}
+                        console.log('Загружены данные из HeaderBalance:', { balance, bet, wins });
+                        
+                        // Обновляем отображение сразу после загрузки
+                        updateStats();
+                    } else {
+                        // Если значения невалидны, ждем еще
+                        console.log('HeaderBalance значения невалидны, ждем...', { headerBalance, headerBet });
+                        setTimeout(waitForHeaderBalance, 200);
+                    }
+                } else {
+                    // Если HeaderBalance еще не готов, ждем
+                    console.log('HeaderBalance не готов, ждем...');
+                    setTimeout(waitForHeaderBalance, 200);
+                }
+            }
+            
+            waitForHeaderBalance();
         }
         
         function save() {
-            try {
-                localStorage.setItem('pokerBalance', balance);
-                localStorage.setItem('pokerBet', bet);
-                localStorage.setItem('pokerWins', wins);
-            } catch(e) {}
+            // Сохраняем только победы локально для этой игры
+            try { localStorage.setItem('pokerWins', wins); } catch(e) {}
         }
         
         function updateStats() {
+            // Получаем актуальные данные из общего компонента
+            if (window.HeaderBalance) {
+                balance = window.HeaderBalance.getBalance();
+                bet = window.HeaderBalance.getBet();
+            }
+            
             document.getElementById('balance').textContent = balance + ' ₽';
             document.getElementById('bet').textContent = bet + ' ₽';
             document.getElementById('wins').textContent = wins;
@@ -408,7 +462,13 @@
                 const winAmount = bet * multipliers[result.rank];
                 balance += winAmount;
                 wins++;
+                // Обновляем общий компонент баланса
+                if (window.HeaderBalance) {
+                    window.HeaderBalance.addBalance(winAmount);
+                    balance = window.HeaderBalance.getBalance(); // Синхронизируем
+                }
                 showMessage(result.name + '\nВыигрыш: ' + winAmount + '₽', 'win');
+                updateStats(); // Обновляем отображение
             } else {
                 showMessage(result.name + '\nВы проиграли!', 'info');
             }
@@ -475,6 +535,11 @@
             document.getElementById('btnNew').disabled = true;
             document.getElementById('message').innerHTML = '';
             balance -= bet;
+            // Обновляем общий компонент баланса
+            if (window.HeaderBalance) {
+                window.HeaderBalance.subtractBalance(bet);
+                balance = window.HeaderBalance.getBalance(); // Синхронизируем
+            }
             updateStats();
         }
         
@@ -506,6 +571,9 @@
         
         setTimeout(enterFullscreen, 500);
     </script>
+    
+    <!-- Подключаем header.js для синхронизации баланса -->
+    <script src="assets/js/header.js"></script>
 </body>
 </html>
 

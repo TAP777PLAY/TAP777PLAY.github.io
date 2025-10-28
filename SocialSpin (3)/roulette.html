@@ -51,6 +51,10 @@
             transition: all 0.3s; 
         }
         
+        .home-btn::before {
+            content: "Главная";
+        }
+        
         .stats-bar { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr);
@@ -317,6 +321,27 @@
             .header h1 { font-size: 1.2rem; }
             .header p { font-size: 0.7rem; }
             
+            .home-btn { 
+                top: 0.3rem; 
+                left: 0.3rem; 
+                padding: 0.5rem !important; 
+                font-size: 1.2rem !important; 
+                background: #000 !important; 
+                color: #fff !important; 
+                border: 2px solid #fff !important;
+                width: 40px !important;
+                height: 40px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-decoration: none !important;
+                border-radius: 4px !important;
+            }
+            
+            .home-btn::before {
+                content: "☰" !important;
+            }
+            
             .stats-bar { 
                 grid-template-columns: 1fr; 
                 gap: 0.4rem;
@@ -358,7 +383,7 @@
 <body>
     <div class="game-wrapper">
         <div class="header">
-            <a href="index.html" class="home-btn">Главная</a>
+            <a href="index.html" class="home-btn"></a>
             <h1>Рулетка</h1>
             <p>Выберите ставку и вращайте колесо!</p>
         </div>
@@ -418,24 +443,49 @@
     <div id="message" class="message-overlay"></div>
     
     <script>
-        let balance = 1000, bet = 50, wins = 0, selectedBet = null;
+        let balance, bet, wins, selectedBet = null;
         const wheelNumbers = Array.from({length: 37}, (_, i) => i); // 0-36
         const redNumbers = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];
         
         function load() {
-            try {
-                balance = parseInt(localStorage.getItem('rouletteBalance')) || 1000;
-                bet = parseInt(localStorage.getItem('rouletteBet')) || 50;
-                wins = parseInt(localStorage.getItem('rouletteWins')) || 0;
-            } catch(e) {}
+            console.log('Загрузка данных в рулетке...');
+            
+            // Ждем готовности HeaderBalance
+            function waitForHeaderBalance() {
+                if (window.HeaderBalance) {
+                    const headerBalance = window.HeaderBalance.getBalance();
+                    const headerBet = window.HeaderBalance.getBet();
+                    
+                    // Проверяем, что значения валидны
+                    if (!isNaN(headerBalance) && !isNaN(headerBet) && headerBalance >= 0 && headerBet >= 0) {
+                        balance = headerBalance;
+                        bet = headerBet;
+                        wins = 0; // Сбрасываем победы для каждой игры отдельно
+                        try {
+                            if (localStorage.getItem('rouletteWins')) wins = parseInt(localStorage.getItem('rouletteWins'));
+                        } catch(e) {}
+                        console.log('Загружены данные из HeaderBalance:', { balance, bet, wins });
+                        
+                        // Обновляем отображение сразу после загрузки
+                        updateStats();
+                    } else {
+                        // Если значения невалидны, ждем еще
+                        console.log('HeaderBalance значения невалидны, ждем...', { headerBalance, headerBet });
+                        setTimeout(waitForHeaderBalance, 200);
+                    }
+                } else {
+                    // Если HeaderBalance еще не готов, ждем
+                    console.log('HeaderBalance не готов, ждем...');
+                    setTimeout(waitForHeaderBalance, 200);
+                }
+            }
+            
+            waitForHeaderBalance();
         }
         
         function save() {
-            try {
-                localStorage.setItem('rouletteBalance', balance);
-                localStorage.setItem('rouletteBet', bet);
-                localStorage.setItem('rouletteWins', wins);
-            } catch(e) {}
+            // Сохраняем только победы локально для этой игры
+            try { localStorage.setItem('rouletteWins', wins); } catch(e) {}
         }
         
         function updateStats() {
@@ -602,5 +652,8 @@
             init();
         }
     </script>
+    
+    <!-- Подключаем header.js для синхронизации баланса -->
+    <script src="assets/js/header.js"></script>
 </body>
 </html>

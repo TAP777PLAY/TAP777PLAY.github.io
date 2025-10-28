@@ -137,26 +137,28 @@
           
           
             <div class="footer-links">
-              <h4>Menu</h4>
+              <h4>Меню</h4>
               <ul>
-                <li><a href="index.html" class="footer-link">socialspin</a></li>
-                <li><a href="about.html" class="footer-link">о нас</a></li><li><a href="games.html" class="footer-link">игры</a></li><li><a href="blackjack.html" class="footer-link">блэкджек</a></li><li><a href="poker.html" class="footer-link">покер</a></li><li><a href="dice.html" class="footer-link">кости</a></li><li><a href="slots.html" class="footer-link">слоты</a></li><li><a href="news.html" class="footer-link">новости</a></li><li><a href="reviews.html" class="footer-link">отзывы</a></li><li><a href="contact.html" class="footer-link">контакты</a></li>
+                <li><a href="about.html" class="footer-link">о нас</a></li>
+                <li><a href="news.html" class="footer-link">новости</a></li>
+                <li><a href="reviews.html" class="footer-link">отзывы</a></li>
+                <li><a href="contact.html" class="footer-link">контакты</a></li>
               </ul>
             </div>
           
           
           <div class="footer-contact">
-            <h4>Legal Information</h4>
+            <h4>Правовая информация</h4>
             <ul>
-              <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="terms-of-service.html" class="footer-link">Terms of Service</a></li>
-              <li><a href="cookie-policy.html" class="footer-link">Cookie Policy</a></li>
+              <li><a href="privacy-policy.html" class="footer-link">Политика конфиденциальности</a></li>
+              <li><a href="terms-of-service.html" class="footer-link">Условия использования</a></li>
+              <li><a href="cookie-policy.html" class="footer-link">Политика файлов cookie</a></li>
             </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <p>&copy; 2025 SocialSpin. All rights reserved.</p>
+          <p>&copy; 2025 SocialSpin. Все права защищены.</p>
         </div>
       </div>
     </footer>`;

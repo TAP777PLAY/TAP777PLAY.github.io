@@ -1,215 +1,334 @@
-
-
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title></title>
-
+    <title>Политика конфиденциальности - SocialSpin</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-
             font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            padding-top: 100px;
+        }
 
-            line-height: 1.8;
-
-            max-width: 1000px;
-
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-
-            padding: 20px;
-
-            font-size: 18px;
-
-            color: #333;
-
-            background-color: #f9f9f9;
-
+            padding: 2rem;
         }
 
-        h1 {
-
+        .document-header {
             text-align: center;
-
-            color: #333;
-
-            font-size: 32px;
-
-            font-weight: bold;
-
-            margin-bottom: 30px;
-
-            padding-bottom: 15px;
-
-            border-bottom: 1px solid #eaeaea;
-
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h2 {
-
-            color: #333;
-
-            font-size: 26px;
-
-            font-weight: 600;
-
-            margin-top: 30px;
-
-            margin-bottom: 20px;
-
+        .document-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        h3 {
-
-            color: #444;
-
-            font-size: 22px;
-
-                  font-weight: 500;
-
-            margin-top: 25px;
-
-            margin-bottom: 15px;
-
+        .document-header .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            opacity: 0.8;
         }
 
         .content {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-            background-color: #fff;
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
 
-            padding: 40px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-
-            text-align: left;
-
+        h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.8rem 0;
         }
 
         p {
-
-            margin-bottom: 20px;
-
-            text-align: left;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
         }
 
         ul, ol {
-
-            margin-bottom: 20px;
-
-            padding-left: 25px;
-
+            margin: 1rem 0 1.5rem 2rem;
         }
 
         li {
-
-            margin-bottom: 10px;
-
-            font-size: 18px;
-
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: #e0e0e0;
         }
 
         strong {
-
+            color: #ffffff;
             font-weight: 600;
-
         }
 
-        .date {
+        .highlight-box {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
 
-            text-align: right;
-
-            margin-top: 30px;
-
-            color: #666;
-
-            font-style: italic;
-
+        .highlight-box h3 {
+            color: #00e676;
+            margin-top: 0;
         }
 
         .contact-info {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
 
-            background-color: #f8f9fa;
+        .contact-info h3 {
+            color: #ff9800;
+            margin-top: 0;
+        }
 
-            padding: 20px;
+        .date {
+            text-align: right;
+            margin-top: 3rem;
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
 
-            border-radius: 8px;
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #00e676;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-            margin-top: 40px;
-
-            border-left: 4px solid #4285f4;
-
+        .back-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
         }
 
         @media (max-width: 768px) {
-
             body {
-
-                padding: 15px;
-
-                font-size: 16px;
-
+                padding-top: 80px;
             }
-
+            
+            .container {
+                padding: 0.5rem;
+                max-width: 100%;
+            }
+            
+            .document-header {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .document-header h1 {
+                font-size: 1.8rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
             .content {
-
-                padding: 25px;
-
+                padding: 1rem;
+                margin: 0;
+                width: 100%;
+                box-sizing: border-box;
             }
-
-            h1 {
-
-                font-size: 28px;
-
-            }
-
+            
             h2 {
-
-                font-size: 22px;
-
+                font-size: 1.4rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
-
+            
             h3 {
-
-                font-size: 18px;
-
+                font-size: 1.1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
-
+            
             p, li {
-
-                font-size: 16px;
-
+                font-size: 0.95rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
             }
-
+            
+            .highlight-box, .contact-info {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
         }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.25rem;
+            }
+            
+            .document-header {
+                padding: 0.8rem;
+            }
+            
+            .document-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .content {
+                padding: 0.8rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            h3 {
+                font-size: 1rem;
+            }
+            
+            p, li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
-
 </head>
-
 <body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+        
+        <div class="document-header">
+            <h1>Политика конфиденциальности</h1>
+            <p class="subtitle">SocialSpin - Защита ваших персональных данных</p>
+        </div>
 
-    <div class="content">
+        <div class="content">
+            <p><strong>Дата последнего обновления:</strong> 15 января 2025 года</p>
 
-        <br>
+            <h2>1. Общие положения</h2>
+            <p>Настоящая Политика конфиденциальности определяет порядок обработки персональных данных пользователей сайта SocialSpin (далее — «Сайт»). Мы серьезно относимся к защите вашей конфиденциальности и обязуемся обеспечивать безопасность ваших персональных данных.</p>
 
-        <div class="date">27.10.2025</div>
+            <h2>2. Сбор персональных данных</h2>
+            <h3>2.1 Данные, которые мы собираем:</h3>
+            <ul>
+                <li>Имя и контактная информация (при регистрации)</li>
+                <li>Адрес электронной почты</li>
+                <li>Номер телефона (при необходимости)</li>
+                <li>IP-адрес и данные браузера</li>
+                <li>Информация о посещениях страниц сайта</li>
+                <li>Данные о предпочтениях в играх</li>
+            </ul>
 
+            <h3>2.2 Цели сбора данных:</h3>
+            <ul>
+                <li>Предоставление игровых услуг</li>
+                <li>Улучшение качества обслуживания</li>
+                <li>Обеспечение безопасности платформы</li>
+                <li>Соблюдение правовых требований</li>
+            </ul>
+
+            <h2>3. Использование персональных данных</h2>
+            <p>Мы используем ваши персональные данные исключительно для:</p>
+            <ul>
+                <li>Создания и управления вашим аккаунтом</li>
+                <li>Предоставления игровых услуг</li>
+                <li>Обработки платежей и транзакций</li>
+                <li>Отправки важных уведомлений</li>
+                <li>Улучшения функциональности сайта</li>
+                <li>Предотвращения мошенничества</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Важно знать</h3>
+                <p>Мы <strong>не продаем</strong> и <strong>не передаем</strong> ваши персональные данные третьим лицам без вашего явного согласия, за исключением случаев, предусмотренных законодательством.</p>
+            </div>
+
+            <h2>4. Защита данных</h2>
+            <p>Мы применяем современные технические и организационные меры для защиты ваших данных:</p>
+            <ul>
+                <li>Шифрование данных при передаче и хранении</li>
+                <li>Регулярные обновления систем безопасности</li>
+                <li>Ограниченный доступ к персональным данным</li>
+                <li>Мониторинг безопасности 24/7</li>
+            </ul>
+
+            <h2>5. Cookies и аналогичные технологии</h2>
+            <p>Наш сайт использует cookies для:</p>
+            <ul>
+                <li>Запоминания ваших предпочтений</li>
+                <li>Анализа посещаемости</li>
+                <li>Улучшения пользовательского опыта</li>
+                <li>Обеспечения безопасности</li>
+            </ul>
+            <p>Вы можете управлять настройками cookies в своем браузере.</p>
+
+            <h2>6. Права пользователей</h2>
+            <p>Вы имеете право:</p>
+            <ul>
+                <li>Получать информацию о ваших данных</li>
+                <li>Исправлять неточные данные</li>
+                <li>Удалять ваши данные</li>
+                <li>Ограничивать обработку данных</li>
+                <li>Переносить данные</li>
+                <li>Возражать против обработки</li>
+            </ul>
+
+            <h2>7. Хранение данных</h2>
+            <p>Мы храним ваши персональные данные только в течение времени, необходимого для достижения целей их обработки, или в соответствии с требованиями законодательства.</p>
+
+            <h2>8. Изменения в политике</h2>
+            <p>Мы можем обновлять данную Политику конфиденциальности. О существенных изменениях мы уведомим вас заранее через сайт или по электронной почте.</p>
+
+            <div class="contact-info">
+                <h3>Контакты</h3>
+                <p>По вопросам обработки персональных данных обращайтесь:</p>
+                <p><strong>Email:</strong> privacy@socialspin.com</p>
+                <p><strong>Телефон:</strong> +7 (495) 427-52-42</p>
+                <p><strong>Адрес:</strong> 119435, Москва, Большой Саввинский переулок, дом 12, строение 6</p>
+            </div>
+
+            <div class="date">Документ действителен с 15 января 2025 года</div>
+        </div>
     </div>
 
+    <!-- Подключение скриптов сайта -->
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/footer.js"></script>
 </body>
-
 </html>

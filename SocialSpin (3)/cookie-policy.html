@@ -1,215 +1,532 @@
-
-
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title></title>
-
+    <title>Политика файлов cookie - SocialSpin</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-
             font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            padding-top: 100px;
+        }
 
-            line-height: 1.8;
-
-            max-width: 1000px;
-
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-
-            padding: 20px;
-
-            font-size: 18px;
-
-            color: #333;
-
-            background-color: #f9f9f9;
-
+            padding: 2rem;
         }
 
-        h1 {
-
+        .document-header {
             text-align: center;
-
-            color: #333;
-
-            font-size: 32px;
-
-            font-weight: bold;
-
-            margin-bottom: 30px;
-
-            padding-bottom: 15px;
-
-            border-bottom: 1px solid #eaeaea;
-
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h2 {
-
-            color: #333;
-
-            font-size: 26px;
-
-            font-weight: 600;
-
-            margin-top: 30px;
-
-            margin-bottom: 20px;
-
+        .document-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        h3 {
-
-            color: #444;
-
-            font-size: 22px;
-
-                  font-weight: 500;
-
-            margin-top: 25px;
-
-            margin-bottom: 15px;
-
+        .document-header .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            opacity: 0.8;
         }
 
         .content {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-            background-color: #fff;
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
 
-            padding: 40px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-
-            text-align: left;
-
+        h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.8rem 0;
         }
 
         p {
-
-            margin-bottom: 20px;
-
-            text-align: left;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
         }
 
         ul, ol {
-
-            margin-bottom: 20px;
-
-            padding-left: 25px;
-
+            margin: 1rem 0 1.5rem 2rem;
         }
 
         li {
-
-            margin-bottom: 10px;
-
-            font-size: 18px;
-
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: #e0e0e0;
         }
 
         strong {
-
+            color: #ffffff;
             font-weight: 600;
-
         }
 
-        .date {
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-            text-align: right;
+        .cookie-table th,
+        .cookie-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-            margin-top: 30px;
+        .cookie-table th {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-weight: 600;
+        }
 
-            color: #666;
+        .cookie-table td {
+            color: #e0e0e0;
+        }
 
-            font-style: italic;
+        .info-box {
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
 
+        .info-box h3 {
+            color: #00e676;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box h3 {
+            color: #ff9800;
+            margin-top: 0;
         }
 
         .contact-info {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
 
-            background-color: #f8f9fa;
+        .contact-info h3 {
+            color: #ff9800;
+            margin-top: 0;
+        }
 
-            padding: 20px;
+        .date {
+            text-align: right;
+            margin-top: 3rem;
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
 
-            border-radius: 8px;
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #00e676;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-            margin-top: 40px;
+        .back-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+        }
 
-            border-left: 4px solid #4285f4;
+        .cookie-settings {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
 
+        .cookie-settings h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .cookie-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cookie-toggle:last-child {
+            border-bottom: none;
+        }
+
+        .cookie-toggle label {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .cookie-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #00e676;
         }
 
         @media (max-width: 768px) {
-
             body {
-
-                padding: 15px;
-
-                font-size: 16px;
-
+                padding-top: 80px;
             }
-
+            
+            .container {
+                padding: 0.5rem;
+                max-width: 100%;
+            }
+            
+            .document-header {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .document-header h1 {
+                font-size: 1.8rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
             .content {
-
-                padding: 25px;
-
+                padding: 1rem;
+                margin: 0;
+                width: 100%;
+                box-sizing: border-box;
             }
-
-            h1 {
-
-                font-size: 28px;
-
-            }
-
+            
             h2 {
-
-                font-size: 22px;
-
+                font-size: 1.4rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
-
+            
             h3 {
-
-                font-size: 18px;
-
+                font-size: 1.1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
-
+            
             p, li {
-
-                font-size: 16px;
-
+                font-size: 0.95rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            .cookie-table {
+                font-size: 0.8rem;
+                width: 100%;
+                table-layout: fixed;
             }
 
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.6rem 0.4rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .cookie-table th:nth-child(1),
+            .cookie-table td:nth-child(1) {
+                width: 30%;
+            }
+
+            .cookie-table th:nth-child(2),
+            .cookie-table td:nth-child(2) {
+                width: 50%;
+            }
+
+            .cookie-table th:nth-child(3),
+            .cookie-table td:nth-child(3) {
+                width: 20%;
+            }
+            
+            .info-box, .warning-box, .contact-info, .cookie-settings {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .cookie-toggle {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .cookie-toggle label {
+                font-size: 0.9rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.25rem;
+            }
+            
+            .document-header {
+                padding: 0.8rem;
+            }
+            
+            .document-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .content {
+                padding: 0.8rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            h3 {
+                font-size: 1rem;
+            }
+            
+            p, li {
+                font-size: 0.9rem;
+            }
+
+            .cookie-table {
+                font-size: 0.7rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.4rem 0.2rem;
+            }
+        }
     </style>
-
 </head>
-
 <body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+        
+        <div class="document-header">
+            <h1>Политика файлов cookie</h1>
+            <p class="subtitle">SocialSpin - Использование cookies и аналогичных технологий</p>
+        </div>
 
-    <div class="content">
+        <div class="content">
+            <p><strong>Дата последнего обновления:</strong> 15 января 2025 года</p>
 
-        <br>
+            <h2>1. Что такое cookies?</h2>
+            <p>Cookies — это небольшие текстовые файлы, которые сохраняются на вашем устройстве при посещении веб-сайтов. Они помогают сайтам запоминать информацию о ваших предпочтениях и улучшать пользовательский опыт.</p>
 
-        <div class="date">27.10.2025</div>
+            <div class="info-box">
+                <h3>Важно знать</h3>
+                <p>Cookies не могут повредить ваш компьютер или получить доступ к вашим личным файлам. Они содержат только информацию, которую вы предоставили сайту или которая была собрана автоматически.</p>
+            </div>
 
+            <h2>2. Как мы используем cookies</h2>
+            <p>На платформе SocialSpin мы используем cookies для:</p>
+            <ul>
+                <li>Запоминания ваших игровых предпочтений</li>
+                <li>Сохранения настроек аккаунта</li>
+                <li>Обеспечения безопасности</li>
+                <li>Анализа посещаемости сайта</li>
+                <li>Улучшения функциональности</li>
+                <li>Персонализации контента</li>
+            </ul>
+
+            <h2>3. Типы используемых cookies</h2>
+            
+            <h3>3.1 Обязательные cookies</h3>
+            <p>Эти cookies необходимы для базовой работы сайта и не могут быть отключены:</p>
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Назначение</th>
+                        <th>Срок действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>session_id</td>
+                        <td>Идентификация пользователя в сессии</td>
+                        <td>До закрытия браузера</td>
+                    </tr>
+                    <tr>
+                        <td>security_token</td>
+                        <td>Обеспечение безопасности</td>
+                        <td>24 часа</td>
+                    </tr>
+                    <tr>
+                        <td>language</td>
+                        <td>Сохранение языковых настроек</td>
+                        <td>30 дней</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.2 Функциональные cookies</h3>
+            <p>Эти cookies улучшают функциональность сайта:</p>
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Назначение</th>
+                        <th>Срок действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>game_preferences</td>
+                        <td>Сохранение настроек игр</td>
+                        <td>90 дней</td>
+                    </tr>
+                    <tr>
+                        <td>theme_settings</td>
+                        <td>Сохранение темы оформления</td>
+                        <td>180 дней</td>
+                    </tr>
+                    <tr>
+                        <td>notification_settings</td>
+                        <td>Настройки уведомлений</td>
+                        <td>60 дней</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.3 Аналитические cookies</h3>
+            <p>Эти cookies помогают нам понять, как используется сайт:</p>
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Назначение</th>
+                        <th>Срок действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>analytics_id</td>
+                        <td>Анализ поведения пользователей</td>
+                        <td>2 года</td>
+                    </tr>
+                    <tr>
+                        <td>page_views</td>
+                        <td>Подсчет просмотров страниц</td>
+                        <td>30 дней</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Управление cookies</h2>
+            <p>Вы можете управлять cookies несколькими способами:</p>
+
+            <h3>4.1 Настройки браузера</h3>
+            <p>Большинство браузеров позволяют:</p>
+            <ul>
+                <li>Просматривать сохраненные cookies</li>
+                <li>Удалять отдельные или все cookies</li>
+                <li>Блокировать cookies от определенных сайтов</li>
+                <li>Настраивать уведомления о новых cookies</li>
+            </ul>
+
+            <h3>4.2 Настройки на сайте</h3>
+            <div class="cookie-settings">
+                <h3>Управление cookies</h3>
+                <div class="cookie-toggle">
+                    <label for="essential">Обязательные cookies</label>
+                    <input type="checkbox" id="essential" checked disabled>
+                </div>
+                <div class="cookie-toggle">
+                    <label for="functional">Функциональные cookies</label>
+                    <input type="checkbox" id="functional" checked>
+                </div>
+                <div class="cookie-toggle">
+                    <label for="analytics">Аналитические cookies</label>
+                    <input type="checkbox" id="analytics">
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>Внимание</h3>
+                <p>Отключение некоторых cookies может повлиять на функциональность сайта. Некоторые функции могут работать некорректно или быть недоступными.</p>
+            </div>
+
+            <h2>5. Сторонние cookies</h2>
+            <p>На нашем сайте могут использоваться cookies от сторонних сервисов:</p>
+            <ul>
+                <li><strong>Google Analytics</strong> — для анализа посещаемости</li>
+                <li><strong>Платежные системы</strong> — для обработки транзакций</li>
+                <li><strong>Социальные сети</strong> — для интеграции с соцсетями</li>
+                <li><strong>Рекламные сети</strong> — для показа релевантной рекламы</li>
+            </ul>
+
+            <h2>6. Обновления политики</h2>
+            <p>Мы можем обновлять данную политику cookies. О существенных изменениях мы уведомим вас через баннер на сайте или по электронной почте.</p>
+
+            <h2>7. Контактная информация</h2>
+            <div class="contact-info">
+                <h3>Контакты</h3>
+                <p>По вопросам использования cookies обращайтесь:</p>
+                <p><strong>Email:</strong> privacy@socialspin.com</p>
+                <p><strong>Телефон:</strong> +7 (495) 427-52-42</p>
+                <p><strong>Адрес:</strong> 119435, Москва, Большой Саввинский переулок, дом 12, строение 6</p>
+            </div>
+
+            <div class="date">Документ действителен с 15 января 2025 года</div>
+        </div>
     </div>
 
+    <!-- Подключение скриптов сайта -->
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/footer.js"></script>
 </body>
-
 </html>

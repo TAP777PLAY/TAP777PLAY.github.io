@@ -16,6 +16,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/styles.css">
 
     
@@ -352,6 +354,25 @@
 
         }
 
+        /* Адаптивные стили для карточек игр */
+        .game-card {
+          height: 350px !important;
+        }
+        
+        .game-card h3 {
+          font-size: 2rem !important;
+        }
+        
+        .game-card p {
+          font-size: 0.9rem !important;
+          line-height: 1.4 !important;
+        }
+        
+        .game-card a {
+          padding: 12px 30px !important;
+          font-size: 1rem !important;
+        }
+
       }
 
       
@@ -536,73 +557,354 @@
 
     <main>
 
-        <section class="hero-section hero-animation-zoom" style="
+        <!-- Hero Section в стиле ROSA с каруселью -->
+        <section class="hero-section rosa-style" style="
+          position: relative;
+          overflow: hidden;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        ">
+          
+          <!-- Карусель изображений -->
+          <div class="hero-carousel" style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+          ">
+            <div class="carousel-slides" style="
+              position: relative;
+              width: 100%;
+              height: 100%;
+            ">
+              <!-- Слайд 1 -->
+              <div class="carousel-slide active" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/hero.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 1;
+                transition: opacity 1s ease-in-out;
+              "></div>
+              
+              <!-- Слайд 2 -->
+              <div class="carousel-slide" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/HERO1.webp');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+              "></div>
+              
+              <!-- Слайд 3 -->
+              <div class="carousel-slide" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/HERO2.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+              "></div>
+              
+              <!-- Слайд 4 -->
+              <div class="carousel-slide" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/HERO3.webp');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+              "></div>
+              
+              <!-- Слайд 5 -->
+              <div class="carousel-slide" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/HERO4.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+              "></div>
+            </div>
+            
+            <!-- Темный оверлей для лучшей читаемости текста -->
+            <div class="carousel-overlay" style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+              z-index: 1;
+            "></div>
+          </div>
+          
+          <!-- Декоративные элементы казино -->
+          <div class="hero-decorations" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2;">
+            <!-- Декоративные элементы убраны для чистого вида -->
+          </div>
+          
+          <!-- Навигация карусели -->
+          <div class="carousel-nav" style="
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 10px;
+          ">
+            <button class="carousel-dot active" data-slide="0" style="
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #ffd700;
+              background: #ffd700;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "></button>
+            <button class="carousel-dot" data-slide="1" style="
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #ffd700;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "></button>
+            <button class="carousel-dot" data-slide="2" style="
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #ffd700;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "></button>
+            <button class="carousel-dot" data-slide="3" style="
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #ffd700;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "></button>
+            <button class="carousel-dot" data-slide="4" style="
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #ffd700;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "></button>
+          </div>
+          
+          <!-- Основной контент -->
+          <div class="hero-content rosa-content" style="
+            position: relative;
+            z-index: 3;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+          ">
+            <div class="hero-text-wrapper rosa-wrapper" style="
+              background: transparent;
+              backdrop-filter: none;
+              padding: 0;
+              border-radius: 0;
+              border: none;
+              box-shadow: none;
+              max-width: none;
+              margin: 0;
+              text-align: left;
+            ">
+              <h1 class="hero-title rosa-title" style="
+                color: #ffd700;
+                font-size: 4.5rem;
+                font-weight: 300;
+                margin-bottom: 0.5rem;
+                font-family: 'Playfair Display', serif;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+                letter-spacing: 3px;
+                line-height: 1.1;
+              ">Welcome</h1>
+              
+              <h2 class="hero-main-title rosa-main-title" style="
+                color: #ffd700;
+                font-size: 6rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+                font-family: 'Montserrat', sans-serif;
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+                letter-spacing: 4px;
+                line-height: 0.9;
+              ">SOCIALSPIN</h2>
+              
+              <div class="hero-divider" style="
+                display: flex;
+                align-items: center;
+                margin: 2rem 0;
+                width: fit-content;
+              ">
+                <p class="hero-subtitle rosa-subtitle" style="
+                  color: #ffffff;
+                  font-size: 1.4rem;
+                  font-weight: 300;
+                  margin: 0;
+                  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+                  letter-spacing: 2px;
+                  font-family: 'Montserrat', sans-serif;
+                ">READY TO BE OPENED</p>
+              </div>
+              
+              <p class="hero-description rosa-description" style="
+                color: #e0e0e0;
+                font-size: 1.2rem;
+                font-weight: 300;
+                line-height: 1.7;
+                margin-top: 3rem;
+                opacity: 0.95;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+                max-width: 500px;
+                font-family: 'Montserrat', sans-serif;
+                letter-spacing: 0.5px;
+              ">Современное игровое пространство 2025 года, где азарт, стратегия и живое общение объединяют игроков со всего мира.</p>
+            </div>
+          </div>
+        </section>
+
+  <!-- Полный список игр Section -->
+  <section style="
+    padding: 4rem 2rem;
+    background: transparent;
     position: relative;
     overflow: hidden;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  background-image: none;">
-    <div class="hero-bg-animation" style="background-image: url('assets/images/hero.jpg'); filter: blur(0.1px);"></div>
-    
-      <div class="hero-overlay" style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(rgba(0,0,0,0.001), rgba(0,0,0,0.001));
-        backdrop-filter: none;
-        z-index: 2;
-      "></div>
-    
-    <div class="container">
-      <div class="hero-content" style="
-        position: relative;
-        z-index: 3;
-        text-align: center;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
+  ">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div class="games-card" style="
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        border-radius: 20px;
+        padding: 3rem;
+        border: 2px solid #333333;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        backdrop-filter: blur(10px);
       ">
-        <div class="hero-text-wrapper" style="
-          background: rgba(0, 0, 0, 0.4);
-          backdrop-filter: blur(0.1px);
-          padding: 2rem 3rem;
-          border-radius: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-          max-width: 800px;
-          margin: 0 auto;
-        ">
-          <h1 class="hero-title" style="
-            color: #e91616;
-            font-size: 3rem;
+        <!-- Левая часть - изображение -->
+        <div style="text-align: center;">
+          <img src="assets/images/cazik.jpg" alt="Casino Games" style="
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid #444444;
+          ">
+        </div>
+        
+        <!-- Правая часть - контент -->
+        <div style="text-align: left;">
+          <h2 style="
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.6), 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             font-family: 'Montserrat', sans-serif;
-          ">Играй, общайся и побеждай каждый день</h1>
-          <p class="hero-subtitle" style="
-            color: #2196f3;
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
+            line-height: 1.3;
+          ">Получите полный список наших игр</h2>
+          
+          <p style="
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
             opacity: 0.9;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9), -1px -1px 1px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 255, 255, 0.2);
-            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
-            filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+          ">После заявки вы получите доступ к полному каталогу игр SocialSpin Casino с подробным описанием каждой игры и правилами.</p>
+          
+          <a href="contact.html" style="
+            display: inline-block;
+            background: linear-gradient(135deg, #e91616 0%, #ff4444 100%);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 22, 22, 0.4);
+            border: 2px solid transparent;
             font-family: 'Montserrat', sans-serif;
-          ">SocialSpin Casino — современное игровое пространство 2025 года, где азарт, стратегия и живое общение объединяют игроков со всего мира. Играйте без риска, развивайтесь и зарабатывайте виртуальные монеты за активность и победы.</p>
-          
-          
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(233, 22, 22, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(233, 22, 22, 0.4)'">
+            Оставить заявку
+          </a>
         </div>
       </div>
     </div>
   </section>
+
+  <style>
+    @media (max-width: 768px) {
+      .games-card {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 2rem !important;
+      }
+      .games-card h2 {
+        font-size: 1.8rem !important;
+        text-align: center !important;
+      }
+      .games-card p {
+        font-size: 1.1rem !important;
+        text-align: center !important;
+      }
+      .games-card > div:last-child {
+        text-align: center !important;
+      }
+    }
+  </style>
 
   <!-- Quick Play Games Section -->
   <section style="
@@ -612,7 +914,7 @@
     overflow: hidden;
   ">
     <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 style="
+      <h2 id="games" style="
         text-align: center;
         font-size: 2.5rem;
         font-weight: 700;
@@ -630,277 +932,384 @@
       
       <div style="
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: 1fr;
         gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
       ">
         <!-- Blackjack Game Card -->
-        <div style="
+        <div class="game-card" style="
           background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
           border-radius: 16px;
-          padding: 2rem;
+          padding: 0;
           border: 2px solid #2196f3;
           text-align: center;
           transition: all 0.3s ease;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          height: 450px;
         " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
           <div style="
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #2196f3, #1976d2);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          ">
+            <img src="assets/images/BLACKJACK21.jpg" alt="Блэкджек" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 20px rgba(33, 150, 243, 0.4);
-          ">🃏</div>
+            align-items: center;
+            padding: 2rem;
+          ">
           <h3 style="
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #e91616;
+            color: #ffffff;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
           ">Блэкджек 21</h3>
           <p style="
-            color: #00ffff;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
-          ">Цель игры - набрать близко к 21 очкам, но не перебрать. Классическая карточная игра казино.</p>
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            max-width: 600px;
+          ">Классическая карточная игра казино! Цель - набрать как можно ближе к 21 очку, но не перебрать. Карты с числом имеют номинальную стоимость, валеты, дамы и короли стоят 10 очков, а туз может быть 1 или 11. Бейте дилера или остановитесь на удаче!</p>
           <a href="blackjack.html" style="
             display: inline-block;
             background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
             color: white;
             border: none;
-            padding: 12px 32px;
+            padding: 15px 40px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.5);
             text-decoration: none;
-          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(33, 150, 243, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(33, 150, 243, 0.3)';">
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(33, 150, 243, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(33, 150, 243, 0.5)';">
             ▶ Играть
           </a>
+          </div>
         </div>
         
         <!-- Poker Game Card -->
-        <div style="
+        <div class="game-card" style="
           background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
           border-radius: 16px;
-          padding: 2rem;
+          padding: 0;
           border: 2px solid #2196f3;
           text-align: center;
           transition: all 0.3s ease;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          height: 450px;
         " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
           <div style="
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          ">
+            <img src="assets/images/5 Card Draw.webp" alt="Покер" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 20px rgba(156, 39, 176, 0.4);
-          ">🂡</div>
+            align-items: center;
+            padding: 2rem;
+          ">
           <h3 style="
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #e91616;
+            color: #ffffff;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
           ">Покер 5 Card Draw</h3>
           <p style="
-            color: #00ffff;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
-          ">Соберите комбинации: от пары до роял-флэша! Выберите карты для замены.</p>
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            max-width: 600px;
+          ">Азартная карточная игра с элементами стратегии! Получите 5 карт и замените ненужные для создания лучшей комбинации. От пары до роял-флэша - чем выше комбинация, тем больше выигрыш. Блефуйте, рискуйте и побеждайте!</p>
           <a href="poker.html" style="
             display: inline-block;
             background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
             color: white;
             border: none;
-            padding: 12px 32px;
+            padding: 15px 40px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.5);
             text-decoration: none;
-          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(156, 39, 176, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(156, 39, 176, 0.3)';">
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(156, 39, 176, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(156, 39, 176, 0.5)';">
             ▶ Играть
           </a>
+          </div>
         </div>
         
         <!-- Dice Game Card -->
-        <div style="
+        <div class="game-card" style="
           background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
           border-radius: 16px;
-          padding: 2rem;
+          padding: 0;
           border: 2px solid #2196f3;
           text-align: center;
           transition: all 0.3s ease;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          height: 450px;
         " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
           <div style="
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff9800, #f57c00);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          ">
+            <img src="assets/images/DICE.jpg" alt="Кости" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
-          ">⚫⚫⚫</div>
+            align-items: center;
+            padding: 2rem;
+          ">
           <h3 style="
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #e91616;
+            color: #ffffff;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
           ">Кости</h3>
           <p style="
-            color: #00ffff;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
-          ">Бросьте кости и угадайте сумму! Чем меньше вероятность, тем выше выигрыш!</p>
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            max-width: 600px;
+          ">Простая и захватывающая игра на удачу! Бросьте кости и угадайте сумму выпавших очков. Ставьте на конкретные числа или диапазоны - чем меньше вероятность выпадения, тем больше коэффициент выигрыша. От 2 до 12 - ваша удача в ваших руках!</p>
           <a href="dice.html" style="
             display: inline-block;
             background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
             color: white;
             border: none;
-            padding: 12px 32px;
+            padding: 15px 40px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.5);
             text-decoration: none;
-          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 152, 0, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.3)';">
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 152, 0, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.5)';">
             ▶ Играть
           </a>
+          </div>
         </div>
         
         <!-- Slots Game Card -->
-        <div style="
+        <div class="game-card" style="
           background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
           border-radius: 16px;
-          padding: 2rem;
+          padding: 0;
           border: 2px solid #2196f3;
           text-align: center;
           transition: all 0.3s ease;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          height: 450px;
         " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
           <div style="
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff1744, #d50000);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          ">
+            <img src="assets/images/SLOTI.webp" alt="Слоты" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 20px rgba(255, 23, 68, 0.4);
-          ">🎰</div>
+            align-items: center;
+            padding: 2rem;
+          ">
           <h3 style="
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #e91616;
+            color: #ffffff;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
           ">Слоты</h3>
           <p style="
-            color: #00ffff;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
-          ">Крутите барабаны и выигрывайте! Соберите одинаковые символы на одной линии.</p>
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            max-width: 600px;
+          ">Классические игровые автоматы с современным дизайном! Крутите барабаны и собирайте выигрышные комбинации символов на активных линиях. От фруктов до драгоценных камней - каждый спин может принести джекпот! Бонусные раунды и множители ждут вас!</p>
           <a href="slots.html" style="
             display: inline-block;
             background: linear-gradient(135deg, #ff1744 0%, #d50000 100%);
             color: white;
             border: none;
-            padding: 12px 32px;
+            padding: 15px 40px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.5);
             text-decoration: none;
-          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 23, 68, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 23, 68, 0.3)';">
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 23, 68, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 23, 68, 0.5)';">
             ▶ Играть
           </a>
+          </div>
         </div>
         
         <!-- Roulette Game Card -->
-        <div style="
+        <div class="game-card" style="
           background: linear-gradient(135deg, #0a0a0a 0%, #1a0038 100%);
           border-radius: 16px;
-          padding: 2rem;
+          padding: 0;
           border: 2px solid #2196f3;
           text-align: center;
           transition: all 0.3s ease;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          height: 450px;
         " onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#e91616'; this.style.boxShadow='0 12px 32px rgba(233, 22, 22, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#2196f3'; this.style.boxShadow='0 8px 24px rgba(0, 0, 0, 0.3)';">
           <div style="
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #00e676, #00c853);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          ">
+            <img src="assets/images/roletaS.jpg" alt="Рулетка" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 2;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0, 230, 118, 0.4);
-          ">🎯</div>
+            align-items: center;
+            padding: 2rem;
+          ">
           <h3 style="
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #e91616;
+            color: #ffffff;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
           ">Рулетка</h3>
           <p style="
-            color: #00ffff;
+            color: #ffffff;
             line-height: 1.6;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
-          ">Вращайте колесо удачи! Ставьте на чётное, нечётное, красное или чёрное.</p>
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            max-width: 600px;
+          ">Королева казино-игр! Вращайте колесо удачи и ставьте на числа, цвета или четность. От простых ставок на красное/черное до рискованных ставок на конкретные числа - каждый выбор может принести победу. Европейская рулетка с одним зеро для максимальных шансов!</p>
           <a href="roulette.html" style="
             display: inline-block;
             background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
             color: white;
             border: none;
-            padding: 12px 32px;
+            padding: 15px 40px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.5);
             text-decoration: none;
-          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 230, 118, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 230, 118, 0.3)';">
+          " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 230, 118, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 230, 118, 0.5)';">
             ▶ Играть
           </a>
+          </div>
         </div>
       </div>
     </div>
@@ -933,55 +1342,115 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
-  max-width: 400px;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border: 1px solid #e9ecef;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  max-width: 420px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+  border: 2px solid rgba(25, 118, 210, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 8px 32px rgba(25, 118, 210, 0.1);
   z-index: 10000;
   display: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  animation: slideInLeft 0.5s ease-out;
+  font-family: 'Roboto', sans-serif;
+  animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  position: relative;
 ">
-  <div style="padding: 16px;">
+  <!-- Декоративная полоса сверху -->
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #1976d2, #42a5f5, #1976d2);
+    border-radius: 20px 20px 0 0;
+  "></div>
+  
+  <div style="padding: 24px 20px 20px;">
     <h3 style="
-      margin: 0 0 8px 0;
-      font-size: 15px;
-      font-weight: 600;
-      color: #1976d2;
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #2C3E50;
       line-height: 1.3;
-    ">Настройки файлов cookie</h3>
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+    ">
+      <span style="
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(to right, #1976d2, #42a5f5);
+        border-radius: 2px;
+      "></span>
+      Настройки файлов cookie
+    </h3>
     
     <p style="
-      margin: 0 0 12px 0;
-      font-size: 12px;
-      line-height: 1.4;
-      color: #495057;
+      margin: 0 0 16px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #34495E;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
     ">Мы используем файлы cookie для улучшения вашего опыта просмотра, предоставления персонализированного контента и анализа нашего трафика. Нажимая 'Принять все', вы соглашаетесь с использованием файлов cookie.</p>
     
     <div style="
       display: flex;
-      gap: 6px;
+      gap: 8px;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: rgba(25, 118, 210, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(25, 118, 210, 0.1);
     ">
       <a href="privacy-policy.html" target="_blank" style="
         color: #1976d2;
         text-decoration: none;
-        font-size: 11px;
-        font-weight: 500;
-      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        font-size: 12px;
+        font-weight: 600;
+        font-family: 'Roboto', sans-serif;
+        transition: all 0.3s ease;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: rgba(25, 118, 210, 0.1);
+      " onmouseover="
+        this.style.textDecoration='none';
+        this.style.backgroundColor='rgba(25, 118, 210, 0.2)';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.textDecoration='none';
+        this.style.backgroundColor='rgba(25, 118, 210, 0.1)';
+        this.style.transform='translateY(0)';
+      ">
         Политика конфиденциальности
       </a>
-      <span style="color: #6c757d; font-size: 11px;">•</span>
+      <span style="color: #6c757d; font-size: 12px; font-weight: bold;">•</span>
       <a href="cookie-policy.html" target="_blank" style="
         color: #1976d2;
         text-decoration: none;
-        font-size: 11px;
-        font-weight: 500;
-      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        font-size: 12px;
+        font-weight: 600;
+        font-family: 'Roboto', sans-serif;
+        transition: all 0.3s ease;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: rgba(25, 118, 210, 0.1);
+      " onmouseover="
+        this.style.textDecoration='none';
+        this.style.backgroundColor='rgba(25, 118, 210, 0.2)';
+        this.style.transform='translateY(-1px)';
+      " onmouseout="
+        this.style.textDecoration='none';
+        this.style.backgroundColor='rgba(25, 118, 210, 0.1)';
+        this.style.transform='translateY(0)';
+      ">
         Политика файлов cookie
       </a>
     </div>
@@ -989,51 +1458,68 @@
     <!-- Buttons -->
     <div style="
       display: flex;
-      gap: 6px;
+      gap: 10px;
       flex-wrap: wrap;
+      justify-content: space-between;
     ">
       <button id="cookie-reject-all" style="
-        background: transparent;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         color: #6c757d;
-        border: 1px solid #6c757d;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: 500;
+        border: 2px solid #dee2e6;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 70px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 80px;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        flex: 1;
       " onmouseover="
         this.style.backgroundColor='#6c757d';
         this.style.color='white';
-        this.style.transform='translateY(-1px)';
+        this.style.transform='translateY(-2px)';
+        this.style.boxShadow='0 4px 16px rgba(108, 117, 125, 0.3)';
+        this.style.borderColor='#6c757d';
       " onmouseout="
-        this.style.backgroundColor='transparent';
+        this.style.backgroundColor='linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)';
         this.style.color='#6c757d';
         this.style.transform='translateY(0)';
+        this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';
+        this.style.borderColor='#dee2e6';
       ">
         Отклонить все
       </button>
       
       <button id="cookie-customize" style="
-        background: transparent;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         color: #1976d2;
-        border: 1px solid #1976d2;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: 500;
+        border: 2px solid #1976d2;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 70px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 80px;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+        flex: 1;
       " onmouseover="
         this.style.backgroundColor='#1976d2';
         this.style.color='white';
-        this.style.transform='translateY(-1px)';
+        this.style.transform='translateY(-2px)';
+        this.style.boxShadow='0 4px 16px rgba(25, 118, 210, 0.4)';
       " onmouseout="
-        this.style.backgroundColor='transparent';
+        this.style.backgroundColor='linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)';
         this.style.color='#1976d2';
         this.style.transform='translateY(0)';
+        this.style.boxShadow='0 2px 8px rgba(25, 118, 210, 0.2)';
       ">
         Настроить
       </button>
@@ -1041,25 +1527,40 @@
       <button id="cookie-accept-all" style="
         background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
         color: white;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: 500;
+        border: 2px solid #1976d2;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        min-width: 70px;
-        box-shadow: 0 2px 6px rgba(25, 118, 210, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 80px;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
+        flex: 1;
+        position: relative;
+        overflow: hidden;
       " onmouseover="
-        this.style.transform='translateY(-1px)';
-        this.style.boxShadow='0 3px 10px rgba(25, 118, 210, 0.4)';
+        this.style.transform='translateY(-2px)';
+        this.style.boxShadow='0 6px 24px rgba(25, 118, 210, 0.4)';
         this.style.background='linear-gradient(135deg, #1565c0 0%, #0d47a1 100%)';
       " onmouseout="
         this.style.transform='translateY(0)';
-        this.style.boxShadow='0 2px 6px rgba(25, 118, 210, 0.3)';
+        this.style.boxShadow='0 4px 16px rgba(25, 118, 210, 0.3)';
         this.style.background='linear-gradient(135deg, #1976d2 0%, #1565c0 100%)';
       ">
-        Принять все
+        <span style="position: relative; z-index: 2;">Принять все</span>
+        <div style="
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: left 0.5s ease;
+        "></div>
       </button>
     </div>
   </div>
@@ -1072,22 +1573,28 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
   z-index: 10001;
   display: none;
   align-items: center;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.3s ease-out;
 ">
   <div style="
-    background: white;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+    border-radius: 20px;
     padding: 0;
-    max-width: 500px;
+    max-width: 550px;
     width: 90%;
-    max-height: 70vh;
+    max-height: 80vh;
     overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 10px 40px rgba(25, 118, 210, 0.1);
+    border: 2px solid rgba(25, 118, 210, 0.1);
+    position: relative;
+    animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  ">
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     border: 1px solid rgba(255,255,255,0.2);
   ">
@@ -1471,6 +1978,116 @@
             window.reinitializeCounters();
           }
         }, 500);
+      });
+
+      // Hero Carousel Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+          // Скрываем все слайды
+          slides.forEach(slide => {
+            slide.style.opacity = '0';
+            slide.classList.remove('active');
+          });
+          
+          // Показываем текущий слайд
+          slides[index].style.opacity = '1';
+          slides[index].classList.add('active');
+          
+          // Обновляем точки навигации
+          dots.forEach(dot => {
+            dot.classList.remove('active');
+            dot.style.background = 'transparent';
+          });
+          
+          dots[index].classList.add('active');
+          dots[index].style.background = '#ffd700';
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        function startCarousel() {
+          slideInterval = setInterval(nextSlide, 5000); // Переключение каждые 5 секунд
+        }
+
+        function stopCarousel() {
+          clearInterval(slideInterval);
+        }
+
+        // Обработчики для точек навигации
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+            stopCarousel();
+            startCarousel(); // Перезапускаем автопрокрутку
+          });
+
+          // Эффект hover для точек
+          dot.addEventListener('mouseenter', () => {
+            if (!dot.classList.contains('active')) {
+              dot.style.background = 'rgba(255, 215, 0, 0.5)';
+              dot.style.transform = 'scale(1.2)';
+            }
+          });
+
+          dot.addEventListener('mouseleave', () => {
+            if (!dot.classList.contains('active')) {
+              dot.style.background = 'transparent';
+              dot.style.transform = 'scale(1)';
+            }
+          });
+        });
+
+        // Пауза при наведении на карусель
+        const carousel = document.querySelector('.hero-carousel');
+        if (carousel) {
+          carousel.addEventListener('mouseenter', stopCarousel);
+          carousel.addEventListener('mouseleave', startCarousel);
+        }
+
+        // Инициализация карусели
+        showSlide(0);
+        startCarousel();
+
+        // Обработка видимости страницы (пауза при переключении вкладок)
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            stopCarousel();
+          } else {
+            startCarousel();
+          }
+        });
+
+        // Мобильная оптимизация
+        function handleMobileOptimization() {
+          const isMobile = window.innerWidth <= 768;
+          
+          if (isMobile) {
+            // Увеличиваем интервал переключения на мобильных
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 7000); // 7 секунд на мобильных
+          } else {
+            // Стандартный интервал на десктопе
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000); // 5 секунд на десктопе
+          }
+        }
+
+        // Обработка изменения размера окна
+        window.addEventListener('resize', () => {
+          handleMobileOptimization();
+        });
+
+        // Инициализация мобильной оптимизации
+        handleMobileOptimization();
       });
     </script>
 </body>

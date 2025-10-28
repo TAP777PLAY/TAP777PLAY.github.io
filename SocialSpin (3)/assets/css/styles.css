@@ -2003,6 +2003,275 @@
 
       }
 
+      /* ROSA Style Hero Section */
+      .hero-section.rosa-style {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-section.rosa-style::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+        z-index: 1;
+      }
+
+      .hero-section.rosa-style .hero-wood-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          linear-gradient(90deg, rgba(139, 69, 19, 0.1) 0%, transparent 50%, rgba(139, 69, 19, 0.1) 100%),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px
+          );
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      .hero-section.rosa-style .hero-decorations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+      }
+
+      .hero-section.rosa-style .hero-content {
+        position: relative;
+        z-index: 3;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-section.rosa-style .hero-text-wrapper {
+        background: transparent;
+        backdrop-filter: none;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        max-width: none;
+        margin: 0;
+        text-align: left;
+        transition: all 0.3s ease;
+      }
+
+      .hero-section.rosa-style .hero-title {
+        color: #ffd700;
+        font-size: 4.5rem;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+        font-family: 'Playfair Display', serif;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        letter-spacing: 3px;
+        line-height: 1.1;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-section.rosa-style .hero-main-title {
+        color: #ffd700;
+        font-size: 6rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        font-family: 'Montserrat', sans-serif;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+        letter-spacing: 4px;
+        line-height: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .hero-section.rosa-style .hero-subtitle {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin: 0 15px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        letter-spacing: 2px;
+        font-family: 'Montserrat', sans-serif;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
+
+      .hero-section.rosa-style .hero-description {
+        color: #e0e0e0;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1.7;
+        margin-top: 3rem;
+        opacity: 0.95;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        max-width: 500px;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.5px;
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+
+      .hero-section.rosa-style .hero-divider {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+        width: fit-content;
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(1.1);
+        }
+      }
+
+      /* Hero Carousel Styles */
+      .hero-section.rosa-style .hero-carousel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+
+      .hero-section.rosa-style .carousel-slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-section.rosa-style .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .hero-section.rosa-style .carousel-slide.active {
+        opacity: 1;
+      }
+
+      .hero-section.rosa-style .carousel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+        z-index: 1;
+      }
+
+      .hero-section.rosa-style .carousel-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        gap: 10px;
+      }
+
+      .hero-section.rosa-style .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid #ffd700;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .hero-section.rosa-style .carousel-dot.active {
+        background: #ffd700;
+      }
+
+      .hero-section.rosa-style .carousel-dot:hover {
+        transform: scale(1.2);
+      }
+
+      /* Дополнительные стили для мобильной адаптации */
+      @media (max-width: 768px) {
+        .hero-section.rosa-style .carousel-slide {
+          background-attachment: scroll;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        
+        .hero-section.rosa-style .carousel-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+          z-index: 1;
+        }
+
+        .hero-section.rosa-style .carousel-slides {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      /* Предотвращение горизонтальной прокрутки */
+      @media (max-width: 768px) {
+        .hero-section.rosa-style {
+          overflow-x: hidden;
+        }
+        
+        .hero-section.rosa-style .hero-content {
+          overflow-x: hidden;
+        }
+        
+        .hero-section.rosa-style .hero-text-wrapper {
+          overflow-x: hidden;
+          word-wrap: break-word;
+        }
+      }
+
 
 
       .hero-section .container {
@@ -2895,6 +3164,243 @@
           padding: 1rem !important;
           box-sizing: border-box !important;
         }
+      }
+
+      /* ROSA Style Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .hero-section.rosa-style {
+          min-height: 100vh !important;
+          padding: 0 !important;
+          position: relative;
+        }
+
+        .hero-section.rosa-style .hero-carousel {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 100vh;
+          z-index: 1;
+        }
+
+        .hero-section.rosa-style .carousel-overlay {
+          background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .hero-section.rosa-style .hero-content {
+          position: absolute;
+          z-index: 3;
+          padding: 2rem 1.5rem;
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+        }
+
+        .hero-section.rosa-style .hero-text-wrapper {
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .hero-section.rosa-style .hero-title {
+          font-size: 2.5rem !important;
+          letter-spacing: 0.8px !important;
+          line-height: 1.1;
+          margin-bottom: 0.3rem;
+          text-align: center !important;
+        }
+
+        .hero-section.rosa-style .hero-main-title {
+          font-size: 2.5rem !important;
+          letter-spacing: 0.8px !important;
+          line-height: 1 !important;
+          margin-bottom: 1rem;
+          text-align: center !important;
+          white-space: nowrap !important;
+          overflow: hidden;
+          max-width: 100vw;
+          padding: 0 10px;
+        }
+
+        .hero-section.rosa-style .hero-subtitle {
+          font-size: 0.9rem;
+          margin: 0;
+          letter-spacing: 1px;
+          text-align: center !important;
+          width: 100%;
+        }
+
+        .hero-section.rosa-style .hero-description {
+          font-size: 0.95rem;
+          margin-top: 1.5rem;
+          max-width: 100%;
+          line-height: 1.5;
+          padding: 0 1rem;
+          text-align: center;
+        }
+
+        .hero-section.rosa-style .hero-divider {
+          margin: 1rem 0;
+          justify-content: center !important;
+          width: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+        }
+
+        .hero-section.rosa-style .hero-divider p {
+          text-align: center !important;
+          width: 100% !important;
+          margin: 0 !important;
+        }
+
+        /* Навигация карусели */
+        .hero-section.rosa-style .carousel-nav {
+          bottom: 20px;
+          gap: 6px;
+        }
+
+        .hero-section.rosa-style .carousel-dot {
+          width: 8px;
+          height: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section.rosa-style {
+          min-height: 100vh;
+        }
+
+        .hero-section.rosa-style .hero-carousel {
+          height: 100vh;
+        }
+
+        .hero-section.rosa-style .hero-content {
+          height: 100vh;
+          padding: 1.5rem 1rem;
+        }
+
+        .hero-section.rosa-style .hero-title {
+          font-size: 2rem !important;
+          letter-spacing: 0.5px !important;
+          margin-bottom: 0.2rem;
+          text-align: center !important;
+        }
+
+        .hero-section.rosa-style .hero-main-title {
+          font-size: 2rem !important;
+          letter-spacing: 0.5px !important;
+          line-height: 1 !important;
+          margin-bottom: 0.8rem;
+          text-align: center !important;
+          white-space: nowrap !important;
+          overflow: hidden;
+          max-width: 100vw;
+          padding: 0 10px;
+        }
+
+        .hero-section.rosa-style .hero-subtitle {
+          font-size: 0.8rem;
+          margin: 0;
+          letter-spacing: 0.5px;
+          text-align: center !important;
+          width: 100%;
+        }
+
+        .hero-section.rosa-style .hero-description {
+          font-size: 0.85rem;
+          margin-top: 1rem;
+          line-height: 1.4;
+          padding: 0 0.5rem;
+          text-align: center;
+        }
+
+        .hero-section.rosa-style .hero-divider {
+          margin: 0.8rem 0;
+          justify-content: center !important;
+          width: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+        }
+
+        .hero-section.rosa-style .hero-divider p {
+          text-align: center !important;
+          width: 100% !important;
+          margin: 0 !important;
+        }
+
+        /* Навигация карусели */
+        .hero-section.rosa-style .carousel-nav {
+          bottom: 15px;
+          gap: 4px;
+        }
+
+        .hero-section.rosa-style .carousel-dot {
+          width: 6px;
+          height: 6px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .hero-section.rosa-style .hero-carousel {
+          height: 100vh;
+        }
+
+        .hero-section.rosa-style .hero-content {
+          height: 100vh;
+          padding: 1rem 0.8rem;
+        }
+
+        .hero-section.rosa-style .hero-title {
+          font-size: 1.6rem !important;
+          text-align: center !important;
+        }
+
+        .hero-section.rosa-style .hero-main-title {
+          font-size: 1.6rem !important;
+          line-height: 1 !important;
+          margin-bottom: 0.5rem;
+          text-align: center !important;
+          white-space: nowrap !important;
+          overflow: hidden;
+          letter-spacing: 0.3px !important;
+          max-width: 100vw;
+          padding: 0 10px;
+        }
+
+        .hero-section.rosa-style .hero-subtitle {
+          font-size: 0.75rem;
+          margin: 0;
+          text-align: center !important;
+          width: 100%;
+        }
+
+        .hero-section.rosa-style .hero-description {
+          font-size: 0.8rem;
+          margin-top: 0.8rem;
+          padding: 0;
+          text-align: center;
+        }
+
+        .hero-section.rosa-style .hero-divider {
+          margin: 0.5rem 0;
+          justify-content: center !important;
+          width: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+        }
+
+        .hero-section.rosa-style .hero-divider p {
+          text-align: center !important;
+          width: 100% !important;
+          margin: 0 !important;
+        }
+      }
         
         .counter-container {
           width: 100% !important;
