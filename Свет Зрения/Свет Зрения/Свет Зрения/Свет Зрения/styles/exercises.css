@@ -1,0 +1,521 @@
+/* Exercises Page Specific Styles - SoftGradientLanding */
+
+/* Hero Section */
+.exercises-hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #C57BFF 0%, #FBA6C9 100%);
+}
+
+.exercises-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.exercises-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exercises-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.exercises-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Базовые упражнения */
+.basic-exercises {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.exercises-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.exercises-table-wrapper {
+    overflow-x: auto;
+}
+
+.exercises-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.exercises-table thead {
+    background: linear-gradient(180deg, #B86BFF 0%, #FF87B4 100%);
+}
+
+.exercises-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.exercises-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.exercises-table tbody tr:hover {
+    background-color: #FFE0F0;
+    transition: all 0.3s ease-in-out;
+}
+
+.exercises-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Таймер */
+.timer-section {
+    background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.timer-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.timer-display {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.timer-presets {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timer-preset {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.timer-preset:hover {
+    background-color: #f0f0f0;
+    border-color: #333;
+    color: #333;
+}
+
+.timer-preset.active {
+    background: linear-gradient(180deg, #B86BFF 0%, #FF87B4 100%);
+    color: #fff;
+    border-color: #B86BFF;
+    box-shadow: 0 4px 10px rgba(184, 107, 255, 0.3);
+}
+
+/* Освещение и рабочее место */
+.workspace-lighting {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.workspace-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.workspace-image-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.workspace-tips {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tips-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tip-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.tip-item:last-child {
+    border-bottom: none;
+}
+
+.tip-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Маленькая гимнастика */
+.eye-gymnastics {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.gymnastics-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gymnastics-instruction {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.gymnastics-animation-wrapper {
+    background-color: #f9f9f9;
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.figure-eight-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.figure-eight-track {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+}
+
+.figure-eight-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 300px;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.eye-follower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s linear;
+    z-index: 10;
+}
+
+.eye-follower.active {
+    animation: figure-eight 8s infinite linear;
+}
+
+@keyframes figure-eight {
+    0% {
+        transform: translate(-50%, -50%) translateX(150px) translateY(0);
+    }
+    12.5% {
+        transform: translate(-50%, -50%) translateX(106px) translateY(-71px);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(0) translateY(-100px);
+    }
+    37.5% {
+        transform: translate(-50%, -50%) translateX(-106px) translateY(-71px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(-150px) translateY(0);
+    }
+    62.5% {
+        transform: translate(-50%, -50%) translateX(-106px) translateY(71px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(0) translateY(100px);
+    }
+    87.5% {
+        transform: translate(-50%, -50%) translateX(106px) translateY(71px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(150px) translateY(0);
+    }
+}
+
+.gymnastics-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Стили для кнопок в секциях с светлым фоном */
+.timer-controls .btn-secondary,
+.gymnastics-controls .btn-secondary {
+    background-color: #fff;
+    color: #B86BFF;
+    border: 2px solid #B86BFF;
+}
+
+.timer-controls .btn-secondary:hover,
+.gymnastics-controls .btn-secondary:hover {
+    background-color: #FFE0F0;
+    color: #B86BFF;
+    border-color: #B86BFF;
+}
+
+/* Советы и мифы */
+.tips-myths {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.myths-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.accordion-btn::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.accordion-btn.active::after {
+    transform: rotate(45deg);
+}
+
+.accordion-btn:hover {
+    background-color: #FFE0F0;
+    border-color: #FF87B4;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0 0 4px 4px;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+}
+
+.accordion-content p {
+    padding: 1rem;
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Отзывы читателей */
+.reader-reviews {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid #B86BFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(184, 107, 255, 0.15);
+}
+
+.review-text {
+    color: #666;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Footer adjustments */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .exercises-hero {
+        height: 400px;
+    }
+
+    .exercises-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .exercises-content {
+        grid-template-columns: 1fr;
+    }
+
+    .workspace-content {
+        grid-template-columns: 1fr;
+    }
+
+    .timer-display {
+        font-size: 2rem;
+    }
+
+    .figure-eight-container {
+        height: 300px;
+    }
+
+    .figure-eight-track {
+        width: 250px;
+        height: 150px;
+    }
+
+    .figure-eight-track::before {
+        width: 150px;
+        height: 250px;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+

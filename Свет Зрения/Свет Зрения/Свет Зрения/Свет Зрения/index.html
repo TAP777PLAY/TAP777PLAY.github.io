@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свет Зрения - Забота о глазах каждый день</title>
+    <link rel="icon" type="image/webp" href="image/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Свет Зрения</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Главная</a>
+                    <a href="drops.html" class="nav-link">Советы</a>
+                    <a href="exercises.html" class="nav-link">Упражнения</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                    <a href="reviews.html" class="nav-link">Отзывы</a>
+                    <a href="questions.html" class="nav-link">Вопросы</a>
+                    <a href="contacts.html" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="image/Глаза.jpg" alt="Глаза" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Забота о глазах каждый день — просто и естественно</h1>
+            <p class="hero-subtitle">Советы и традиции, которые помогают сохранить комфорт и внимание</p>
+            <div class="hero-buttons">
+                <a href="drops.html" class="btn btn-primary">Посмотреть рекомендации</a>
+                <a href="test.html" class="btn btn-primary">Пройти тест</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Природные советы -->
+    <section class="natural-tips">
+        <div class="container">
+            <h2 class="section-title">Природные советы</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <img src="image/Алоэ.jpg" alt="Алоэ" class="tip-image">
+                    <h3 class="tip-title">Алоэ</h3>
+                    <p class="tip-text">Используется в быту как элемент природного ухода и расслабления.</p>
+                </div>
+                <div class="tip-card">
+                    <img src="image/Ромашка.webp" alt="Ромашка" class="tip-image">
+                    <h3 class="tip-title">Ромашка</h3>
+                    <p class="tip-text">Используется в быту как элемент природного ухода и расслабления.</p>
+                </div>
+                <div class="tip-card">
+                    <img src="image/Черника.jpg" alt="Черника" class="tip-image">
+                    <h3 class="tip-title">Черника</h3>
+                    <p class="tip-text">Используется в быту как элемент природного ухода и расслабления.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Практики расслабления для глаз -->
+    <section class="relaxation-practices">
+        <div class="container">
+            <h2 class="section-title">Практики расслабления для глаз</h2>
+            <div class="practices-content">
+                <div class="practices-text">
+                    <h3>Простые упражнения</h3>
+                    <ul class="exercises-list">
+                        <li>Смотреть вдаль</li>
+                        <li>Моргать</li>
+                        <li>Делать паузы</li>
+                    </ul>
+                </div>
+                <div class="practices-table">
+                    <img src="image/Таблица рекомендаций по времени отдыха.webp" alt="Таблица рекомендаций по времени отдыха" class="table-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Визуальный тест-комфорт -->
+    <section class="visual-test">
+        <div class="container">
+            <h2 class="section-title">Визуальный тест-комфорт</h2>
+            <p class="test-description">Мини-тест поможет проверить фокус внимания и восприятие контрастов</p>
+            <a href="test.html" class="btn btn-primary">Пройти тест</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-subscribe">
+                    <h3 class="footer-title">Получайте новые советы о визуальном комфорте и отдыхе для глаз</h3>
+                    <form class="subscribe-form" action="#" method="post">
+                        <input type="email" class="subscribe-input" placeholder="Ваш email" required>
+                        <button type="submit" class="btn btn-secondary">Подписаться</button>
+                    </form>
+                </div>
+                <div class="footer-links">
+                    <a href="cookies-policy.html" class="footer-link">Cookies Policy</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                    <span class="footer-year">2025 год</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookie-popup">
+        <div class="cookie-popup-content">
+            <div class="cookie-popup-text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Продолжая использовать сайт, вы соглашаетесь с использованием cookie.</p>
+            </div>
+            <div class="cookie-popup-actions">
+                <button class="cookie-popup-btn cookie-popup-btn-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-popup-btn cookie-popup-btn-decline" id="cookie-decline">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/cookies.js"></script>
+</body>
+</html>
+

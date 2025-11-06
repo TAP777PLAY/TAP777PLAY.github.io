@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простые упражнения - Свет Зрения</title>
+    <link rel="icon" type="image/webp" href="image/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/exercises.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Свет Зрения</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="drops.html" class="nav-link">Советы</a>
+                    <a href="exercises.html" class="nav-link active">Упражнения</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                    <a href="reviews.html" class="nav-link">Отзывы</a>
+                    <a href="questions.html" class="nav-link">Вопросы</a>
+                    <a href="contacts.html" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="exercises-hero">
+        <div class="exercises-hero-background">
+            <img src="image/Пауза для глаз.jpg" alt="Пауза для глаз" class="exercises-hero-image">
+        </div>
+        <div class="exercises-hero-content">
+            <h1 class="exercises-hero-title">Пауза, вдох, взгляд — маленькие привычки для комфорта</h1>
+        </div>
+    </section>
+
+    <!-- Базовые упражнения -->
+    <section class="basic-exercises">
+        <div class="container">
+            <h2 class="section-title">Базовые упражнения</h2>
+            <div class="exercises-content">
+                <div class="exercises-table-wrapper">
+                    <table class="exercises-table">
+                        <thead>
+                            <tr>
+                                <th>Движение</th>
+                                <th>Описание</th>
+                                <th>Повторения</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Вверх-вниз</td>
+                                <td>Медленно переводите взгляд вверх, затем вниз</td>
+                                <td>10 раз</td>
+                            </tr>
+                            <tr>
+                                <td>По диагонали</td>
+                                <td>Движение взглядом из верхнего левого угла в нижний правый и обратно</td>
+                                <td>10 раз</td>
+                            </tr>
+                            <tr>
+                                <td>Вдаль-близко</td>
+                                <td>Смотрите на объект вдали, затем на кончик носа</td>
+                                <td>10 раз</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="timer-section">
+                    <h3 class="timer-title">Таймер паузы</h3>
+                    <div class="timer-display" id="timer-display">20:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="start-timer">Начать</button>
+                        <button class="btn btn-secondary" id="reset-timer">Сброс</button>
+                    </div>
+                    <div class="timer-presets">
+                        <button class="timer-preset" data-time="300">5 мин</button>
+                        <button class="timer-preset" data-time="600">10 мин</button>
+                        <button class="timer-preset" data-time="1200">20 мин</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Освещение и рабочее место -->
+    <section class="workspace-lighting">
+        <div class="container">
+            <h2 class="section-title">Освещение и рабочее место</h2>
+            <div class="workspace-content">
+                <div class="workspace-image-wrapper">
+                    <img src="image/Рабочее место.webp" alt="Рабочее место" class="workspace-image">
+                </div>
+                <div class="workspace-tips">
+                    <h3 class="tips-title">Советы по организации рабочего места</h3>
+                    <ul class="tips-list">
+                        <li class="tip-item">
+                            <strong>Мягкий свет:</strong> Используйте рассеянное освещение, избегайте прямых лучей на экран
+                        </li>
+                        <li class="tip-item">
+                            <strong>Удалённость монитора:</strong> Расстояние до экрана должно быть не менее 50-70 см
+                        </li>
+                        <li class="tip-item">
+                            <strong>Расстояние до экрана:</strong> Верхняя часть монитора должна быть на уровне глаз или чуть ниже
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Маленькая гимнастика -->
+    <section class="eye-gymnastics">
+        <div class="container">
+            <h2 class="section-title">Маленькая гимнастика</h2>
+            <div class="gymnastics-content">
+                <div class="gymnastics-instruction">
+                    <p>Следите глазами за точкой, двигающейся по траектории восьмёрки. Это упражнение способствует расслаблению глазных мышц и созданию комфорта.</p>
+                </div>
+                <div class="gymnastics-animation-wrapper">
+                    <div class="figure-eight-container">
+                        <div class="figure-eight-track">
+                            <div class="eye-follower" id="eye-follower"></div>
+                        </div>
+                    </div>
+                    <div class="gymnastics-controls">
+                        <button class="btn btn-primary" id="start-gymnastics">Начать упражнение</button>
+                        <button class="btn btn-secondary" id="stop-gymnastics">Остановить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Советы и мифы -->
+    <section class="tips-myths">
+        <div class="container">
+            <h2 class="section-title">Советы и мифы</h2>
+            <div class="myths-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">Можно ли делать с закрытыми глазами?</button>
+                    <div class="accordion-content">
+                        <p>Да, многие упражнения можно выполнять с закрытыми глазами. Это особенно полезно для расслабления глазных мышц. Закрытые глаза помогают уменьшить напряжение и дать отдых зрительной системе.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Лучшее время для пауз?</button>
+                    <div class="accordion-content">
+                        <p>Идеальное время для пауз — каждые 20-30 минут работы за компьютером. Также полезно делать упражнения утром после пробуждения и вечером перед сном для расслабления глаз.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Что помогает при усталости экрана?</button>
+                    <div class="accordion-content">
+                        <p>При усталости от экрана помогают: регулярные паузы, упражнения на фокусировку вдаль, частое моргание, правильное освещение рабочего места и использование режима "ночной свет" на устройствах в вечернее время.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы читателей -->
+    <section class="reader-reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы читателей</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Делаю каждое утро — помогает сосредоточиться"</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"На работе включаю напоминание каждые 20 минут"</p>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Глаза отдыхают быстрее, если просто моргать чаще"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    <p>©2025 Свет Зрения</p>
+                </div>
+                <div class="footer-links">
+                    <a href="cookies-policy.html" class="footer-link">Cookies</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookie-popup">
+        <div class="cookie-popup-content">
+            <div class="cookie-popup-text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Продолжая использовать сайт, вы соглашаетесь с использованием cookie.</p>
+            </div>
+            <div class="cookie-popup-actions">
+                <button class="cookie-popup-btn cookie-popup-btn-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-popup-btn cookie-popup-btn-decline" id="cookie-decline">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/exercises.js"></script>
+</body>
+</html>
+

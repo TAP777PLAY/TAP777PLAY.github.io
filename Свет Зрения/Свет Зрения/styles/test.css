@@ -1,0 +1,193 @@
+/* Test Page Specific Styles - SoftGradientLanding */
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Таблица фокусировки */
+.focus-table-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.focus-hint {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.focus-table-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.focus-table-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    animation: zoomIn 1s ease-out;
+}
+
+.focus-table-image:hover {
+    transform: scale(1.1);
+}
+
+/* Проверь восприятие */
+.perception-tests-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.test-card {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    animation: scaleIn 0.8s ease-out both;
+}
+
+.test-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.test-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.test-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.test-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.test-card:hover .test-image {
+    transform: scale(1.1);
+}
+
+.test-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 1.5rem;
+    text-align: center;
+}
+
+/* Результат */
+.test-result-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.result-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5rem;
+    background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 1s ease-out;
+}
+
+.result-message {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .focus-table-wrapper {
+        padding: 1rem;
+    }
+
+    .focus-table-image:hover {
+        transform: scale(1.05);
+    }
+
+    .tests-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .test-image {
+        height: 200px;
+    }
+
+    .result-content {
+        padding: 1.5rem;
+    }
+}
+

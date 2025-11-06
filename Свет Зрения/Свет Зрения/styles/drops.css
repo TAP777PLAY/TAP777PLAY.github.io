@@ -1,0 +1,716 @@
+/* Drops Page Specific Styles */
+
+/* Animations */
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Hero Section */
+.drops-hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #FAF9F6;
+}
+
+.drops-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.drops-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomIn 1.5s ease-out;
+    transition: transform 0.5s ease;
+}
+
+.drops-hero-image:hover {
+    transform: scale(1.05);
+}
+
+.drops-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #333;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.drops-hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: #333;
+    text-shadow: none;
+    animation: slideInFromBottom 1s ease-out;
+}
+
+/* Введение */
+.drops-intro {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.drops-intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.drops-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.intro-info-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: rotateIn 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.intro-info-image:hover {
+    transform: scale(1.05);
+}
+
+/* Домашние смеси и настои */
+.drops-mixtures {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.mixtures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.mixture-card {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    animation: slideInFromBottom 0.8s ease-out both;
+}
+
+.mixture-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mixture-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mixture-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.mixture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mixture-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.mixture-card:hover .mixture-image {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.1);
+}
+
+.mixture-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem;
+    color: #333;
+}
+
+.mixture-text {
+    margin: 0 1rem 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Таблица растений */
+.drops-table-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.plants-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.plants-table thead {
+    background: #333;
+}
+
+.plants-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #FFFFFF;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.plants-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: #666;
+}
+
+.plants-table tbody tr:hover {
+    background-color: #FAF9F6;
+    transition: all 0.3s ease-in-out;
+}
+
+.plants-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Тёплые компрессы */
+.drops-compresses {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.compresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.compress-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compress-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.compress-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Аккордеон */
+.accordion-wrapper {
+    margin-top: 2rem;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.accordion-btn::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.accordion-btn.active::after {
+    transform: rotate(45deg);
+}
+
+.accordion-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0 0 4px 4px;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+}
+
+.accordion-content p {
+    padding: 1rem;
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Традиционные напитки */
+.drops-drinks {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.drinks-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.drinks-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.drink-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #333;
+}
+
+.drink-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.drink-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+.drinks-chart {
+    text-align: center;
+}
+
+.chart-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.chart-image:hover {
+    transform: scale(1.05);
+}
+
+.chart-caption {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Арома-комфорт */
+.drops-aroma {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.aroma-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.aroma-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.aroma-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aroma-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.aroma-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem;
+    color: #333;
+}
+
+.aroma-text {
+    margin: 0 1rem 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Мифы и советы */
+.drops-myths {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.myths-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+}
+
+.accordion-item .accordion-btn {
+    border-radius: 4px;
+}
+
+.accordion-item .accordion-content {
+    border-radius: 0 0 4px 4px;
+}
+
+/* Истории читателей */
+.drops-stories {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.story-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: scaleIn 0.8s ease-out both;
+    transition: transform 0.3s ease;
+}
+
+.story-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.story-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.story-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-image {
+    transform: scale(1.1);
+}
+
+.story-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem;
+    color: #333;
+}
+
+.story-text {
+    margin: 0 1rem 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Мини-опрос */
+.drops-poll {
+    padding: 4rem 0;
+    background: transparent;
+    text-align: center;
+}
+
+.poll-form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.poll-option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.poll-option:hover {
+    background-color: #f0f0f0;
+}
+
+.poll-option input[type="radio"] {
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.poll-option span {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-close:hover {
+    color: #333;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.tip-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .drops-hero {
+        height: 400px;
+    }
+
+    .drops-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .drops-intro-content {
+        grid-template-columns: 1fr;
+    }
+
+    .mixtures-grid,
+    .compresses-grid,
+    .aroma-grid,
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .drinks-content {
+        grid-template-columns: 1fr;
+    }
+
+    .plants-table {
+        font-size: 0.9rem;
+    }
+
+    .plants-table th,
+    .plants-table td {
+        padding: 0.75rem;
+    }
+
+    .poll-options {
+        gap: 0.75rem;
+    }
+
+    .popup-content {
+        padding: 1.5rem;
+    }
+}
+

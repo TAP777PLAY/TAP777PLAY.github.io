@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Свет Зрения</title>
+    <link rel="icon" type="image/webp" href="image/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/reviews.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Свет Зрения</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="drops.html" class="nav-link">Советы</a>
+                    <a href="exercises.html" class="nav-link">Упражнения</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                    <a href="reviews.html" class="nav-link active">Отзывы</a>
+                    <a href="questions.html" class="nav-link">Вопросы</a>
+                    <a href="contacts.html" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h1 class="reviews-title">Ваши истории и идеи</h1>
+            
+            <!-- Reviews Grid -->
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="image/Анна М..png" alt="Отзыв пользователя" class="review-image">
+                    <div class="review-content">
+                        <h3 class="review-author">Анна М.</h3>
+                        <p class="review-text">Отличные советы по уходу за глазами. Особенно помогли упражнения для расслабления после рабочего дня.</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="image/Дмитрий К..jpg" alt="Отзыв пользователя" class="review-image">
+                    <div class="review-content">
+                        <h3 class="review-author">Дмитрий К.</h3>
+                        <p class="review-text">Попробовал природные рецепты с ромашкой. Очень приятные ощущения, глаза стали меньше уставать.</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="image/Елена С..jpg" alt="Отзыв пользователя" class="review-image">
+                    <div class="review-content">
+                        <h3 class="review-author">Елена С.</h3>
+                        <p class="review-text">Прошла визуальный тест. Интересный опыт, помог понять, на что обращать внимание при работе за компьютером.</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="image/Михаил В..webp" alt="Отзыв пользователя" class="review-image">
+                    <div class="review-content">
+                        <h3 class="review-author">Михаил В.</h3>
+                        <p class="review-text">Регулярно делаю упражнения из раздела. Это создает больше комфорта при длительном чтении.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Review Form -->
+            <div class="add-review-section">
+                <h2 class="form-title">Добавить отзыв</h2>
+                <form class="review-form" id="review-form">
+                    <div class="form-group">
+                        <label for="review-name">Имя</label>
+                        <input type="text" id="review-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Ваш отзыв</label>
+                        <textarea id="review-text" name="text" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-photo">Фото (необязательно)</label>
+                        <input type="file" id="review-photo" name="photo" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                </form>
+                <div class="success-message" id="success-message" style="display: none;">
+                    Спасибо, ваш комментарий отправлен на модерацию!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="cookies-policy.html" class="footer-link">Cookies</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookie-popup">
+        <div class="cookie-popup-content">
+            <div class="cookie-popup-text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Продолжая использовать сайт, вы соглашаетесь с использованием cookie.</p>
+            </div>
+            <div class="cookie-popup-actions">
+                <button class="cookie-popup-btn cookie-popup-btn-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-popup-btn cookie-popup-btn-decline" id="cookie-decline">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/cookies.js"></script>
+    <script>
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const successMessage = document.getElementById('success-message');
+            
+            // Hide form and show success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+

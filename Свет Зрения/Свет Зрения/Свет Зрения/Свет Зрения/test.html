@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуальный тест-комфорт - Свет Зрения</title>
+    <link rel="icon" type="image/webp" href="image/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/test.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Свет Зрения</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="drops.html" class="nav-link">Советы</a>
+                    <a href="exercises.html" class="nav-link">Упражнения</a>
+                    <a href="test.html" class="nav-link active">Тест</a>
+                    <a href="reviews.html" class="nav-link">Отзывы</a>
+                    <a href="questions.html" class="nav-link">Вопросы</a>
+                    <a href="contacts.html" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Таблица фокусировки -->
+    <section class="focus-table-section">
+        <div class="container">
+            <h2 class="section-title">Таблица фокусировки</h2>
+            <p class="focus-hint">Расположитесь на комфортном расстоянии от экрана (примерно 1,5–2 метра).</p>
+            <div class="focus-table-wrapper">
+                <img src="image/Таблица Сивцева.webp" alt="Таблица Сивцева" class="focus-table-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Проверь восприятие -->
+    <section class="perception-tests-section">
+        <div class="container">
+            <h2 class="section-title">Проверь восприятие</h2>
+            <div class="tests-grid">
+                <div class="test-card">
+                    <img src="image/Тест контрастности.png" alt="Тест контрастности" class="test-image">
+                    <h3 class="test-title">Контрастность</h3>
+                </div>
+                <div class="test-card">
+                    <img src="image/Тест цветового восприятия.jpg" alt="Тест цветового восприятия" class="test-image">
+                    <h3 class="test-title">Цветовое восприятие</h3>
+                </div>
+                <div class="test-card">
+                    <img src="image/Тест чёткости форм.jpeg" alt="Тест чёткости форм" class="test-image">
+                    <h3 class="test-title">Чёткость форм</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Результат -->
+    <section class="test-result-section">
+        <div class="container">
+            <div class="result-content">
+                <p class="result-message">Этот тест создан для развлечения и тренировки внимания.</p>
+                <button class="btn btn-primary" id="retry-btn">Пройти снова</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="cookies-policy.html" class="footer-link">Cookies</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookie-popup">
+        <div class="cookie-popup-content">
+            <div class="cookie-popup-text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Продолжая использовать сайт, вы соглашаетесь с использованием cookie.</p>
+            </div>
+            <div class="cookie-popup-actions">
+                <button class="cookie-popup-btn cookie-popup-btn-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-popup-btn cookie-popup-btn-decline" id="cookie-decline">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/cookies.js"></script>
+    <script>
+        // Кнопка "Пройти снова" - прокрутка наверх
+        document.getElementById('retry-btn').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+

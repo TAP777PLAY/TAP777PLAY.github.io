@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы - Свет Зрения</title>
+    <link rel="icon" type="image/webp" href="image/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/questions.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Свет Зрения</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="drops.html" class="nav-link">Советы</a>
+                    <a href="exercises.html" class="nav-link">Упражнения</a>
+                    <a href="test.html" class="nav-link">Тест</a>
+                    <a href="reviews.html" class="nav-link">Отзывы</a>
+                    <a href="questions.html" class="nav-link active">Вопросы</a>
+                    <a href="contacts.html" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Questions Section -->
+    <section class="questions-section">
+        <div class="container">
+            <h1 class="questions-title">Популярные вопросы о визуальном комфорте</h1>
+            
+            <!-- Accordion -->
+            <div class="questions-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">Как часто стоит делать паузы?</button>
+                    <div class="accordion-content">
+                        <p>Рекомендуется делать паузы каждые 20-30 минут работы за компьютером. Во время паузы отойдите от экрана, посмотрите вдаль, сделайте несколько упражнений для глаз или просто закройте глаза на минуту. Это поможет снизить усталость и напряжение глазных мышц.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Можно ли работать при лампе дневного света?</button>
+                    <div class="accordion-content">
+                        <p>Лампы дневного света могут создавать мерцание и блики, которые увеличивают нагрузку на глаза. Лучше использовать рассеянное естественное освещение или лампы с мягким теплым светом. Если приходится работать при дневном свете, убедитесь, что свет не падает прямо на экран и не создает бликов.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Почему важно смотреть вдаль?</button>
+                    <div class="accordion-content">
+                        <p>При работе за компьютером глазные мышцы постоянно напряжены для фокусировки на близком расстоянии. Смотрение вдаль способствует расслаблению этих мышц и созданию комфорта. Это простое упражнение можно делать каждые 20-30 минут, смотря в окно или на удаленные объекты.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Какие цвета экрана щадящие?</button>
+                    <div class="accordion-content">
+                        <p>Для глаз наиболее комфортны теплые оттенки с низкой яркостью. Рекомендуется использовать темные темы интерфейса, снижать яркость экрана до комфортного уровня и включать режим "ночной свет" или фильтр синего света в вечернее время. Избегайте слишком ярких белых фонов и высокого контраста.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">Как снизить усталость глаз вечером?</button>
+                    <div class="accordion-content">
+                        <p>Вечером особенно важно снизить нагрузку на глаза: уменьшите яркость экрана, включите режим "ночной свет", делайте более частые паузы, используйте дополнительное мягкое освещение в комнате. Также полезно делать упражнения для глаз, смотреть вдаль и избегать работы в полной темноте. За час до сна лучше вообще отложить устройства с экранами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ask Question Form -->
+    <section class="ask-question-section">
+        <div class="container">
+            <h2 class="form-title">Задать вопрос</h2>
+            <form class="question-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Имя</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Текст вопроса</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить вопрос</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    <p>©2025 Свет Зрения</p>
+                </div>
+                <div class="footer-links">
+                    <a href="cookies-policy.html" class="footer-link">Cookies</a>
+                    <a href="terms.html" class="footer-link">Terms</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookie-popup">
+        <div class="cookie-popup-content">
+            <div class="cookie-popup-text">
+                <p>Мы используем файлы cookie для улучшения работы сайта и анализа трафика. Продолжая использовать сайт, вы соглашаетесь с использованием cookie.</p>
+            </div>
+            <div class="cookie-popup-actions">
+                <button class="cookie-popup-btn cookie-popup-btn-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-popup-btn cookie-popup-btn-decline" id="cookie-decline">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/questions.js"></script>
+</body>
+</html>
+

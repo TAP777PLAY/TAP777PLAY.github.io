@@ -1,0 +1,253 @@
+/* Questions Page Specific Styles */
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Questions Section */
+.questions-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.questions-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #333;
+    animation: fadeInUp 1s ease-out;
+}
+
+.questions-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+    animation: slideDown 0.6s ease-out both;
+}
+
+.accordion-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.accordion-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.accordion-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.accordion-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.accordion-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 1.25rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.accordion-btn::after {
+    content: '+';
+    position: absolute;
+    right: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s;
+    color: #666;
+}
+
+.accordion-btn.active::after {
+    transform: rotate(45deg);
+}
+
+.accordion-btn:hover {
+    background-color: #FAF9F6;
+    border-color: #333;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0 0 4px 4px;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+}
+
+.accordion-content p {
+    padding: 1.5rem;
+    margin: 0;
+    color: #666;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Ask Question Form Section */
+.ask-question-section {
+    padding: 4rem 0;
+    background: transparent;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.question-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    animation: zoomIn 1s ease-out;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.question-form .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Footer adjustments */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .questions-title {
+        font-size: 1.75rem;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .question-form {
+        padding: 1.5rem;
+    }
+
+    .accordion-btn {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .accordion-content p {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
