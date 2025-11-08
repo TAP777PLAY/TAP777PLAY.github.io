@@ -589,6 +589,7 @@
         (function() {
             const blogCards = document.querySelectorAll('.blog-card');
             const paginationBtns = document.querySelectorAll('.pagination-btn');
+            const neuImBlogSection = document.querySelector('.neu-im-blog');
             const itemsPerPage = 3;
             let currentPage = 1;
             const totalPages = 5;
@@ -637,19 +638,31 @@
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const pageNum = btn.getAttribute('data-page');
+                    let pageChanged = false;
                     
                     if (pageNum === 'prev' && currentPage > 1) {
                         currentPage--;
                         showPage(currentPage);
+                        pageChanged = true;
                     } else if (pageNum === 'next' && currentPage < totalPages) {
                         currentPage++;
                         showPage(currentPage);
+                        pageChanged = true;
                     } else if (pageNum && !isNaN(pageNum)) {
                         const targetPage = parseInt(pageNum);
-                        if (targetPage >= 1 && targetPage <= totalPages) {
+                        if (targetPage >= 1 && targetPage <= totalPages && targetPage !== currentPage) {
                             currentPage = targetPage;
                             showPage(currentPage);
+                            pageChanged = true;
                         }
+                    }
+                    
+                    // Scroll to Neu im Blog section when page changes
+                    if (pageChanged && neuImBlogSection) {
+                        neuImBlogSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
                 });
             });
