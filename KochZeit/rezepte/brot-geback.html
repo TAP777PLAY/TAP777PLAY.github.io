@@ -8,6 +8,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.kochzeit.de/rezepte/brot-geback.html">
     <link rel="icon" type="image/jpeg" href="../images/favicon.jpg">
+    <link rel="preload" as="image" href="../images/Traditionelles Sauerteigbrot.jpg" fetchpriority="high">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/rezepte.css">
     
@@ -38,7 +39,7 @@
         <nav>
             <div class="container">
                 <div class="logo"><a href="../index.html">KochZeit</a></div>
-                <button class="menu-toggle" aria-label="Menu">Menu</button>
+                <button class="menu-toggle" aria-label="Menu">☰</button>
                 <ul class="nav-menu">
                     <li><a href="../index.html">Startseite</a></li>
                     <li><a href="../news.html">Nachrichten</a></li>
@@ -87,7 +88,15 @@
         </div>
     </nav>
     <main>
+        <!-- Hero Section -->
         <section class="rezepte-hero">
+            <div class="hero-images">
+                <div class="hero-image active" style="background-image: url('../images/Traditionelles Sauerteigbrot.jpg');">
+                    <img src="../images/Traditionelles Sauerteigbrot.jpg" alt="" loading="eager" fetchpriority="high" style="display: none;">
+                </div>
+                <div class="hero-image" style="background-image: url('../images/Bayerische Brezel.jpg');"></div>
+                <div class="hero-image" style="background-image: url('../images/Brotkultur.webp');"></div>
+            </div>
             <div class="hero-overlay">
                 <div class="container">
                     <h1>Brot & Gebäck – Deutsche Backwaren</h1>
@@ -198,6 +207,63 @@
                 document.body.style.zoom = '1';
                 document.documentElement.style.zoom = '1';
             });
+        })();
+        
+        // Hero image rotation - start after delay to show first image
+        (function() {
+            const heroImages = document.querySelectorAll('.rezepte-hero .hero-image');
+            if (heroImages.length > 1) {
+                // Make sure first image is visible immediately
+                heroImages[0].classList.add('active');
+                
+                // Preload all images
+                const imageUrls = [
+                    '../images/Traditionelles Sauerteigbrot.jpg',
+                    '../images/Bayerische Brezel.jpg',
+                    '../images/Brotkultur.webp'
+                ];
+                
+                let rotationStarted = false;
+                let currentIndex = 0;
+                let rotationInterval = null;
+                
+                function startRotation() {
+                    if (rotationStarted) return;
+                    rotationStarted = true;
+                    
+                    // Function to switch to next image
+                    function switchToNext() {
+                        heroImages[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % heroImages.length;
+                        heroImages[currentIndex].classList.add('active');
+                    }
+                    
+                    // Switch immediately when rotation starts
+                    switchToNext();
+                    
+                    // Then continue with interval
+                    rotationInterval = setInterval(switchToNext, 5000); // Change image every 5 seconds
+                }
+                
+                // Preload images
+                imageUrls.forEach((url, index) => {
+                    const img = new Image();
+                    img.onload = function() {
+                        // Just preload, don't start rotation
+                    };
+                    img.onerror = function() {
+                        // Just preload, don't start rotation
+                    };
+                    img.src = url;
+                });
+                
+                // Start rotation after 1.5 seconds to let first image show properly
+                setTimeout(function() {
+                    if (!rotationStarted) {
+                        startRotation();
+                    }
+                }, 1500);
+            }
         })();
         
         document.querySelector('.menu-toggle')?.addEventListener('click', function() {
