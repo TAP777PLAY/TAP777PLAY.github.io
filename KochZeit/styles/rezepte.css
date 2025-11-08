@@ -140,6 +140,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.recipe-card:hover h2 {
+    color: #d32f2f;
 }
 
 .recipe-card-link:hover .recipe-card {

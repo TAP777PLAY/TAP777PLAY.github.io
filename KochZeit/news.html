@@ -118,7 +118,12 @@
                 <div class="logo">
                     <a href="index.html">KochZeit</a>
                 </div>
+                <button class="menu-toggle" aria-label="Menu">☰</button>
+                <div class="menu-overlay"></div>
                 <ul class="nav-menu">
+                    <li class="menu-logo">
+                        <a href="index.html" class="menu-logo-link">KochZeit</a>
+                    </li>
                     <li><a href="index.html">Startseite</a></li>
                     <li><a href="news.html">Nachrichten</a></li>
                     <li><a href="recipes.html">Rezepte</a></li>
@@ -346,11 +351,6 @@
     </div>
     
     <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle')?.addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        });
-        
         // Smooth scroll for anchor links (excluding pagination)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (!anchor.classList.contains('pagination-btn')) {
@@ -530,6 +530,55 @@
                         item.style.animation = `fadeInUp 0.6s ease-out forwards`;
                         item.style.opacity = '1';
                     }, 100 + (index * 100));
+                });
+            }
+        })();
+        
+        // Mobile menu toggle
+        (function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const body = document.body;
+            
+            function toggleMenu() {
+                navMenu.classList.toggle('active');
+                if (menuOverlay) {
+                    menuOverlay.classList.toggle('active');
+                }
+                if (navMenu.classList.contains('active')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
+            }
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+                
+                // Close menu when clicking on a link
+                navMenu.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        toggleMenu();
+                    }
+                });
+                
+                // Close menu when clicking on overlay
+                if (menuOverlay) {
+                    menuOverlay.addEventListener('click', function(e) {
+                        toggleMenu();
+                    });
+                }
+                
+                // Close menu on Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
                 });
             }
         })();
