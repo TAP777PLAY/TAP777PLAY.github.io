@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="https://www.kochzeit.de/images/news-og.jpg">
     
     <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
-    <link rel="preload" as="image" href="images/news_bg.jpg">
+    <link rel="preload" as="image" href="images/heroo.jpg">
     <link rel="preload" as="image" href="images/Neue Rezepte für den Herbst.jpg">
     <link rel="preload" as="image" href="images/Traditionen der deutschen Küche.jpg">
     <link rel="preload" as="image" href="images/Regionale Spezialitäten entdecken.jpg">
@@ -134,7 +134,9 @@
         <!-- Hero Section -->
         <section class="news-hero">
             <div class="hero-images">
-                <div class="hero-image active" style="background-image: url('images/news_bg.jpg');"></div>
+                <div class="hero-image active" style="background-image: url('images/heroo.jpg');">
+                    <img src="images/heroo.jpg" alt="" loading="eager" fetchpriority="high" style="display: none;">
+                </div>
                 <div class="hero-image" style="background-image: url('images/Neue Rezepte für den Herbst.jpg');"></div>
                 <div class="hero-image" style="background-image: url('images/Traditionen der deutschen Küche.jpg');"></div>
                 <div class="hero-image" style="background-image: url('images/Regionale Spezialitäten entdecken.jpg');"></div>
@@ -444,7 +446,7 @@
                 
                 // Preload all images
                 const imageUrls = [
-                    'images/news_bg.jpg',
+                    'images/heroo.jpg',
                     'images/Neue Rezepte für den Herbst.jpg',
                     'images/Traditionen der deutschen Küche.jpg',
                     'images/Regionale Spezialitäten entdecken.jpg'
