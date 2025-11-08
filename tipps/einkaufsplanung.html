@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einkaufsplanung – Einkauf & Lagerung | KochZeit</title>
+    <meta name="description" content="Effiziente Planung für gezielte Einkäufe und weniger Verschwendung. Praktische Tipps zur Einkaufsplanung.">
+    <link rel="icon" type="image/jpeg" href="../images/favicon.jpg">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/tipps.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo"><a href="../index.html">KochZeit</a></div>
+                <button class="menu-toggle" aria-label="Menu">☰</button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Startseite</a></li>
+                    <li><a href="../news.html">Nachrichten</a></li>
+                    <li><a href="../rezepte.html">Rezepte</a></li>
+                    <li><a href="../tips.html">Tipps</a></li>
+                    <li><a href="../culture.html">Kultur</a></li>
+                    <li><a href="../contact.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <nav class="subnav" aria-label="Unterkategorien">
+        <div class="subnav-container">
+            <ul class="subnav-list">
+                <li class="subnav-group">
+                    <span class="subnav-group-title">Tipps:</span>
+                    <ul class="subnav-items">
+                        <li><a href="kuechenorganisation.html">Küchenorganisation</a></li>
+                        <li><a href="einkauf-lagerung.html" class="active">Einkauf & Lagerung</a></li>
+                        <li><a href="gewuerze-kraeuter.html">Gewürze & Kräuter</a></li>
+                        <li><a href="energiesparen.html">Energiesparen beim Kochen</a></li>
+                        <li><a href="reinigungstricks.html">Reinigungstricks</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="recipes-section">
+            <div class="container">
+                <div class="content-wrapper">
+                    <article>
+                        <h1>Einkaufsplanung</h1>
+                        <p class="recipe-meta-info">
+                            <span>⏱ Zeit: 30 Min.</span>
+                            <span>Schwierigkeit: Einfach</span>
+                        </p>
+                        
+                        <img src="../images/Einkaufsplanung.jpg" alt="Einkaufsplanung" style="width: 100%; max-width: 800px; height: auto; margin: 2rem 0; border-radius: 4px;">
+                        
+                        <h2>Effiziente Planung für gezielte Einkäufe</h2>
+                        <p>Eine gute Einkaufsplanung hilft Ihnen, Zeit und Geld zu sparen und Lebensmittelverschwendung zu vermeiden.</p>
+                        
+                        <h2>Einkaufsliste erstellen</h2>
+                        <ul>
+                            <li>Planen Sie Ihre Mahlzeiten für die Woche</li>
+                            <li>Prüfen Sie Vorräte vor dem Einkauf</li>
+                            <li>Organisieren Sie die Liste nach Abteilungen</li>
+                            <li>Berücksichtigen Sie saisonale Angebote</li>
+                        </ul>
+                        
+                        <h2>Praktische Tipps</h2>
+                        <ul>
+                            <li>Kaufen Sie nicht hungrig ein</li>
+                            <li>Nutzen Sie Apps für digitale Einkaufslisten</li>
+                            <li>Planen Sie größere Einkäufe für weniger häufige Besuche</li>
+                            <li>Kaufen Sie frische Produkte nach Bedarf</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Newsletter abonnieren</h3>
+                    <p>Bleiben Sie auf dem Laufenden mit unseren neuesten Rezepten, Tipps und kulinarischen Geschichten.</p>
+                    <form class="subscribe-form" action="#" method="post">
+                        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                        <button type="submit">Abonnieren</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <ul class="footer-links">
+                        <li><a href="../cookies-policy.html">Cookies Policy</a></li>
+                        <li><a href="../terms.html">Terms</a></li>
+                        <li><a href="../privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KochZeit. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
