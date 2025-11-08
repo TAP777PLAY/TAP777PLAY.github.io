@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norddeutsche Küche – Regionale Spezialitäten | KochZeit</title>
+    <meta name="description" content="Maritime und ländliche Spezialitäten aus dem Norden. Traditionelle norddeutsche Gerichte und ihre Besonderheiten.">
+    <link rel="icon" type="image/jpeg" href="../images/favicon.jpg">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/kultur.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo"><a href="../index.html">KochZeit</a></div>
+                <button class="menu-toggle" aria-label="Menu">Menu</button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Startseite</a></li>
+                    <li><a href="../news.html">Nachrichten</a></li>
+                    <li><a href="../rezepte.html">Rezepte</a></li>
+                    <li><a href="../tips.html">Tipps</a></li>
+                    <li><a href="../culture.html">Kultur</a></li>
+                    <li><a href="../contact.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <nav class="subnav" aria-label="Unterkategorien">
+        <div class="subnav-container">
+            <ul class="subnav-list">
+                <li class="subnav-group">
+                    <span class="subnav-group-title">Kultur:</span>
+                    <ul class="subnav-items">
+                        <li><a href="regionale-spezialitaeten.html" class="active">Regionale Spezialitäten</a></li>
+                        <li><a href="feiertage-feste.html">Feiertage & Feste</a></li>
+                        <li><a href="deutsche-tischkultur.html">Deutsche Tischkultur</a></li>
+                        <li><a href="geschichte-der-kueche.html">Geschichte der Küche</a></li>
+                        <li><a href="moderne-essgewohnheiten.html">Moderne Essgewohnheiten</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="recipes-section">
+            <div class="container">
+                <div class="content-wrapper">
+                    <article>
+                        <h1>Norddeutsche Küche</h1>
+                        <p class="recipe-meta-info">
+                            <span>Region</span>
+                            <span>Traditionell</span>
+                        </p>
+                        
+                        <img src="../images/Labskaus.webp" alt="Norddeutsche Küche" style="width: 100%; max-width: 800px; height: auto; margin: 2rem 0; border-radius: 4px;">
+                        
+                        <h2>Maritime und ländliche Spezialitäten</h2>
+                        <p>Die norddeutsche Küche ist geprägt von der Nähe zum Meer und der ländlichen Tradition.</p>
+                        
+                        <h2>Klassische Gerichte</h2>
+                        <ul>
+                            <li><strong>Labskaus:</strong> Traditionelles Seemannsgericht</li>
+                            <li><strong>Matjes:</strong> Hering in verschiedenen Zubereitungen</li>
+                            <li><strong>Grünkohl:</strong> Mit Pinkel oder Kasseler</li>
+                            <li><strong>Rote Grütze:</strong> Süßspeise mit roten Beeren</li>
+                            <li><strong>Birnen, Bohnen und Speck:</strong> Traditionelles Gericht</li>
+                        </ul>
+                        
+                        <h2>Besonderheiten</h2>
+                        <p>Die norddeutsche Küche nutzt viele regionale Produkte wie Fisch, Kohl und Wurzelgemüse, die perfekt an das kühle Klima angepasst sind.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Newsletter abonnieren</h3>
+                    <p>Bleiben Sie auf dem Laufenden mit unseren neuesten Rezepten, Tipps und kulinarischen Geschichten.</p>
+                    <form class="subscribe-form" action="#" method="post">
+                        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                        <button type="submit">Abonnieren</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <ul class="footer-links">
+                        <li><a href="../cookies-policy.html">Cookies Policy</a></li>
+                        <li><a href="../terms.html">Terms</a></li>
+                        <li><a href="../privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KochZeit. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
