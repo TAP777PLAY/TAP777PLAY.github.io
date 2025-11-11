@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoEdu — обучение, анализ и расчёт возможностей</title>
+    <style>
+        :root {
+            --color-bg: #0e0f14;
+            --color-bg-alt: #151822;
+            --color-surface: rgba(255, 255, 255, 0.04);
+            --color-primary: #c79b36;
+            --color-primary-light: #e8c86b;
+            --color-text: #f2f3f5;
+            --color-text-muted: #9ea3af;
+            --max-width: 1200px;
+            --transition: 0.3s ease;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Roboto", "Montserrat", sans-serif;
+            background: radial-gradient(circle at top right, rgba(199, 155, 54, 0.08), transparent 55%), var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(14, 15, 20, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 rgba(199, 155, 54, 0.1);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 24px;
+            font-size: 0.95rem;
+        }
+
+        .cta-nav {
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: #0b0d13;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform var(--transition);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .burger span {
+            width: 22px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: rgba(14, 15, 20, 0.98);
+            border-top: 1px solid rgba(199, 155, 54, 0.15);
+        }
+
+        .mobile-nav a {
+            padding: 14px 24px;
+            border-bottom: 1px solid rgba(199, 155, 54, 0.08);
+        }
+
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, rgba(199, 155, 54, 0.12), rgba(14, 15, 20, 0.95)), url("https://images.unsplash.com/photo-1614064641938-3bbee529618f?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(232, 200, 107, 0.2), transparent 45%);
+            z-index: 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin: 0 0 24px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+            margin: 0 0 24px 0;
+            color: var(--color-primary-light);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: var(--color-primary);
+        }
+
+        p {
+            color: var(--color-text-muted);
+            margin: 0 0 18px 0;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 540px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: #0b0d13;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(199, 155, 54, 0.4);
+        }
+
+        .surface {
+            background: var(--color-surface);
+            border: 1px solid rgba(199, 155, 54, 0.12);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .grid {
+            display: grid;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .values-list,
+        .steps-list,
+        .security-list,
+        .law-list,
+        .faq-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(199, 155, 54, 0.12);
+            padding: 24px;
+            transition: transform var(--transition), border-color var(--transition), background var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(199, 155, 54, 0.35);
+            background: rgba(199, 155, 54, 0.07);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 180px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(199, 155, 54, 0.2), rgba(14, 15, 20, 0.8));
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(199, 155, 54, 0.18);
+        }
+
+        .image-frame-hero {
+            height: auto;
+            min-height: 240px;
+        }
+
+        .image-frame-balanced {
+            height: auto;
+            min-height: 200px;
+            max-width: 460px;
+            align-self: center;
+        }
+
+        .image-frame-compact {
+            height: auto;
+            min-height: 160px;
+            max-width: 620px;
+            margin: 40px auto 0;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(11, 13, 19, 0.75));
+        }
+
+        .image-frame figcaption {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.75);
+            background: rgba(11, 13, 19, 0.6);
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(199, 155, 54, 0.4);
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(199, 155, 54, 0.12);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--color-primary-light);
+            margin-bottom: 8px;
+        }
+
+        .highlight span {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .market-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .market-card {
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(199, 155, 54, 0.18);
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 12px;
+        }
+
+        .market-card h3 {
+            margin: 0;
+            color: var(--color-primary-light);
+            font-size: 1.3rem;
+        }
+
+        .market-card .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .market-card .change {
+            font-weight: 600;
+        }
+
+        .market-card .change.positive {
+            color: #4ade80;
+        }
+
+        .market-card .change.negative {
+            color: #f87171;
+        }
+
+        .market-meta {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .market-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .planner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .planner-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .planner-form .inline-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .planner-form input[type="range"] {
+            width: 100%;
+            accent-color: var(--color-primary);
+        }
+
+        .plan-output {
+            display: grid;
+            gap: 18px;
+        }
+
+        .plan-output h3 {
+            margin: 0;
+        }
+
+        .plan-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .plan-tags span {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(199, 155, 54, 0.08);
+            border: 1px solid rgba(199, 155, 54, 0.25);
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .plan-timeline {
+            display: grid;
+            gap: 16px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--color-primary-light);
+            background: var(--color-bg);
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 13px;
+            top: 20px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(199, 155, 54, 0.6), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-item strong {
+            color: var(--color-primary-light);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .mini-btn {
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(199, 155, 54, 0.25);
+            background: transparent;
+            color: var(--color-primary-light);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .mini-btn:hover {
+            border-color: rgba(199, 155, 54, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .benefits {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .benefit-item {
+            padding: 24px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(199, 155, 54, 0.14);
+            background: rgba(199, 155, 54, 0.03);
+        }
+
+        .calculator {
+            display: grid;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .calculator form {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-primary-light);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(199, 155, 54, 0.2);
+            background: rgba(14, 15, 20, 0.9);
+            color: var(--color-text);
+            font-size: 1rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-primary-light);
+            box-shadow: 0 0 0 3px rgba(199, 155, 54, 0.2);
+        }
+
+        .double-input {
+            display: grid;
+            gap: 12px;
+        }
+
+        .result {
+            padding: 24px;
+            border-radius: var(--border-radius);
+            background: rgba(199, 155, 54, 0.05);
+            border: 1px solid rgba(199, 155, 54, 0.16);
+            min-height: 200px;
+        }
+
+        .result h3 {
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(199, 155, 54, 0.12);
+            text-align: left;
+        }
+
+        th {
+            color: var(--color-primary);
+            font-weight: 600;
+            background: rgba(199, 155, 54, 0.05);
+        }
+
+        .faq-item {
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(199, 155, 54, 0.14);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 24px 24px;
+            color: var(--color-text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(199, 155, 54, 0.08);
+            color: var(--color-primary-light);
+        }
+
+        form#contact-form {
+            display: grid;
+            gap: 20px;
+            max-width: 480px;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #0a0b10;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(199, 155, 54, 0.16);
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        .legal-section .surface {
+            padding: 32px;
+            gap: 16px;
+        }
+
+        .legal-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .legal-section p,
+        .legal-section ul {
+            color: var(--color-text-muted);
+        }
+
+        .legal-section ul {
+            padding-left: 18px;
+            margin: 12px 0 0 0;
+        }
+
+        @media (max-width: 960px) {
+            nav {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .mobile-nav.open {
+                display: flex;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cta-nav {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 110px;
+                padding-bottom: 80px;
+            }
+
+            .hero-inner {
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 24px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a class="logo" href="#home">CryptoEdu</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#market">Рынок</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="#crypto">Что такое криптовалюты</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li>
+                    <li><a href="#planner">Маршрут</a></li>
+                    <li><a href="#security">Безопасность</a></li>
+                    <li><a href="#education">Обучение</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="cta-nav" onclick="document.querySelector('#calculator').scrollIntoView({behavior: 'smooth'});">Рассчитать</button>
+            <div class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#home">Главная</a>
+            <a href="#market">Рынок</a>
+            <a href="#about">О проекте</a>
+            <a href="#crypto">Что такое криптовалюты</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#planner">Маршрут</a>
+            <a href="#security">Безопасность</a>
+            <a href="#education">Обучение</a>
+            <a href="#contacts">Контакты</a>
+            <a href="#calculator">Рассчитать</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="section-inner hero-inner">
+                <div>
+                    <h1>Инвестиции в криптовалюты — обучение, анализ и расчёт возможностей</h1>
+                    <p>Изучите технологию блокчейна, оцените инвестиционные сценарии и принимайте решения осознанно. CryptoEdu — ваш проводник в мире цифровых активов.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px;">
+                        <button class="btn" onclick="document.querySelector('#education').scrollIntoView({behavior: 'smooth'});">Начать изучение</button>
+                        <button class="btn" style="background: rgba(14,15,20,0.85); color: var(--color-primary-light); border: 1px solid rgba(199,155,54,0.3);" onclick="document.querySelector('#calculator').scrollIntoView({behavior: 'smooth'});">Рассчитать потенциал</button>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-hero">
+                    <img src="images/визуализация блокчейна.jpg" alt="Схематичная визуализация распределённой сети блокчейна">
+                    <figcaption>Визуализация блокчейна</figcaption>
+                </figure>
+            </div>
+            <div class="section-inner">
+                <div class="highlights" id="hero-highlights">
+                    <div class="highlight">
+                        <strong data-counter="12">0</strong>
+                        <span>модулей по блокчейну</span>
+                    </div>
+                    <div class="highlight">
+                        <strong data-counter="38">0</strong>
+                        <span>анализируемых стран</span>
+                    </div>
+                    <div class="highlight">
+                        <strong data-counter="2400">0</strong>
+                        <span>учеников в комьюнити</span>
+                    </div>
+                    <div class="highlight">
+                        <strong data-counter="4.7">0</strong>
+                        <span>средняя оценка материалов</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Онлайн-мониторинг рынка</h2>
+                    <p>Следите за ключевыми криптовалютами в реальном времени. Данные обновляются автоматически с CoinGecko каждые пару минут.</p>
+                    <div class="market-actions">
+                        <button class="mini-btn" onclick="refreshMarketData()">Обновить</button>
+                        <button class="mini-btn" onclick="toggleCurrency()">Сменить валюту (USD/RUB)</button>
+                    </div>
+                    <div id="market-status" class="market-meta" aria-live="polite" style="margin-top: 12px;">Загрузка данных...</div>
+                    <div id="market-grid" class="market-grid" style="margin-top: 32px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Кто мы и зачем создаём этот проект</h2>
+                    <p>CryptoEdu объединяет экспертов в области блокчейна, аналитиков и преподавателей, чтобы помочь инвесторам разбираться в цифровых активах. Мы создаём образовательные материалы, исследования рынка и практические инструменты, чтобы каждый мог принимать решения на основе фактов.</p>
+                    <div class="surface">
+                        <h3>Наши ценности</h3>
+                        <div class="values-list">
+                            <p><strong>Прозрачность.</strong> Все материалы основаны на проверенных источниках и обновляются по мере развития отрасли.</p>
+                            <p><strong>Технология.</strong> Мы раскрываем реальное применение блокчейна, а не только спекулятивные тренды.</p>
+                            <p><strong>Ответственность.</strong> Мы обучаем управлению рисками и напоминаем о необходимости соблюдения законодательства.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class="image-frame">
+                    <img src="images/команда аналитиков.jpg" alt="Команда аналитиков за обсуждением стратегии на ноутбуках">
+                    <figcaption>Команда аналитиков</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="crypto">
+            <div class="section-inner">
+                <h2>Цифровые деньги нового поколения</h2>
+                <p>Криптовалюты — это классы цифровых активов, основанные на криптографических методах защиты и распределённых сетях. Мы объясняем ключевые принципы простым языком.</p>
+                <div class="grid grid-3" style="margin-top: 32px;">
+                    <div class="card">
+                        <h3>Что такое блокчейн</h3>
+                        <p>Последовательная цепочка блоков данных, каждый из которых защищён криптографией. Она обеспечивает прозрачность и неизменяемость записей.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Что такое токен</h3>
+                        <p>Цифровой цифровой актив, который может представлять ценность, право доступа или долю в проекте. Управляется умными контрактами.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Децентрализация</h3>
+                        <p>Отсутствие единого центра контроля. Сеть управляется участниками, что повышает устойчивость и снижает риск цензуры.</p>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-compact">
+                    <img src="images/Инфографика цепочка блоков.png" alt="Инфографика с цепочкой блоков блокчейна">
+                    <figcaption>Инфографика: цепочка блоков</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="attention">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Почему мир интересуется криптовалютами</h2>
+                    <p>Инвесторы видят потенциал в децентрализованных технологиях, новых бизнес-моделях и глобальной открытости. Рост инфраструктуры делает цифровые активы доступнее для частных и институциональных игроков.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <strong>Децентрализация</strong>
+                            <p>Снижение зависимости от традиционных финансовых посредников и прозрачное управление сетью.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Открытость</strong>
+                            <p>Доступ к информации и транзакциям в режиме реального времени для всех участников.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <strong>Инновации</strong>
+                            <p>Смарт-контракты, DeFi, NFT и другие направления продолжает формировать новые рынки.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 24px;">Мы отслеживаем глобальные тренды и собираем данные по странам, чтобы показать, где и как распространяется криптоэкономика.</p>
+                </div>
+                <figure class="image-frame">
+                    <img src="images/Карта использования криптовалют.jpeg" alt="Глобальная карта распространения криптовалют">
+                    <figcaption>Карта использования криптовалют</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="calculator">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Рассчитайте потенциал своих инвестиций</h2>
+                    <p>Инструмент предназначен для учебных целей и не является финансовой рекомендацией. Используйте его, чтобы оценить, как может меняться капитал при разных параметрах доходности и сроке.</p>
+                    <div class="calculator" style="margin-top: 32px;">
+                        <form id="investment-form">
+                            <div>
+                                <label for="amount">Сумма инвестиций</label>
+                                <input type="number" id="amount" min="0" step="100" placeholder="Например, 100000">
+                            </div>
+                            <div>
+                                <label for="currency">Валюта</label>
+                                <select id="currency">
+                                    <option value="RUB">₽ Российский рубль</option>
+                                    <option value="USD">$ Доллар США</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="period">Срок инвестирования</label>
+                                <input type="number" id="period" min="1" step="1" placeholder="В месяцах">
+                            </div>
+                            <div>
+                                <label for="period-type">Единица периода</label>
+                                <select id="period-type">
+                                    <option value="months">Месяцы</option>
+                                    <option value="years">Годы</option>
+                                </select>
+                            </div>
+                            <div class="double-input">
+                                <label for="return-rate">Средняя доходность, %</label>
+                                <input type="number" id="return-rate" step="0.1" placeholder="Например, 12">
+                            </div>
+                            <div>
+                                <label for="contribution">Ежемесячное пополнение</label>
+                                <input type="number" id="contribution" min="0" step="100" placeholder="Например, 5000">
+                            </div>
+                            <div>
+                                <label for="risk-profile">Сценарий</label>
+                                <select id="risk-profile">
+                                    <option value="balanced">Сбалансированный</option>
+                                    <option value="conservative">Консервативный</option>
+                                    <option value="aggressive">Агрессивный</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn" onclick="calculateInvestment()">Рассчитать</button>
+                            <button type="button" class="mini-btn" onclick="exportScenario()">Экспорт прогноза</button>
+                        </form>
+                        <div class="result" id="result">
+                            <h3>Итоговый прогноз</h3>
+                            <p>Введите параметры и нажмите «Рассчитать», чтобы увидеть динамику капитала.</p>
+                        </div>
+                    </div>
+                    <div id="scenario-summary" class="surface" style="margin-top: 24px; background: rgba(199, 155, 54, 0.04);">
+                        <h3>Сценарный анализ</h3>
+                        <p>После расчёта мы покажем диапазоны доходности для консервативного, сбалансированного и агрессивного подходов с учётом внесённых параметров.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planner">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Соберите личный маршрут обучения</h2>
+                    <p>Выберите ваш уровень, цель и объём времени. Мы сформируем кастомную программу занятий, список модулей и практик, чтобы вы продвигались системно.</p>
+                    <div class="planner-grid" style="margin-top: 32px;">
+                        <form id="planner-form" class="planner-form">
+                            <div>
+                                <label for="experience">Ваш уровень</label>
+                                <select id="experience">
+                                    <option value="beginner">Новичок — только знакомлюсь</option>
+                                    <option value="intermediate">Опытный — уже инвестирую</option>
+                                    <option value="advanced">Продвинутый — хочу совершенствоваться</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="goal">Цель обучения</label>
+                                <select id="goal">
+                                    <option value="safety">Повысить безопасность активов</option>
+                                    <option value="portfolio">Собрать устойчивый портфель</option>
+                                    <option value="analytics">Освоить анализ и исследования</option>
+                                    <option value="career">Построить карьеру в Web3</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="time-slider">Время в неделю</label>
+                                <div class="inline-group">
+                                    <input type="range" id="time-slider" min="2" max="20" step="1" value="6">
+                                    <span id="time-value">6 ч</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="learning-style">Формат</label>
+                                <select id="learning-style">
+                                    <option value="solo">Самостоятельно + материалы</option>
+                                    <option value="mentor">С наставником и обратной связью</option>
+                                    <option value="community">Вместе с комьюнити и челленджами</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn" onclick="generateLearningPlan()">Сформировать план</button>
+                            <button type="button" class="mini-btn" onclick="downloadPlan()">Экспорт чек-листа</button>
+                        </form>
+                        <div class="plan-output surface" style="background: rgba(199, 155, 54, 0.04);">
+                            <div>
+                                <h3>Результат</h3>
+                                <p id="plan-intro">Укажите параметры, и мы подготовим индивидуальный маршрут.</p>
+                            </div>
+                            <div>
+                                <strong>Фокусные направления:</strong>
+                                <div id="plan-tags" class="plan-tags"></div>
+                            </div>
+                            <div>
+                                <strong>Карта прогресса:</strong>
+                                <div id="plan-timeline" class="plan-timeline"></div>
+                            </div>
+                            <div>
+                                <strong>Практика и контроль:</strong>
+                                <ul id="plan-practice" class="values-list" style="margin: 0;"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Учитесь анализировать, а не рисковать</h2>
+                    <p>Сфокусируйтесь на фундаментальных принципах, чтобы оценивать проекты, избегать импульсивных решений и понимать реальное значение инноваций.</p>
+                    <div class="steps-list">
+                        <div class="card">
+                            <strong>Изучите принципы блокчейна.</strong>
+                            <p>Разберитесь в консенсусных алгоритмах, токеномике и механизмах безопасности.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Следите за мировыми новостями.</strong>
+                            <p>Регулирование, партнёрства и инфраструктура влияют на капитализацию и доверие.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Анализируйте технологии, а не тренды.</strong>
+                            <p>Оцените команду, продукт, дорожную карту и потенциал интеграций.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-balanced">
+                    <img src="images/Аналитика рынка.jpg" alt="Ноутбук с графиками и аналитическими панелями">
+                    <figcaption>Аналитика рынка</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="security">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Ваша цифровая безопасность — ваш капитал</h2>
+                    <p>Защитите свои активы, используя проверенные практики хранения и аутентификации. Мы собрали ключевые рекомендации для начинающих инвесторов.</p>
+                    <div class="security-list">
+                        <div class="card">
+                            <strong>Горячие и холодные кошельки.</strong>
+                            <p>Выбирайте холодные кошельки для долгосрочного хранения и горячие — для ежедневных операций.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Двухфакторная аутентификация.</strong>
+                            <p>Включайте дополнительный уровень защиты на биржах, в кошельках и сервисах аналитики.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Основные риски и защита.</strong>
+                            <p>Изучите фишинг, социальную инженерию и необходимость резервного копирования seed-фраз.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-balanced">
+                    <img src="images/Иконография безопасности.jpeg" alt="Абстрактные иконки цифровой безопасности">
+                    <figcaption>Иконография безопасности</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="law">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Криптовалюты и закон: где границы?</h2>
+                    <p>Мировые регуляторы формируют подход к цифровым активам. Изучайте особенности своей юрисдикции и следите за новыми требованиями, чтобы оставаться в правовом поле.</p>
+                    <div class="law-list">
+                        <div class="card">
+                            <strong>Мировые тенденции.</strong>
+                            <p>США, ЕС и Азия постепенно вводят правила для бирж, кастодиальных сервисов и токенов.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Налоговые обязательства.</strong>
+                            <p>Фиксируйте сделки, отражайте прибыль в декларациях и консультируйтесь со специалистами.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Правовая ответственность.</strong>
+                            <p>Понимайте, какие операции разрешены, ограничены или требуют лицензии в вашей стране.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-balanced">
+                    <img src="images/Карта правового поля.jpeg" alt="Карта мира с отметками правового регулирования криптовалют">
+                    <figcaption>Карта правового поля</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Обучайтесь, анализируйте, развивайтесь</h2>
+                    <p>Перейдите в образовательный центр, чтобы изучить глоссарий, инфографику и видео-уроки. Мы обновляем библиотеку, добавляем исследования и практические кейсы.</p>
+                    <div class="grid grid-3" style="margin-top: 32px;">
+                        <div class="card">
+                            <strong>Глоссарий криптотерминов</strong>
+                            <p>Справочник ключевых понятий, объясненных простым языком, с примерами использования.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Инфографика</strong>
+                            <p>Наглядные схемы и диаграммы о блокчейне, DeFi, капитализации и трендах рынка.</p>
+                        </div>
+                        <div class="card">
+                            <strong>Видео-уроки</strong>
+                            <p>Обучающие курсы от экспертов по безопасности, анализу и использованию криптоинструментов.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class="image-frame image-frame-compact">
+                    <img src="images/Образовательная среда.png" alt="Студент за ноутбуком в образовательной среде">
+                    <figcaption>Образовательная среда</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="section-inner">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq-list" style="margin-top: 32px;">
+                    <div class="faq-item">
+                        <div class="faq-question">Безопасно ли хранить криптовалюту?<span>+</span></div>
+                        <div class="faq-answer">Безопасность зависит от выбранного кошелька и практик. Используйте холодные кошельки для долгосрочного хранения, резервируйте seed-фразы и включайте двухфакторную аутентификацию.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Что отличает криптовалюту от фиатных денег?<span>+</span></div>
+                        <div class="faq-answer">Криптовалюты не выпускаются центральным банком, работают в децентрализованных сетях и используют криптографию для подтверждения транзакций.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Как избежать мошенничества?<span>+</span></div>
+                        <div class="faq-answer">Проверяйте домены, используйте официальные приложения, не делитесь seed-фразами и не переводите средства по запросу незнакомцев.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можно ли изучать рынок без инвестиций?<span>+</span></div>
+                        <div class="faq-answer">Да. Используйте демо-счета, аналитические платформы и материалы CryptoEdu, чтобы получить знания до вложения средств.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <div class="section-inner grid grid-2">
+                <div>
+                    <h2>Свяжитесь с командой CryptoEdu</h2>
+                    <p>Задайте вопросы об обучении, аналитике или инструментов. Мы ответим, как только обработаем заявку.</p>
+                    <form id="contact-form">
+                        <div>
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" placeholder="Ваше имя">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="name@example.com">
+                        </div>
+                        <div>
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" placeholder="Напишите вопрос или тему для обсуждения"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Отправить вопрос</button>
+                        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 4px;">Ваши данные защищены. Мы не предоставляем финансовых услуг.</p>
+                    </form>
+                </div>
+                <figure class="image-frame">
+                    <img src="images/Коммуникация с экспертом.png" alt="Человек общается с экспертом по криптовалютам">
+                    <figcaption>Коммуникация с экспертом</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="privacy" class="legal-section">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Политика конфиденциальности</h2>
+                    <p>Мы соблюдаем требования законодательства о защите персональных данных и обрабатываем информацию пользователей только для предоставления образовательных материалов, поддержки обратной связи и улучшения сервиса.</p>
+                    <p>Отправляя форму обратной связи, вы соглашаетесь на обработку имени, адреса электронной почты и содержимого обращения. Данные хранятся в защищённой среде и используются для ответа на запрос и статистического анализа без передачи третьим лицам, за исключением случаев, предусмотренных законом.</p>
+                    <ul>
+                        <li>Доступ к данным ограничен сотрудниками, отвечающими за коммуникацию с пользователями.</li>
+                        <li>Мы не продаём и не передаем персональные данные партнёрам в маркетинговых целях.</li>
+                        <li>Вы можете запросить уточнение или удаление информации, написав нам с адреса, указанного при обращении.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="cookies" class="legal-section">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Cookies</h2>
+                    <p>CryptoEdu использует технологию cookies для корректной работы сайта, анализа посещаемости и адаптации образовательного контента. Мы применяем только необходимые и аналитические файлы cookies.</p>
+                    <p>Вы можете отключить cookies в настройках браузера. Это не ограничит доступ к материалам, но может повлиять на работу отдельных функций и удобство навигации.</p>
+                    <ul>
+                        <li>Необходимые cookies помогают авторизовывать сессию и сохранять состояние форм.</li>
+                        <li>Аналитические cookies позволяют понять, какие разделы наиболее востребованы, чтобы совершенствовать материалы.</li>
+                        <li>Данные cookies не содержат персональной информации и не используются для рекламного таргетинга.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="disclaimer" class="legal-section">
+            <div class="section-inner">
+                <div class="surface">
+                    <h2>Отказ от ответственности</h2>
+                    <p>Информация на сайте CryptoEdu представлена исключительно в образовательных целях и не является инвестиционной рекомендацией, предложением или побуждением к совершению операций с цифровыми активами.</p>
+                    <p>Мы стремимся поддерживать актуальность материалов, однако не можем гарантировать их полноту. Любые решения, связанные с инвестициями, принимаются пользователем самостоятельно и под его ответственность.</p>
+                    <p>Перед вложением средств изучайте риски, консультируйтесь с лицензированными специалистами и учитывайте требования законодательства вашей юрисдикции.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 2025 CryptoEdu</div>
+            <div class="footer-links">
+                <a href="#privacy">Политика конфиденциальности</a>
+                <a href="#cookies">Cookies</a>
+                <a href="#disclaimer">Отказ от ответственности</a>
+            </div>
+            <div class="disclaimer" id="disclaimer-note">
+                Вся информация представлена в образовательных целях и не является финансовым советом. Прежде чем принимать инвестиционные решения, изучайте риски и консультируйтесь со специалистами.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const contactForm = document.getElementById('contact-form');
+        const counterElements = document.querySelectorAll('[data-counter]');
+        const marketStatus = document.getElementById('market-status');
+        const marketGrid = document.getElementById('market-grid');
+        const scenarioSummary = document.getElementById('scenario-summary');
+        const plannerForm = document.getElementById('planner-form');
+        const timeSlider = document.getElementById('time-slider');
+        const timeValue = document.getElementById('time-value');
+        const planIntro = document.getElementById('plan-intro');
+        const planTags = document.getElementById('plan-tags');
+        const planTimeline = document.getElementById('plan-timeline');
+        const planPractice = document.getElementById('plan-practice');
+        let counterObserver;
+        let latestScenario = null;
+        let latestPlan = null;
+        let marketCurrency = 'USD';
+        let marketData = [];
+        let marketTimer = null;
+
+        const trackedCoins = [
+            { id: 'bitcoin', label: 'Bitcoin', symbol: 'BTC' },
+            { id: 'ethereum', label: 'Ethereum', symbol: 'ETH' },
+            { id: 'solana', label: 'Solana', symbol: 'SOL' },
+            { id: 'toncoin', label: 'Toncoin', symbol: 'TON' }
+        ];
+
+        const planModules = {
+            beginner: [
+                { title: 'Понимание блокчейна', summary: 'Видео-интенсив по устройству сетей, майнингу и консенсусу.' },
+                { title: 'Типы криптоактивов', summary: 'Разбор токенов, монет, utility и governance моделей.' },
+                { title: 'Базовая безопасность', summary: 'Кошельки, seed-фразы, 2FA и человеческий фактор.' }
+            ],
+            intermediate: [
+                { title: 'Анализ проектов', summary: 'Изучаем токеномику, дорожные карты и показатели сети.' },
+                { title: 'Управление портфелем', summary: 'Аллокация, ребаланс и измерение рисков.' },
+                { title: 'On-chain аналитика', summary: 'Работа с explorers, метриками активных адресов и ликвидности.' }
+            ],
+            advanced: [
+                { title: 'DeFi-стратегии', summary: 'Пулы ликвидности, стейкинг, кредитные протоколы.' },
+                { title: 'Риск-моделирование', summary: 'VaR, сценарный анализ и стресс-тестирование.' },
+                { title: 'Продвинутая безопасность', summary: 'Аппаратные кошельки, мультисиг, операционные процедуры.' }
+            ]
+        };
+
+        const goalModules = {
+            safety: [
+                { title: 'План реагирования на инциденты', summary: 'Чек-лист по действиям при компрометации доступа.' },
+                { title: 'Аудит цифрового следа', summary: 'Практикум по настройке приватности и мониторингу утечек.' }
+            ],
+            portfolio: [
+                { title: 'Маркет-профайл активов', summary: 'Сравниваем волатильность, корреляции и макро-факторы.' },
+                { title: 'Стратегии распределения', summary: 'DCA, барбелл, факторные портфели и управление плечом.' }
+            ],
+            analytics: [
+                { title: 'Исследовательские шаблоны', summary: 'Фреймворки CryptoEdu для обзоров проектов и отраслей.' },
+                { title: 'Дашборды и метрики', summary: 'Создаём собственные панели в Dune, Nansen и Glassnode.' }
+            ],
+            career: [
+                { title: 'Web3 компетенции', summary: 'От продуктового менеджмента до безопасников протоколов.' },
+                { title: 'Портфолио и нетворкинг', summary: 'Готовим кейсы, презентации и карту профессиональных сообществ.' }
+            ]
+        };
+
+        const stylePractices = {
+            solo: [
+                'Ведение заметок и глоссария в Notion по каждому модулю.',
+                'Еженедельная самопроверка с помощью карточек CryptoEdu Quiz.',
+                'Раз в месяц — сверка прогресса и обновление учебных целей.'
+            ],
+            mentor: [
+                'Созвон с наставником раз в 10 дней с обзором практик.',
+                'Получение обратной связи по выполненным кейсам и проектам.',
+                'Командные ретроспективы и корректировка дорожной карты.'
+            ],
+            community: [
+                'Участие в недельных челленджах и совместных исследованиях.',
+                'Демонстрация прогресса на демо-днях CryptoEdu Community.',
+                'Спарринг-сессии с другими участниками для разборов и питчинга.'
+            ]
+        };
+
+        const experienceTags = {
+            beginner: ['Базовые знания', 'Фундамент блокчейна', 'Навыки безопасности'],
+            intermediate: ['On-chain аналитика', 'Построение портфеля', 'Практика DeFi'],
+            advanced: ['Глубокий анализ', 'Риск-менеджмент', 'Профессиональные кейсы']
+        };
+
+        const goalTags = {
+            safety: ['Кибербезопасность', 'Защита активов'],
+            portfolio: ['Портфель', 'Аллокация'],
+            analytics: ['Исследования', 'Метрики'],
+            career: ['Web3 карьера', 'Soft Skills']
+        };
+
+        const intensityLabels = [
+            { max: 5, label: 'лайтовый темп' },
+            { max: 10, label: 'сбалансированный график' },
+            { max: Infinity, label: 'интенсивный трек' }
+        ];
+
+        burger.addEventListener('click', () => {
+            const expanded = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', String(!expanded));
+            burger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.setAttribute('aria-expanded', 'false');
+                burger.classList.remove('open');
+                mobileNav.classList.remove('open');
+            });
+        });
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Спасибо! Ваш вопрос отправлен. Мы свяжемся с вами по электронной почте.');
+                contactForm.reset();
+            });
+        }
+
+        if (timeSlider && timeValue) {
+            timeSlider.addEventListener('input', () => {
+                timeValue.textContent = `${timeSlider.value} ч`;
+            });
+        }
+
+        function animateCounter(element) {
+            const target = parseFloat(element.dataset.counter);
+            if (Number.isNaN(target)) {
+                return;
+            }
+            const isInteger = Number.isInteger(target);
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const currentValue = target * progress;
+                element.textContent = isInteger ? Math.round(currentValue) : currentValue.toFixed(1);
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        if (counterElements.length) {
+            counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            counterElements.forEach(el => counterObserver.observe(el));
+        }
+
+        function renderMarketCards() {
+            if (!marketGrid) {
+                return;
+            }
+
+            const currencyKey = marketCurrency.toLowerCase();
+            const formatter = new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: marketCurrency,
+                maximumFractionDigits: 2
+            });
+
+            marketGrid.innerHTML = trackedCoins.map(coin => {
+                const payload = marketData.find(item => item.id === coin.id);
+                if (!payload) {
+                    return `
+                        <div class="market-card">
+                            <h3>${coin.label}</h3>
+                            <p>Данные временно недоступны</p>
+                        </div>
+                    `;
+                }
+
+                const price = payload.current_price;
+                const change = payload.price_change_percentage_24h ?? 0;
+                const changeClass = change >= 0 ? 'positive' : 'negative';
+                const changePrefix = change >= 0 ? '+' : '';
+                const volume = formatter.format(payload.total_volume || 0);
+                const marketCap = formatter.format(payload.market_cap || 0);
+
+                return `
+                    <div class="market-card">
+                        <h3>${coin.label} <span style="font-size:0.85rem; color: rgba(255,255,255,0.6);">(${coin.symbol})</span></h3>
+                        <div class="price">${formatter.format(price)}</div>
+                        <div class="change ${changeClass}">${changePrefix}${change.toFixed(2)}% за 24ч</div>
+                        <div class="market-meta">Объём 24ч: ${volume}</div>
+                        <div class="market-meta">Капитализация: ${marketCap}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function refreshMarketData(showSpinner = true) {
+            if (!marketStatus) {
+                return;
+            }
+
+            if (showSpinner) {
+                marketStatus.textContent = 'Обновляем данные...';
+            }
+
+            if (marketTimer) {
+                clearTimeout(marketTimer);
+            }
+
+            try {
+                const ids = trackedCoins.map(item => item.id).join(',');
+                const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${marketCurrency.toLowerCase()}&ids=${ids}&price_change_percentage=24h`);
+                if (!response.ok) {
+                    throw new Error('CoinGecko вернул ошибку');
+                }
+                marketData = await response.json();
+                const updatedAt = new Date();
+
+                renderMarketCards();
+
+                marketStatus.textContent = `Обновлено ${updatedAt.toLocaleTimeString('ru-RU')} · Валюта: ${marketCurrency} · Источник: CoinGecko`;
+            } catch (error) {
+                marketStatus.textContent = 'Не удалось получить данные. Попробуйте обновить позже.';
+            } finally {
+                marketTimer = setTimeout(() => refreshMarketData(false), 180000);
+            }
+        }
+
+        function toggleCurrency() {
+            marketCurrency = marketCurrency === 'USD' ? 'RUB' : 'USD';
+            if (marketStatus) {
+                marketStatus.textContent = `Валюта отображения: ${marketCurrency}. Обновляем данные...`;
+            }
+            refreshMarketData(false);
+        }
+
+        function formatCurrency(value, currency) {
+            const options = {
+                style: 'currency',
+                currency,
+                maximumFractionDigits: 2
+            };
+            return new Intl.NumberFormat('ru-RU', options).format(value);
+        }
+
+        function calculateInvestment() {
+            const amountInput = document.getElementById('amount');
+            const periodInput = document.getElementById('period');
+            const rateInput = document.getElementById('return-rate');
+            const contributionInput = document.getElementById('contribution');
+            const periodType = document.getElementById('period-type').value;
+            const currency = document.getElementById('currency').value;
+            const riskProfile = document.getElementById('risk-profile').value;
+            const resultContainer = document.getElementById('result');
+
+            const amount = parseFloat(amountInput.value);
+            const period = parseInt(periodInput.value, 10);
+            const rate = parseFloat(rateInput.value);
+            const contribution = parseFloat(contributionInput.value) || 0;
+
+            if (Number.isNaN(amount) || Number.isNaN(period) || Number.isNaN(rate) || amount <= 0 || period <= 0) {
+                resultContainer.innerHTML = '<h3>Итоговый прогноз</h3><p>Укажите положительные значения для суммы, срока и доходности.</p>';
+                scenarioSummary.innerHTML = `
+                    <h3>Сценарный анализ</h3>
+                    <p>После расчёта мы покажем диапазоны доходности для консервативного, сбалансированного и агрессивного подходов с учётом внесённых параметров.</p>
+                `;
+                latestScenario = null;
+                return;
+            }
+
+            const periods = periodType === 'years' ? period * 12 : period;
+            const baseMonthlyRate = rate / 100 / 12;
+            const adjustments = {
+                conservative: 0.6,
+                balanced: 1,
+                aggressive: 1.5
+            };
+            const labels = {
+                conservative: 'Консервативный',
+                balanced: 'Сбалансированный',
+                aggressive: 'Агрессивный'
+            };
+
+            const runProjection = (factor) => {
+                const monthlyRate = baseMonthlyRate * factor;
+                let balance = amount;
+                const timeline = [];
+                for (let month = 1; month <= periods; month++) {
+                    balance += contribution;
+                    balance *= 1 + monthlyRate;
+                    timeline.push({ month, balance });
+                }
+                const finalBalance = timeline.length ? timeline[timeline.length - 1].balance : amount;
+                const effectiveAnnual = (Math.pow(1 + monthlyRate, 12) - 1) * 100;
+                return {
+                    finalBalance,
+                    timeline,
+                    effectiveAnnualRate: effectiveAnnual,
+                    monthlyRate
+                };
+            };
+
+            const scenarios = Object.entries(adjustments).map(([key, factor]) => {
+                const projection = runProjection(factor);
+                return {
+                    key,
+                    label: labels[key],
+                    finalBalance: projection.finalBalance,
+                    effectiveAnnualRate: projection.effectiveAnnualRate,
+                    monthlyRate: projection.monthlyRate,
+                    timeline: projection.timeline
+                };
+            });
+
+            const selectedScenario = scenarios.find(item => item.key === riskProfile) || scenarios[1];
+            const currencySymbol = currency === 'USD' ? '$' : '₽';
+            const totalContribution = contribution * periods;
+
+            let tableRows = selectedScenario.timeline.map(point => {
+                if (point.month % 3 !== 0 && point.month !== periods) {
+                    return '';
+                }
+                const label = periodType === 'years'
+                    ? `Год ${(point.month / 12).toFixed(1)}`
+                    : `Месяц ${point.month}`;
+                return `<tr><td>${label}</td><td>${currencySymbol} ${point.balance.toLocaleString('ru-RU', { maximumFractionDigits: 2 })}</td></tr>`;
+            }).join('');
+
+            if (!tableRows.trim() && selectedScenario.timeline.length) {
+                const firstPoint = selectedScenario.timeline[0];
+                const label = periodType === 'years' ? 'Год 1' : 'Месяц 1';
+                tableRows = `<tr><td>${label}</td><td>${currencySymbol} ${firstPoint.balance.toLocaleString('ru-RU', { maximumFractionDigits: 2 })}</td></tr>`;
+            }
+
+            resultContainer.innerHTML = `
+                <h3>Итоговый прогноз</h3>
+                <p>Начальная сумма: ${formatCurrency(amount, currency)}</p>
+                <p>Внесено пополнениями: ${formatCurrency(totalContribution, currency)}</p>
+                <p>Выбранный сценарий (${selectedScenario.label.toLowerCase()}): ${formatCurrency(selectedScenario.finalBalance, currency)}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Период</th>
+                            <th>Оценочная стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+                </table>
+                <p style="margin-top: 16px; font-size: 0.85rem; color: rgba(255,255,255,0.65);">
+                    Расчёт основан на сложной капитализации с учётом ежемесячных пополнений и предназначен для образовательных целей. Фактические результаты зависят от рыночных условий.
+                </p>
+            `;
+
+            scenarioSummary.innerHTML = `
+                <h3>Сценарный анализ</h3>
+                <div class="grid grid-3" style="margin-top: 16px;">
+                    ${scenarios.map(item => `
+                        <div class="card">
+                            <strong>${item.label}</strong>
+                            <p>Итог: ${formatCurrency(item.finalBalance, currency)}</p>
+                            <p>Эффективная доходность: ${item.effectiveAnnualRate.toFixed(1)}% годовых</p>
+                            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Месячная ставка: ${(item.monthlyRate * 100).toFixed(2)}%</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            latestScenario = {
+                timestamp: new Date().toISOString(),
+                inputs: {
+                    amount,
+                    currency,
+                    period,
+                    periodType,
+                    rate,
+                    contribution,
+                    riskProfile
+                },
+                results: scenarios.map(item => ({
+                    key: item.key,
+                    label: item.label,
+                    finalBalance: item.finalBalance,
+                    effectiveAnnualRate: item.effectiveAnnualRate,
+                    timeline: item.timeline.slice(-12).map(point => ({
+                        month: point.month,
+                        balance: point.balance
+                    }))
+                }))
+            };
+        }
+
+        function exportScenario() {
+            if (!latestScenario) {
+                alert('Сначала выполните расчёт, чтобы экспортировать данные.');
+                return;
+            }
+
+            const blob = new Blob([JSON.stringify(latestScenario, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `cryptoedu-scenario-${Date.now()}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        function generateLearningPlan() {
+            if (!plannerForm || !planIntro || !planTags || !planTimeline || !planPractice) {
+                return;
+            }
+
+            const experience = document.getElementById('experience').value;
+            const goal = document.getElementById('goal').value;
+            const timePerWeek = parseInt(timeSlider.value, 10);
+            const learningStyle = document.getElementById('learning-style').value;
+
+            const base = planModules[experience] || [];
+            const focus = goalModules[goal] || [];
+            const combined = [...base, ...focus];
+            const unique = [];
+            const usedTitles = new Set();
+
+            combined.forEach(module => {
+                if (!usedTitles.has(module.title)) {
+                    unique.push(module);
+                    usedTitles.add(module.title);
+                }
+            });
+
+            const chunkSize = Math.max(1, Math.ceil(unique.length / 4));
+            const timeline = [];
+            let index = 0;
+            let week = 1;
+            while (index < unique.length) {
+                const slice = unique.slice(index, index + chunkSize);
+                timeline.push({
+                    label: `Неделя ${week}`,
+                    modules: slice
+                });
+                index += chunkSize;
+                week += 1;
+            }
+
+            if (!timeline.length) {
+                planIntro.textContent = 'Добавьте параметры, и мы подготовим индивидуальный маршрут.';
+                planTags.innerHTML = '';
+                planTimeline.innerHTML = '';
+                planPractice.innerHTML = '';
+                latestPlan = null;
+                return;
+            }
+
+            const intensity = intensityLabels.find(item => timePerWeek <= item.max)?.label || 'сбалансированный график';
+            planIntro.textContent = `Ваш маршрут рассчитан под ${timePerWeek} ч/нед с фокусом на «${intensity}».`;
+
+            const tags = [
+                ...(experienceTags[experience] || []),
+                ...(goalTags[goal] || []),
+                `Время: ${timePerWeek} ч/нед`,
+                learningStyle === 'mentor' ? 'Работа с наставником' :
+                    learningStyle === 'community' ? 'Командная синергия' : 'Самостоятельный трек'
+            ];
+
+            planTags.innerHTML = tags.map(tag => `<span>${tag}</span>`).join('');
+
+            planTimeline.innerHTML = timeline.map(item => {
+                const descriptions = item.modules.map(module => `<em>${module.title}</em> — ${module.summary}`).join('<br>');
+                return `
+                    <div class="timeline-item">
+                        <strong>${item.label}</strong>
+                        <p>${descriptions}</p>
+                    </div>
+                `;
+            }).join('');
+
+            const practiceList = stylePractices[learningStyle] || [];
+            planPractice.innerHTML = practiceList.map(point => `<li>${point}</li>`).join('');
+
+            latestPlan = {
+                experience,
+                goal,
+                timePerWeek,
+                learningStyle,
+                timeline,
+                tags,
+                practice: practiceList,
+                generatedAt: new Date().toISOString()
+            };
+        }
+
+        function downloadPlan() {
+            if (!latestPlan) {
+                alert('Сначала сформируйте план, чтобы экспортировать чек-лист.');
+                return;
+            }
+
+            const header = `CryptoEdu · Индивидуальный маршрут обучения\nДата генерации: ${new Date(latestPlan.generatedAt).toLocaleString('ru-RU')}\n`;
+            const tagsBlock = `\nКлючевые акценты: ${latestPlan.tags.join(', ')}\n`;
+            const timelineBlock = latestPlan.timeline.map(item => {
+                const lines = item.modules.map(module => `  • ${module.title} — ${module.summary}`);
+                return `${item.label}\n${lines.join('\n')}`;
+            }).join('\n\n');
+            const practiceBlock = `\nПрактика и контроль:\n${latestPlan.practice.map(item => `  • ${item}`).join('\n')}\n`;
+
+            const content = `${header}${tagsBlock}\n${timelineBlock}${practiceBlock}`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `cryptoedu-planner-${Date.now()}.txt`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        refreshMarketData();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (marketTimer) {
+                    clearTimeout(marketTimer);
+                }
+            } else {
+                refreshMarketData();
+            }
+        });
+    </script>
+</body>
+</html>
+
