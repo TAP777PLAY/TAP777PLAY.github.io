@@ -1,0 +1,3368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>КриптоСреда — Обзор цифровых инвестиций</title>
+    <style>
+        :root {
+            --bg-color: #0b1220;
+            --header-bg: rgba(11, 18, 32, 0.9);
+            --text-color: #f5f7ff;
+            --accent-color: #31c48d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        body.is-ready {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            body {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            [data-animate] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(245, 247, 255, 0.12);
+            background: rgba(245, 247, 255, 0.05);
+            color: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .menu-toggle:focus-visible,
+        .menu-toggle:hover {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(49, 196, 141, 0.15);
+        }
+
+        .menu-icon {
+            position: relative;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 999px;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 999px;
+            transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
+        }
+
+        .menu-icon::before {
+            top: -6px;
+        }
+
+        .menu-icon::after {
+            top: 6px;
+        }
+
+        .menu-toggle[aria-expanded="true"] .menu-icon {
+            background: transparent;
+        }
+
+        .menu-toggle[aria-expanded="true"] .menu-icon::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle[aria-expanded="true"] .menu-icon::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .logo:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+
+        .logo-text {
+            font-size: 1.375rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .primary-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .primary-nav a {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+        }
+
+        .primary-nav a:focus,
+        .primary-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            align-items: center;
+            min-height: 88vh;
+            padding: 120px 24px 96px;
+            background: linear-gradient(rgba(11, 18, 32, 0.75), rgba(11, 18, 32, 0.85)),
+                url("image/1f9b5f289a1e24132e5f38f9329a4a8e.jpg") center/cover no-repeat;
+            background-attachment: fixed;
+            gap: 48px;
+            justify-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-media {
+            max-width: 520px;
+            width: 100%;
+            border-radius: 24px;
+            border: 1px solid rgba(245, 247, 255, 0.18);
+            background: rgba(11, 18, 32, 0.6);
+            box-shadow: 0 28px 48px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+        }
+
+        .hero-media img {
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: rgba(245, 247, 255, 0.88);
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--bg-color);
+            background-color: var(--accent-color);
+            border-radius: 999px;
+            border: none;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-button:focus,
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(49, 196, 141, 0.35);
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(32px);
+            transition-property: opacity, transform, filter;
+            transition-duration: 0.85s;
+            transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        [data-animate][data-animate="fade-scale"] {
+            transform: translateY(20px) scale(0.95);
+        }
+
+        [data-animate="fade-scale"].is-visible {
+            transform: none;
+        }
+
+        [data-animate][data-animate="fade-in"] {
+            transform: none;
+            filter: blur(12px);
+        }
+
+        [data-animate="fade-in"].is-visible {
+            transform: none;
+            filter: none;
+        }
+
+        [data-animate][data-animate="fade-left"] {
+            transform: translateX(-36px);
+        }
+
+        [data-animate="fade-left"].is-visible {
+            transform: none;
+        }
+
+        [data-animate][data-animate="fade-right"] {
+            transform: translateX(36px);
+        }
+
+        [data-animate="fade-right"].is-visible {
+            transform: none;
+        }
+
+        [data-animate][data-delay] {
+            transition-delay: var(--animate-delay, 0s);
+        }
+
+        .content-section {
+            padding: 80px 24px;
+            background-color: rgba(11, 18, 32, 0.8);
+        }
+
+        main > section {
+            border-top: 1px solid rgba(245, 247, 255, 0.16);
+        }
+
+        main > section:first-of-type {
+            border-top: none;
+        }
+
+        .content-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 24px;
+        }
+
+        .content-section h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            margin-bottom: 16px;
+            color: var(--accent-color);
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: rgba(245, 247, 255, 0.88);
+            margin-bottom: 32px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .metric {
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.7);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .metric-trend {
+            font-size: 0.95rem;
+            color: rgba(49, 196, 141, 0.8);
+        }
+
+        .card-media {
+            margin: 0;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 132px;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-media figcaption {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: rgba(245, 247, 255, 0.6);
+            text-align: center;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .resources-grid {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 720px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .steps-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .step-card {
+            position: relative;
+            padding: 32px 32px 28px;
+            background: linear-gradient(150deg, rgba(49, 196, 141, 0.18) 0%, rgba(11, 18, 32, 0.88) 70%);
+            border: 1px solid rgba(49, 196, 141, 0.22);
+            box-shadow: 0 18px 36px rgba(10, 26, 35, 0.35);
+            overflow: hidden;
+        }
+
+        .step-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(140% 100% at 0% 0%, rgba(49, 196, 141, 0.32) 0%, rgba(11, 18, 32, 0) 52%);
+            opacity: 0.8;
+        }
+
+        .step-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(49, 196, 141, 0.9) 0%, rgba(0, 173, 120, 0.95) 100%);
+            box-shadow: 0 12px 24px rgba(49, 196, 141, 0.35);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--bg-color);
+        }
+
+        .step-card-subtitle {
+            margin: 4px 0 0;
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.75);
+        }
+
+        .step-card p {
+            color: rgba(245, 247, 255, 0.9);
+        }
+
+        .info-card {
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .info-card h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+        }
+
+        .info-card p {
+            margin: 0;
+            color: rgba(245, 247, 255, 0.88);
+            line-height: 1.65;
+        }
+
+        .info-card ul {
+            margin: 0;
+            padding-left: 18px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .info-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .info-card a:focus,
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .converter-section {
+            position: relative;
+            background-color: rgba(11, 18, 32, 0.8);
+        }
+
+        .planner-section {
+            position: relative;
+            background: rgba(11, 18, 32, 0.8);
+        }
+
+        .planner-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        @media (min-width: 960px) {
+            .planner-grid {
+                grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+                align-items: start;
+            }
+        }
+
+        .planner-card {
+            position: relative;
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(49, 196, 141, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            display: grid;
+            gap: 24px;
+            box-shadow: 0 22px 44px rgba(5, 15, 25, 0.4);
+            overflow: hidden;
+        }
+
+        .planner-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(140deg, rgba(49, 196, 141, 0.15) 0%, rgba(11, 18, 32, 0.85) 70%);
+            opacity: 0.6;
+        }
+
+        .planner-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .planner-form {
+            display: grid;
+            gap: 24px;
+        }
+
+        .planner-fieldset {
+            display: grid;
+            gap: 16px;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .planner-legend {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: rgba(245, 247, 255, 0.85);
+        }
+
+        .planner-option {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.85);
+        }
+
+        .planner-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-color);
+        }
+
+        .planner-input {
+            display: grid;
+            gap: 10px;
+        }
+
+        .planner-input input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(245, 247, 255, 0.16);
+            background: rgba(11, 18, 32, 0.72);
+            color: var(--text-color);
+            font-size: 1.05rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .planner-input input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 196, 141, 0.28);
+        }
+
+        .planner-range-wrapper {
+            display: grid;
+            gap: 12px;
+        }
+
+        .planner-range-labels {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(245, 247, 255, 0.7);
+        }
+
+        .planner-range-output {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .planner-range {
+            width: 100%;
+            height: 6px;
+            border-radius: 999px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, rgba(49, 196, 141, 0.8) 0%, rgba(49, 196, 141, 0.25) 100%);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .planner-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 2px solid var(--bg-color);
+            box-shadow: 0 6px 16px rgba(49, 196, 141, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .planner-range::-webkit-slider-thumb:hover,
+        .planner-range::-webkit-slider-thumb:focus {
+            transform: scale(1.05);
+        }
+
+        .planner-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .planner-badge {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            background: rgba(49, 196, 141, 0.18);
+            border: 1px solid rgba(49, 196, 141, 0.35);
+            color: rgba(245, 247, 255, 0.92);
+        }
+
+        .planner-distribution {
+            display: grid;
+            gap: 16px;
+        }
+
+        .planner-distribution-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+        }
+
+        .planner-distribution-meta {
+            display: grid;
+            gap: 4px;
+        }
+
+        .planner-distribution-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .planner-distribution-note {
+            font-size: 0.9rem;
+            color: rgba(245, 247, 255, 0.7);
+        }
+
+        .planner-distribution-item strong {
+            font-size: 1.05rem;
+            color: var(--accent-color);
+        }
+
+        .planner-insights {
+            display: grid;
+            gap: 16px;
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.88);
+        }
+
+        .planner-insights li {
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .planner-insights li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .planner-reset {
+            justify-self: start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(245, 247, 255, 0.18);
+            background: rgba(245, 247, 255, 0.06);
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .planner-reset:hover,
+        .planner-reset:focus-visible {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(49, 196, 141, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .market-action-cell {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .market-action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(245, 247, 255, 0.16);
+            background: rgba(11, 18, 32, 0.6);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .market-action-button:hover,
+        .market-action-button:focus-visible {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(49, 196, 141, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .market-action-button[data-state="added"] {
+            border-color: rgba(49, 196, 141, 0.45);
+            background: rgba(49, 196, 141, 0.22);
+            color: var(--accent-color);
+        }
+
+        .watchlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .watchlist-card {
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            border-radius: 18px;
+            padding: 24px;
+            display: grid;
+            gap: 16px;
+            position: relative;
+        }
+
+        .watchlist-card header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .watchlist-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .watchlist-tag {
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(49, 196, 141, 0.18);
+            border: 1px solid rgba(49, 196, 141, 0.28);
+            color: rgba(245, 247, 255, 0.85);
+        }
+
+        .watchlist-metrics {
+            display: grid;
+            gap: 6px;
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.86);
+        }
+
+        .watchlist-remove {
+            justify-self: flex-start;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(245, 247, 255, 0.14);
+            background: transparent;
+            color: rgba(245, 247, 255, 0.85);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .watchlist-remove:hover,
+        .watchlist-remove:focus-visible {
+            outline: none;
+            border-color: rgba(255, 94, 94, 0.65);
+            color: rgba(255, 160, 160, 0.95);
+            transform: translateY(-1px);
+        }
+
+        .watchlist-empty {
+            text-align: center;
+            padding: 32px;
+            border-radius: 18px;
+            border: 1px dashed rgba(245, 247, 255, 0.18);
+            background: rgba(245, 247, 255, 0.04);
+            color: rgba(245, 247, 255, 0.75);
+            font-size: 1.05rem;
+        }
+
+        .watchlist-empty strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%) translateY(120%);
+            padding: 14px 22px;
+            border-radius: 999px;
+            background: rgba(11, 18, 32, 0.92);
+            border: 1px solid rgba(49, 196, 141, 0.4);
+            color: rgba(245, 247, 255, 0.92);
+            box-shadow: 0 16px 32px rgba(5, 15, 25, 0.45);
+            font-size: 0.95rem;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .toast.is-visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .converter-grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        @media (min-width: 840px) {
+            .converter-grid {
+                grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+                align-items: stretch;
+            }
+        }
+
+        .converter-card {
+            position: relative;
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(49, 196, 141, 0.18);
+            border-radius: 20px;
+            padding: 32px;
+            display: grid;
+            gap: 24px;
+            box-shadow: 0 22px 44px rgba(5, 15, 25, 0.4);
+            overflow: hidden;
+        }
+
+        .converter-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(130deg, rgba(49, 196, 141, 0.18) 0%, rgba(11, 18, 32, 0.8) 65%);
+            opacity: 0.65;
+        }
+
+        .converter-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .converter-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .converter-field {
+            display: grid;
+            gap: 10px;
+        }
+
+        .converter-field label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(245, 247, 255, 0.85);
+        }
+
+        .converter-field input,
+        .converter-field select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(245, 247, 255, 0.16);
+            background: rgba(11, 18, 32, 0.72);
+            color: var(--text-color);
+            font-size: 1.05rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            appearance: none;
+        }
+
+        .converter-field input:focus,
+        .converter-field select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 196, 141, 0.28);
+        }
+
+        .converter-field select {
+            cursor: pointer;
+        }
+
+        .converter-row {
+            display: grid;
+            gap: 16px;
+        }
+
+        @media (min-width: 520px) {
+            .converter-row {
+                grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+                align-items: end;
+            }
+        }
+
+        .converter-swap {
+            align-self: center;
+            justify-self: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(245, 247, 255, 0.16);
+            background: rgba(11, 18, 32, 0.72);
+            color: var(--accent-color);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .converter-swap:focus,
+        .converter-swap:hover {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 14px 28px rgba(49, 196, 141, 0.32);
+            transform: translateY(-2px);
+        }
+
+        .converter-swap::before,
+        .converter-swap::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 999px;
+            transition: transform 0.25s ease;
+        }
+
+        .converter-swap::before {
+            transform: rotate(45deg);
+        }
+
+        .converter-swap::after {
+            transform: rotate(-45deg);
+        }
+
+        .converter-result {
+            background: rgba(245, 247, 255, 0.06);
+            border: 1px solid rgba(245, 247, 255, 0.12);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .converter-result-label {
+            font-size: 0.9rem;
+            color: rgba(245, 247, 255, 0.72);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .converter-result-value {
+            font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1.1;
+        }
+
+        .converter-result-symbol {
+            font-size: 1rem;
+            color: rgba(245, 247, 255, 0.75);
+        }
+
+        .converter-status {
+            font-size: 0.9rem;
+            color: rgba(245, 247, 255, 0.68);
+        }
+
+        .converter-note {
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.82);
+            line-height: 1.65;
+        }
+
+        .converter-details {
+            display: grid;
+            gap: 16px;
+        }
+
+        .converter-highlight {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .converter-meta {
+            display: grid;
+            gap: 6px;
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.72);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            margin-top: 32px;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+            background: rgba(245, 247, 255, 0.04);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(245, 247, 255, 0.08);
+        }
+
+        .content-table th {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .content-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-caption {
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.7);
+            margin-top: 12px;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 22px;
+            width: 1px;
+            height: calc(100% - 22px);
+            background: rgba(245, 247, 255, 0.2);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .faq-item {
+            background: rgba(245, 247, 255, 0.05);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item.is-open {
+            border-color: rgba(49, 196, 141, 0.35);
+            box-shadow: 0 12px 32px rgba(10, 26, 35, 0.25);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: inherit;
+            padding: 24px 28px;
+            font: inherit;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover,
+        .faq-question:focus-visible {
+            background: rgba(49, 196, 141, 0.12);
+            outline: none;
+        }
+
+        .faq-question span:first-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            margin-top: 4px;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: "";
+            position: absolute;
+            inset: 50% auto auto 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .faq-item.is-open .faq-icon::after {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .faq-answer {
+            padding: 0 28px 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.is-open .faq-answer {
+            padding: 0 28px 24px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: rgba(245, 247, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 48px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(245, 247, 255, 0.04);
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .map-embed {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(245, 247, 255, 0.08);
+            box-shadow: 0 18px 36px rgba(10, 26, 35, 0.35);
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(245, 247, 255, 0.88);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .contact-field label {
+            font-weight: 600;
+        }
+
+        .contact-field input,
+        .contact-field textarea {
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(245, 247, 255, 0.12);
+            background: rgba(11, 18, 32, 0.65);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-field input:focus,
+        .contact-field textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(49, 196, 141, 0.2);
+        }
+
+        .contact-field textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 999px;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-submit:focus,
+        .contact-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(49, 196, 141, 0.35);
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-details span {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(245, 247, 255, 0.92);
+        }
+
+        .contact-status {
+            font-size: 0.9rem;
+            color: rgba(49, 196, 141, 0.85);
+            min-height: 1.2em;
+        }
+
+        .contact-status[data-state="error"] {
+            color: rgba(255, 160, 160, 0.9);
+        }
+
+        footer {
+            background: rgba(11, 18, 32, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 32px 24px 40px;
+        }
+
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            display: grid;
+            gap: 16px;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            color: rgba(245, 247, 255, 0.75);
+        }
+
+        .footer-links {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:focus,
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links span {
+            color: rgba(245, 247, 255, 0.35);
+        }
+
+        @media (min-width: 680px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+
+            .hero-content {
+                text-align: left;
+                justify-self: flex-start;
+            }
+
+            .hero-media {
+                justify-self: flex-end;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                padding: 14px 16px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            header {
+                position: sticky;
+                top: 0;
+            }
+
+            /* Исправление фонового изображения для планшетов */
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .primary-nav {
+                position: absolute;
+                inset: calc(100% + 12px) 16px auto;
+                display: grid;
+                gap: 8px;
+                padding: 16px;
+                border-radius: 16px;
+                background: rgba(11, 18, 32, 0.96);
+                border: 1px solid rgba(245, 247, 255, 0.12);
+                box-shadow: 0 18px 48px rgba(5, 9, 18, 0.65);
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+            }
+
+            .primary-nav.is-open {
+                max-height: 420px;
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .primary-nav a {
+                display: block;
+                padding: 12px 12px;
+                border-radius: 10px;
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .primary-nav a:focus,
+            .primary-nav a:hover {
+                background: rgba(49, 196, 141, 0.14);
+            }
+
+            body.has-menu-open {
+                overflow: hidden;
+            }
+
+            body.has-menu-open::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(4, 6, 12, 0.65);
+                z-index: 15;
+            }
+
+            header {
+                z-index: 25;
+            }
+
+            .header-inner {
+                position: relative;
+            }
+
+            .hero {
+                min-height: calc(100svh - 72px);
+                padding: 96px 18px 72px;
+                grid-template-columns: minmax(0, 1fr);
+                justify-items: stretch;
+            }
+
+            .hero-content {
+                text-align: center;
+                order: 1;
+            }
+
+            .hero-title {
+                font-size: clamp(1.9rem, 7vw, 2.6rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                margin-bottom: 28px;
+            }
+
+            .hero-media {
+                max-width: 360px;
+                margin: 0 auto;
+                order: 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .hero {
+                padding: 88px 16px 64px;
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
+                min-height: calc(100vh - 80px);
+            }
+
+            .hero-subtitle {
+                margin-bottom: 32px;
+            }
+
+            /* Предотвращение горизонтального скролла */
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Ограничение ширины всех элементов */
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Оптимизация изображений для мобильных */
+            .hero-media {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .hero-media img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                max-height: 300px;
+            }
+
+            .content-section {
+                padding: 64px 16px;
+            }
+
+            .content-table th,
+            .content-table td {
+                padding: 8px 10px;
+                font-size: 0.74rem;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+                line-height: 1.35;
+            }
+
+            .metrics-grid {
+                margin-bottom: 32px;
+            }
+
+            .cards-grid {
+                gap: 20px;
+            }
+
+            .steps-grid {
+                gap: 20px;
+            }
+
+            .step-card {
+                padding: 28px 24px 24px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+
+            .content-inner {
+                text-align: center;
+            }
+
+            .content-inner h2,
+            .content-inner h3,
+            .content-inner p,
+            .section-intro,
+            .table-caption {
+                text-align: center;
+            }
+
+            .cards-grid,
+            .metrics-grid,
+            .steps-grid,
+            .faq-list,
+            .timeline,
+            .contact-grid {
+                justify-items: center;
+            }
+
+            .info-card,
+            .metric,
+            .step-card,
+            .faq-item,
+            .contact-card {
+                width: min(100%, 420px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .contact-details {
+                text-align: center;
+            }
+
+            .contact-details span a {
+                display: inline-block;
+            }
+
+            /* Дополнительная оптимизация изображений в карточках */
+            .card-media img {
+                max-height: 200px;
+                object-fit: cover;
+            }
+
+            /* Исправление переполнения контента */
+            .content-inner {
+                overflow-x: hidden;
+            }
+
+            /* Адаптивные таблицы */
+            .table-scroll {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .content-table {
+                min-width: 100%;
+                font-size: 0.65rem;
+                table-layout: fixed;
+            }
+
+            .content-table th,
+            .content-table td {
+                padding: 4px 6px;
+            }
+
+            .content-table th:nth-child(6),
+            .content-table td:nth-child(6) {
+                width: 74px;
+            }
+
+            .market-action-button {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+
+            .planner-card {
+                padding: 28px 22px;
+            }
+
+            .planner-distribution-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .planner-badges {
+                justify-content: center;
+            }
+
+            .watchlist-grid {
+                gap: 20px;
+            }
+
+            .toast {
+                width: calc(100% - 32px);
+                left: 16px;
+                right: 16px;
+                transform: translateY(120%);
+            }
+
+            .toast.is-visible {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="logo" href="#home">
+                <span class="logo-text">КриптоСреда</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+                <span class="sr-only">Меню</span>
+                <span class="menu-icon" aria-hidden="true"></span>
+            </button>
+            <nav class="primary-nav" id="primary-nav">
+                <a href="#home">Главная</a>
+                <a href="#basics">Основы</a>
+                <a href="#market">Рынок</a>
+                <a href="#converter">Конвертер</a>
+                <a href="#analytics">Аналитика</a>
+                <a href="#planner">Портфель</a>
+                <a href="#education">Обучение</a>
+                <a href="#resources">Ресурсы</a>
+                <a href="#watchlist">Избранное</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home" role="region" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 class="hero-title" id="hero-title" data-animate="fade-up">КриптоСреда — пространство для изучения цифровых активов</h1>
+                <p class="hero-subtitle" data-animate="fade-up" data-delay="0.08s">Информационный обзор о технологиях, принципах и возможностях криптовалютного мира без финансовых рекомендаций.</p>
+                <a class="hero-button" href="#basics" data-animate="fade-up" data-delay="0.14s">Узнать больше</a>
+            </div>
+            <div class="hero-media" data-animate="fade-scale" data-delay="0.2s">
+                <img src="image/2409bfad137c79c5953ca6fc35c421f9.jpg" alt="Инвестиционный аналитик изучает графики криптовалют" loading="lazy">
+            </div>
+        </section>
+        <section class="content-section" id="basics" role="region" aria-labelledby="basics-title">
+            <div class="content-inner">
+                <h2 id="basics-title">Основы криптовалют</h2>
+                <p class="section-intro">Криптовалюты&nbsp;— цифровые активы, которые существуют в распределённых сетях. Они позволяют передавать ценность глобально, почти моментально и с минимальными комиссиями, полагаясь на криптографию и консенсус между участниками сети.</p>
+                <div class="cards-grid" role="list">
+                    <article class="info-card" role="listitem" aria-label="Технология и принципы">
+                        <figure class="card-media">
+                            <img src="image/89b81c0f8bbd7157a51c569972219142.jpg" alt="Иллюстрация децентрализованной сети и блоков данных" loading="lazy">
+                        </figure>
+                        <h3>Технология и принципы</h3>
+                        <p>Блокчейн хранит историю транзакций в цепочке блоков. Консенсусные алгоритмы (Proof-of-Work, Proof-of-Stake) определяют, кто подтверждает блоки и получает вознаграждение.</p>
+                        <ul>
+                            <li>Децентрализация: нет единого центра контроля.</li>
+                            <li>Неподделываемость: записи защищены криптографией.</li>
+                            <li>Прозрачность: данные о транзакциях доступны публично.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Практические сценарии">
+                        <figure class="card-media">
+                            <img src="image/file-20180219-76003-1oake2r.jpg" alt="Человек работает с криптовалютным приложением на ноутбуке" loading="lazy">
+                        </figure>
+                        <h3>Практические сценарии</h3>
+                        <p>Криптоактивы выступают как средство обмена, средство накопления или функциональные токены внутри экосистем.</p>
+                        <ul>
+                            <li>Переводы и расчёты между странами.</li>
+                            <li>Доступ к DeFi-сервисам и стейкингу.</li>
+                            <li>Участие в DAO и голосование.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Риски и ограничения">
+                        <figure class="card-media">
+                            <img src="image/909.jpg" alt="Предупредительный символ на фоне графиков криптовалютного рынка" loading="lazy">
+                        </figure>
+                        <h3>Риски и ограничения</h3>
+                        <p>Высокая волатильность и правовая неопределённость требуют осознанного подхода.</p>
+                        <ul>
+                            <li>Технические риски хранения ключей.</li>
+                            <li>Регуляторные изменения в разных юрисдикциях.</li>
+                            <li>Рыночные манипуляции и низкая ликвидность отдельных токенов.</li>
+                        </ul>
+                    </article>
+                </div>
+                <h3>Глоссарий ключевых понятий</h3>
+                <div class="table-scroll">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Термин</th>
+                                <th scope="col">Значение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Криптовалюта</td>
+                                <td>Цифровая единица обмена, эмитируемая сетью по протоколу.</td>
+                            </tr>
+                            <tr>
+                                <td>Токен</td>
+                                <td>Цифровой актив, выпускаемый поверх существующего блокчейна.</td>
+                            </tr>
+                            <tr>
+                                <td>Кошелёк</td>
+                                <td>Приложение или устройство для хранения приватных ключей.</td>
+                            </tr>
+                            <tr>
+                                <td>Блокчейн</td>
+                                <td>Последовательная база данных, распределённая между участниками сети.</td>
+                            </tr>
+                            <tr>
+                                <td>Смарт-контракт</td>
+                                <td>Программа, автоматически исполняющая условия сделки.</td>
+                            </tr>
+                            <tr>
+                                <td>DeFi</td>
+                                <td>Децентрализованные финансы: протоколы кредитования, обмена, деривативов.</td>
+                            </tr>
+                            <tr>
+                                <td>NFT</td>
+                                <td>Уникальный токен, подтверждающий права на цифровой актив.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-caption">Информация носит образовательный характер и не является финансовой рекомендацией.</p>
+            </div>
+        </section>
+        <section class="content-section" id="market" role="region" aria-labelledby="market-title">
+            <div class="content-inner">
+                <h2 id="market-title">Срез рынка на сегодня</h2>
+                <p class="section-intro">Показатели основаны на открытых источниках и обновляются вручную в рейтинговом формате. Следите за трендами, чтобы понимать контекст развития цифровых активов.</p>
+                <div class="metrics-grid">
+                    <div class="metric" aria-label="Капитализация крипторынка" data-animate="fade-up">
+                        <span class="metric-label">Совокупная капитализация</span>
+                        <span class="metric-value">1,98 трлн $</span>
+                        <span class="metric-trend">−1,2% за 24 часа</span>
+                    </div>
+                    <div class="metric" aria-label="Суточный объём торгов" data-animate="fade-up" data-delay="0.06s">
+                        <span class="metric-label">Объём торгов 24ч</span>
+                        <span class="metric-value">84,6 млрд $</span>
+                        <span class="metric-trend">+7,8% за сутки</span>
+                    </div>
+                    <div class="metric" aria-label="Доминирование биткоина" data-animate="fade-up" data-delay="0.12s">
+                        <span class="metric-label">Доминирование BTC</span>
+                        <span class="metric-value">52,4%</span>
+                        <span class="metric-trend">+0,6 п.п. за неделю</span>
+                    </div>
+                    <div class="metric" aria-label="Динамика DeFi TVL" data-animate="fade-up" data-delay="0.18s">
+                        <span class="metric-label">DeFi TVL</span>
+                        <span class="metric-value">67,3 млрд $</span>
+                        <span class="metric-trend">+4,1% за 7 дней</span>
+                    </div>
+                </div>
+                <div class="cards-grid" role="list">
+                    <article class="info-card" role="listitem" aria-label="Ключевые драйверы" data-animate="fade-up">
+                        <figure class="card-media">
+                            <img src="image/i.webp" alt="Ростовой график криптовалютного рынка на тёмном фоне" loading="lazy">
+                        </figure>
+                        <h3>Ключевые драйверы</h3>
+                        <ul>
+                            <li>Рост активности в сетях второго уровня (Arbitrum, Base).</li>
+                            <li>Усиление интереса к реальным активам (RWA) на блокчейне.</li>
+                            <li>Ожидание регуляторных решений по спотовым ETF в разных странах.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Факторы риска" data-animate="fade-up" data-delay="0.08s">
+                        <figure class="card-media">
+                            <img src="image/i (1).webp" alt="Снижение финансового графика с красными индикаторами риска" loading="lazy">
+                        </figure>
+                        <h3>Факторы риска</h3>
+                        <ul>
+                            <li>Ужесточение монетарной политики центральных банков.</li>
+                            <li>Регуляторные претензии к централизованным биржам.</li>
+                            <li>Технические сбои крупных сетей и протоколов.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Наблюдаемые тренды" data-animate="fade-up" data-delay="0.16s">
+                        <figure class="card-media">
+                            <img src="image/i (2).webp" alt="Цифровая диаграмма с трендами и показателями рынка" loading="lazy">
+                        </figure>
+                        <h3>Наблюдаемые тренды</h3>
+                        <ul>
+                            <li>Переход проектов на модели с токен-гейтом и подпиской.</li>
+                            <li>Рост интереса к цифровым валютам центральных банков (CBDC).</li>
+                            <li>Интеграция блокчейна с ИИ-сервисами для проверки данных.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section converter-section" id="converter" role="region" aria-labelledby="converter-title" data-converter>
+            <div class="content-inner">
+                <h2 id="converter-title" data-animate="fade-up">Конвертер курсов</h2>
+                <p class="section-intro" data-animate="fade-up" data-delay="0.08s">Быстро пересчитывайте стоимость цифровых активов и ключевых валют. Курсы обновляются из открытых источников и подходят для ориентировочного расчёта.</p>
+                <div class="converter-grid">
+                    <article class="converter-card" data-animate="fade-up" data-delay="0.14s" aria-label="Форма конвертации">
+                        <form class="converter-form" novalidate>
+                            <div class="converter-field">
+                                <label for="converter-amount">Сумма</label>
+                                <input id="converter-amount" name="amount" type="text" inputmode="decimal" autocomplete="off" placeholder="Например, 1.5" value="1">
+                            </div>
+                            <div class="converter-row">
+                                <div class="converter-field">
+                                    <label for="converter-from">Из</label>
+                                    <select id="converter-from" name="from"></select>
+                                </div>
+                                <button class="converter-swap" type="button" aria-label="Поменять местами валюты"></button>
+                                <div class="converter-field">
+                                    <label for="converter-to">В</label>
+                                    <select id="converter-to" name="to"></select>
+                                </div>
+                            </div>
+                            <div class="converter-result" aria-live="polite">
+                                <span class="converter-result-label">Результат</span>
+                                <span class="converter-result-value" data-converter-output>—</span>
+                                <span class="converter-result-symbol" data-converter-symbol></span>
+                            </div>
+                            <div class="converter-status" data-converter-status>Ожидание обновления курсов…</div>
+                        </form>
+                    </article>
+                    <article class="converter-card" data-animate="fade-up" data-delay="0.22s" aria-label="О курсе и обновлении">
+                        <div class="converter-details">
+                            <div>
+                                <div class="converter-highlight" data-converter-rate>1 BTC = …</div>
+                                <div class="converter-meta">
+                                    <span data-converter-updated>Данные обновляются при загрузке секции.</span>
+                                    <span>Источники: CoinGecko, ExchangeRate.host.</span>
+                                </div>
+                            </div>
+                            <p class="converter-note">Полученные значения помогают при черновом анализе портфеля, но не являются торговой рекомендацией. Перед сделкой проверяйте курсы на выбранной бирже или в агрегаторе ликвидности.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="analytics" role="region" aria-labelledby="analytics-title">
+            <div class="content-inner">
+                <h2 id="analytics-title">Сегменты и динамика</h2>
+                <p class="section-intro">Ниже представлен выборочный обзор проектов из разных сегментов. Список не является рейтингом и приводится для ориентира при собственном анализе.</p>
+                <div class="table-scroll">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Актив / Тикер</th>
+                                <th scope="col">Сфера</th>
+                                <th scope="col">Капитализация</th>
+                                <th scope="col">Δ 30 дней</th>
+                                <th scope="col">Катализатор</th>
+                                <th scope="col">Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bitcoin (BTC)</td>
+                                <td>Цифровое «золото»</td>
+                                <td>1,02 трлн $</td>
+                                <td>+9,5%</td>
+                                <td>Институциональные покупки и ETF-притоки</td>
+                                <td class="market-action-cell">
+                                    <button class="market-action-button" type="button" data-watch-symbol="BTC" data-watch-name="Bitcoin" data-watch-segment="Цифровое «золото»" data-watch-cap="1,02 трлн $" data-watch-move="+9,5%">В избранное</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum (ETH)</td>
+                                <td>Смарт-контракты</td>
+                                <td>378 млрд $</td>
+                                <td>+6,8%</td>
+                                <td>Обновления масштабирования и снижение комиссий</td>
+                                <td class="market-action-cell">
+                                    <button class="market-action-button" type="button" data-watch-symbol="ETH" data-watch-name="Ethereum" data-watch-segment="Смарт-контракты" data-watch-cap="378 млрд $" data-watch-move="+6,8%">В избранное</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chainlink (LINK)</td>
+                                <td>Оракулы</td>
+                                <td>12,6 млрд $</td>
+                                <td>+15,1%</td>
+                                <td>Расширение сети CCIP и партнёрства с банками</td>
+                                <td class="market-action-cell">
+                                    <button class="market-action-button" type="button" data-watch-symbol="LINK" data-watch-name="Chainlink" data-watch-segment="Оракулы" data-watch-cap="12,6 млрд $" data-watch-move="+15,1%">В избранное</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Starknet (STRK)</td>
+                                <td>Layer 2</td>
+                                <td>7,4 млрд $</td>
+                                <td>+22,3%</td>
+                                <td>Запуск стимуляционных программ для разработчиков</td>
+                                <td class="market-action-cell">
+                                    <button class="market-action-button" type="button" data-watch-symbol="STRK" data-watch-name="Starknet" data-watch-segment="Layer 2" data-watch-cap="7,4 млрд $" data-watch-move="+22,3%">В избранное</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aave (AAVE)</td>
+                                <td>DeFi-кредитование</td>
+                                <td>6,1 млрд $</td>
+                                <td>+11,7%</td>
+                                <td>Интеграция с токенизированными реальными активами</td>
+                                <td class="market-action-cell">
+                                    <button class="market-action-button" type="button" data-watch-symbol="AAVE" data-watch-name="Aave" data-watch-segment="DeFi-кредитование" data-watch-cap="6,1 млрд $" data-watch-move="+11,7%">В избранное</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-caption">Δ 30 дней отображает ориентировочную процентную динамику за месяц.</p>
+                <div class="cards-grid" role="list">
+                    <article class="info-card" role="listitem" aria-label="Что отслеживать инвестору">
+                        <figure class="card-media">
+                            <img src="image/i (3).webp" alt="Аналитическая панель с ключевыми криптовалютными метриками" loading="lazy">
+                        </figure>
+                        <h3>Что отслеживать инвестору</h3>
+                        <ul>
+                            <li>Фундаментальные метрики: объём сетевых транзакций, активность разработчиков.</li>
+                            <li>Ликвидность и доступность активов на регулируемых площадках.</li>
+                            <li>Связь проекта с реальными кейсами и корпоративными партнёрами.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Стратегия изучения">
+                        <figure class="card-media">
+                            <img src="image/2409bfad137c79c5953ca6fc35c421f9.jpg" alt="Специалист анализирует данные на нескольких экранах" loading="lazy">
+                        </figure>
+                        <h3>Стратегия изучения</h3>
+                        <p>Выбирайте сегмент (DeFi, Gaming, Инфраструктура) и изучайте его экосистему: ведущие проекты, токеномику, дорожные карты. Сравнивайте метрики с аналогами.</p>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Баланс портфеля">
+                        <figure class="card-media">
+                            <img src="image/89b81c0f8bbd7157a51c569972219142.jpg" alt="Сбалансированный портфель активов на цифровой диаграмме" loading="lazy">
+                        </figure>
+                        <h3>Баланс портфеля</h3>
+                        <p>Рассматривайте распределение между базовыми активами (BTC, ETH), ростовыми проектами и экспериментальными токенами. Ведите журнал решений, фиксируя причины входа и выхода.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section planner-section" id="planner" role="region" aria-labelledby="planner-title" data-planner>
+            <div class="content-inner">
+                <h2 id="planner-title" data-animate="fade-up">Планировщик портфеля</h2>
+                <p class="section-intro" data-animate="fade-up" data-delay="0.08s">Интерактивный калькулятор помогает сформировать ориентировочное распределение активов по уровню риска и тематическим предпочтениям. Результат — отправная точка для самостоятельного анализа.</p>
+                <div class="planner-grid">
+                    <article class="planner-card" data-animate="fade-up" data-delay="0.16s" aria-label="Форма настроек портфеля">
+                        <form class="planner-form" novalidate>
+                            <fieldset class="planner-fieldset">
+                                <legend class="planner-legend">Инвестиционный горизонт</legend>
+                                <div class="planner-range-wrapper">
+                                    <label for="planner-risk" class="planner-range-labels">
+                                        Уровень риска
+                                        <span class="planner-range-output" data-planner-risk-label>Сбалансированный</span>
+                                    </label>
+                                    <input id="planner-risk" class="planner-range" name="risk" type="range" min="1" max="5" step="1" value="3" aria-describedby="planner-risk-hint">
+                                    <div id="planner-risk-hint" class="planner-range-labels">
+                                        <span>Консервативный</span>
+                                        <span>Агрессивный</span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="planner-fieldset">
+                                <legend class="planner-legend">Базовые параметры</legend>
+                                <div class="planner-input">
+                                    <label for="planner-amount">Размер капитала, ₽</label>
+                                    <input id="planner-amount" name="amount" type="number" min="1000" step="500" value="200000" inputmode="numeric" placeholder="Например, 200000">
+                                </div>
+                                <label class="planner-option">
+                                    <input id="planner-reinvest" name="reinvest" type="checkbox" checked>
+                                    Реинвестировать доход (компаундинг)
+                                </label>
+                                <label class="planner-option">
+                                    <input id="planner-defi" name="defi" type="checkbox">
+                                    Учитывать DeFi-сегмент в ростовой доле
+                                </label>
+                                <label class="planner-option">
+                                    <input id="planner-stable" name="stable" type="checkbox" checked>
+                                    Поддерживать резерв в стабильных активах
+                                </label>
+                            </fieldset>
+                            <button class="planner-reset" type="button" data-planner-reset>Сбросить параметры</button>
+                        </form>
+                    </article>
+                    <article class="planner-card" data-animate="fade-up" data-delay="0.26s" aria-label="Рекомендации распределения портфеля">
+                        <div class="planner-badges" data-planner-tags></div>
+                        <div class="planner-distribution" data-planner-distribution>
+                            <!-- Items injected via script -->
+                        </div>
+                        <ul class="planner-insights" data-planner-insights>
+                            <!-- Insights injected via script -->
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="education" role="region" aria-labelledby="education-title">
+            <div class="content-inner">
+                <h2 id="education-title">Маршрут обучения</h2>
+                <p class="section-intro">Планируйте обучение по шагам: от понимания базовых принципов до глубокого анализа инфраструктуры и законодательных нюансов.</p>
+                <div class="steps-grid" role="list">
+                    <article class="info-card step-card" role="listitem" aria-label="Этап 1" data-animate="fade-up" data-delay="0s">
+                        <div class="step-card-header">
+                            <span class="step-badge" aria-hidden="true">1</span>
+                            <div>
+                                <h3>Этап 1. Старт</h3>
+                                <p class="step-card-subtitle">Основы и безопасность</p>
+                            </div>
+                        </div>
+                        <p>Изучите основы блокчейна, создайте тестовый криптокошелёк, пройдите вводный курс по безопасности цифровых активов.</p>
+                    </article>
+                    <article class="info-card step-card" role="listitem" aria-label="Этап 2" data-animate="fade-up" data-delay="0.22s">
+                        <div class="step-card-header">
+                            <span class="step-badge" aria-hidden="true">2</span>
+                            <div>
+                                <h3>Этап 2. Практика</h3>
+                                <p class="step-card-subtitle">Инструменты и операции</p>
+                            </div>
+                        </div>
+                        <p>Попробуйте тестовые сети, проведите транзакцию стендом, установите расширение для браузера и подключите аппаратный кошелёк.</p>
+                    </article>
+                    <article class="info-card step-card" role="listitem" aria-label="Этап 3" data-animate="fade-up" data-delay="0.44s">
+                        <div class="step-card-header">
+                            <span class="step-badge" aria-hidden="true">3</span>
+                            <div>
+                                <h3>Этап 3. Аналитика</h3>
+                                <p class="step-card-subtitle">Глубокое исследование</p>
+                            </div>
+                        </div>
+                        <p>Углубитесь в анализ токеномики, читайте whitepaper проектов и отслеживайте обновления в блокчейн-эксплорерах.</p>
+                    </article>
+                    <article class="info-card step-card" role="listitem" aria-label="Этап 4" data-animate="fade-up" data-delay="0.66s">
+                        <div class="step-card-header">
+                            <span class="step-badge" aria-hidden="true">4</span>
+                            <div>
+                                <h3>Этап 4. Перспектива</h3>
+                                <p class="step-card-subtitle">Стратегия участия</p>
+                            </div>
+                        </div>
+                        <p>Оцените влияние макроэкономики и регуляторики, сравнивайте экосистемы и формируйте собственную стратегию участия.</p>
+                    </article>
+                </div>
+                <h3>Ключевые контрольные точки</h3>
+                <div class="timeline" role="list">
+                    <div class="timeline-item" role="listitem" data-animate="fade-up">
+                        <strong>1–2 недели:</strong> Разобраться с понятиями блокчейн, приватный/публичный ключ, мемоник.
+                    </div>
+                    <div class="timeline-item" role="listitem" data-animate="fade-up" data-delay="0.08s">
+                        <strong>3–4 недели:</strong> Освоить работу с централизованными и децентрализованными биржами на малых суммах.
+                    </div>
+                    <div class="timeline-item" role="listitem" data-animate="fade-up" data-delay="0.16s">
+                        <strong>5–6 недель:</strong> Провести самостоятельный анализ проекта, подготовить краткий отчёт и оценку рисков.
+                    </div>
+                    <div class="timeline-item" role="listitem" data-animate="fade-up" data-delay="0.24s">
+                        <strong>7+ недель:</strong> Настроить мониторинг портфеля, подписаться на аналитические платформы и регуляторные обновления.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="resources" role="region" aria-labelledby="resources-title">
+            <div class="content-inner">
+                <h2 id="resources-title">Полезные инструменты и источники</h2>
+                <p class="section-intro">Собранные ресурсы помогут следить за рынком, проверять транзакции и изучать законодательство.</p>
+                <div class="cards-grid resources-grid" role="list">
+                    <article class="info-card" role="listitem" aria-label="Мониторинг данных">
+                        <h3>Мониторинг данных</h3>
+                        <ul>
+                            <li><a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a> — рыночные котировки.</li>
+                            <li><a href="https://defillama.com/" target="_blank" rel="noopener noreferrer">DeFiLlama</a> — показатель TVL и метрики DeFi.</li>
+                            <li><a href="https://glassnode.com/" target="_blank" rel="noopener noreferrer">Glassnode</a> — ончейн-аналитика.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Отслеживание активности">
+                        <h3>Отслеживание активности</h3>
+                        <ul>
+                            <li><a href="https://etherscan.io/" target="_blank" rel="noopener noreferrer">Etherscan</a> — проводник сети Ethereum.</li>
+                            <li><a href="https://dune.com/" target="_blank" rel="noopener noreferrer">Dune</a> — пользовательская аналитика.</li>
+                            <li><a href="https://token.unlocks.app/" target="_blank" rel="noopener noreferrer">Token Unlocks</a> — график разблокировок токенов.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Регуляторика">
+                        <h3>Регуляторика</h3>
+                        <ul>
+                            <li><a href="https://www.fatf-gafi.org" target="_blank" rel="noopener noreferrer">FATF</a> — рекомендации по AML.</li>
+                            <li><a href="https://digital.gov.ru" target="_blank" rel="noopener noreferrer">Минцифры РФ</a> — цифровая экономика и инициативы.</li>
+                            <li><a href="https://www.bis.org/" target="_blank" rel="noopener noreferrer">BIS</a> — отчёты по CBDC.</li>
+                        </ul>
+                    </article>
+                    <article class="info-card" role="listitem" aria-label="Образование">
+                        <h3>Образование</h3>
+                        <ul>
+                            <li><a href="https://academy.binance.com/ru" target="_blank" rel="noopener noreferrer">Binance Academy</a> — база знаний.</li>
+                            <li><a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Coursera</a> — курсы по блокчейну и смарт-контрактам.</li>
+                            <li><a href="https://www.legalreports.ru" target="_blank" rel="noopener noreferrer">LegalReports</a> — правовые обзоры и пояснения.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="watchlist" role="region" aria-labelledby="watchlist-title" data-watchlist>
+            <div class="content-inner">
+                <h2 id="watchlist-title" data-animate="fade-up">Мой список наблюдения</h2>
+                <p class="section-intro" data-animate="fade-up" data-delay="0.08s">Отмечайте проекты в таблицах выше, чтобы быстро возвращаться к анализу ключевых метрик. Избранное сохраняется в браузере.</p>
+                <div class="watchlist-grid" data-watchlist-container>
+                    <div class="watchlist-empty" data-watchlist-empty>
+                        <strong>Список пока пуст.</strong>
+                        Добавьте активы из раздела «Аналитика» — мы запомним выбор на этом устройстве.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="faq" role="region" aria-labelledby="faq-title">
+            <div class="content-inner">
+                <h2 id="faq-title">Частые вопросы</h2>
+                <p class="section-intro">Собрали ответы на базовые вопросы, которые возникают у новых участников рынка.</p>
+                <div class="faq-list" role="list">
+                    <article class="faq-item" role="listitem" aria-label="Как начать знакомство" data-animate="fade-up">
+                        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+                            <span>Как начать знакомство с криптовалютами?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-1" role="region" aria-live="polite">
+                            <p>Начните с создания надёжного кошелька, изучите базовые понятия и совершите небольшую тестовую транзакцию с помощью друга или тестовой сети. Обязательно настройте двухфакторную авторизацию и резервные копии.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item" role="listitem" aria-label="Как хранить активы" data-animate="fade-up" data-delay="0.08s">
+                        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+                            <span>Как безопасно хранить активы?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-2" role="region" aria-live="polite">
+                            <p>Используйте аппаратные кошельки или холодное хранение для долгосрочных активов. Никогда не передавайте приватные ключи третьим лицам, проверяйте адреса при переводах и следите за фишинговыми ссылками.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item" role="listitem" aria-label="Какие налоги уплачивать" data-animate="fade-up" data-delay="0.16s">
+                        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+                            <span>Нужно ли платить налоги?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-3" role="region" aria-live="polite">
+                            <p>В России доходы от операций с цифровыми финансовыми активами облагаются налогом на общих основаниях. Ведите учёт сделок и консультируйтесь с налоговыми специалистами, чтобы корректно оформить декларацию.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item" role="listitem" aria-label="Где искать свежие новости" data-animate="fade-up" data-delay="0.24s">
+                        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+                            <span>Где следить за новостями?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-4" role="region" aria-live="polite">
+                            <p>Подписывайтесь на отраслевые медиаресурсы, отчёты аналитических агентств и официальные каналы проектов. Сверяйте информацию из нескольких источников, чтобы избежать манипуляций.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="content-section" id="contacts" role="region" aria-labelledby="contacts-title">
+            <div class="content-inner">
+                <h2 id="contacts-title">Связаться с нами</h2>
+                <p class="contact-description">Если вы хотите задать вопрос по теме или предложить материал, используйте форму ниже.</p>
+                <div class="contact-grid">
+                    <div class="contact-card" aria-labelledby="contact-form-title">
+                        <h3 id="contact-form-title">Контактная форма</h3>
+                        <form class="contact-form" action="#" method="post">
+                            <div class="contact-field">
+                                <label for="contact-name">Имя</label>
+                                <input id="contact-name" name="name" type="text" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="contact-field">
+                                <label for="contact-email">Электронная почта</label>
+                                <input id="contact-email" name="email" type="email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="contact-field">
+                                <label for="contact-message">Сообщение</label>
+                                <textarea id="contact-message" name="message" placeholder="Расскажите, что вас интересует" required></textarea>
+                            </div>
+                            <button class="contact-submit" type="submit">Отправить</button>
+                            <div class="contact-status" role="status" aria-live="polite" data-contact-status></div>
+                        </form>
+                    </div>
+                    <div class="contact-card" aria-labelledby="contact-details-title">
+                        <div class="map-embed">
+                            <iframe src="https://maps.google.com/maps?q=%D1%83%D0%BB.%20%D0%A1%D0%B0%D0%B4%D0%BE%D0%B2%D0%B0%D1%8F-%D0%A1%D0%BF%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D1%8F,%20%D0%B4.%2020,%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,%20%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F&output=embed&t=&z=15&ie=UTF8&iwloc=B" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Офис КриптоСреда на ул. Садовая-Спасская, д. 20"></iframe>
+                        </div>
+                        <h3 id="contact-details-title">Контактные данные</h3>
+                        <div class="contact-details">
+                            <span>ул. Садовая-Спасская, д. 20, офис 315</span>
+                            <span>Москва, Россия, 107078</span>
+                            <span><a href="mailto:info@kriptosreda.ru">info@kriptosreda.ru</a></span>
+                            <span><a href="tel:+74956428321">+7 (495) 642-83-21</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-text">©2025 КриптоСреда. Информационный проект о цифровых активах и технологиях блокчейн.</div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#cookies">Cookies Policy</a>
+                <span>|</span>
+                <a href="#terms">Terms of Use</a>
+                <span>|</span>
+                <a href="#privacy">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden data-toast></div>
+    <script>
+        (function () {
+            const legalSectionIds = new Set(["cookies", "terms", "privacy"]);
+            const sections = Array.from(document.querySelectorAll("main > section"));
+            const header = document.querySelector("header");
+            const footer = document.querySelector("footer");
+            const menuToggle = document.querySelector(".menu-toggle");
+            const primaryNav = document.querySelector("#primary-nav");
+            const toastNode = document.querySelector("[data-toast]");
+            let toastTimer = null;
+
+            function showSection(targetId) {
+                const isLegal = legalSectionIds.has(targetId);
+                document.body.classList.toggle("legal-view", isLegal);
+
+                sections.forEach((section) => {
+                    section.hidden = isLegal ? section.id !== targetId : false;
+                });
+
+                if (header) {
+                    header.hidden = isLegal;
+                }
+
+                if (footer) {
+                    footer.hidden = false;
+                }
+            }
+
+            function showToast(message) {
+                if (!toastNode) {
+                    return;
+                }
+
+                window.clearTimeout(toastTimer);
+                toastNode.hidden = false;
+                toastNode.textContent = message;
+
+                requestAnimationFrame(() => {
+                    toastNode.classList.add("is-visible");
+                });
+
+                toastTimer = window.setTimeout(() => {
+                    toastNode.classList.remove("is-visible");
+                    toastTimer = window.setTimeout(() => {
+                        toastNode.hidden = true;
+                        toastNode.textContent = "";
+                    }, 250);
+                }, 3200);
+            }
+
+            function handleHashChange() {
+                closeMobileMenu();
+                showSection(location.hash.replace("#", ""));
+            }
+
+            function setBodyReady() {
+                window.setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        document.body.classList.add("is-ready");
+                    });
+                }, 120);
+            }
+
+            function autoAssignAnimations() {
+                const configs = [
+                    { selector: ".content-section .content-inner", animation: "fade-up", stagger: 0.04 },
+                    { selector: ".content-section h2", animation: "fade-up", stagger: 0.04 },
+                    { selector: ".content-section .section-intro", animation: "fade-up", baseDelay: 0.08 },
+                    { selector: ".content-section .info-card", animation: "fade-up", stagger: 0.06 },
+                    { selector: ".content-section .metric", animation: "fade-up", stagger: 0.06 },
+                    { selector: ".cards-grid .info-card", animation: "fade-up", stagger: 0.08 },
+                    { selector: ".steps-grid .step-card", animation: "fade-up", stagger: 0.08 },
+                    { selector: ".timeline .timeline-item", animation: "fade-up", stagger: 0.08 },
+                    { selector: ".faq-list .faq-item", animation: "fade-up", stagger: 0.08 },
+                    { selector: ".contact-grid > *", animation: "fade-up", stagger: 0.08 },
+                    { selector: ".metrics-grid .metric", animation: "fade-up", stagger: 0.06 },
+                ];
+
+                configs.forEach(({ selector, animation, baseDelay = 0, stagger = 0 }) => {
+                    const nodes = document.querySelectorAll(selector);
+                    nodes.forEach((node, index) => {
+                        if (!node.dataset.animate) {
+                            node.dataset.animate = animation;
+                        }
+                        if (!node.dataset.delay) {
+                            const delay = baseDelay + index * stagger;
+                            if (delay > 0) {
+                                node.dataset.delay = `${delay.toFixed(2)}s`;
+                            }
+                        }
+                    });
+                });
+            }
+
+            function setupScrollAnimations() {
+                const animatedElements = Array.from(document.querySelectorAll("[data-animate]"));
+
+                if (!animatedElements.length) {
+                    return;
+                }
+
+                const observer = new IntersectionObserver(
+                    (entries, obs) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const target = entry.target;
+                                const delay = target.dataset.delay;
+                                if (delay) {
+                                    target.style.setProperty("--animate-delay", delay);
+                                }
+                                target.classList.add("is-visible");
+                                obs.unobserve(target);
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.2,
+                        rootMargin: "0px 0px -20px 0px",
+                    }
+                );
+
+                animatedElements.forEach((el) => observer.observe(el));
+            }
+
+            function closeMobileMenu() {
+                if (!primaryNav || !menuToggle) {
+                    return;
+                }
+
+                primaryNav.classList.remove("is-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                document.body.classList.remove("has-menu-open");
+            }
+
+            function setupMobileMenu() {
+                if (!primaryNav || !menuToggle) {
+                    return;
+                }
+
+                menuToggle.addEventListener("click", () => {
+                    const isOpen = primaryNav.classList.toggle("is-open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                    document.body.classList.toggle("has-menu-open", isOpen);
+                });
+
+                primaryNav.addEventListener("click", (event) => {
+                    if (!(event.target instanceof Element)) {
+                        return;
+                    }
+
+                    const link = event.target.closest("a");
+                    if (link) {
+                        closeMobileMenu();
+                    }
+                });
+
+                window.addEventListener("resize", () => {
+                    if (window.innerWidth > 900) {
+                        closeMobileMenu();
+                    }
+                });
+
+                window.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape") {
+                        closeMobileMenu();
+                    }
+                });
+
+                document.addEventListener("click", (event) => {
+                    if (!primaryNav.classList.contains("is-open")) {
+                        return;
+                    }
+
+                    if (
+                        !primaryNav.contains(event.target) &&
+                        !menuToggle.contains(event.target)
+                    ) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+
+            function setupFaqAccordion() {
+                const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+
+                faqItems.forEach((item) => {
+                    const trigger = item.querySelector(".faq-question");
+                    const answer = item.querySelector(".faq-answer");
+
+                    if (!trigger || !answer) {
+                        return;
+                    }
+
+                    trigger.addEventListener("click", () => {
+                        const isOpen = item.classList.toggle("is-open");
+                        trigger.setAttribute("aria-expanded", String(isOpen));
+
+                        if (isOpen) {
+                            answer.style.maxHeight = `${answer.scrollHeight}px`;
+                        } else {
+                            answer.style.maxHeight = "0px";
+                        }
+                    });
+                });
+
+                window.addEventListener("resize", () => {
+                    document.querySelectorAll(".faq-item.is-open .faq-answer").forEach((answer) => {
+                        answer.style.maxHeight = `${answer.scrollHeight}px`;
+                    });
+                });
+            }
+
+            function init() {
+                setBodyReady();
+                autoAssignAnimations();
+                setupScrollAnimations();
+                setupFaqAccordion();
+                setupMobileMenu();
+                initCurrencyConverter();
+                initPortfolioPlanner();
+                initWatchlist();
+                initContactForm();
+
+                if (location.hash) {
+                    handleHashChange();
+                }
+            }
+
+            window.addEventListener("hashchange", handleHashChange);
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", init);
+            } else {
+                init();
+            }
+
+            function initCurrencyConverter() {
+                const converterSection = document.querySelector("[data-converter]");
+                if (!converterSection) {
+                    return;
+                }
+
+                const amountInput = converterSection.querySelector("#converter-amount");
+                const fromSelect = converterSection.querySelector("#converter-from");
+                const toSelect = converterSection.querySelector("#converter-to");
+                const swapButton = converterSection.querySelector(".converter-swap");
+                const outputValue = converterSection.querySelector("[data-converter-output]");
+                const outputSymbol = converterSection.querySelector("[data-converter-symbol]");
+                const statusNode = converterSection.querySelector("[data-converter-status]");
+                const rateNode = converterSection.querySelector("[data-converter-rate]");
+                const updatedNode = converterSection.querySelector("[data-converter-updated]");
+
+                if (!amountInput || !fromSelect || !toSelect || !swapButton) {
+                    return;
+                }
+
+                const currencyOptions = [
+                    { code: "btc", label: "BTC — Bitcoin", symbol: "BTC", source: "crypto", coingeckoId: "bitcoin" },
+                    { code: "eth", label: "ETH — Ethereum", symbol: "ETH", source: "crypto", coingeckoId: "ethereum" },
+                    { code: "usdt", label: "USDT — Tether", symbol: "USDT", source: "crypto", coingeckoId: "tether" },
+                    { code: "usdc", label: "USDC — USD Coin", symbol: "USDC", source: "crypto", coingeckoId: "usd-coin" },
+                    { code: "usd", label: "USD — Доллар США", symbol: "USD", source: "fiat" },
+                    { code: "eur", label: "EUR — Евро", symbol: "EUR", source: "fiat" },
+                    { code: "rub", label: "RUB — Российский рубль", symbol: "RUB", source: "fiat" },
+                ];
+
+                const toUsdMap = new Map();
+
+                currencyOptions.forEach((option) => {
+                    const node = document.createElement("option");
+                    node.value = option.code;
+                    node.textContent = option.label;
+                    node.dataset.symbol = option.symbol;
+                    fromSelect.appendChild(node.cloneNode(true));
+                    toSelect.appendChild(node);
+                });
+
+                fromSelect.value = "btc";
+                toSelect.value = "rub";
+
+                let lastUpdated = null;
+                let isFallbackRates = false;
+
+                const fallbackUsdRates = new Map([
+                    ["btc", 65750],
+                    ["eth", 3520],
+                    ["usdt", 1],
+                    ["usdc", 1],
+                    ["usd", 1],
+                    ["eur", 1.06],
+                    ["rub", 0.0108],
+                ]);
+
+                async function fetchRates() {
+                    statusNode.textContent = "Обновляем курсы…";
+                    isFallbackRates = false;
+
+                    const fiatUrl = "https://api.exchangerate.host/latest?base=USD&symbols=USD,EUR,RUB";
+                    const cryptoIds = currencyOptions
+                        .filter((item) => item.source === "crypto")
+                        .map((item) => item.coingeckoId)
+                        .join(",");
+                    const cryptoUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(
+                        cryptoIds
+                    )}&vs_currencies=usd&precision=full`;
+                    const cryptoFetchOptions = {
+                        headers: {
+                            accept: "application/json",
+                            "x-cg-demo-api-key": "CG-DemoAPIKey",
+                        },
+                    };
+
+                    try {
+                        const [fiatResponse, cryptoResponse] = await Promise.all([
+                            fetch(fiatUrl),
+                            fetch(cryptoUrl, cryptoFetchOptions),
+                        ]);
+
+                        if (!fiatResponse.ok) {
+                            throw new Error("Не удалось загрузить курсы фиатных валют.");
+                        }
+
+                        if (!cryptoResponse.ok) {
+                            throw new Error("Не удалось загрузить курсы цифровых активов.");
+                        }
+
+                        const fiatData = await fiatResponse.json();
+                        const cryptoData = await cryptoResponse.json();
+
+                        if (!fiatData?.rates) {
+                            throw new Error("Некорректный ответ сервиса котировок.");
+                        }
+
+                        toUsdMap.clear();
+
+                        // Фиат: рассчитываем стоимость единицы валюты в долларах США
+                        Object.entries(fiatData.rates).forEach(([code, rate]) => {
+                            if (typeof rate === "number" && rate > 0) {
+                                const normalizedCode = code.toLowerCase();
+                                const usdPerUnit = normalizedCode === "usd" ? 1 : 1 / rate;
+                                toUsdMap.set(normalizedCode, usdPerUnit);
+                            }
+                        });
+
+                        // Криптовалюты: API возвращает цену в USD за 1 единицу
+                        Object.entries(cryptoData).forEach(([id, payload]) => {
+                            const currency = currencyOptions.find((item) => item.coingeckoId === id);
+                            const usdValue = payload?.usd;
+                            if (currency && typeof usdValue === "number" && usdValue > 0) {
+                                toUsdMap.set(currency.code, usdValue);
+                            }
+                        });
+
+                        isFallbackRates = false;
+                        lastUpdated = new Date();
+                        updateStatus();
+                        convert();
+                    } catch (error) {
+                        console.error("Currency converter error:", error);
+                        applyFallbackRates(error);
+                    }
+                }
+
+                function applyFallbackRates(fetchError) {
+                    toUsdMap.clear();
+                    fallbackUsdRates.forEach((value, key) => {
+                        toUsdMap.set(key, value);
+                    });
+
+                    isFallbackRates = true;
+                    statusNode.textContent = "Курсы ориентировочные: используются резервные значения.";
+                    lastUpdated = new Date();
+                    updateStatus();
+                    convert();
+                }
+
+                function sanitizeAmount(value) {
+                    if (typeof value !== "string") {
+                        return 0;
+                    }
+                    const normalized = value.replace(/\s+/g, "").replace(",", ".");
+                    const parsed = Number.parseFloat(normalized);
+                    return Number.isFinite(parsed) ? parsed : 0;
+                }
+
+                function getSymbol(selectNode) {
+                    const option = selectNode.selectedOptions[0];
+                    return option ? option.dataset.symbol || option.value.toUpperCase() : selectNode.value.toUpperCase();
+                }
+
+                function convert() {
+                    const amount = sanitizeAmount(amountInput.value);
+                    const from = fromSelect.value;
+                    const to = toSelect.value;
+
+                    if (!toUsdMap.has(from) || !toUsdMap.has(to)) {
+                        outputValue.textContent = "—";
+                        outputSymbol.textContent = "";
+                        return;
+                    }
+
+                    const amountInUsd = amount * toUsdMap.get(from);
+                    const converted = amountInUsd / toUsdMap.get(to);
+                    const symbol = getSymbol(toSelect);
+
+                    if (Number.isFinite(converted)) {
+                        const formatter = new Intl.NumberFormat("ru-RU", {
+                            maximumFractionDigits: converted < 1 ? 8 : 4,
+                        });
+                        outputValue.textContent = formatter.format(converted);
+                        outputSymbol.textContent = symbol;
+
+                        const baseSymbol = getSymbol(fromSelect);
+                        const unitValue = toUsdMap.get(from) / toUsdMap.get(to);
+                        const unitFormatter = new Intl.NumberFormat("ru-RU", {
+                            maximumFractionDigits: unitValue < 1 ? 8 : 6,
+                        });
+                        rateNode.textContent = `1 ${baseSymbol} = ${unitFormatter.format(unitValue)} ${symbol}`;
+                    } else {
+                        outputValue.textContent = "—";
+                        outputSymbol.textContent = "";
+                    }
+                }
+
+                function updateStatus() {
+                    if (!updatedNode) {
+                        return;
+                    }
+                    if (lastUpdated) {
+                        if (isFallbackRates) {
+                            updatedNode.textContent = "Обновлено: резервные значения от справочника.";
+                        } else {
+                            updatedNode.textContent = `Обновлено: ${lastUpdated.toLocaleString("ru-RU", {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                day: "2-digit",
+                                month: "long",
+                            })}`;
+                            statusNode.textContent = "Курсы успешно обновлены.";
+                        }
+                    } else {
+                        updatedNode.textContent = "Данные обновляются при загрузке секции.";
+                    }
+                }
+
+                amountInput.addEventListener("input", convert);
+                fromSelect.addEventListener("change", convert);
+                toSelect.addEventListener("change", convert);
+
+                swapButton.addEventListener("click", () => {
+                    const currentFrom = fromSelect.value;
+                    fromSelect.value = toSelect.value;
+                    toSelect.value = currentFrom;
+                    convert();
+                });
+
+                fetchRates();
+            }
+
+            function initPortfolioPlanner() {
+                const plannerSection = document.querySelector("[data-planner]");
+                if (!plannerSection) {
+                    return;
+                }
+
+                const riskInput = plannerSection.querySelector("#planner-risk");
+                const amountInput = plannerSection.querySelector("#planner-amount");
+                const reinvestCheckbox = plannerSection.querySelector("#planner-reinvest");
+                const defiCheckbox = plannerSection.querySelector("#planner-defi");
+                const stableCheckbox = plannerSection.querySelector("#planner-stable");
+                const resetButton = plannerSection.querySelector("[data-planner-reset]");
+                const riskLabel = plannerSection.querySelector("[data-planner-risk-label]");
+                const tagsNode = plannerSection.querySelector("[data-planner-tags]");
+                const distributionNode = plannerSection.querySelector("[data-planner-distribution]");
+                const insightsNode = plannerSection.querySelector("[data-planner-insights]");
+
+                if (
+                    !riskInput ||
+                    !amountInput ||
+                    !reinvestCheckbox ||
+                    !defiCheckbox ||
+                    !stableCheckbox ||
+                    !resetButton ||
+                    !riskLabel ||
+                    !tagsNode ||
+                    !distributionNode ||
+                    !insightsNode
+                ) {
+                    return;
+                }
+
+                const amountFormatter = new Intl.NumberFormat("ru-RU", {
+                    maximumFractionDigits: 0,
+                });
+
+                const baseProfiles = {
+                    1: {
+                        label: "Очень консервативный",
+                        tags: ["Консервативный подход", "Фокус на стабильности"],
+                        allocations: { reserve: 0.62, core: 0.28, growth: 0.08, innovation: 0.02 },
+                        insights: [
+                            "Основная цель — сохранение капитала и защита от волатильности.",
+                            "Рассмотрите использование стейблкоинов и депозитных продуктов CeFi.",
+                        ],
+                    },
+                    2: {
+                        label: "Умеренно консервативный",
+                        tags: ["Невысокая волатильность", "Сбалансированное ядро"],
+                        allocations: { reserve: 0.5, core: 0.35, growth: 0.12, innovation: 0.03 },
+                        insights: [
+                            "Постепенное наращивание экспозиции к ростовым активам.",
+                            "Следите за инфляцией и процентными ставками — они влияют на спрос на риск.",
+                        ],
+                    },
+                    3: {
+                        label: "Сбалансированный",
+                        tags: ["Смешанный профиль", "Горизонт 1–3 года"],
+                        allocations: { reserve: 0.36, core: 0.4, growth: 0.18, innovation: 0.06 },
+                        insights: [
+                            "Ядро портфеля формируется из BTC и ETH, остальное — ростовые проекты.",
+                            "Регулярно проводите ребалансировку по итогам квартала.",
+                        ],
+                    },
+                    4: {
+                        label: "Ростовой",
+                        tags: ["Повышенный риск", "Акцент на потенциал"],
+                        allocations: { reserve: 0.22, core: 0.38, growth: 0.28, innovation: 0.12 },
+                        insights: [
+                            "Включайте перспективные L2 и инфраструктурные проекты.",
+                            "Контролируйте объём позиции по высокорискованным токенам.",
+                        ],
+                    },
+                    5: {
+                        label: "Агрессивный",
+                        tags: ["Высокая волатильность", "Долгий горизонт"],
+                        allocations: { reserve: 0.12, core: 0.34, growth: 0.32, innovation: 0.22 },
+                        insights: [
+                            "Используйте чек-лист рисков перед входом в экспериментальные активы.",
+                            "Следите за ликвидностью — устанавливайте лимит на долю одного токена.",
+                        ],
+                    },
+                };
+
+                const categories = {
+                    reserve: {
+                        label: "Резерв и стейблкоины",
+                        note: "Подушка безопасности и расчётная позиция",
+                    },
+                    core: {
+                        label: "BTC / ETH",
+                        note: "Базовое ядро портфеля",
+                    },
+                    growth: {
+                        label: "Ростовые проекты",
+                        note: "Инфраструктура, L2, утилити-токены",
+                    },
+                    innovation: {
+                        label: "DeFi и инновации",
+                        note: "Экспериментальные решения, AI, SocialFi",
+                    },
+                };
+
+                function cloneAllocations(source) {
+                    return {
+                        reserve: source.reserve,
+                        core: source.core,
+                        growth: source.growth,
+                        innovation: source.innovation,
+                    };
+                }
+
+                function normalizeAllocations(allocations) {
+                    const total =
+                        allocations.reserve + allocations.core + allocations.growth + allocations.innovation;
+
+                    if (total === 0) {
+                        return allocations;
+                    }
+
+                    const ratio = 1 / total;
+                    allocations.reserve *= ratio;
+                    allocations.core *= ratio;
+                    allocations.growth *= ratio;
+                    allocations.innovation *= ratio;
+
+                    return allocations;
+                }
+
+                function applyPreferences(allocations) {
+                    if (!stableCheckbox.checked) {
+                        const originalReserve = allocations.reserve;
+                        allocations.reserve = Math.min(0.08, originalReserve);
+                        const freed = Math.max(0, originalReserve - allocations.reserve);
+                        allocations.core += freed * 0.6;
+                        allocations.growth += freed * 0.3;
+                        allocations.innovation += freed * 0.1;
+                    }
+
+                    if (!defiCheckbox.checked) {
+                        const originalInnovation = allocations.innovation;
+                        allocations.innovation = originalInnovation * 0.25;
+                        allocations.growth += originalInnovation * 0.55;
+                        allocations.core += originalInnovation * 0.2;
+                    }
+
+                    return normalizeAllocations(allocations);
+                }
+
+                function updatePlanner() {
+                    const riskLevel = Number.parseInt(riskInput.value, 10);
+                    const profile = baseProfiles[riskLevel] || baseProfiles[3];
+
+                    if (riskLabel) {
+                        riskLabel.textContent = profile.label;
+                    }
+
+                    const rawAmount = Number.parseFloat(amountInput.value);
+                    const amount = Number.isFinite(rawAmount) && rawAmount > 0 ? rawAmount : 0;
+
+                    const allocations = applyPreferences(cloneAllocations(profile.allocations));
+
+                    const tags = new Set(profile.tags);
+                    if (reinvestCheckbox.checked) {
+                        tags.add("Компаундинг дохода");
+                    } else {
+                        tags.add("Фиксация прибыли");
+                    }
+
+                    if (defiCheckbox.checked) {
+                        tags.add("DeFi-экспозиция");
+                    }
+
+                    if (stableCheckbox.checked) {
+                        tags.add("Страховой буфер");
+                    } else {
+                        tags.add("Минимальный кэш");
+                    }
+
+                    tagsNode.innerHTML = "";
+                    tags.forEach((tag) => {
+                        const pill = document.createElement("span");
+                        pill.className = "planner-badge";
+                        pill.textContent = tag;
+                        tagsNode.appendChild(pill);
+                    });
+
+                    distributionNode.innerHTML = "";
+                    const fractionFormatter = (value) => {
+                        if (value * 100 >= 10) {
+                            return `${Math.round(value * 100)}%`;
+                        }
+                        return `${(value * 100).toFixed(1)}%`;
+                    };
+
+                    Object.entries(categories).forEach(([key, meta]) => {
+                        const share = allocations[key];
+                        const item = document.createElement("div");
+                        item.className = "planner-distribution-item";
+
+                        const metaBlock = document.createElement("div");
+                        metaBlock.className = "planner-distribution-meta";
+
+                        const title = document.createElement("strong");
+                        title.textContent = meta.label;
+
+                        const note = document.createElement("span");
+                        note.className = "planner-distribution-note";
+                        note.textContent = meta.note;
+
+                        metaBlock.appendChild(title);
+                        metaBlock.appendChild(note);
+
+                        const valueBlock = document.createElement("span");
+                        valueBlock.className = "planner-distribution-value";
+
+                        const amountText =
+                            amount > 0
+                                ? `${amountFormatter.format(Math.round(amount * share))} ₽`
+                                : "—";
+                        valueBlock.textContent = `${fractionFormatter(share)} · ${amountText}`;
+
+                        item.appendChild(metaBlock);
+                        item.appendChild(valueBlock);
+                        distributionNode.appendChild(item);
+                    });
+
+                    const insights = [...profile.insights];
+
+                    if (amount > 0 && amount < 75000) {
+                        insights.push("Для сумм до 75 тыс. ₽ сосредоточьтесь на ядре портфеля и ликвидных токенах.");
+                    }
+
+                    if (amount >= 75000) {
+                        insights.push("Рассмотрите частичную автоматизацию — напоминания о ребалансировке и учёт сделок.");
+                    }
+
+                    if (!reinvestCheckbox.checked) {
+                        insights.push("Запланируйте периодичность фиксации прибыли и распределения налоговых обязательств.");
+                    }
+
+                    if (defiCheckbox.checked) {
+                        insights.push("Проверьте смарт-контракты на аудит и выбирайте протоколы с прозрачной токеномикой.");
+                    }
+
+                    if (!stableCheckbox.checked) {
+                        insights.push("Без резерва растёт риск вынужденной фиксации убытков при волатильности.");
+                    }
+
+                    if (amount === 0) {
+                        insights.push("Введите сумму инвестиций для расчёта ориентировочных объёмов распределения.");
+                    }
+
+                    insightsNode.innerHTML = "";
+                    insights.forEach((text) => {
+                        const li = document.createElement("li");
+                        li.textContent = text;
+                        insightsNode.appendChild(li);
+                    });
+                }
+
+                const controls = [
+                    { node: riskInput, event: "input" },
+                    { node: amountInput, event: "input" },
+                    { node: reinvestCheckbox, event: "change" },
+                    { node: defiCheckbox, event: "change" },
+                    { node: stableCheckbox, event: "change" },
+                ];
+
+                controls.forEach(({ node, event }) => {
+                    node.addEventListener(event, updatePlanner);
+                });
+
+                resetButton.addEventListener("click", () => {
+                    riskInput.value = "3";
+                    amountInput.value = "200000";
+                    reinvestCheckbox.checked = true;
+                    defiCheckbox.checked = false;
+                    stableCheckbox.checked = true;
+                    updatePlanner();
+                    showToast("Параметры планировщика сброшены.");
+                });
+
+                updatePlanner();
+            }
+
+            function initWatchlist() {
+                const watchlistSection = document.querySelector("[data-watchlist]");
+                if (!watchlistSection) {
+                    return;
+                }
+
+                const container = watchlistSection.querySelector("[data-watchlist-container]");
+                const emptyNode = watchlistSection.querySelector("[data-watchlist-empty]");
+
+                if (!container || !emptyNode) {
+                    return;
+                }
+
+                const storageKey = "kriptosreda_watchlist_v1";
+                let items = [];
+
+                function parseStorage(value) {
+                    if (!value) {
+                        return [];
+                    }
+                    try {
+                        const parsed = JSON.parse(value);
+                        if (Array.isArray(parsed)) {
+                            return parsed.filter((item) => item && typeof item.symbol === "string");
+                        }
+                        return [];
+                    } catch (error) {
+                        console.warn("Watchlist parse error:", error);
+                        return [];
+                    }
+                }
+
+                function loadFromStorage() {
+                    try {
+                        items = parseStorage(localStorage.getItem(storageKey));
+                    } catch (error) {
+                        console.warn("Watchlist load error:", error);
+                        items = [];
+                    }
+                }
+
+                function saveToStorage() {
+                    try {
+                        localStorage.setItem(storageKey, JSON.stringify(items));
+                    } catch (error) {
+                        console.warn("Watchlist save error:", error);
+                    }
+                }
+
+                function render() {
+                    container.querySelectorAll("[data-watch-item]").forEach((node) => node.remove());
+
+                    if (!items.length) {
+                        emptyNode.hidden = false;
+                        emptyNode.setAttribute("aria-hidden", "false");
+                        return;
+                    }
+
+                    emptyNode.hidden = true;
+                    emptyNode.setAttribute("aria-hidden", "true");
+
+                    items.forEach((item) => {
+                        const card = document.createElement("article");
+                        card.className = "watchlist-card";
+                        card.dataset.watchItem = item.symbol;
+
+                        const header = document.createElement("header");
+
+                        const title = document.createElement("div");
+                        title.className = "watchlist-title";
+                        title.textContent = `${item.name} (${item.symbol})`;
+
+                        const tag = document.createElement("span");
+                        tag.className = "watchlist-tag";
+                        tag.textContent = item.segment;
+
+                        header.appendChild(title);
+                        header.appendChild(tag);
+
+                        const metrics = document.createElement("div");
+                        metrics.className = "watchlist-metrics";
+                        metrics.innerHTML = `<span>Капитализация: ${item.cap}</span><span>Δ 30 дней: ${item.move}</span>`;
+
+                        const removeButton = document.createElement("button");
+                        removeButton.type = "button";
+                        removeButton.className = "watchlist-remove";
+                        removeButton.dataset.watchRemove = item.symbol;
+                        removeButton.textContent = "Удалить из списка";
+
+                        card.appendChild(header);
+                        card.appendChild(metrics);
+                        card.appendChild(removeButton);
+
+                        container.appendChild(card);
+                    });
+                }
+
+                function syncButtons() {
+                    const buttons = document.querySelectorAll("[data-watch-symbol]");
+                    buttons.forEach((button) => {
+                        const symbol = button.dataset.watchSymbol;
+                        if (!symbol) {
+                            return;
+                        }
+                        const isAdded = items.some((item) => item.symbol === symbol);
+                        button.dataset.state = isAdded ? "added" : "default";
+                        button.textContent = isAdded ? "В избранном" : "В избранное";
+                    });
+                }
+
+                function addItem(data) {
+                    if (!data.symbol) {
+                        return;
+                    }
+                    if (items.some((item) => item.symbol === data.symbol)) {
+                        showToast(`Актив ${data.symbol} уже в списке.`);
+                        return;
+                    }
+                    items.push(data);
+                    saveToStorage();
+                    render();
+                    syncButtons();
+                    showToast(`Добавлено: ${data.name}`);
+                }
+
+                function removeItem(symbol, silent = false) {
+                    const next = items.filter((item) => item.symbol !== symbol);
+                    if (next.length === items.length) {
+                        return;
+                    }
+                    items = next;
+                    saveToStorage();
+                    render();
+                    syncButtons();
+                    if (!silent) {
+                        showToast(`Удалено: ${symbol}`);
+                    }
+                }
+
+                function handleButtonClick(event) {
+                    const button = event.currentTarget;
+                    const dataset = button.dataset;
+                    const symbol = dataset.watchSymbol;
+                    if (!symbol) {
+                        return;
+                    }
+
+                    const existing = items.find((item) => item.symbol === symbol);
+                    if (existing) {
+                        removeItem(symbol);
+                        return;
+                    }
+
+                    addItem({
+                        symbol,
+                        name: dataset.watchName || symbol,
+                        segment: dataset.watchSegment || "—",
+                        cap: dataset.watchCap || "—",
+                        move: dataset.watchMove || "—",
+                    });
+                }
+
+                function handleRemoveClick(event) {
+                    const target = event.target;
+                    if (!(target instanceof HTMLElement)) {
+                        return;
+                    }
+                    const removeBtn = target.closest("[data-watch-remove]");
+                    if (!removeBtn) {
+                        return;
+                    }
+                    const symbol = removeBtn.dataset.watchRemove;
+                    if (symbol) {
+                        removeItem(symbol);
+                    }
+                }
+
+                loadFromStorage();
+                render();
+                syncButtons();
+
+                document.querySelectorAll("[data-watch-symbol]").forEach((button) => {
+                    button.addEventListener("click", handleButtonClick);
+                });
+
+                container.addEventListener("click", handleRemoveClick);
+
+                window.addEventListener("storage", (event) => {
+                    if (event.key !== storageKey) {
+                        return;
+                    }
+                    items = parseStorage(event.newValue);
+                    render();
+                    syncButtons();
+                });
+            }
+
+            function initContactForm() {
+                const form = document.querySelector(".contact-form");
+                if (!form) {
+                    return;
+                }
+
+                const statusNode = form.querySelector("[data-contact-status]");
+                const nameField = form.querySelector("#contact-name");
+                const emailField = form.querySelector("#contact-email");
+                const messageField = form.querySelector("#contact-message");
+
+                if (!statusNode || !nameField || !emailField || !messageField) {
+                    return;
+                }
+
+                function setStatus(message, isError = false) {
+                    statusNode.textContent = message;
+                    if (isError) {
+                        statusNode.dataset.state = "error";
+                    } else {
+                        delete statusNode.dataset.state;
+                    }
+                }
+
+                function markInvalid(field, isInvalid) {
+                    if (isInvalid) {
+                        field.setAttribute("aria-invalid", "true");
+                    } else {
+                        field.removeAttribute("aria-invalid");
+                    }
+                }
+
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+
+                    const name = nameField.value.trim();
+                    const email = emailField.value.trim();
+                    const message = messageField.value.trim();
+
+                    const errors = [];
+
+                    if (name.length < 2) {
+                        errors.push("Укажите имя (минимум 2 символа).");
+                        markInvalid(nameField, true);
+                    } else {
+                        markInvalid(nameField, false);
+                    }
+
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        errors.push("Введите корректный адрес электронной почты.");
+                        markInvalid(emailField, true);
+                    } else {
+                        markInvalid(emailField, false);
+                    }
+
+                    if (message.length < 10) {
+                        errors.push("Сообщение должно содержать не менее 10 символов.");
+                        markInvalid(messageField, true);
+                    } else {
+                        markInvalid(messageField, false);
+                    }
+
+                    if (errors.length) {
+                        setStatus(errors.join(" "), true);
+                        showToast("Проверьте форму: есть ошибки.");
+                        return;
+                    }
+
+                    setStatus("Сообщение отправлено! Мы ответим в течение 1–2 рабочих дней.");
+                    showToast("Спасибо! Сообщение отправлено.");
+                    form.reset();
+                });
+
+                form.addEventListener("input", (event) => {
+                    const target = event.target;
+                    if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) {
+                        return;
+                    }
+                    if (target.hasAttribute("aria-invalid")) {
+                        markInvalid(target, false);
+                    }
+                    setStatus("");
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+
