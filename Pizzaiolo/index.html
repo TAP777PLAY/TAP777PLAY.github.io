@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pizzaiolo - Authentic Italian pizza delivery across Canada. Order fresh, delicious pizzas online.">
+    <meta name="keywords" content="pizza, delivery, Canada, Italian pizza, online ordering">
+    <title>Pizzaiolo - Authentic Italian Pizza Delivery | Canada</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">Pizzaiolo</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="cart.html" class="cart-icon" title="Cart">
+                            Cart
+                            <span class="cart-count" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">Pizzaiolo</a>
+            <button class="mobile-menu-close">✕</button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-section-title">Menu</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero hero-home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Authentic Italian Pizza</h1>
+                <p>Delivered fresh to your door across Canada</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="menu.html" class="btn btn-primary">Order Now</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Pizzas -->
+    <section class="popular-pizzas">
+        <div class="container">
+            <h2 class="section-title">Popular Pizzas</h2>
+            <div class="pizza-grid">
+                <div class="pizza-card">
+                    <div class="pizza-image" style="background-image: url('images/margarita.jfif');"></div>
+                    <div class="pizza-info">
+                        <div class="pizza-name">Margherita</div>
+                        <div class="pizza-description">Classic Italian pizza with fresh tomatoes, mozzarella, and basil</div>
+                        <div class="pizza-footer">
+                            <div class="pizza-price">$14.99</div>
+                            <button class="btn btn-primary" onclick="addToCart('margherita', 'Margherita', 14.99, 'images/margarita.jfif')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizza-card">
+                    <div class="pizza-image" style="background-image: url('images/piperoni.jpg');"></div>
+                    <div class="pizza-info">
+                        <div class="pizza-name">Pepperoni</div>
+                        <div class="pizza-description">Traditional pepperoni with mozzarella cheese</div>
+                        <div class="pizza-footer">
+                            <div class="pizza-price">$16.99</div>
+                            <button class="btn btn-primary" onclick="addToCart('pepperoni', 'Pepperoni', 16.99, 'images/piperoni.jpg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizza-card">
+                    <div class="pizza-image" style="background-image: url('images/myasnaya.jfif');"></div>
+                    <div class="pizza-info">
+                        <div class="pizza-name">Meat Lovers</div>
+                        <div class="pizza-description">Pepperoni, sausage, ham, and bacon with mozzarella</div>
+                        <div class="pizza-footer">
+                            <div class="pizza-price">$19.99</div>
+                            <button class="btn btn-primary" onclick="addToCart('meat-lovers', 'Meat Lovers', 19.99, 'images/myasnaya.jfif')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizza-card">
+                    <div class="pizza-image" style="background-image: url('images/gavaiskaya.jfif');"></div>
+                    <div class="pizza-info">
+                        <div class="pizza-name">Hawaiian</div>
+                        <div class="pizza-description">Ham, pineapple, and mozzarella cheese</div>
+                        <div class="pizza-footer">
+                            <div class="pizza-price">$17.99</div>
+                            <button class="btn btn-primary" onclick="addToCart('hawaiian', 'Hawaiian', 17.99, 'images/gavaiskaya.jfif')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="menu.html" class="btn btn-outline">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-preview">
+        <div class="container">
+            <h2 class="section-title">Why Choose Pizzaiolo?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="text-align: center; padding: 2rem;">
+                    <img src="images/Fresh Ingredients.jfif" alt="Fresh Ingredients" style="width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: var(--primary-red); margin-bottom: 1rem;">Fresh Ingredients</h3>
+                    <p>We use only the freshest ingredients, sourced locally when possible, to create authentic Italian flavors.</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <img src="images/Fast Delivery.jfif" alt="Fast Delivery" style="width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: var(--primary-red); margin-bottom: 1rem;">Fast Delivery</h3>
+                    <p>Quick and reliable delivery service across Canada. Your pizza arrives hot and fresh.</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <img src="images/Authentic Recipes.jfif" alt="Authentic Recipes" style="width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: var(--primary-red); margin-bottom: 1rem;">Authentic Recipes</h3>
+                    <p>Traditional Italian recipes passed down through generations, made with passion and care.</p>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pizzaiolo</h3>
+                    <p>Authentic Italian pizza delivered fresh to your door across Canada.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="return-policy.html">Return Policy</a>
+                    <a href="cookies-policy.html">Cookies Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>1100 Boulevard Maloney O<br>Gatineau, QC J8T 6G3</p>
+                    <p>Phone: <a href="tel:6133898130">(613) 389-8130</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pizzaiolo. All rights reserved. | pizzaioilo.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies. <a href="cookies-policy.html">Learn more</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" onclick="acceptCookies()">Accept</button>
+                <button class="btn btn-secondary" onclick="declineCookies()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

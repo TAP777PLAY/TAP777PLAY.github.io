@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Pizzaiolo - Get in touch with us for orders, questions, or feedback.">
+    <title>Contact Us - Pizzaiolo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">Pizzaiolo</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="cart.html" class="cart-icon" title="Cart">
+                            Cart
+                            <span class="cart-count" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">Pizzaiolo</a>
+            <button class="mobile-menu-close">✕</button>
+        </div>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-section">
+                <div class="mobile-menu-section-title">Menu</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us for orders, questions, or feedback</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="padding-top: 2rem; background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/6.jfif'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-height: 100vh;">
+        <div class="container">
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <!-- Contact Information -->
+                <div>
+                    <h2 style="color: var(--primary-red); margin-bottom: 1.5rem;">Get in Touch</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--gold-dark); margin-bottom: 0.5rem;">Location</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            1100 Boulevard Maloney O<br>
+                            Gatineau, QC J8T 6G3<br>
+                            Les Promenades Gatineau – Food Court, Ground Level
+                        </p>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--gold-dark); margin-bottom: 0.5rem;">Phone</h3>
+                        <p style="font-size: 1.1rem;">
+                            <a href="tel:6133898130" style="color: var(--primary-red); text-decoration: none;">(613) 389-8130</a>
+                        </p>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="color: var(--gold-dark); margin-bottom: 0.5rem;">Hours</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            Monday - Thursday: 11:00 AM - 10:00 PM<br>
+                            Friday - Saturday: 11:00 AM - 11:00 PM<br>
+                            Sunday: 12:00 PM - 9:00 PM
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h2 style="color: var(--primary-red); margin-bottom: 1.5rem;">Send us a Message</h2>
+                    <form id="contact-form" onsubmit="handleContactForm(event)">
+                        <div class="form-group">
+                            <label for="contact-name">Name *</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone</label>
+                            <input type="tel" id="contact-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delivery Information Accordion -->
+            <div style="margin-top: 4rem;">
+                <h2 style="text-align: center; color: var(--primary-red); margin-bottom: 2rem;">Delivery Information</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Delivery Areas & Times</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We deliver throughout Gatineau and surrounding areas. Our delivery zones include:</p>
+                            <ul style="margin-top: 1rem; line-height: 2;">
+                                <li><strong>Gatineau:</strong> 30-45 minutes</li>
+                                <li><strong>Hull:</strong> 35-50 minutes</li>
+                                <li><strong>Ottawa (downtown):</strong> 45-60 minutes</li>
+                                <li><strong>Aylmer:</strong> 40-55 minutes</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Minimum Order:</strong> $15.00</p>
+                            <p><strong>Delivery Fee:</strong> $3.99 (free on orders over $30)</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Pickup Options</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Prefer to pick up your order? We offer convenient pickup options:</p>
+                            <ul style="margin-top: 1rem; line-height: 2;">
+                                <li><strong>In-Store Pickup:</strong> Available at our location - 1100 Boulevard Maloney O</li>
+                                <li><strong>Curbside Pickup:</strong> Call when you arrive and we'll bring your order to your car</li>
+                                <li><strong>Pickup Time:</strong> Usually ready in 20-30 minutes</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">No delivery fee for pickup orders!</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Payment Methods</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>We accept various payment methods for your convenience:</p>
+                            <ul style="margin-top: 1rem; line-height: 2;">
+                                <li>Cash</li>
+                                <li>Credit Cards (Visa, MasterCard, American Express)</li>
+                                <li>Debit Cards</li>
+                                <li>Online Payment (via our website)</li>
+                                <li>Mobile Payment (Apple Pay, Google Pay)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Articles Section -->
+            <div style="margin-top: 4rem;">
+                <h2 style="text-align: center; color: var(--primary-red); margin-bottom: 2rem;">Helpful Articles</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="article-card">
+                        <div class="article-content">
+                            <div class="article-title">How to Keep Your Pizza Hot During Delivery</div>
+                            <div class="article-meta">Published: January 10, 2025</div>
+                            <div class="article-excerpt">
+                                Learn about our special insulated delivery bags and how we ensure your pizza arrives at the perfect temperature, hot and ready to enjoy.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-content">
+                            <div class="article-title">The Art of Making Authentic Italian Pizza</div>
+                            <div class="article-meta">Published: January 5, 2025</div>
+                            <div class="article-excerpt">
+                                Discover the traditional techniques and ingredients we use to create authentic Italian pizzas that honor centuries-old recipes.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-content">
+                            <div class="article-title">Tips for Ordering the Perfect Pizza</div>
+                            <div class="article-meta">Published: December 28, 2024</div>
+                            <div class="article-excerpt">
+                                Get expert tips on choosing the right size, toppings, and crust to create your perfect pizza experience.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="contact-map" style="margin-top: 4rem;">
+                <h2 style="text-align: center; color: var(--primary-red); margin-bottom: 2rem;">Our Location</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.1234567890123!2d-75.7123456!3d45.4789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDI4JzQ0LjAiTiA3NcKwNDInNDQuNCJX!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pizzaiolo</h3>
+                    <p>Authentic Italian pizza delivered fresh to your door across Canada.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="return-policy.html">Return Policy</a>
+                    <a href="cookies-policy.html">Cookies Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>1100 Boulevard Maloney O<br>Gatineau, QC J8T 6G3</p>
+                    <p>Phone: <a href="tel:6133898130">(613) 389-8130</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pizzaiolo. All rights reserved. | pizzaioilo.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies. <a href="cookies-policy.html">Learn more</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" onclick="acceptCookies()">Accept</button>
+                <button class="btn btn-secondary" onclick="declineCookies()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleContactForm(event) {
+            event.preventDefault();
+            // In a real application, this would send the form data to a server
+            // Redirect to thank you page
+            window.location.href = 'thank-you.html';
+        }
+    </script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
