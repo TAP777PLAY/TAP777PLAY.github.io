@@ -1,60 +1,22 @@
-hvordan senke blodtrykket hjemme
-hva du kan gjøre ved høyt blodtrykk hjemme
-hjemmetiltak for å støtte hjerte- og karsystemet
-livsstilsråd ved høyt blodtrykk
-hvordan føle deg bedre med hjerte- og karproblemer
-hvordan holde et normalt blodsukkernivå hjemme
-hva du kan gjøre ved høyt blodsukker hjemme
-hjemmetiltak for å støtte stoffskiftet
-livsstil for et stabilt blodsukker
-hvordan føle deg bedre når blodsukkeret svinger
-hvordan støtte leveren hjemme
-hva du kan gjøre hvis leveren er overbelastet
-hjemmetiltak for å støtte leveren og kroppens avgiftning
-livsstil for en sunn lever
-hvordan føle deg bedre ved leverplager
-hvordan støtte leddene hjemme
-hva du kan gjøre ved leddubehag hjemme
-hjemmetiltak for å støtte muskel- og skjelettsystemet
-livsstil for sunne ledd og en sterk rygg
-hvordan føle deg bedre ved leddsmerter
-hvordan støtte vener og blodårer hjemme
-hva du kan gjøre ved tunge og slitne ben hjemme
-hjemmetiltak for å støtte vener og årer
-livsstilsråd ved åreknuteproblemer
-hvordan føle deg bedre ved dårlig blodsirkulasjon
-hvordan støtte synet hjemme
-hva du kan gjøre når øynene blir fort slitne hjemme
-hjemmetiltak for å støtte øyehelsen
-livsstil for godt syn
-hvordan føle deg bedre når synet blir dårligere
-hvordan støtte hørselen hjemme
-hva du kan gjøre ved piping eller sus i ørene hjemme
-hjemmetiltak for å støtte ører og hørsel
-livsstil for sunne ører og god hørsel
-hvordan føle deg bedre ved høreproblemer
-hvordan støtte kroppen og fordøyelsen hjemme
-hva du kan gjøre for å hjelpe rensing av kropp og lever hjemme
-hjemmetiltak for å støtte avgiftning og fordøyelsessystemet
-livsstil for en “ren” kropp
-hvordan føle deg bedre ved forgiftning og overbelastning i kroppen
-hvordan holde en sunn vekt og et sunt stoffskifte hjemme
-hva du kan gjøre ved vektøkning hjemme
-hjemmetiltak for å støtte forbrenningen og vektnedgang
-livsstil for å holde kontroll på vekt og energinivå
-hvordan føle deg bedre ved overvekt
-hvordan støtte hud og negler hjemme
-hva du kan gjøre ved hud- og neglproblemer hjemme
-hjemmetiltak for å støtte hud- og hudrelaterte plager
-livsstil for sunn hud og sterke negler
-hvordan føle deg bedre ved hudubehag og sopp
-hvordan støtte nyrer og urinveier hjemme
-hva du kan gjøre ved ubehag i korsryggen hjemme
-hjemmetiltak for å støtte nyrer og urinveissystemet
-livsstil for sunne nyrer
-hvordan føle deg bedre ved problemer med urinveiene
-hvordan støtte menns helse og potens hjemme
-hva du kan gjøre ved lavere mannlig energi hjemme
-hjemmetiltak for å støtte potensen og libido
-livsstil for sterk mannlig helse
-hvordan føle deg bedre når potensen blir svakere
+Hvordan senke blodtrykket
+Hva du bør gjøre ved høyt trykk
+Hjerte- og karsystemet
+Normalt blodsukkernivå
+Hva du bør gjøre ved høyt blodsukker
+Hva du bør gjøre hvis leveren er overbelastet
+Kroppens detox
+Hva du bør gjøre ved leddbeskvær
+Skjelett- og muskelsystemet
+Hva du bør gjøre ved tunge ben
+Sirkulasjonsproblemer
+Hva du bør gjøre hvis øynene blir trøtte
+Hva du bør gjøre ved øresus
+Hva du bør gjøre for å rense kropp og lever
+Hva du bør gjøre ved vektøkning
+Metabolisme og vekttap
+Hva du bør gjøre ved hud- og negleproblemer
+Hudproblemer
+Hva du bør gjøre ved ubehag i korsryggen
+Urinveissystemet
+Hva du bør gjøre ved redusert mannlig energi
+Potens og libido
