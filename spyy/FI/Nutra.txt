@@ -1,60 +1,22 @@
-miten laskea verenpainetta kotona
-mitä tehdä, jos verenpaine on korkealla kotona
-kotihoidon keinot sydän- ja verenkiertoelimistön tukemiseen
-elämäntapavinkkejä korkeaan verenpaineeseen
-miten voida paremmin sydän- ja verisuoniongelmista huolimatta
-miten pitää verensokeri normaalina kotona
-mitä tehdä, jos verensokeri on koholla kotona
-kotihoidon keinot aineenvaihdunnan tukemiseen
-elämäntapa tasaiselle verensokerille
-miten voida paremmin verensokerin heilahteluissa
-miten tukea maksaa kotona
-mitä tehdä, jos maksa on kuormittunut
-kotihoidon keinot maksan ja kehon detoksin tukemiseen
-elämäntapa terveelle maksalle
-miten voida paremmin maksavaivojen kanssa
-miten tukea niveliä kotona
-mitä tehdä, jos nivelet tuntuvat epämukavilta kotona
-kotihoidon keinot tuki- ja liikuntaelimistön tukemiseen
-elämäntapa terveille nivelille ja selälle
-miten voida paremmin nivelkivun kanssa
-miten tukea laskimoita ja verisuonia kotona
-mitä tehdä, jos jalat tuntuvat raskailta kotona
-kotihoidon keinot laskimoiden ja verisuonten tukemiseen
-elämäntapa suonikohjuongelmien yhteydessä
-miten voida paremmin heikentyneen verenkierron kanssa
-miten tukea näköä kotona
-mitä tehdä, jos silmät väsyvät kotona
-kotihoidon keinot silmien terveyden tukemiseen
-elämäntapa hyvää näköä varten
-miten voida paremmin heikentyneen näön kanssa
-miten tukea kuuloa kotona
-mitä tehdä, jos korvissa on huminaa kotona
-kotihoidon keinot korvien ja kuulon terveyden tukemiseen
-elämäntapa terveitä korvia ja kuuloa varten
-miten voida paremmin kuulo-ongelmien kanssa
-miten tukea kehoa ja ruoansulatusta kotona
-mitä tehdä kehon ja maksan puhdistamiseksi kotona
-kotihoidon keinot detoksin ja ruoansulatuskanavan terveyden tukemiseen
-elämäntapa “puhtaalle” keholle
-miten voida paremmin kehon kuormittuessa ja myrkyttyessä
-miten ylläpitää tervettä painoa ja aineenvaihduntaa kotona
-mitä tehdä, jos paino nousee kotona
-kotihoidon keinot aineenvaihdunnan ja laihtumisen tukemiseen
-elämäntapa painon ja energiatasojen hallintaan
-miten voida paremmin ylipainon kanssa
-miten tukea ihon ja kynsien terveyttä kotona
-mitä tehdä iho- ja kynsiongelmissa kotona
-kotihoidon keinot iho- ja iho-ongelmien tukemiseen
-elämäntapa terveelle iholle ja kynsille
-miten voida paremmin ihon epämukavuuden ja sieni-infektioiden kanssa
-miten tukea munuaisia ja virtsateitä kotona
-mitä tehdä, jos alaselässä tuntuu epämukavalta kotona
-kotihoidon keinot munuaisten ja virtsajärjestelmän tukemiseen
-elämäntapa terveitä munuaisia varten
-miten voida paremmin virtsatieongelmien kanssa
-miten tukea miesten terveyttä ja potenssia kotona
-mitä tehdä, jos miehinen energia on laskenut kotona
-kotihoidon keinot potenssin ja libidon tukemiseen
-elämäntapa vahvaa miehistä terveyttä varten
-miten voida paremmin heikentyneen potenssin kanssa
+Miten alentaa verenpainetta
+Mitä tehdä kohonneella paineella
+Sydän- ja verenkiertoelimistö
+Normaali verensokeritaso
+Mitä tehdä kohonneella verensokerilla
+Mitä tehdä jos maksa on ylikuormittunut
+Kehon detox
+Mitä tehdä nivelvaivoissa
+Tuki- ja liikuntaelimistö
+Mitä tehdä raskaille jaloille
+Verenkiertohäiriöt
+Mitä tehdä jos silmät väsyvät
+Mitä tehdä korvien soidessa
+Mitä tehdä kehon ja maksan puhdistamiseksi
+Mitä tehdä painonnousussa
+Aineenvaihdunta ja laihdutus
+Mitä tehdä ihon ja kynsien ongelmissa
+Iho-ongelmat
+Mitä tehdä alaselän epämukavuudessa
+Virtsaelimet
+Mitä tehdä heikentyneellä miehen energialla
+Potenssi ja libido
