@@ -1,6 +1,6 @@
 /**
- * Кнопка «На весь экран»: не грузит VK Bridge до клика (быстрее старт).
- * По нажатию: динамически unpkg → VKWebAppInit + VKWebAppResizeWindow, затем browser Fullscreen.
+ * Кнопка «На весь экран» (только в ВК). Bridge грузится по клику.
+ * z-index панели в CSS низкий — не перекрывает липкий баннер снизу.
  */
 (function () {
 	"use strict";
@@ -18,6 +18,10 @@
 
 	function loadScript(src) {
 		return new Promise(function (resolve, reject) {
+			if (getBridge()) {
+				resolve();
+				return;
+			}
 			var s = document.createElement("script");
 			s.src = src;
 			s.async = true;
@@ -47,7 +51,7 @@
 				return canResize(bridge);
 			})
 			.then(function (ok) {
-				if (!ok) return;
+				if (!ok) return { expanded: false };
 				var w = Math.max(
 					window.screen.availWidth,
 					window.innerWidth,
@@ -58,7 +62,9 @@
 					window.innerHeight,
 					document.documentElement.clientHeight || 0
 				);
-				return bridge.send("VKWebAppResizeWindow", { width: w, height: h });
+				return bridge.send("VKWebAppResizeWindow", { width: w, height: h }).then(function () {
+					return { expanded: true };
+				});
 			});
 	}
 
@@ -67,7 +73,7 @@
 		if (el.requestFullscreen) return el.requestFullscreen();
 		if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
 		if (el.msRequestFullscreen) return el.msRequestFullscreen();
-		return Promise.resolve();
+		return Promise.reject(new Error("no fullscreen API"));
 	}
 
 	function hideOverlay() {
@@ -78,22 +84,32 @@
 	function onActivate() {
 		var btn = document.getElementById("vkFsBtn");
 		if (btn) btn.disabled = true;
+		var vkDidExpand = false;
 
-		var p = getBridge() ? Promise.resolve() : loadScript(BRIDGE);
-
-		p.then(function () {
-			var bridge = getBridge();
-			if (bridge) {
-				return goVkExpand(bridge).catch(function () {});
-			}
-		})
+		loadScript(BRIDGE)
 			.then(function () {
-				return goBrowserFullscreen();
+				var bridge = getBridge();
+				if (bridge) {
+					return goVkExpand(bridge)
+						.then(function (r) {
+							if (r && r.expanded) vkDidExpand = true;
+							return r;
+						})
+						.catch(function (e) {
+							console.warn("[vk-fs] VKWebApp init/resize:", e);
+						});
+				}
 			})
-			.catch(function () {})
+			.then(function () {
+				return goBrowserFullscreen().catch(function (e) {
+					console.warn("[vk-fs] requestFullscreen:", e);
+				});
+			})
 			.finally(function () {
 				if (btn) btn.disabled = false;
-				hideOverlay();
+				if (document.fullscreenElement || document.webkitFullscreenElement || vkDidExpand) {
+					hideOverlay();
+				}
 			});
 	}
 
