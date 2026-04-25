@@ -117,3 +117,61 @@ html[ioswebview] .c3htmlwrap > * {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
+
+/* Кнопка «На весь экран» (ВК) — выше холста Construct */
+.vk-fs-overlay {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2147483000;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 8px;
+	padding: 10px 12px 18px;
+	padding-bottom: max(18px, env(safe-area-inset-bottom, 0px));
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+	pointer-events: auto;
+}
+.vk-fs-overlay.vk-fs-hidden {
+	display: none !important;
+}
+.vk-fs-btn {
+	appearance: none;
+	border: none;
+	border-radius: 10px;
+	padding: 12px 22px;
+	font: 600 16px/1.2 system-ui, "Segoe UI", Roboto, sans-serif;
+	color: #fff;
+	background: #5181b8;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+.vk-fs-btn:hover {
+	filter: brightness(1.05);
+}
+.vk-fs-btn:disabled {
+	opacity: 0.6;
+	cursor: wait;
+}
+.vk-fs-dismiss {
+	position: absolute;
+	top: 4px;
+	right: 6px;
+	width: 36px;
+	height: 36px;
+	border: none;
+	border-radius: 8px;
+	font: 300 24px/1 system-ui, sans-serif;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	line-height: 32px;
+	padding: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+.vk-fs-dismiss:hover {
+	background: rgba(0, 0, 0, 0.5);
+}
