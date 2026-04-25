@@ -1,7 +1,7 @@
 {
-	"name": "Jewel Treasure",
-	"short_name": "Jewel Treasure",
-	"description": "Game by GimCraft",
+	"name": "3 in a row",
+	"short_name": "3 in a row",
+	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
