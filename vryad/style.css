@@ -15,14 +15,6 @@ html, body, canvas {
 	touch-action: none;
 }
 
-/* WebView: отдельный композитный слой для canvas */
-canvas {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transform: translateZ(0);
-	transform: translateZ(0);
-}
-
 canvas, .c3htmlwrap {
 	position: absolute;
 }
