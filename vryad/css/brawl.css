@@ -612,8 +612,13 @@ body.has-vk-banner .shell {
 }
 
 .vk-desktop .desktop-col { width: 190px; }
-#btn-fs { display: none; margin-top: 12px; min-height: 44px; font-size: 15px; }
-.is-desktop #btn-fs { display: block; }
+.hero .btn-wide { margin-left: auto; margin-right: auto; }
+#btn-fs-home {
+  display: none;
+  margin-top: 10px;
+}
+body.can-fs #btn-fs-home { display: block; }
+body.is-fs #btn-fs-home { display: none; }
 .fs-exit {
   display: none;
   position: fixed;

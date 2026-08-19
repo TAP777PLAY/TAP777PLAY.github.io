@@ -20,6 +20,20 @@
   let bannerTries = 0;
   let interstitialArmed = false;
 
+  function vkPlatform() {
+    const blob = location.search + "&" + location.hash;
+    const m = blob.match(/vk_platform=([^&]+)/i);
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+
+  function isVkDesktop() {
+    const p = vkPlatform();
+    if (/android|ios|mobile_web/i.test(p)) return false;
+    if (p === "desktop_web" || p === "web") return true;
+    if (inVk() && /https?:\/\/(?:www\.)?vk\.(com|ru)/i.test(document.referrer) && !/\/\/m\.vk\./i.test(document.referrer)) return true;
+    return window.innerWidth >= 980;
+  }
+
   function isDesktop() {
     return window.innerWidth >= 980;
   }
@@ -70,6 +84,7 @@
     document.body.classList.toggle("vk-desktop", inVk() && desktop);
     document.body.classList.toggle("is-vk", inVk());
     document.body.classList.toggle("is-desktop", desktop);
+    document.body.classList.toggle("can-fs", isVkDesktop());
     document.body.classList.toggle("is-fs", full);
     return 1;
   }
@@ -237,14 +252,18 @@
 
   async function toggleFullscreen() {
     const target = document.documentElement;
+    const full = !!fsNode();
     try {
-      if (fsNode()) {
+      if (full) {
         if (document.exitFullscreen) await document.exitFullscreen();
         else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-      } else if (target.requestFullscreen) {
-        await target.requestFullscreen();
-      } else if (target.webkitRequestFullscreen) {
-        target.webkitRequestFullscreen();
+      } else {
+        if (inVk() && isVkDesktop()) {
+          const h = Math.max(720, Math.min(1000, Math.round((window.screen && window.screen.height) || 900) * 0.85));
+          await send("VKWebAppResizeWindow", { width: 1000, height: h });
+        }
+        if (target.requestFullscreen) await target.requestFullscreen();
+        else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
       }
     } catch (err) {}
     const stage = document.getElementById("stage");
@@ -264,6 +283,7 @@
   async function init() {
     document.body.classList.toggle("vk-desktop", inVk() && isDesktop());
     document.body.classList.toggle("is-vk", inVk());
+    document.body.classList.toggle("can-fs", isVkDesktop());
     const api = bridge();
     if (!api) return;
     if (typeof api.subscribe === "function") api.subscribe(onBridgeEvent);

@@ -832,6 +832,7 @@
       await Platform.toggleFullscreen();
     }
     if ($("btn-fs")) $("btn-fs").addEventListener("click", onFsClick);
+    if ($("btn-fs-home")) $("btn-fs-home").addEventListener("click", onFsClick);
     if ($("btn-fs-exit")) $("btn-fs-exit").addEventListener("click", onFsClick);
     document.querySelectorAll(".track-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
