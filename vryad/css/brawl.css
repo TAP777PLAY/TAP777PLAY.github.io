@@ -534,7 +534,8 @@ body.has-vk-banner .shell {
 }
 #btn-vk-board { margin-top: 10px; width: 100%; }
 .settings label { display: flex; justify-content: space-between; align-items: center; font-weight: 800; margin: 10px 0; }
-.settings input[type="text"] {
+.settings input[type="text"],
+.settings input[type="password"] {
   width: 58%;
   border: 3px solid #111;
   border-radius: 12px;
@@ -567,6 +568,9 @@ body.has-vk-banner .shell {
 }
 .settings input[type="checkbox"]:checked::after { transform: translateX(22px); }
 .set-label { margin: 14px 0 8px; font-weight: 800; }
+#set-title { user-select: none; }
+#dev-err { margin: 8px 0 0; font-weight: 800; color: #ffd0d4; }
+#dev-box { margin-top: 8px; }
 .track-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .track-btn { min-height: 44px; font-size: 18px; padding: 6px; }
 .track-btn.active { outline: 3px solid #fff; filter: brightness(1.08); }

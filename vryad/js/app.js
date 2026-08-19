@@ -139,14 +139,15 @@
   }
 
   function localRatingRows() {
-    return (save.scores || []).slice(0, 12).map((r, i) => ({
-      place: i + 1,
-      id: 0,
-      name: r.name,
-      level: r.level,
-      trophies: r.trophies || r.score,
-      photo: r.name === save.name ? save.photo : "",
-    }));
+    if (!save.trophies && bestLevel() < 1) return [];
+    return [{
+      place: 1,
+      id: save.vkId || 0,
+      name: save.name,
+      level: Math.max(1, bestLevel()),
+      trophies: save.trophies,
+      photo: save.photo || "",
+    }];
   }
 
   function rankHtml(rows, meId) {
@@ -171,28 +172,22 @@
     $("rating-list").innerHTML = html;
     $("desk-rating").innerHTML = html;
     const status = $("rating-status");
-    if (status) status.textContent = statusText || "";
+    if (status) {
+      status.textContent = statusText || "";
+      status.hidden = !statusText;
+    }
     const boardBtn = $("btn-vk-board");
-    if (boardBtn) boardBtn.hidden = !Platform.isVk;
+    if (boardBtn) boardBtn.hidden = !Platform.isVk || Platform.isDesktop;
   }
 
   async function renderRatings() {
     const meId = save.vkId || 0;
-    paintRatings(localRatingRows(), meId, Platform.apiBase() ? "Обновляем топ…" : "Результаты на этом устройстве");
+    paintRatings(localRatingRows(), meId, "");
     const remote = await Platform.fetchLeaderboard();
-    if (!remote || !remote.ok || !Array.isArray(remote.items)) {
-      paintRatings(
-        localRatingRows(),
-        meId,
-        Platform.isVk && !Platform.apiBase()
-          ? "Локальная таблица. Глобальный топ — после запуска сервера."
-          : "Результаты на этом устройстве"
-      );
-      return;
-    }
+    if (!remote || !remote.ok || !Array.isArray(remote.items) || !remote.items.length) return;
     let rows = remote.items.slice();
     if (remote.me && !rows.some((r) => r.id === remote.me.id)) rows.push(remote.me);
-    paintRatings(rows, remote.me ? remote.me.id : meId, "Глобальный топ · " + remote.total + " игроков");
+    paintRatings(rows, remote.me ? remote.me.id : meId, "");
   }
 
   function pushRating() {
@@ -218,6 +213,62 @@
       if ($("set-name")) $("set-name").value = save.name;
     }
     persist();
+  }
+
+  function bindDevMode() {
+    const DEV_KEY = "gem-brawl-dev";
+    let taps = 0;
+    let tapTimer = 0;
+    const unlocked = () => sessionStorage.getItem(DEV_KEY) === "1";
+    function showDev(ok) {
+      const box = $("dev-box");
+      if (!box) return;
+      box.hidden = false;
+      $("dev-gate").hidden = ok;
+      $("dev-tools").hidden = !ok;
+    }
+    function onSecretTap() {
+      if (unlocked()) {
+        showDev(true);
+        return;
+      }
+      clearTimeout(tapTimer);
+      taps += 1;
+      tapTimer = setTimeout(() => { taps = 0; }, 2500);
+      if (taps < 5) return;
+      taps = 0;
+      Sfx.play("click");
+      show("screen-settings");
+      showDev(false);
+      const input = $("dev-pass");
+      if (input) {
+        input.value = "";
+        input.focus();
+      }
+    }
+    function tryUnlock() {
+      const pass = (($("dev-pass") && $("dev-pass").value) || "").trim();
+      if (pass === "admin1991") {
+        sessionStorage.setItem(DEV_KEY, "1");
+        if ($("dev-err")) $("dev-err").hidden = true;
+        showDev(true);
+        Sfx.play("click");
+      } else if ($("dev-err")) {
+        $("dev-err").hidden = false;
+        Sfx.play("lose");
+      }
+    }
+    if (unlocked()) showDev(true);
+    document.querySelectorAll('[data-go="settings"]').forEach((btn) => {
+      btn.addEventListener("click", onSecretTap);
+    });
+    if ($("set-title")) $("set-title").addEventListener("click", onSecretTap);
+    if ($("btn-dev-ok")) $("btn-dev-ok").addEventListener("click", tryUnlock);
+    if ($("dev-pass")) {
+      $("dev-pass").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") tryUnlock();
+      });
+    }
   }
 
   function tilePx() {
@@ -715,6 +766,7 @@
         show("screen-" + to);
       });
     });
+    bindDevMode();
     $("btn-play").addEventListener("click", () => startLevel(save.unlocked));
     $("btn-help").addEventListener("click", () => { Sfx.play("click"); ov("ov-help", true); });
     $("btn-help-close").addEventListener("click", () => { Sfx.play("click"); ov("ov-help", false); });

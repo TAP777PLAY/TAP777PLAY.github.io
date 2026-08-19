@@ -92,7 +92,7 @@
         <section class="screen" id="screen-settings">
           <div class="head-row">
             <button class="btn btn-red" data-go="home" type="button">Назад</button>
-            <h2 class="title" style="font-size:26px;margin:0">Настройки</h2>
+            <h2 class="title" id="set-title" style="font-size:26px;margin:0">Настройки</h2>
           </div>
           <div class="panel settings">
             <label>Имя <input id="set-name" type="text" maxlength="16" /></label>
@@ -105,8 +105,18 @@
               <button class="btn btn-blue track-btn" type="button" data-track="2">3</button>
               <button class="btn btn-green track-btn" type="button" data-track="3">4</button>
             </div>
-            <p style="margin:16px 0 8px;font-weight:800">Генератор уровней — отдельный инструмент для создания JSON-пака арен.</p>
-            <a class="btn btn-blue btn-wide" href="generator.html" style="display:block;text-decoration:none;text-align:center">Открыть генератор</a>
+            <div id="dev-box" hidden>
+              <div id="dev-gate">
+                <p class="set-label">Режим разработчика</p>
+                <label>Пароль <input id="dev-pass" type="password" autocomplete="off" /></label>
+                <button class="btn btn-blue btn-wide" id="btn-dev-ok" type="button">Войти</button>
+                <p id="dev-err" hidden>Неверный пароль</p>
+              </div>
+              <div id="dev-tools" hidden>
+                <p style="margin:16px 0 8px;font-weight:800">Генератор уровней — инструмент для JSON-пака арен.</p>
+                <a class="btn btn-blue btn-wide" href="generator.html" style="display:block;text-decoration:none;text-align:center">Открыть генератор</a>
+              </div>
+            </div>
           </div>
         </section>
 
