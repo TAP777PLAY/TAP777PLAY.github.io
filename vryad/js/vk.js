@@ -59,7 +59,7 @@
     if (full || desktop) {
       h = Math.floor(Math.min(viewH, full ? 1400 : 1100));
       w = Math.round(Math.min(full ? 760 : 680, Math.max(500, h * 0.62)));
-      const sides = full ? 24 : 210 * 2 + 32;
+      const sides = full ? 24 : 248;
       if (w + sides > viewW - 16) {
         w = Math.max(420, viewW - sides - 16);
         h = Math.min(h, Math.round(w / 0.58));

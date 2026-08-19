@@ -492,26 +492,45 @@ body.has-vk-banner .shell {
 }
 .win-hint { font-size: 14px; font-weight: 800; color: #eaf4ff; }
 
-.list { display: flex; flex-direction: column; gap: 8px; overflow: auto; padding: 4px; }
+.list { display: flex; flex-direction: column; gap: 8px; overflow: auto; overflow-x: hidden; padding: 4px; min-width: 0; }
 .rank {
   display: grid;
-  grid-template-columns: 28px 36px 1fr auto;
+  grid-template-columns: 22px 32px minmax(0, 1fr);
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  min-width: 0;
   background: rgba(8,16,48,.28);
   border: 3px solid #111;
   border-radius: 14px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   font-weight: 800;
 }
 .rank.me { background: linear-gradient(#ffe56a, #f0b400); color: #2a1600; }
+.rank-place { font-size: 14px; text-align: center; }
+.rank-meta { min-width: 0; }
+.rank-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.2;
+}
+.rank-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: .92;
+}
 .rank-ava {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #111;
   object-fit: cover;
   background: #1c3d9a;
+  flex: 0 0 32px;
 }
 .rank-ava.empty { display: inline-block; }
 .profile-ava {
@@ -581,7 +600,7 @@ body.has-vk-banner .shell {
 
 @media (min-width: 980px) {
   .shell {
-    grid-template-columns: 210px min-content 210px;
+    grid-template-columns: 240px min-content;
     justify-content: center;
     align-items: stretch;
     justify-items: stretch;
@@ -593,11 +612,13 @@ body.has-vk-banner .shell {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 210px;
+    width: 240px;
     height: var(--stage-h);
+    min-width: 0;
   }
-  .desktop-col .panel { margin: 0; }
-  .desktop-col .panel:last-child { flex: 1; overflow: auto; }
+  .desktop-col .panel { margin: 0; min-width: 0; }
+  .desktop-col .desk-top { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+  .desktop-col .desk-top .list { flex: 1; }
 }
 
 @media (max-width: 480px) {
@@ -611,26 +632,11 @@ body.has-vk-banner .shell {
   .shell { padding: 0; }
 }
 
-.vk-desktop .desktop-col { width: 190px; }
-.hero .btn-wide { margin-left: auto; margin-right: auto; }
-#btn-fs-home {
-  display: none;
-  margin-top: 10px;
-}
-body.can-fs #btn-fs-home { display: block; }
-body.is-fs #btn-fs-home { display: none; }
-.fs-exit {
-  display: none;
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 90;
-  background: linear-gradient(#62b0ff, #1f6fe0);
-}
-body.is-fs .fs-exit { display: grid; }
-body.is-fs .desktop-col { display: none; }
-body.is-fs .shell {
-  grid-template-columns: min-content;
-  justify-content: center;
-  padding-bottom: calc(var(--vk-banner-h, 50px) + 12px);
+.vk-desktop .desktop-col { width: 240px; }
+.desk-name {
+  font-weight: 900;
+  margin: 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -158,10 +158,15 @@
         const ava = r.photo
           ? '<img class="rank-ava" src="' + esc(r.photo) + '" alt="" />'
           : '<span class="rank-ava empty"></span>';
+        const cups = r.trophies ?? r.score ?? 0;
         return (
-          '<div class="rank' + (mine ? " me" : "") + '"><b>' + r.place + "</b>" + ava +
-          "<span>" + esc(r.name) + " · ур." + (r.level || 1) + "</span><b>" +
-          (r.trophies ?? r.score ?? 0) + "</b></div>"
+          '<div class="rank' + (mine ? " me" : "") + '">' +
+            '<b class="rank-place">' + r.place + "</b>" + ava +
+            '<div class="rank-meta">' +
+              '<div class="rank-name" title="' + esc(r.name) + '">' + esc(r.name) + "</div>" +
+              '<div class="rank-stats"><span>Ур. ' + (r.level || 1) + "</span><span>" + cups + "</span></div>" +
+            "</div>" +
+          "</div>"
         );
       })
       .join("");
@@ -170,7 +175,7 @@
   function paintRatings(rows, meId, statusText) {
     const html = rankHtml(rows, meId);
     $("rating-list").innerHTML = html;
-    $("desk-rating").innerHTML = html;
+    if ($("desk-rating")) $("desk-rating").innerHTML = html;
     const status = $("rating-status");
     if (status) {
       status.textContent = statusText || "";
@@ -827,13 +832,6 @@
     });
     $("home-sfx").addEventListener("click", toggleSfx);
     $("home-music").addEventListener("click", toggleMusic);
-    async function onFsClick() {
-      Sfx.play("click");
-      await Platform.toggleFullscreen();
-    }
-    if ($("btn-fs")) $("btn-fs").addEventListener("click", onFsClick);
-    if ($("btn-fs-home")) $("btn-fs-home").addEventListener("click", onFsClick);
-    if ($("btn-fs-exit")) $("btn-fs-exit").addEventListener("click", onFsClick);
     document.querySelectorAll(".track-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         save.musicIndex = Number(btn.dataset.track);
