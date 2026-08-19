@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кристаллы 3 в ряд — Генератор уровней</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/brawl.css" />
+    <style>
+      body { overflow: auto; }
+      .gen {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 16px;
+      }
+      .gen h1 { font-size: 42px; }
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 10px;
+        margin: 16px 0;
+      }
+      .controls label { font-weight: 800; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+      .controls input, .controls select {
+        border: 3px solid #111;
+        border-radius: 12px;
+        padding: 8px;
+        font: 800 15px Nunito, sans-serif;
+      }
+      .preview {
+        display: grid;
+        gap: 3px;
+        margin: 16px auto;
+        width: max-content;
+        background: #111;
+        padding: 6px;
+        border-radius: 12px;
+      }
+      .cell { width: 28px; height: 28px; border-radius: 6px; }
+      .cell.on { background: #3c8cff; }
+      .cell.off { background: #1a2040; }
+      textarea {
+        width: 100%;
+        min-height: 220px;
+        border: 4px solid #111;
+        border-radius: 16px;
+        padding: 12px;
+        font: 13px/1.4 ui-monospace, monospace;
+        background: #0e1633;
+        color: #e8f1ff;
+      }
+      .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    </style>
+  </head>
+  <body>
+    <div class="gen">
+      <a class="btn btn-red" href="index.html">К игре</a>
+      <h1 class="title">Генератор арен</h1>
+      <p style="font-weight:800">Создаёт JSON-пак уровней для игры «Кристаллы 3 в ряд». Форма поля, цели и сложность задаются правилами — игра читает `levels/pack.json`.</p>
+      <div class="controls">
+        <label>ID <input id="id" type="number" value="1" min="1" /></label>
+        <label>Столбцы <input id="cols" type="number" value="8" min="5" max="10" /></label>
+        <label>Ряды <input id="rows" type="number" value="8" min="5" max="10" /></label>
+        <label>Цвета <input id="colors" type="number" value="5" min="4" max="6" /></label>
+        <label>Ходы <input id="moves" type="number" value="22" min="8" max="40" /></label>
+        <label>Форма
+          <select id="shape">
+            <option>full</option>
+            <option>diamond</option>
+            <option>plus</option>
+            <option>ring</option>
+            <option>corners</option>
+            <option>pyramid</option>
+            <option>hourglass</option>
+            <option>stairs</option>
+            <option>bridge</option>
+            <option>random</option>
+          </select>
+        </label>
+        <label>Seed <input id="seed" type="number" value="20260819" /></label>
+        <label>Сколько уровней <input id="count" type="number" value="80" min="1" max="200" /></label>
+      </div>
+      <div class="row">
+        <button class="btn btn-blue" id="preview" type="button">Превью формы</button>
+        <button class="btn btn-gold" id="one" type="button">Один уровень</button>
+        <button class="btn btn-green" id="pack" type="button">Пак N уровней</button>
+        <button class="btn btn-red" id="download" type="button">Скачать JSON</button>
+      </div>
+      <div id="grid" class="preview"></div>
+      <textarea id="out" spellcheck="false"></textarea>
+    </div>
+    <script src="js/generator.js"></script>
+  </body>
+</html>

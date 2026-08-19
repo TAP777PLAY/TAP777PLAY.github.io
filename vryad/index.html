@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Кристаллы 3 в ряд</title>
+    <meta name="theme-color" content="#1c5fd0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="icon" href="assets/gems/gem-2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/brawl.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="desktop-col" id="side-left">
+        <div class="panel">
+          <h2 class="title" style="font-size:28px">Профиль</h2>
+          <img class="profile-ava" id="desk-ava" alt="" hidden />
+          <p id="desk-name" style="font-weight:900;margin:8px 0">Боец</p>
+          <div class="chip" style="margin-top:8px">Кубки <b id="desk-cups">0</b></div>
+        </div>
+        <div class="panel">
+          <p style="font-weight:800;margin:0">Следующий бой</p>
+          <p id="desk-next" style="font-weight:900;font-size:22px;margin:8px 0 0">Уровень 1</p>
+        </div>
+      </aside>
+
+      <div class="stage-slot" id="stage-slot">
+      <div class="stage" id="stage">
+        <section class="screen active" id="screen-home">
+          <div class="hud-top">
+            <div class="chip">Кубки <b id="home-cups">0</b></div>
+            <div class="chip">Монеты <b id="home-coins">0</b></div>
+            <button class="ico-btn on" id="home-sfx" type="button" title="Звук" aria-label="Звук">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 9v6h3.2L12 19.2V4.8L7.2 9H4z"></path>
+                <path class="wave" d="M15.2 8.2a4.4 4.4 0 0 1 0 7.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+                <path class="wave" d="M18 5.8a8 8 0 0 1 0 12.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <button class="ico-btn on" id="home-music" type="button" title="Мелодия" aria-label="Мелодия">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 4v11.2a3.4 3.4 0 1 0 2.2 3.2V9.6L20 7.4V16a3.4 3.4 0 1 0 2.2 3.2V4.4L9 7.2V4z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="hero">
+            <div class="logo-gems">
+              <img src="assets/gems/gem-1.png" alt="" />
+              <img src="assets/gems/gem-2.png" alt="" />
+              <img src="assets/gems/gem-3.png" alt="" />
+            </div>
+            <h1 class="title">Кристаллы<br />3 в ряд</h1>
+            <p>Собирай кристаллы в ряд и проходи уровни.</p>
+            <button class="btn btn-gold btn-wide" id="btn-play" type="button">Играть</button>
+            <div class="btn-row" style="margin-top:12px">
+              <button class="btn btn-blue" id="btn-to-levels" type="button">Уровни</button>
+              <button class="btn btn-green" id="btn-to-ratings" type="button">Рейтинг</button>
+            </div>
+            <button class="help-link" id="btn-help" type="button">Как играть</button>
+          </div>
+          <nav class="nav">
+            <button class="btn btn-gold" data-go="home" type="button">Меню</button>
+            <button class="btn btn-blue" data-go="levels" type="button">Арены</button>
+            <button class="btn btn-green" data-go="ratings" type="button">Топ</button>
+            <button class="btn btn-red" data-go="settings" type="button">Настройки</button>
+          </nav>
+        </section>
+
+        <section class="screen" id="screen-levels">
+          <div class="head-row">
+            <button class="btn btn-red" data-go="home" type="button">Назад</button>
+            <h2 class="title" style="font-size:28px;margin:0">Арены</h2>
+          </div>
+          <div class="scroll" id="levels-scroll"></div>
+        </section>
+
+        <section class="screen" id="screen-ratings">
+          <div class="head-row">
+            <button class="btn btn-red" data-go="home" type="button">Назад</button>
+            <h2 class="title" style="font-size:28px;margin:0">Рейтинг</h2>
+          </div>
+          <div class="panel scroll">
+            <p class="rating-status" id="rating-status"></p>
+            <div class="list" id="rating-list"></div>
+            <button class="btn btn-blue btn-wide" id="btn-vk-board" type="button" hidden>Таблица ВКонтакте</button>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-settings">
+          <div class="head-row">
+            <button class="btn btn-red" data-go="home" type="button">Назад</button>
+            <h2 class="title" style="font-size:26px;margin:0">Настройки</h2>
+          </div>
+          <div class="panel settings">
+            <label>Имя <input id="set-name" type="text" maxlength="16" /></label>
+            <label>Звуки <input id="set-sfx" type="checkbox" /></label>
+            <label>Мелодия <input id="set-music" type="checkbox" /></label>
+            <p class="set-label">Трек</p>
+            <div class="track-row" id="track-row">
+              <button class="btn btn-blue track-btn" type="button" data-track="0">1</button>
+              <button class="btn btn-blue track-btn" type="button" data-track="1">2</button>
+              <button class="btn btn-blue track-btn" type="button" data-track="2">3</button>
+              <button class="btn btn-green track-btn" type="button" data-track="3">4</button>
+            </div>
+            <p style="margin:16px 0 8px;font-weight:800">Генератор уровней — отдельный инструмент для создания JSON-пака арен.</p>
+            <a class="btn btn-blue btn-wide" href="generator.html" style="display:block;text-decoration:none;text-align:center">Открыть генератор</a>
+          </div>
+        </section>
+
+        <section class="screen" id="screen-game">
+          <div class="game-hud">
+            <button class="btn btn-red" id="btn-pause" type="button" style="min-height:44px;font-size:16px">Пауза</button>
+            <div class="goals" id="goals"></div>
+            <button class="btn btn-gold" id="btn-reward" type="button">+3 хода</button>
+            <div class="chip" style="flex:0 0 auto;padding:0 12px">Ходы <b id="moves">0</b></div>
+          </div>
+          <div class="board-wrap"><div id="board"></div></div>
+        </section>
+
+        <div class="overlay" id="ov-start">
+          <div class="modal">
+            <h2 id="start-title">Уровень 1</h2>
+            <p id="start-world"></p>
+            <div class="goals" id="start-goals" style="margin-bottom:12px"></div>
+            <p>Ходы: <b id="start-moves">20</b></p>
+            <button class="btn btn-gold" id="btn-start" type="button">Начать</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-pause">
+          <div class="modal">
+            <h2>Пауза</h2>
+            <button class="btn btn-gold" id="btn-resume" type="button">Продолжить</button>
+            <button class="btn btn-blue" id="btn-restart" type="button">Заново</button>
+            <button class="btn btn-red" id="btn-quit" type="button">В меню</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-win">
+          <div class="modal">
+            <h2>Победа!</h2>
+            <div class="stars-big" id="win-stars">★★★</div>
+            <p id="win-text">Уровень пройден</p>
+            <p id="win-hint" class="win-hint"></p>
+            <button class="btn btn-gold" id="btn-next" type="button">Дальше</button>
+            <button class="btn btn-blue" id="btn-win-home" type="button">В меню</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-lose">
+          <div class="modal">
+            <h2>Поражение</h2>
+            <p id="lose-text">Ходы закончились</p>
+            <button class="btn btn-gold" id="btn-reward-lose" type="button">Видео: +3 хода</button>
+            <button class="btn btn-gold" id="btn-retry" type="button">Ещё раз</button>
+            <button class="btn btn-red" id="btn-lose-home" type="button">В меню</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-season">
+          <div class="modal">
+            <h2>Сезон закрыт!</h2>
+            <div class="stars-big">★★★</div>
+            <p id="season-text">Все уровни пройдены. Ты собрал все кристаллы сезона.</p>
+            <button class="btn btn-gold" id="btn-season-home" type="button">В меню</button>
+            <button class="btn btn-green" id="btn-season-ratings" type="button">Рейтинг</button>
+          </div>
+        </div>
+        <div class="overlay" id="ov-help">
+          <div class="modal help-modal">
+            <h2>Как играть</h2>
+            <div class="help-body">
+              <p><b>Цель.</b> Собери указанные кристаллы, пока не кончились ходы. Нужные кристаллы и их число показаны сверху поля.</p>
+              <p><b>Ход.</b> Нажми на кристалл, затем на соседний — слева, справа, сверху или снизу. Их можно и свайпнуть друг на друга.</p>
+              <p><b>Три в ряд.</b> Три или больше одинаковых кристаллов в линии разбиваются. Новые кристаллы падают сверху.</p>
+              <p><b>Комбо.</b> Если после падения снова собирается ряд, идёт цепочка. Чем длиннее цепочка, тем больше очков.</p>
+              <p><b>Пустой обмен.</b> Если ряда нет, кристаллы вернутся на место, ход не списывается.</p>
+              <p><b>Звёзды.</b> Прохождение даёт 1 звезду. Много оставшихся ходов или много собранных кристаллов — 2 или 3 звезды.</p>
+              <p><b>Уровни.</b> 80 уровней в 8 мирах. Следующий открывается после прохождения предыдущего.</p>
+              <p><b>Доп. ходы.</b> Один раз за раунд можно посмотреть видео и получить +3 хода — кнопка сверху поля или после поражения.</p>
+              <p><b>Рейтинг.</b> После победы кубки уходят в общий топ игроков ВКонтакте.</p>
+              <p><b>Звук.</b> Значки динамика и ноты на главной включают эффекты и мелодию.</p>
+            </div>
+            <button class="btn btn-gold" id="btn-help-close" type="button">Понятно</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <aside class="desktop-col" id="side-right">
+        <div class="panel">
+          <h2 class="title" style="font-size:26px">Топ игроков</h2>
+          <div class="list" id="desk-rating"></div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="https://unpkg.com/@vkontakte/vk-bridge@2.15.11/dist/browser.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/sfx.js"></script>
+    <script src="js/fx.js"></script>
+    <script src="js/vk.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
