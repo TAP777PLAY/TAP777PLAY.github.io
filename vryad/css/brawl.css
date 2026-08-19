@@ -598,7 +598,7 @@ body.has-vk-banner .shell {
 .head-row { display: flex; align-items: center; gap: 8px; padding: 12px 12px 0; }
 .head-row .btn { min-height: 44px; font-size: 18px; padding: 8px 12px; }
 
-@media (min-width: 980px) {
+@media (min-width: 860px) {
   .shell {
     grid-template-columns: 240px min-content;
     justify-content: center;
@@ -633,6 +633,26 @@ body.has-vk-banner .shell {
 }
 
 .vk-desktop .desktop-col { width: 240px; }
+body.vk-desk .shell {
+  grid-template-columns: 240px min-content;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+  gap: 16px;
+  padding: 12px;
+  place-items: unset;
+}
+body.vk-desk .desktop-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 240px;
+  height: var(--stage-h);
+  min-width: 0;
+}
+body.vk-desk .desktop-col .panel { margin: 0; min-width: 0; }
+body.vk-desk .desktop-col .desk-top { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+body.vk-desk .desktop-col .desk-top .list { flex: 1; }
 .desk-name {
   font-weight: 900;
   margin: 8px 0;
