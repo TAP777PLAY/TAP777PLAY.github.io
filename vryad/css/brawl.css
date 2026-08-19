@@ -164,7 +164,7 @@ body.has-vk-banner .shell {
   margin-bottom: 10px;
 }
 .hero .logo-gems img { width: 44px; height: 44px; filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
-.hero h1 { font-size: 38px; max-width: 12ch; }
+.hero h1 { font-size: 32px; max-width: 16ch; }
 .hero p { margin: 10px 0 18px; font-weight: 800; color: #eaf4ff; text-shadow: 0 2px 0 #16306d; }
 .help-link {
   appearance: none;
@@ -612,3 +612,20 @@ body.has-vk-banner .shell {
 }
 
 .vk-desktop .desktop-col { width: 190px; }
+#btn-fs { display: none; margin-top: 12px; min-height: 44px; font-size: 15px; }
+.is-desktop #btn-fs { display: block; }
+.fs-exit {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 90;
+  background: linear-gradient(#62b0ff, #1f6fe0);
+}
+body.is-fs .fs-exit { display: grid; }
+body.is-fs .desktop-col { display: none; }
+body.is-fs .shell {
+  grid-template-columns: min-content;
+  justify-content: center;
+  padding-bottom: calc(var(--vk-banner-h, 50px) + 12px);
+}

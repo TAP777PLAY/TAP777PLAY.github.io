@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-    <title>Кристаллы 3 в ряд</title>
+    <title>Долина кристаллов 3 в ряд</title>
     <meta name="theme-color" content="#1c5fd0" />
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="icon" href="assets/gems/gem-2.png" />
@@ -20,6 +20,7 @@
           <img class="profile-ava" id="desk-ava" alt="" hidden />
           <p id="desk-name" style="font-weight:900;margin:8px 0">Боец</p>
           <div class="chip" style="margin-top:8px">Кубки <b id="desk-cups">0</b></div>
+          <button class="btn btn-blue btn-wide" id="btn-fs" type="button">На весь экран</button>
         </div>
         <div class="panel">
           <p style="font-weight:800;margin:0">Следующий бой</p>
@@ -52,7 +53,7 @@
               <img src="assets/gems/gem-2.png" alt="" />
               <img src="assets/gems/gem-3.png" alt="" />
             </div>
-            <h1 class="title">Кристаллы<br />3 в ряд</h1>
+            <h1 class="title">Долина кристаллов<br />три в ряд</h1>
             <p>Собирай кристаллы в ряд и проходи уровни.</p>
             <button class="btn btn-gold btn-wide" id="btn-play" type="button">Играть</button>
             <div class="btn-row" style="margin-top:12px">
@@ -203,6 +204,9 @@
         </div>
       </aside>
     </div>
+    <button class="ico-btn fs-exit" id="btn-fs-exit" type="button" title="Выйти из полноэкрана" aria-label="Выйти из полноэкрана">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm12 0h-2v3h-3v2h5v-5zM7 7h3V5H5v5h2V7zm7-2v2h3v3h2V5h-5z"></path></svg>
+    </button>
 
     <script src="https://unpkg.com/@vkontakte/vk-bridge@2.15.11/dist/browser.min.js"></script>
     <script src="js/config.js"></script>

@@ -722,6 +722,7 @@
     hideOvs();
     if (pendingInterstitial) {
       pendingInterstitial = false;
+      Platform.armInterstitial();
       await Platform.showInterstitial();
     }
     leaving = false;
@@ -826,6 +827,12 @@
     });
     $("home-sfx").addEventListener("click", toggleSfx);
     $("home-music").addEventListener("click", toggleMusic);
+    async function onFsClick() {
+      Sfx.play("click");
+      await Platform.toggleFullscreen();
+    }
+    if ($("btn-fs")) $("btn-fs").addEventListener("click", onFsClick);
+    if ($("btn-fs-exit")) $("btn-fs-exit").addEventListener("click", onFsClick);
     document.querySelectorAll(".track-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         save.musicIndex = Number(btn.dataset.track);

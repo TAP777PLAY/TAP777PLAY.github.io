@@ -2,17 +2,30 @@
   const APP_ID = 51901586;
   const AD_GAP_MS = 31000;
   const params = new URLSearchParams(location.search);
-  const isVk =
-    params.has("vk_user_id") ||
-    params.has("api_id") ||
-    params.get("vk_app_id") === String(APP_ID) ||
-    /vk\./i.test(location.hostname);
+
+  function inVk() {
+    const blob = [location.search, location.hash, document.referrer, location.hostname].join(" ");
+    return (
+      params.has("vk_user_id") ||
+      params.has("api_id") ||
+      params.get("vk_app_id") === String(APP_ID) ||
+      /vk_user_id=/.test(blob) ||
+      /vk_app_id=/.test(blob) ||
+      /(?:^|\.)vk\.(com|ru)|vk-apps|vkuser/i.test(blob)
+    );
+  }
 
   let lastNativeAt = 0;
   let bannerShown = false;
+  let bannerTries = 0;
+  let interstitialArmed = false;
 
   function isDesktop() {
     return window.innerWidth >= 980;
+  }
+
+  function fsNode() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
   }
 
   function bridge() {
@@ -21,17 +34,18 @@
 
   function fit(stage) {
     const desktop = isDesktop();
+    const full = !!fsNode();
     const bannerH = bannerShown ? (parseInt(document.documentElement.style.getPropertyValue("--vk-banner-h"), 10) || 50) : 0;
-    const padY = (desktop ? 24 : 8) + bannerH;
+    const padY = (full ? 16 : desktop ? 24 : 8) + bannerH;
     const viewH = Math.max(480, window.innerHeight - padY);
     const viewW = window.innerWidth;
 
     let w;
     let h;
-    if (desktop) {
-      h = Math.floor(Math.min(viewH, 1100));
-      w = Math.round(Math.min(680, Math.max(500, h * 0.62)));
-      const sides = 210 * 2 + 32;
+    if (full || desktop) {
+      h = Math.floor(Math.min(viewH, full ? 1400 : 1100));
+      w = Math.round(Math.min(full ? 760 : 680, Math.max(500, h * 0.62)));
+      const sides = full ? 24 : 210 * 2 + 32;
       if (w + sides > viewW - 16) {
         w = Math.max(420, viewW - sides - 16);
         h = Math.min(h, Math.round(w / 0.58));
@@ -53,9 +67,10 @@
       slot.style.height = h + "px";
     }
 
-    document.body.classList.toggle("vk-desktop", isVk && desktop);
-    document.body.classList.toggle("is-vk", isVk);
+    document.body.classList.toggle("vk-desktop", inVk() && desktop);
+    document.body.classList.toggle("is-vk", inVk());
     document.body.classList.toggle("is-desktop", desktop);
+    document.body.classList.toggle("is-fs", full);
     return 1;
   }
 
@@ -68,7 +83,7 @@
 
   async function send(method, payload) {
     const api = bridge();
-    if (!api || !isVk) return null;
+    if (!api || !inVk()) return null;
     try {
       return await api.send(method, payload || {});
     } catch (err) {
@@ -83,10 +98,14 @@
   }
 
   async function showNative(format) {
-    if (!isVk || !bridge()) return params.get("adtest") === "1";
+    if (format === "interstitial" && !interstitialArmed) return false;
+    if (format === "interstitial") interstitialArmed = false;
+    if (!inVk() || !bridge()) return params.get("adtest") === "1" && format === "reward";
     if (Date.now() - lastNativeAt < AD_GAP_MS) return false;
-    const ok = await check(format);
-    if (!ok) return false;
+    if (format === "reward") {
+      const ok = await check(format);
+      if (!ok) return false;
+    }
     pauseAudio();
     try {
       const payload = { ad_format: format };
@@ -99,6 +118,7 @@
       return false;
     } finally {
       resumeAudio();
+      if (format !== "interstitial") setTimeout(() => showBanner(false), 800);
     }
   }
 
@@ -111,14 +131,25 @@
     if (stage) fit(stage);
   }
 
-  async function showBanner() {
-    if (!isVk || bannerShown || !bridge()) return;
+  async function showBanner(force) {
+    if (!inVk() || !bridge()) return;
+    if (bannerShown && !force) return;
+    const check = await send("VKWebAppCheckBannerAd");
+    if (check && check.result && (check.banner_height || check.banner_location)) {
+      applyBanner(check);
+      return;
+    }
     const res = await send("VKWebAppShowBannerAd", {
       banner_location: "bottom",
       layout_type: "overlay",
       can_close: false,
     });
-    if (res && res.result) applyBanner(res);
+    if (res && res.result) {
+      applyBanner(res);
+      return;
+    }
+    bannerTries += 1;
+    if (bannerTries < 3) setTimeout(() => showBanner(false), 8000);
   }
 
   function onBridgeEvent(event) {
@@ -183,7 +214,7 @@
   }
 
   function submitScore(payload) {
-    if (!isVk || !apiBase()) return Promise.resolve(null);
+    if (!inVk() || !apiBase()) return Promise.resolve(null);
     return apiFetch("/api/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -204,23 +235,55 @@
     });
   }
 
+  async function toggleFullscreen() {
+    const target = document.documentElement;
+    try {
+      if (fsNode()) {
+        if (document.exitFullscreen) await document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      } else if (target.requestFullscreen) {
+        await target.requestFullscreen();
+      } else if (target.webkitRequestFullscreen) {
+        target.webkitRequestFullscreen();
+      }
+    } catch (err) {}
+    const stage = document.getElementById("stage");
+    document.body.classList.toggle("is-fs", !!fsNode());
+    if (stage) fit(stage);
+    setTimeout(() => showBanner(false), 400);
+    return !!fsNode();
+  }
+
+  function onFsChange() {
+    const stage = document.getElementById("stage");
+    document.body.classList.toggle("is-fs", !!fsNode());
+    if (stage) fit(stage);
+    setTimeout(() => showBanner(false), 400);
+  }
+
   async function init() {
-    document.body.classList.toggle("vk-desktop", isVk && isDesktop());
-    document.body.classList.toggle("is-vk", isVk);
+    document.body.classList.toggle("vk-desktop", inVk() && isDesktop());
+    document.body.classList.toggle("is-vk", inVk());
     const api = bridge();
     if (!api) return;
     if (typeof api.subscribe === "function") api.subscribe(onBridgeEvent);
     await send("VKWebAppInit");
-    send("VKWebAppCheckNativeAds", { ad_format: "interstitial" });
-    send("VKWebAppCheckNativeAds", { ad_format: "reward", use_waterfall: true });
-    setTimeout(showBanner, 2200);
+    setTimeout(() => showBanner(false), 1800);
+    document.addEventListener("pointerdown", () => showBanner(false), { once: true });
+    document.addEventListener("fullscreenchange", onFsChange);
+    document.addEventListener("webkitfullscreenchange", onFsChange);
   }
 
   global.Platform = {
     APP_ID,
-    isVk,
+    get isVk() {
+      return inVk();
+    },
     get isDesktop() {
       return isDesktop();
+    },
+    get isFullscreen() {
+      return !!fsNode();
     },
     fit,
     init,
@@ -229,6 +292,10 @@
     submitScore,
     showOfficialBoard,
     apiBase,
+    toggleFullscreen,
+    armInterstitial: function () {
+      interstitialArmed = true;
+    },
     showInterstitial: function () {
       return showNative("interstitial");
     },
