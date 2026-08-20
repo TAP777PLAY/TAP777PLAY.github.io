@@ -175,12 +175,46 @@
     }
   }
 
-  function launchQuery() {
-    if (/\bvk_user_id=/.test(location.search)) return location.search;
+  let cachedLaunch = "";
+
+  function launchFromLocation() {
+    if (/\bvk_user_id=/.test(location.search) && /\bsign=/.test(location.search)) return location.search;
     const hash = location.hash || "";
     const q = hash.indexOf("?");
-    if (q >= 0 && /\bvk_user_id=/.test(hash)) return hash.slice(q);
-    return location.search;
+    if (q >= 0 && /\bvk_user_id=/.test(hash) && /\bsign=/.test(hash)) return hash.slice(q);
+    if (/\bvk_user_id=/.test(location.search)) return location.search;
+    return "";
+  }
+
+  function launchFromObject(obj) {
+    if (!obj || typeof obj !== "object") return "";
+    const keys = Object.keys(obj).filter((k) => k === "sign" || k.startsWith("vk_"));
+    if (!keys.length) return "";
+    return keys
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(String(obj[k] == null ? "" : obj[k])))
+      .join("&");
+  }
+
+  function launchQuery() {
+    if (cachedLaunch) return cachedLaunch.startsWith("?") ? cachedLaunch : "?" + cachedLaunch;
+    const loc = launchFromLocation();
+    return loc || location.search || "";
+  }
+
+  async function resolveLaunch() {
+    const loc = launchFromLocation().replace(/^\?/, "");
+    if (/\bvk_user_id=/.test(loc) && /\bsign=/.test(loc)) {
+      cachedLaunch = loc;
+      return cachedLaunch;
+    }
+    const fromBridge = await send("VKWebAppGetLaunchParams");
+    const built = launchFromObject(fromBridge).replace(/^\?/, "");
+    if (/\bvk_user_id=/.test(built) && /\bsign=/.test(built)) {
+      cachedLaunch = built;
+      return cachedLaunch;
+    }
+    cachedLaunch = loc;
+    return cachedLaunch;
   }
 
   function apiBase() {
@@ -225,12 +259,14 @@
   }
 
   function submitScore(payload) {
-    if (!inVk() || !apiBase()) return Promise.resolve(null);
+    if (!apiBase()) return Promise.resolve(null);
+    const launch = launchQuery();
+    if (!/\bvk_user_id=/.test(launch) || !/\bsign=/.test(launch)) return Promise.resolve(null);
     return apiFetch("/api/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        launch: launchQuery(),
+        launch: launch,
         trophies: payload.trophies,
         level: payload.level,
         score: payload.score || 0,
@@ -291,6 +327,7 @@
     const api = bridge();
     if (api && typeof api.subscribe === "function") api.subscribe(onBridgeEvent);
     if (api) await send("VKWebAppInit");
+    await resolveLaunch();
     await expandVkDesktop();
     document.body.classList.toggle("vk-desktop", inVk() && isDesktop());
     document.body.classList.toggle("vk-desk", isVkDesktop() && window.innerWidth >= 800);

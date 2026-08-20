@@ -185,26 +185,42 @@
     if (boardBtn) boardBtn.hidden = !Platform.isVk || Platform.isDesktop;
   }
 
+  function mergeRatingRows(remote, meId) {
+    const local = localRatingRows();
+    let rows = remote && Array.isArray(remote.items) ? remote.items.slice() : [];
+    if (remote && remote.me && !rows.some((r) => Number(r.id) === Number(remote.me.id))) {
+      rows.push(remote.me);
+    }
+    const hasMe = (id) => Number(id) > 0 && rows.some((r) => Number(r.id) === Number(id));
+    if (local.length && !hasMe(meId) && !hasMe(local[0].id) && !rows.some((r) => r.name === local[0].name && Number(r.trophies) === Number(local[0].trophies))) {
+      rows = rows.concat(local.map((r) => ({ ...r, place: rows.length + 1 })));
+    }
+    if (!rows.length) rows = local;
+    return rows;
+  }
+
   async function renderRatings() {
     const meId = save.vkId || 0;
+    const local = localRatingRows();
+    paintRatings(local, meId, "");
     const base = Platform.apiBase ? Platform.apiBase() : "";
-    if (!base) {
-      paintRatings(localRatingRows(), meId, Platform.isVk ? "Общий топ пока не подключён" : "");
-      return;
+    if (!base) return;
+    if (save.trophies > 0 || bestLevel() >= 1) {
+      await Platform.submitScore({
+        trophies: save.trophies,
+        level: Math.max(1, bestLevel()),
+        score: score || 0,
+        name: save.name,
+        photo: save.photo || "",
+      });
     }
-    paintRatings(localRatingRows(), meId, "Загрузка топа…");
     const remote = await Platform.fetchLeaderboard();
-    if (!remote || !remote.ok || !Array.isArray(remote.items)) {
-      paintRatings(localRatingRows(), meId, "Не удалось загрузить общий топ");
-      return;
-    }
-    let rows = remote.items.slice();
-    if (remote.me && !rows.some((r) => Number(r.id) === Number(remote.me.id))) rows.push(remote.me);
-    paintRatings(rows, remote.me ? remote.me.id : meId, rows.length ? "" : "Пока никого нет — пройди уровень");
+    if (!remote || !remote.ok) return;
+    const rows = mergeRatingRows(remote, meId);
+    paintRatings(rows, remote.me ? remote.me.id : meId, "");
   }
 
   function pushRating() {
-    if (!Platform.isVk) return;
     Platform.submitScore({
       trophies: save.trophies,
       level: Math.max(1, bestLevel()),
