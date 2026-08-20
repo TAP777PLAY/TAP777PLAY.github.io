@@ -12,7 +12,7 @@ const APP_ID = Number(process.env.VK_APP_ID || 51901586);
 const SECURE_KEY = process.env.VK_SECURE_KEY || "";
 const SERVICE_TOKEN = process.env.VK_SERVICE_TOKEN || "";
 const PORT = Number(process.env.PORT || 8787);
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = process.env.HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
 const ORIGINS = (process.env.ALLOWED_ORIGINS || "*")
   .split(",")
   .map((s) => s.trim())

@@ -164,7 +164,7 @@ body.has-vk-banner .shell {
   margin-bottom: 10px;
 }
 .hero .logo-gems img { width: 44px; height: 44px; filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
-.hero h1 { font-size: 38px; max-width: 12ch; }
+.hero h1 { font-size: 32px; max-width: 16ch; }
 .hero p { margin: 10px 0 18px; font-weight: 800; color: #eaf4ff; text-shadow: 0 2px 0 #16306d; }
 .help-link {
   appearance: none;
@@ -346,7 +346,8 @@ body.has-vk-banner .shell {
   position: relative;
   z-index: 1;
   touch-action: none;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 18px;
   width: calc(var(--cols, 8) * var(--tile));
   height: calc(var(--rows, 8) * var(--tile));
 }
@@ -492,26 +493,45 @@ body.has-vk-banner .shell {
 }
 .win-hint { font-size: 14px; font-weight: 800; color: #eaf4ff; }
 
-.list { display: flex; flex-direction: column; gap: 8px; overflow: auto; padding: 4px; }
+.list { display: flex; flex-direction: column; gap: 8px; overflow: auto; overflow-x: hidden; padding: 4px; min-width: 0; }
 .rank {
   display: grid;
-  grid-template-columns: 28px 36px 1fr auto;
+  grid-template-columns: 22px 32px minmax(0, 1fr);
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  min-width: 0;
   background: rgba(8,16,48,.28);
   border: 3px solid #111;
   border-radius: 14px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   font-weight: 800;
 }
 .rank.me { background: linear-gradient(#ffe56a, #f0b400); color: #2a1600; }
+.rank-place { font-size: 14px; text-align: center; }
+.rank-meta { min-width: 0; }
+.rank-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.2;
+}
+.rank-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: .92;
+}
 .rank-ava {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #111;
   object-fit: cover;
   background: #1c3d9a;
+  flex: 0 0 32px;
 }
 .rank-ava.empty { display: inline-block; }
 .profile-ava {
@@ -534,7 +554,8 @@ body.has-vk-banner .shell {
 }
 #btn-vk-board { margin-top: 10px; width: 100%; }
 .settings label { display: flex; justify-content: space-between; align-items: center; font-weight: 800; margin: 10px 0; }
-.settings input[type="text"] {
+.settings input[type="text"],
+.settings input[type="password"] {
   width: 58%;
   border: 3px solid #111;
   border-radius: 12px;
@@ -567,6 +588,9 @@ body.has-vk-banner .shell {
 }
 .settings input[type="checkbox"]:checked::after { transform: translateX(22px); }
 .set-label { margin: 14px 0 8px; font-weight: 800; }
+#set-title { user-select: none; }
+#dev-err { margin: 8px 0 0; font-weight: 800; color: #ffd0d4; }
+#dev-box { margin-top: 8px; }
 .track-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .track-btn { min-height: 44px; font-size: 18px; padding: 6px; }
 .track-btn.active { outline: 3px solid #fff; filter: brightness(1.08); }
@@ -575,9 +599,9 @@ body.has-vk-banner .shell {
 .head-row { display: flex; align-items: center; gap: 8px; padding: 12px 12px 0; }
 .head-row .btn { min-height: 44px; font-size: 18px; padding: 8px 12px; }
 
-@media (min-width: 980px) {
+@media (min-width: 860px) {
   .shell {
-    grid-template-columns: 210px min-content 210px;
+    grid-template-columns: 240px min-content;
     justify-content: center;
     align-items: stretch;
     justify-items: stretch;
@@ -589,11 +613,13 @@ body.has-vk-banner .shell {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 210px;
+    width: 240px;
     height: var(--stage-h);
+    min-width: 0;
   }
-  .desktop-col .panel { margin: 0; }
-  .desktop-col .panel:last-child { flex: 1; overflow: auto; }
+  .desktop-col .panel { margin: 0; min-width: 0; }
+  .desktop-col .desk-top { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+  .desktop-col .desk-top .list { flex: 1; }
 }
 
 @media (max-width: 480px) {
@@ -607,4 +633,31 @@ body.has-vk-banner .shell {
   .shell { padding: 0; }
 }
 
-.vk-desktop .desktop-col { width: 190px; }
+.vk-desktop .desktop-col { width: 240px; }
+body.vk-desk .shell {
+  grid-template-columns: 240px min-content;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+  gap: 16px;
+  padding: 12px;
+  place-items: unset;
+}
+body.vk-desk .desktop-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 240px;
+  height: var(--stage-h);
+  min-width: 0;
+}
+body.vk-desk .desktop-col .panel { margin: 0; min-width: 0; }
+body.vk-desk .desktop-col .desk-top { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+body.vk-desk .desktop-col .desk-top .list { flex: 1; }
+.desk-name {
+  font-weight: 900;
+  margin: 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

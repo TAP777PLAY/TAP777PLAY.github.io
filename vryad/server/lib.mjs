@@ -55,7 +55,9 @@ export function verifyLaunch(search) {
       .replace(/=+$/g, "");
   const qsVk = queryParams.map(({ key, value }) => `${key}=${vkEncode(value)}`).join("&");
   const qsEnc = queryParams.map(({ key, value }) => `${key}=${encodeURIComponent(value)}`).join("&");
-  if (hmacOf(qsVk) !== signNorm && hmacOf(qsEnc) !== signNorm) return { ok: false, reason: "bad_sign" };
+  const qsForm = new URLSearchParams(queryParams.map(({ key, value }) => [key, value])).toString();
+  const variants = [qsVk, qsEnc, qsForm];
+  if (!variants.some((qs) => hmacOf(qs) === signNorm)) return { ok: false, reason: "bad_sign" };
   if (Number(decoded.vk_app_id) !== APP_ID) return { ok: false, reason: "app" };
   const ts = Number(decoded.vk_ts || 0);
   if (ts && Math.abs(Date.now() / 1000 - ts) > MAX_TS_AGE) return { ok: false, reason: "expired" };
@@ -267,11 +269,8 @@ export async function saveUser(user) {
     memory.users[user.id] = user;
     return;
   }
-  const users = await loadUsers();
-  users[user.id] = user;
-  const set = await redisCommand(["SET", BOARD_KEY, JSON.stringify({ users, savedAt: Date.now() })]);
-  if (set && set.error) throw new Error(String(set.error));
-  await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
+  const res = await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
+  if (res && res.error) throw new Error(String(res.error));
 }
 
 export async function saveUsers(users) {

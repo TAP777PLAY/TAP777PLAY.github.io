@@ -1,18 +1,45 @@
 (function (global) {
   const APP_ID = 51901586;
-  const AD_GAP_MS = 31000;
   const params = new URLSearchParams(location.search);
-  const isVk =
-    params.has("vk_user_id") ||
-    params.has("api_id") ||
-    params.get("vk_app_id") === String(APP_ID) ||
-    /vk\./i.test(location.hostname);
+
+  function inVk() {
+    const blob = [location.search, location.hash, document.referrer, location.hostname].join(" ");
+    return (
+      params.has("vk_user_id") ||
+      params.has("api_id") ||
+      params.get("vk_app_id") === String(APP_ID) ||
+      /vk_user_id=/.test(blob) ||
+      /vk_app_id=/.test(blob) ||
+      /(?:^|\.)vk\.(com|ru)|vk-apps|vkuser/i.test(blob)
+    );
+  }
 
   let lastNativeAt = 0;
   let bannerShown = false;
+  let bannerAsked = false;
+  let interstitialArmed = false;
+  let nativeBusy = false;
+
+  function vkPlatform() {
+    const blob = location.search + "&" + location.hash;
+    const m = blob.match(/vk_platform=([^&]+)/i);
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+
+  function isVkDesktop() {
+    const p = vkPlatform();
+    if (/android|ios|mobile_web/i.test(p)) return false;
+    if (p === "desktop_web" || p === "web") return true;
+    if (inVk() && /https?:\/\/(?:www\.)?vk\.(com|ru)/i.test(document.referrer) && !/\/\/m\.vk\./i.test(document.referrer)) return true;
+    return window.innerWidth >= 980;
+  }
 
   function isDesktop() {
-    return window.innerWidth >= 980;
+    return window.innerWidth >= 860;
+  }
+
+  function fsNode() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
   }
 
   function bridge() {
@@ -21,17 +48,18 @@
 
   function fit(stage) {
     const desktop = isDesktop();
+    const full = !!fsNode();
     const bannerH = bannerShown ? (parseInt(document.documentElement.style.getPropertyValue("--vk-banner-h"), 10) || 50) : 0;
-    const padY = (desktop ? 24 : 8) + bannerH;
+    const padY = (full ? 16 : desktop ? 24 : 8) + bannerH;
     const viewH = Math.max(480, window.innerHeight - padY);
     const viewW = window.innerWidth;
 
     let w;
     let h;
-    if (desktop) {
-      h = Math.floor(Math.min(viewH, 1100));
-      w = Math.round(Math.min(680, Math.max(500, h * 0.62)));
-      const sides = 210 * 2 + 32;
+    if (full || desktop) {
+      h = Math.floor(Math.min(viewH, full ? 1400 : 1100));
+      w = Math.round(Math.min(full ? 760 : 680, Math.max(500, h * 0.62)));
+      const sides = full ? 24 : 248;
       if (w + sides > viewW - 16) {
         w = Math.max(420, viewW - sides - 16);
         h = Math.min(h, Math.round(w / 0.58));
@@ -53,9 +81,11 @@
       slot.style.height = h + "px";
     }
 
-    document.body.classList.toggle("vk-desktop", isVk && desktop);
-    document.body.classList.toggle("is-vk", isVk);
+    document.body.classList.toggle("vk-desktop", inVk() && desktop);
+    document.body.classList.toggle("is-vk", inVk());
     document.body.classList.toggle("is-desktop", desktop);
+    document.body.classList.toggle("vk-desk", isVkDesktop() && window.innerWidth >= 800);
+    document.body.classList.toggle("is-fs", full);
     return 1;
   }
 
@@ -68,7 +98,7 @@
 
   async function send(method, payload) {
     const api = bridge();
-    if (!api || !isVk) return null;
+    if (!api || !inVk()) return null;
     try {
       return await api.send(method, payload || {});
     } catch (err) {
@@ -76,17 +106,14 @@
     }
   }
 
-  async function check(format) {
-    const res = await send("VKWebAppCheckNativeAds", { ad_format: format });
-    if (!res) return true;
-    return res.result !== false;
-  }
-
   async function showNative(format) {
-    if (!isVk || !bridge()) return params.get("adtest") === "1";
-    if (Date.now() - lastNativeAt < AD_GAP_MS) return false;
-    const ok = await check(format);
-    if (!ok) return false;
+    if (nativeBusy) return false;
+    if (format === "interstitial" && !interstitialArmed) return false;
+    if (format === "interstitial") interstitialArmed = false;
+    if (!inVk() || !bridge()) return params.get("adtest") === "1" && format === "reward";
+    const gap = format === "interstitial" ? 120000 : 31000;
+    if (Date.now() - lastNativeAt < gap) return false;
+    nativeBusy = true;
     pauseAudio();
     try {
       const payload = { ad_format: format };
@@ -98,12 +125,14 @@
       }
       return false;
     } finally {
+      nativeBusy = false;
       resumeAudio();
     }
   }
 
   function applyBanner(data) {
     bannerShown = true;
+    bannerAsked = true;
     const h = (data && data.banner_height) || 50;
     document.documentElement.style.setProperty("--vk-banner-h", h + "px");
     document.body.classList.add("has-vk-banner");
@@ -112,7 +141,13 @@
   }
 
   async function showBanner() {
-    if (!isVk || bannerShown || !bridge()) return;
+    if (!inVk() || !bridge() || bannerShown || bannerAsked) return;
+    bannerAsked = true;
+    const check = await send("VKWebAppCheckBannerAd");
+    if (check && check.result) {
+      applyBanner(check);
+      return;
+    }
     const res = await send("VKWebAppShowBannerAd", {
       banner_location: "bottom",
       layout_type: "overlay",
@@ -134,19 +169,93 @@
       const stage = document.getElementById("stage");
       if (stage) fit(stage);
     }
+    if (type === "VKWebAppResizeWindowResult" || type === "VKWebAppUpdateConfig") {
+      const stage = document.getElementById("stage");
+      if (stage) fit(stage);
+    }
+  }
+
+  const LAUNCH_STORE = "gem-brawl-launch";
+  let cachedLaunch = "";
+
+  function rememberLaunch(raw) {
+    cachedLaunch = raw;
+    try {
+      if (raw) sessionStorage.setItem(LAUNCH_STORE, raw);
+    } catch (err) {}
+  }
+
+  function storedLaunch() {
+    try {
+      return sessionStorage.getItem(LAUNCH_STORE) || "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function launchFromObject(obj) {
+    if (!obj || typeof obj !== "object") return "";
+    const src = obj.vk_user_id || obj.sign ? obj : obj.result && typeof obj.result === "object" ? obj.result : obj;
+    const keys = Object.keys(src).filter((k) => k === "sign" || k.startsWith("vk_"));
+    if (!keys.length) return "";
+    return keys
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(String(src[k] == null ? "" : src[k])))
+      .join("&");
+  }
+
+  function launchFromLocation() {
+    const chunks = [location.search || "", location.hash || "", location.href || "", document.referrer || ""];
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+      const q = chunk.indexOf("vk_user_id=");
+      if (q < 0) continue;
+      const start = chunk.lastIndexOf("?", q);
+      const slice = start >= 0 ? chunk.slice(start + 1) : chunk.slice(q);
+      const amp = slice.indexOf("#");
+      const raw = (amp >= 0 ? slice.slice(0, amp) : slice).replace(/^\?/, "");
+      if (/\bvk_user_id=/.test(raw) && /\bsign=/.test(raw)) return raw;
+    }
+    return "";
+  }
+
+  function signed(raw) {
+    return /\bvk_user_id=/.test(raw || "") && /\bsign=/.test(raw || "");
   }
 
   function launchQuery() {
-    if (/\bvk_user_id=/.test(location.search)) return location.search;
-    const hash = location.hash || "";
-    const q = hash.indexOf("?");
-    if (q >= 0 && /\bvk_user_id=/.test(hash)) return hash.slice(q);
-    return location.search;
+    const raw = cachedLaunch || launchFromLocation() || storedLaunch() || location.search || "";
+    const clean = raw.replace(/^\?/, "");
+    return clean ? "?" + clean : "";
+  }
+
+  async function resolveLaunch() {
+    if (signed(cachedLaunch)) return cachedLaunch;
+    const loc = launchFromLocation().replace(/^\?/, "");
+    if (signed(loc)) {
+      rememberLaunch(loc);
+      return cachedLaunch;
+    }
+    const saved = storedLaunch();
+    if (signed(saved)) {
+      cachedLaunch = saved;
+      return cachedLaunch;
+    }
+    const fromBridge = await send("VKWebAppGetLaunchParams");
+    const built = launchFromObject(fromBridge).replace(/^\?/, "");
+    if (signed(built)) {
+      rememberLaunch(built);
+      return cachedLaunch;
+    }
+    if (loc) cachedLaunch = loc;
+    return cachedLaunch;
   }
 
   function apiBase() {
     const cfg = global.GAME_CONFIG || {};
-    return String(cfg.API_BASE || "").replace(/\/$/, "");
+    const configured = String(cfg.API_BASE || "").replace(/\/$/, "");
+    if (configured) return configured;
+    if (/\.vercel\.app$/i.test(location.hostname)) return location.origin;
+    return "";
   }
 
   let vkUser = null;
@@ -165,16 +274,20 @@
 
   async function apiFetch(path, opts) {
     const base = apiBase();
-    if (!base) return null;
+    if (!base) return { ok: false, error: "no_api" };
     try {
       const headers = Object.assign({ Accept: "application/json" }, (opts && opts.headers) || {});
-      const q = launchQuery().replace(/^\?/, "");
-      if (q) headers["X-VK-Launch"] = q;
       const res = await fetch(base + path, Object.assign({}, opts, { headers }));
-      if (!res.ok) return null;
-      return await res.json();
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (err) {
+        data = null;
+      }
+      if (data && typeof data === "object") return data;
+      return { ok: false, error: "http_" + res.status };
     } catch (err) {
-      return null;
+      return { ok: false, error: "network" };
     }
   }
 
@@ -182,13 +295,27 @@
     return apiFetch("/api/leaderboard?limit=20");
   }
 
-  function submitScore(payload) {
-    if (!isVk || !apiBase()) return Promise.resolve(null);
+  function hasSignedLaunch() {
+    const launch = launchQuery();
+    return /\bvk_user_id=/.test(launch) && /\bsign=/.test(launch);
+  }
+
+  function launchDebug() {
+    const raw = launchQuery().replace(/^\?/, "");
+    const has = (key) => (new RegExp("(^|&)" + key + "=").test(raw) ? "1" : "0");
+    return "vk:" + (inVk() ? "1" : "0") + " uid:" + has("vk_user_id") + " sign:" + has("sign") + " len:" + raw.length;
+  }
+
+  async function submitScore(payload) {
+    if (!apiBase()) return { ok: false, error: "no_api" };
+    await resolveLaunch();
+    if (!hasSignedLaunch()) return { ok: false, error: "no_launch" };
+    const launch = launchQuery();
     return apiFetch("/api/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        launch: launchQuery(),
+        launch: launch,
         trophies: payload.trophies,
         level: payload.level,
         score: payload.score || 0,
@@ -204,23 +331,73 @@
     });
   }
 
+  async function toggleFullscreen() {
+    const target = document.documentElement;
+    const full = !!fsNode();
+    try {
+      if (full) {
+        if (document.exitFullscreen) await document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      } else {
+        if (inVk() && isVkDesktop()) {
+          const h = Math.max(720, Math.min(1000, Math.round((window.screen && window.screen.height) || 900) * 0.85));
+          await send("VKWebAppResizeWindow", { width: 1000, height: h });
+        }
+        if (target.requestFullscreen) await target.requestFullscreen();
+        else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
+      }
+    } catch (err) {}
+    const stage = document.getElementById("stage");
+    document.body.classList.toggle("is-fs", !!fsNode());
+    if (stage) fit(stage);
+    return !!fsNode();
+  }
+
+  function onFsChange() {
+    const stage = document.getElementById("stage");
+    document.body.classList.toggle("is-fs", !!fsNode());
+    if (stage) fit(stage);
+  }
+
+  async function expandVkDesktop() {
+    if (!isVkDesktop()) return;
+    const cfg = await send("VKWebAppGetConfig");
+    const availW = (cfg && (cfg.avail_width || cfg.viewport_width)) || 1000;
+    const availH = (cfg && (cfg.avail_height || cfg.viewport_height)) || 860;
+    const width = Math.max(900, Math.min(1000, Number(availW) || 1000));
+    const height = Math.max(720, Math.min(1000, (Number(availH) || 860) - 24));
+    await send("VKWebAppResizeWindow", { width, height });
+    const stage = document.getElementById("stage");
+    if (stage) fit(stage);
+  }
+
   async function init() {
-    document.body.classList.toggle("vk-desktop", isVk && isDesktop());
-    document.body.classList.toggle("is-vk", isVk);
+    document.body.classList.toggle("is-vk", inVk());
     const api = bridge();
-    if (!api) return;
-    if (typeof api.subscribe === "function") api.subscribe(onBridgeEvent);
-    await send("VKWebAppInit");
-    send("VKWebAppCheckNativeAds", { ad_format: "interstitial" });
-    send("VKWebAppCheckNativeAds", { ad_format: "reward", use_waterfall: true });
-    setTimeout(showBanner, 2200);
+    if (api && typeof api.subscribe === "function") api.subscribe(onBridgeEvent);
+    if (api) await send("VKWebAppInit");
+    await resolveLaunch();
+    await expandVkDesktop();
+    document.body.classList.toggle("vk-desktop", inVk() && isDesktop());
+    document.body.classList.toggle("vk-desk", isVkDesktop() && window.innerWidth >= 800);
+    const stage = document.getElementById("stage");
+    if (stage) fit(stage);
+    setTimeout(showBanner, 2500);
+    document.addEventListener("pointerdown", () => {
+      expandVkDesktop();
+    }, { once: true });
   }
 
   global.Platform = {
     APP_ID,
-    isVk,
+    get isVk() {
+      return inVk();
+    },
     get isDesktop() {
       return isDesktop();
+    },
+    get isFullscreen() {
+      return !!fsNode();
     },
     fit,
     init,
@@ -229,6 +406,13 @@
     submitScore,
     showOfficialBoard,
     apiBase,
+    hasSignedLaunch,
+    launchDebug,
+    resolveLaunch,
+    toggleFullscreen,
+    armInterstitial: function () {
+      interstitialArmed = true;
+    },
     showInterstitial: function () {
       return showNative("interstitial");
     },
