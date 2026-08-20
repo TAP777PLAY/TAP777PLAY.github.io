@@ -283,17 +283,54 @@ body.has-vk-banner .shell {
 
 .game-hud {
   display: grid;
-  grid-template-columns: auto 1fr minmax(70px, auto) auto;
-  gap: 6px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
   align-items: center;
   padding: 10px 10px 0;
 }
+#btn-pause {
+  min-height: 40px;
+  font-size: 15px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+.hud-level {
+  min-width: 0;
+  text-align: center;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 0 rgba(0,0,0,.35);
+}
+.hud-level b {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+}
+.hud-moves {
+  flex: 0 0 auto;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+.game-sub {
+  --reward-w: 84px;
+  display: grid;
+  grid-template-columns: var(--reward-w) minmax(0, 1fr) var(--reward-w);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 0;
+}
+.game-sub .goals { grid-column: 2; }
 #btn-reward {
-  min-height: 44px;
+  grid-column: 3;
+  width: 100%;
+  min-height: 40px;
   font-size: 12px;
   line-height: 1.15;
-  padding: 4px 8px;
-  max-width: 90px;
+  padding: 4px 6px;
   white-space: normal;
 }
 #btn-reward:disabled,
@@ -306,19 +343,45 @@ body.has-vk-banner .shell {
 }
 .goals {
   display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
 }
 .goal {
-  min-width: 58px;
+  flex: 0 1 auto;
+  min-width: 0;
   background: rgba(8,16,48,.35);
   border: 3px solid #111;
   border-radius: 14px;
-  padding: 4px 6px 6px;
+  padding: 3px 8px 5px;
   text-align: center;
   font-weight: 900;
+  font-size: 14px;
+  line-height: 1.1;
 }
-.goal img { width: 26px; height: 26px; }
+.goal img { width: 24px; height: 24px; display: block; margin: 0 auto; }
+
+@media (max-width: 400px) {
+  .game-hud { gap: 6px; padding: 8px 8px 0; }
+  #btn-pause { min-height: 38px; font-size: 14px; padding: 0 10px; }
+  .hud-level { font-size: 12px; }
+  .hud-level b { font-size: 17px; }
+  .hud-moves { padding: 0 10px; font-size: 14px; }
+  .game-sub { --reward-w: 76px; gap: 6px; padding: 6px 8px 0; }
+  .goals { gap: 5px; }
+  .goal { padding: 3px 6px 5px; font-size: 13px; }
+  .goal img { width: 21px; height: 21px; }
+  #btn-reward { min-height: 38px; font-size: 11px; }
+}
+
+@media (max-width: 340px) {
+  .game-sub { --reward-w: 68px; }
+  .goal { padding: 2px 5px 4px; font-size: 12px; }
+  .goal img { width: 19px; height: 19px; }
+  #btn-reward { font-size: 10px; }
+}
 .goal.done { background: #3ea81a; }
 
 .board-wrap {

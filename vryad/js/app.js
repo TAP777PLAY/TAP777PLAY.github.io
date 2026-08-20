@@ -209,9 +209,7 @@
       save: "Сервер не смог сохранить очки",
     };
     const key = sent.error === "sign" && sent.reason ? sent.reason : sent.error;
-    const text = map[key] || map[sent.error] || "Очки не отправлены";
-    const dbg = Platform.launchDebug ? Platform.launchDebug() : "";
-    return text + " [" + key + (dbg ? " " + dbg : "") + "]";
+    return map[key] || map[sent.error] || "Очки не отправлены";
   }
 
   async function renderRatings() {
@@ -674,6 +672,7 @@
     rewardBusy = false;
     $("moves").textContent = moves;
     $("goals").innerHTML = goals.map(goalHtml).join("");
+    if ($("hud-level")) $("hud-level").textContent = current.id;
     syncRewardUi();
     $("start-title").textContent = "Уровень " + current.id;
     $("start-world").textContent = current.worldName;
