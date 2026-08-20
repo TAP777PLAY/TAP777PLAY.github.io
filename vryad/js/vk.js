@@ -197,30 +197,54 @@
   function launchFromObject(obj) {
     if (!obj || typeof obj !== "object") return "";
     const src = obj.vk_user_id || obj.sign ? obj : obj.result && typeof obj.result === "object" ? obj.result : obj;
-    const keys = Object.keys(src).filter((k) => k === "sign" || k.startsWith("vk_"));
+    const keys = Object.keys(src).filter((k) => k.indexOf("vk_") === 0 || LAUNCH_EXTRA.indexOf(k) >= 0);
     if (!keys.length) return "";
     return keys
       .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(String(src[k] == null ? "" : src[k])))
       .join("&");
   }
 
-  function launchFromLocation() {
-    const chunks = [location.search || "", location.hash || "", location.href || "", document.referrer || ""];
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i];
-      const q = chunk.indexOf("vk_user_id=");
-      if (q < 0) continue;
-      const start = chunk.lastIndexOf("?", q);
-      const slice = start >= 0 ? chunk.slice(start + 1) : chunk.slice(q);
-      const amp = slice.indexOf("#");
-      const raw = (amp >= 0 ? slice.slice(0, amp) : slice).replace(/^\?/, "");
-      if (/\bvk_user_id=/.test(raw) && /\bsign=/.test(raw)) return raw;
-    }
-    return "";
+  const LAUNCH_EXTRA = ["sign", "api_id", "viewer_id", "auth_key"];
+
+  function hasParam(raw, key) {
+    return new RegExp("(^|[?&])" + key + "=").test(String(raw || ""));
   }
 
   function signed(raw) {
-    return /\bvk_user_id=/.test(raw || "") && /\bsign=/.test(raw || "");
+    const modern = hasParam(raw, "vk_user_id") && hasParam(raw, "sign");
+    const legacy = hasParam(raw, "viewer_id") && hasParam(raw, "auth_key");
+    return modern || legacy;
+  }
+
+  function pickLaunch(raw) {
+    return String(raw || "")
+      .replace(/^\?/, "")
+      .split("&")
+      .filter((part) => {
+        if (!part) return false;
+        const eq = part.indexOf("=");
+        const key = eq === -1 ? part : part.slice(0, eq);
+        return key.indexOf("vk_") === 0 || LAUNCH_EXTRA.indexOf(key) >= 0;
+      })
+      .join("&");
+  }
+
+  function launchFromLocation() {
+    const chunks = [location.search || "", location.hash || "", location.href || "", document.referrer || ""];
+    const anchors = ["vk_user_id=", "viewer_id="];
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+      for (let j = 0; j < anchors.length; j++) {
+        const at = chunk.indexOf(anchors[j]);
+        if (at < 0) continue;
+        const start = chunk.lastIndexOf("?", at);
+        const slice = start >= 0 ? chunk.slice(start + 1) : chunk.slice(at);
+        const hashAt = slice.indexOf("#");
+        const raw = (hashAt >= 0 ? slice.slice(0, hashAt) : slice).replace(/^\?/, "");
+        if (signed(raw)) return raw;
+      }
+    }
+    return "";
   }
 
   function launchQuery() {
@@ -298,8 +322,7 @@
   }
 
   function hasSignedLaunch() {
-    const launch = launchQuery();
-    return /\bvk_user_id=/.test(launch) && /\bsign=/.test(launch);
+    return signed(launchQuery());
   }
 
   function launchDebug() {
@@ -317,7 +340,7 @@
     if (!apiBase()) return { ok: false, error: "no_api" };
     await resolveLaunch();
     if (!hasSignedLaunch()) return { ok: false, error: "no_launch" };
-    const launch = launchQuery();
+    const launch = pickLaunch(launchQuery());
     return apiFetch("/api/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

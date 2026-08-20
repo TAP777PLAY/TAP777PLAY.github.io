@@ -24,25 +24,45 @@ function vkEncode(value) {
   );
 }
 
-export function verifyLaunch(search) {
-  const { secureKey } = secrets();
+function parseLaunch(search) {
   const raw = String(search || "").replace(/^\?/, "");
-  const queryParams = [];
-  let sign = "";
-  const decoded = {};
+  const all = {};
+  const vkParams = [];
   for (const part of raw.split("&")) {
     if (!part) continue;
     const eq = part.indexOf("=");
     const key = decodeURIComponent((eq === -1 ? part : part.slice(0, eq)).replace(/\+/g, " "));
     const encVal = eq === -1 ? "" : part.slice(eq + 1);
     const value = decodeURIComponent(encVal.replace(/\+/g, " "));
-    if (key === "sign") sign = value;
-    else if (key.startsWith("vk_")) {
-      queryParams.push({ key, value });
-      decoded[key] = value;
-    }
+    all[key] = value;
+    if (key.startsWith("vk_")) vkParams.push({ key, value });
   }
-  if (!sign || !queryParams.length || !secureKey) return { ok: false, reason: "no_sign" };
+  return { all, vkParams };
+}
+
+// Старые IFrame-приложения VK подписывают запуск как md5(api_id_viewer_id_защищённый ключ)
+function verifyIframe(all, secureKey) {
+  const authKey = String(all.auth_key || "");
+  const apiId = String(all.api_id || "");
+  const viewerId = String(all.viewer_id || "");
+  if (!authKey || !apiId || !viewerId) return { ok: false, reason: "no_sign" };
+  if (Number(apiId) !== APP_ID) return { ok: false, reason: "app" };
+  const expected = crypto.createHash("md5").update(`${apiId}_${viewerId}_${secureKey}`).digest("hex");
+  if (expected !== authKey.toLowerCase()) return { ok: false, reason: "bad_sign" };
+  const userId = Number(viewerId);
+  if (!Number.isInteger(userId) || userId <= 0) return { ok: false, reason: "user" };
+  return { ok: true, userId, params: all };
+}
+
+export function verifyLaunch(search) {
+  const { secureKey } = secrets();
+  const { all, vkParams } = parseLaunch(search);
+  const sign = all.sign || "";
+  const decoded = {};
+  const queryParams = vkParams;
+  for (const { key, value } of vkParams) decoded[key] = value;
+  if (!secureKey) return { ok: false, reason: "no_key" };
+  if (!sign || !queryParams.length) return verifyIframe(all, secureKey);
   queryParams.sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
   const signNorm = String(sign).trim().replace(/=+$/g, "");
   const hmacOf = (qs) =>
