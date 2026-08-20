@@ -244,10 +244,14 @@
     if (!base) return null;
     try {
       const headers = Object.assign({ Accept: "application/json" }, (opts && opts.headers) || {});
-      const q = launchQuery().replace(/^\?/, "");
-      if (q) headers["X-VK-Launch"] = q;
       const res = await fetch(base + path, Object.assign({}, opts, { headers }));
-      if (!res.ok) return null;
+      if (!res.ok) {
+        try {
+          return await res.json();
+        } catch {
+          return null;
+        }
+      }
       return await res.json();
     } catch (err) {
       return null;

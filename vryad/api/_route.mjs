@@ -24,7 +24,18 @@ export function preflight(req, res) {
 export async function health(req, res) {
   if (req.method === "OPTIONS") return preflight(req, res);
   const users = await loadUsers();
-  json(res, 200, { ok: true, appId: APP_ID, players: Object.keys(users).length, storage: storageKind() }, originOf(req));
+  json(
+    res,
+    200,
+    {
+      ok: true,
+      appId: APP_ID,
+      players: Object.keys(users).length,
+      storage: storageKind(),
+      signReady: Boolean(secrets().secureKey),
+    },
+    originOf(req)
+  );
 }
 
 export async function leaderboard(req, res) {
@@ -47,7 +58,7 @@ export async function score(req, res) {
   const launch = body.launch || (req.headers && req.headers["x-vk-launch"]) || "";
   const verified = verifyLaunch(launch);
   if (!verified.ok) {
-    json(res, 401, { ok: false, error: "sign" }, originOf(req));
+    json(res, 401, { ok: false, error: "sign", reason: verified.reason || "sign" }, originOf(req));
     return;
   }
   const users = await loadUsers();

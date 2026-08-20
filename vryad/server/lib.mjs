@@ -13,9 +13,15 @@ const HASH_KEY = "gem-brawl-players";
 
 export function secrets() {
   return {
-    secureKey: process.env.VK_SECURE_KEY || "",
-    serviceToken: process.env.VK_SERVICE_TOKEN || "",
+    secureKey: String(process.env.VK_SECURE_KEY || "").trim().replace(/^["']|["']$/g, ""),
+    serviceToken: String(process.env.VK_SERVICE_TOKEN || "").trim().replace(/^["']|["']$/g, ""),
   };
+}
+
+function vkEncode(value) {
+  return encodeURIComponent(String(value)).replace(/[!'()*]/g, (c) =>
+    "%" + c.charCodeAt(0).toString(16).toUpperCase()
+  );
 }
 
 export function verifyLaunch(search) {
@@ -37,18 +43,19 @@ export function verifyLaunch(search) {
     }
   }
   if (!sign || !queryParams.length || !secureKey) return { ok: false, reason: "no_sign" };
-  queryParams.sort((a, b) => a.key.localeCompare(b.key));
-  const queryString = queryParams
-    .map(({ key, value }) => `${key}=${encodeURIComponent(value)}`)
-    .join("&");
-  const hash = crypto
-    .createHmac("sha256", secureKey)
-    .update(queryString)
-    .digest("base64")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/g, "");
-  if (hash !== sign) return { ok: false, reason: "bad_sign" };
+  queryParams.sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
+  const signNorm = String(sign).trim().replace(/=+$/g, "");
+  const hmacOf = (qs) =>
+    crypto
+      .createHmac("sha256", secureKey)
+      .update(qs)
+      .digest("base64")
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=+$/g, "");
+  const qsVk = queryParams.map(({ key, value }) => `${key}=${vkEncode(value)}`).join("&");
+  const qsEnc = queryParams.map(({ key, value }) => `${key}=${encodeURIComponent(value)}`).join("&");
+  if (hmacOf(qsVk) !== signNorm && hmacOf(qsEnc) !== signNorm) return { ok: false, reason: "bad_sign" };
   if (Number(decoded.vk_app_id) !== APP_ID) return { ok: false, reason: "app" };
   const ts = Number(decoded.vk_ts || 0);
   if (ts && Math.abs(Date.now() / 1000 - ts) > MAX_TS_AGE) return { ok: false, reason: "expired" };
@@ -245,6 +252,9 @@ export async function saveUser(user) {
     return;
   }
   await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
+  const users = await loadUsers();
+  users[user.id] = user;
+  await redisCommand(["SET", BOARD_KEY, JSON.stringify({ users, savedAt: Date.now() })]);
 }
 
 export async function saveUsers(users) {
