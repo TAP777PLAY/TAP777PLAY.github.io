@@ -205,8 +205,9 @@
     paintRatings(local, meId, "");
     const base = Platform.apiBase ? Platform.apiBase() : "";
     if (!base) return;
+    let sent = null;
     if (save.trophies > 0 || bestLevel() >= 1) {
-      await Platform.submitScore({
+      sent = await Platform.submitScore({
         trophies: save.trophies,
         level: Math.max(1, bestLevel()),
         score: score || 0,
@@ -215,9 +216,20 @@
       });
     }
     const remote = await Platform.fetchLeaderboard();
-    if (!remote || !remote.ok) return;
+    if (!remote || !remote.ok) {
+      paintRatings(local, meId, sent && sent.error ? "Общий топ не принял очки" : "");
+      return;
+    }
     const rows = mergeRatingRows(remote, meId);
-    paintRatings(rows, remote.me ? remote.me.id : meId, "");
+    const note =
+      sent && sent.error
+        ? "Общий топ не принял очки"
+        : remote.total > 1
+          ? ""
+          : rows.length
+            ? "Пока только вы — второй аккаунт появится после победы в VK"
+            : "";
+    paintRatings(rows, remote.me ? remote.me.id : meId, note);
   }
 
   function pushRating() {

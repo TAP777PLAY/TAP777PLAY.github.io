@@ -7,6 +7,7 @@ import {
   loadUsers,
   mergeScore,
   pushVkEvents,
+  redisWriteOk,
   saveUser,
   secrets,
   storageKind,
@@ -26,9 +27,11 @@ export async function health(req, res) {
   if (req.method === "OPTIONS") return preflight(req, res);
   let users = {};
   let storage = "memory";
+  let writeOk = false;
   try {
     storage = storageKind();
     users = await loadUsers();
+    if (storage === "redis") writeOk = await redisWriteOk();
   } catch {}
   json(
     res,
@@ -39,6 +42,7 @@ export async function health(req, res) {
       players: Object.keys(users || {}).length,
       storage,
       signReady: Boolean(secrets().secureKey),
+      writeOk,
     },
     originOf(req)
   );
@@ -60,17 +64,27 @@ export async function score(req, res) {
     json(res, 405, { ok: false, error: "method" }, originOf(req));
     return;
   }
-  const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
-  const launch = body.launch || (req.headers && req.headers["x-vk-launch"]) || "";
-  const verified = verifyLaunch(launch);
-  if (!verified.ok) {
-    json(res, 401, { ok: false, error: "sign", reason: verified.reason || "sign" }, originOf(req));
-    return;
+  try {
+    const raw = req.body;
+    const body =
+      typeof raw === "string"
+        ? JSON.parse(raw || "{}")
+        : raw && typeof raw.toString === "function" && !raw.trophies && !raw.launch
+          ? JSON.parse(String(raw) || "{}")
+          : raw || {};
+    const launch = body.launch || (req.headers && req.headers["x-vk-launch"]) || "";
+    const verified = verifyLaunch(launch);
+    if (!verified.ok) {
+      json(res, 401, { ok: false, error: "sign", reason: verified.reason || "sign" }, originOf(req));
+      return;
+    }
+    const users = await loadUsers();
+    const next = mergeScore(users[verified.userId] || users[String(verified.userId)], body, verified.userId);
+    users[verified.userId] = next;
+    await saveUser(next);
+    pushVkEvents(next).catch(() => {});
+    json(res, 200, leaderboardPayload(users, verified.userId, 20), originOf(req));
+  } catch (err) {
+    json(res, 500, { ok: false, error: "save" }, originOf(req));
   }
-  const users = await loadUsers();
-  const next = mergeScore(users[verified.userId] || users[String(verified.userId)], body, verified.userId);
-  users[verified.userId] = next;
-  await saveUser(next);
-  pushVkEvents(next).catch(() => {});
-  json(res, 200, leaderboardPayload(users, verified.userId, 20), originOf(req));
 }

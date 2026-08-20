@@ -249,6 +249,17 @@ export async function loadUsers() {
   return users;
 }
 
+export async function redisWriteOk() {
+  const redis = redisEnv();
+  if (!redis) return false;
+  const ping = "gem-brawl-ping";
+  const mark = String(Date.now());
+  const set = await redisCommand(["SET", ping, mark]);
+  if (!set || set.error) return false;
+  const get = await redisCommand(["GET", ping]);
+  return String(get && get.result) === mark;
+}
+
 export async function saveUser(user) {
   if (!user || user.id == null) return;
   const redis = redisEnv();
@@ -256,10 +267,11 @@ export async function saveUser(user) {
     memory.users[user.id] = user;
     return;
   }
-  await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
   const users = await loadUsers();
   users[user.id] = user;
-  await redisCommand(["SET", BOARD_KEY, JSON.stringify({ users, savedAt: Date.now() })]);
+  const set = await redisCommand(["SET", BOARD_KEY, JSON.stringify({ users, savedAt: Date.now() })]);
+  if (set && set.error) throw new Error(String(set.error));
+  await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
 }
 
 export async function saveUsers(users) {
