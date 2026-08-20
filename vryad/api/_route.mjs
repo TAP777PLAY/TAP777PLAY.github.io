@@ -8,6 +8,7 @@ import {
   mergeScore,
   pushVkEvents,
   saveUser,
+  secrets,
   storageKind,
   verifyLaunch,
 } from "../server/lib.mjs";
@@ -23,15 +24,20 @@ export function preflight(req, res) {
 
 export async function health(req, res) {
   if (req.method === "OPTIONS") return preflight(req, res);
-  const users = await loadUsers();
+  let users = {};
+  let storage = "memory";
+  try {
+    storage = storageKind();
+    users = await loadUsers();
+  } catch {}
   json(
     res,
     200,
     {
       ok: true,
       appId: APP_ID,
-      players: Object.keys(users).length,
-      storage: storageKind(),
+      players: Object.keys(users || {}).length,
+      storage,
       signReady: Boolean(secrets().secureKey),
     },
     originOf(req)

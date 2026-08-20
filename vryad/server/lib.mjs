@@ -196,15 +196,20 @@ const memory = { users: {} };
 
 async function redisCommand(args) {
   const redis = redisEnv();
-  const res = await fetch(redis.url, {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer " + redis.token,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(args),
-  });
-  return res.json();
+  if (!redis) return { result: null };
+  try {
+    const res = await fetch(redis.url, {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + redis.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(args),
+    });
+    return await res.json();
+  } catch {
+    return { result: null, error: "redis" };
+  }
 }
 
 function parseHash(result) {
