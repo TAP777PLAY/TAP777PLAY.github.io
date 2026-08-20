@@ -177,6 +177,7 @@
 
   const LAUNCH_STORE = "gem-brawl-launch";
   let cachedLaunch = "";
+  let bridgeLaunchState = "-";
 
   function rememberLaunch(raw) {
     cachedLaunch = raw;
@@ -242,6 +243,7 @@
     }
     const fromBridge = await send("VKWebAppGetLaunchParams");
     const built = launchFromObject(fromBridge).replace(/^\?/, "");
+    bridgeLaunchState = !fromBridge ? "no" : signed(built) ? "ok" : "part" + Object.keys(fromBridge).length;
     if (signed(built)) {
       rememberLaunch(built);
       return cachedLaunch;
@@ -302,8 +304,13 @@
 
   function launchDebug() {
     const raw = launchQuery().replace(/^\?/, "");
-    const has = (key) => (new RegExp("(^|&)" + key + "=").test(raw) ? "1" : "0");
-    return "vk:" + (inVk() ? "1" : "0") + " uid:" + has("vk_user_id") + " sign:" + has("sign") + " len:" + raw.length;
+    const keys = raw
+      .split("&")
+      .map((part) => part.split("=")[0])
+      .filter(Boolean);
+    const shown = keys.slice(0, 16).join(",");
+    const rest = keys.length > 16 ? ",+" + (keys.length - 16) : "";
+    return "vk:" + (inVk() ? "1" : "0") + " br:" + bridgeLaunchState + " len:" + raw.length + " keys:" + shown + rest;
   }
 
   async function submitScore(payload) {
