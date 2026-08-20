@@ -182,7 +182,7 @@
       status.hidden = !statusText;
     }
     const boardBtn = $("btn-vk-board");
-    if (boardBtn) boardBtn.hidden = !Platform.isVk || Platform.isDesktop;
+    if (boardBtn) boardBtn.hidden = true;
   }
 
   function mergeRatingRows(remote, meId) {
@@ -780,7 +780,7 @@
   }
 
   async function boot() {
-    Platform.init();
+    await Platform.init();
     Platform.fit($("stage"));
     window.addEventListener("resize", () => {
       Platform.fit($("stage"));

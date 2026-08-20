@@ -177,22 +177,29 @@
 
   let cachedLaunch = "";
 
-  function launchFromLocation() {
-    if (/\bvk_user_id=/.test(location.search) && /\bsign=/.test(location.search)) return location.search;
-    const hash = location.hash || "";
-    const q = hash.indexOf("?");
-    if (q >= 0 && /\bvk_user_id=/.test(hash) && /\bsign=/.test(hash)) return hash.slice(q);
-    if (/\bvk_user_id=/.test(location.search)) return location.search;
-    return "";
-  }
-
   function launchFromObject(obj) {
     if (!obj || typeof obj !== "object") return "";
-    const keys = Object.keys(obj).filter((k) => k === "sign" || k.startsWith("vk_"));
+    const src = obj.vk_user_id || obj.sign ? obj : obj.result && typeof obj.result === "object" ? obj.result : obj;
+    const keys = Object.keys(src).filter((k) => k === "sign" || k.startsWith("vk_"));
     if (!keys.length) return "";
     return keys
-      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(String(obj[k] == null ? "" : obj[k])))
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(String(src[k] == null ? "" : src[k])))
       .join("&");
+  }
+
+  function launchFromLocation() {
+    const chunks = [location.search || "", location.hash || "", location.href || "", document.referrer || ""];
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+      const q = chunk.indexOf("vk_user_id=");
+      if (q < 0) continue;
+      const start = chunk.lastIndexOf("?", q);
+      const slice = start >= 0 ? chunk.slice(start + 1) : chunk.slice(q);
+      const amp = slice.indexOf("#");
+      const raw = (amp >= 0 ? slice.slice(0, amp) : slice).replace(/^\?/, "");
+      if (/\bvk_user_id=/.test(raw) && /\bsign=/.test(raw)) return raw;
+    }
+    return "";
   }
 
   function launchQuery() {
@@ -213,7 +220,7 @@
       cachedLaunch = built;
       return cachedLaunch;
     }
-    cachedLaunch = loc;
+    if (loc) cachedLaunch = loc;
     return cachedLaunch;
   }
 
@@ -262,10 +269,13 @@
     return apiFetch("/api/leaderboard?limit=20");
   }
 
-  function submitScore(payload) {
+  async function submitScore(payload) {
     if (!apiBase()) return Promise.resolve(null);
+    await resolveLaunch();
     const launch = launchQuery();
-    if (!/\bvk_user_id=/.test(launch) || !/\bsign=/.test(launch)) return Promise.resolve(null);
+    if (!/\bvk_user_id=/.test(launch) || !/\bsign=/.test(launch)) {
+      return { ok: false, error: "sign", reason: "no_launch" };
+    }
     return apiFetch("/api/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
