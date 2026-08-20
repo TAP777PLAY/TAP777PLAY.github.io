@@ -1,11 +1,15 @@
 import crypto from "node:crypto";
 
-export const APP_ID = Number(process.env.VK_APP_ID || 51901586);
+export const APP_ID = (() => {
+  const n = Number(process.env.VK_APP_ID);
+  return Number.isFinite(n) && n > 0 ? n : 51901586;
+})();
 const MAX_TS_AGE = Number(process.env.LAUNCH_MAX_AGE || 60 * 60 * 24 * 7);
 export const MAX_TROPHIES = 100000;
 export const MAX_LEVEL = 80;
 export const RATE_MS = 2500;
 const BOARD_KEY = "gem-brawl-board";
+const HASH_KEY = "gem-brawl-players";
 
 export function secrets() {
   return {
@@ -86,9 +90,14 @@ export function clampInt(n, min, max) {
 }
 
 export function rankedList(users) {
-  return Object.values(users || {}).sort(
-    (a, b) => b.trophies - a.trophies || b.level - a.level || a.updatedAt - b.updatedAt
-  );
+  return Object.values(users || {})
+    .filter((u) => u && Number(u.id) > 0)
+    .sort(
+      (a, b) =>
+        (b.trophies || 0) - (a.trophies || 0) ||
+        (b.level || 0) - (a.level || 0) ||
+        (a.updatedAt || 0) - (b.updatedAt || 0)
+    );
 }
 
 export function publicRow(u, place) {
@@ -107,7 +116,7 @@ export function leaderboardPayload(users, meId, limit) {
   const items = all.slice(0, limit).map((u, i) => publicRow(u, i + 1));
   let me = null;
   if (meId) {
-    const idx = all.findIndex((u) => u.id === meId);
+    const idx = all.findIndex((u) => Number(u.id) === Number(meId));
     if (idx >= 0) me = publicRow(all[idx], idx + 1);
   }
   return { ok: true, total: all.length, items, me };
@@ -191,34 +200,69 @@ async function redisCommand(args) {
   return res.json();
 }
 
+function parseHash(result) {
+  const users = {};
+  if (Array.isArray(result)) {
+    for (let i = 0; i < result.length; i += 2) {
+      try {
+        users[result[i]] = JSON.parse(result[i + 1]);
+      } catch {}
+    }
+    return users;
+  }
+  if (result && typeof result === "object") {
+    Object.keys(result).forEach((k) => {
+      try {
+        const v = result[k];
+        users[k] = typeof v === "string" ? JSON.parse(v) : v;
+      } catch {}
+    });
+  }
+  return users;
+}
+
 export async function loadUsers() {
   const redis = redisEnv();
-  if (!redis) return memory.users;
-  const data = await redisCommand(["GET", BOARD_KEY]);
-  if (!data || data.result == null) return {};
-  try {
-    const parsed = JSON.parse(data.result);
-    return parsed.users || parsed || {};
-  } catch {
-    return {};
+  if (!redis) return { ...memory.users };
+  const users = {};
+  const legacy = await redisCommand(["GET", BOARD_KEY]);
+  if (legacy && legacy.result && !legacy.error) {
+    try {
+      const parsed = JSON.parse(legacy.result);
+      Object.assign(users, parsed.users || parsed || {});
+    } catch {}
   }
+  const hash = await redisCommand(["HGETALL", HASH_KEY]);
+  Object.assign(users, parseHash(hash && hash.result));
+  return users;
+}
+
+export async function saveUser(user) {
+  if (!user || user.id == null) return;
+  const redis = redisEnv();
+  if (!redis) {
+    memory.users[user.id] = user;
+    return;
+  }
+  await redisCommand(["HSET", HASH_KEY, String(user.id), JSON.stringify(user)]);
 }
 
 export async function saveUsers(users) {
-  const redis = redisEnv();
-  if (!redis) {
-    memory.users = users;
-    return;
-  }
-  await redisCommand(["SET", BOARD_KEY, JSON.stringify({ users, savedAt: Date.now() })]);
+  const list = Object.values(users || {});
+  for (const user of list) await saveUser(user);
 }
 
 export function corsHeaders(origin) {
-  const allowed = (process.env.ALLOWED_ORIGINS || "*")
+  const raw = String(process.env.ALLOWED_ORIGINS || "*")
+    .replace(/^ALLOWED_ORIGINS\s*=\s*/i, "")
+    .replace(/^["']|["']$/g, "")
+    .trim();
+  const allowed = (raw || "*")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
-  const allow = allowed.includes("*") || allowed.includes(origin) ? origin || "*" : allowed[0] || "*";
+  const star = allowed.includes("*");
+  const allow = star ? "*" : allowed.includes(origin) ? origin : allowed[0] || "*";
   return {
     "Access-Control-Allow-Origin": allow || "*",
     Vary: "Origin",

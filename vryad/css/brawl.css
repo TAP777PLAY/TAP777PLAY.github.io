@@ -346,7 +346,8 @@ body.has-vk-banner .shell {
   position: relative;
   z-index: 1;
   touch-action: none;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 18px;
   width: calc(var(--cols, 8) * var(--tile));
   height: calc(var(--rows, 8) * var(--tile));
 }

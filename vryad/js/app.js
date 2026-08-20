@@ -154,7 +154,7 @@
     if (!rows.length) return '<p style="font-weight:800">Пока пусто — пройди уровень.</p>';
     return rows
       .map((r) => {
-        const mine = (r.id && meId && r.id === meId) || (!r.id && r.name === save.name);
+        const mine = (Number(r.id) > 0 && Number(meId) > 0 && Number(r.id) === Number(meId)) || (!r.id && r.name === save.name);
         const ava = r.photo
           ? '<img class="rank-ava" src="' + esc(r.photo) + '" alt="" />'
           : '<span class="rank-ava empty"></span>';
@@ -187,12 +187,20 @@
 
   async function renderRatings() {
     const meId = save.vkId || 0;
-    paintRatings(localRatingRows(), meId, "");
+    const base = Platform.apiBase ? Platform.apiBase() : "";
+    if (!base) {
+      paintRatings(localRatingRows(), meId, Platform.isVk ? "Общий топ пока не подключён" : "");
+      return;
+    }
+    paintRatings(localRatingRows(), meId, "Загрузка топа…");
     const remote = await Platform.fetchLeaderboard();
-    if (!remote || !remote.ok || !Array.isArray(remote.items) || !remote.items.length) return;
+    if (!remote || !remote.ok || !Array.isArray(remote.items)) {
+      paintRatings(localRatingRows(), meId, "Не удалось загрузить общий топ");
+      return;
+    }
     let rows = remote.items.slice();
-    if (remote.me && !rows.some((r) => r.id === remote.me.id)) rows.push(remote.me);
-    paintRatings(rows, remote.me ? remote.me.id : meId, "");
+    if (remote.me && !rows.some((r) => Number(r.id) === Number(remote.me.id))) rows.push(remote.me);
+    paintRatings(rows, remote.me ? remote.me.id : meId, rows.length ? "" : "Пока никого нет — пройди уровень");
   }
 
   function pushRating() {

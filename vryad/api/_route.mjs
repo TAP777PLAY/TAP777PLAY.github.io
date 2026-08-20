@@ -7,7 +7,7 @@ import {
   loadUsers,
   mergeScore,
   pushVkEvents,
-  saveUsers,
+  saveUser,
   storageKind,
   verifyLaunch,
 } from "../server/lib.mjs";
@@ -51,9 +51,9 @@ export async function score(req, res) {
     return;
   }
   const users = await loadUsers();
-  const next = mergeScore(users[verified.userId], body, verified.userId);
+  const next = mergeScore(users[verified.userId] || users[String(verified.userId)], body, verified.userId);
   users[verified.userId] = next;
-  await saveUsers(users);
+  await saveUser(next);
   pushVkEvents(next).catch(() => {});
   json(res, 200, leaderboardPayload(users, verified.userId, 20), originOf(req));
 }

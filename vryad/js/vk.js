@@ -185,7 +185,10 @@
 
   function apiBase() {
     const cfg = global.GAME_CONFIG || {};
-    return String(cfg.API_BASE || "").replace(/\/$/, "");
+    const configured = String(cfg.API_BASE || "").replace(/\/$/, "");
+    if (configured) return configured;
+    if (/\.vercel\.app$/i.test(location.hostname)) return location.origin;
+    return "";
   }
 
   let vkUser = null;

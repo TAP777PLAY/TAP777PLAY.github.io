@@ -1,6 +1,6 @@
 (function (global) {
   const local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-  const API_PROD = "";
+  const API_PROD = "https://tap-777-play-github-io.vercel.app";
   global.GAME_CONFIG = {
     APP_ID: 51901586,
     API_BASE: local ? "http://127.0.0.1:8787" : API_PROD,
